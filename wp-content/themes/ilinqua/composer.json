@@ -1,0 +1,19 @@
+{
+  "name": "akni/ilinqua",
+  "description": "ilinqua_theme",
+  "type": "Project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "stevenakni",
+      "email": "stevenaknidev@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "ilinqua\\": ""
+    }
+  }
+}
