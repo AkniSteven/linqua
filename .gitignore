@@ -1,0 +1,82 @@
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+*[Tt]humbs.db
+*.Trashes
+
+
+#==================#
+#    Log files     #
+#==================#
+
+nbproject
+*.log
+error_log
+access_log
+.sass-cache
+
+
+#===================================#
+#       Config. and npm Files       #
+#===================================#
+local-config.php
+# wp-config.php
+node_modules
+bower_components
+
+
+## Main Stuff ##
+
+#===================================#
+#     WP Core, except content       #
+#===================================#
+/*
+!.gitignore
+!wp-content/
+# !media/
+!favicon.ico
+!favicon.png
+/wp-content/themes/kapital/vendor
+!humans.txt
+
+#=============================================#
+#     wp-content, except plugins and themes   #
+#=============================================#
+wp-content/*
+!wp-content/plugins/
+wp-content/plugins/brander_vacancy/resume/*
+!wp-content/mu-plugins/
+!wp-content/themes/
+# !wp-content/uploads ##=> It's a good idea to ignore uploads, especially if you are using git to deploy to live/dev environments. Un-comment this line to 'watch' uploads
+
+
+## Use these to get more specific ##
+
+#===========================#
+#      Specific Plugins     #
+#===========================#
+# wp-content/plugins/*
+# !wp-content/plugins/my-single-file-plugin.php
+# !wp-content/plugins/my-directory-plugin/
+
+#===========================#
+#     Specific Themes       #
+#===========================#
+# wp-content/themes/*
+# !wp-content/themes/my-theme/
+
+
+
+
+## Depreciated stuff, keeping here for reference ##
+
+##### design files #####
+# *.psd
+
+##### CACHE #####
+# wp-content/cache/
+# wp-content/advanced-cache.php
+# wp-content/wp-cache-config.php
