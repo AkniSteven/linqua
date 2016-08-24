@@ -1,0 +1,26 @@
+{
+  "course"  : {
+    "labels" : {
+      "name"               : "Courses",
+      "singular_name"      : "Course",
+      "add_new"            : "Add New",
+      "add_new_item"       : "Add new Course",
+      "edit_item"          : "Edit Course",
+      "new_item"           : "New Course",
+      "view_item"          : "View Course",
+      "search_items"       : "Search Course",
+      "not_found"          : "No Course found",
+      "not_found_in_trash" : "No Course found in Trash",
+      "parent_item_colon"  : ""
+    },
+    "args"   : {
+      "public"          : true,
+      "show_ui"         : true,
+      "capability_type" : "post",
+      "hierarchical"    : true,
+      "query_var"       : true,
+      "has_archive"     : true,
+      "supports"        : ["title","editor", "thumbnail"]
+    }
+  }
+}
