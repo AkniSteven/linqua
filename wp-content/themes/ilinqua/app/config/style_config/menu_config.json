@@ -1,0 +1,17 @@
+{
+  "primary-header-menu":{
+    "theme_location"  : "primary-header-menu",
+    "container"       : false,
+    "menu_id"         : "nav",
+    "echo"            : false
+  },
+  "primary-footer-menu":{
+    "theme_location"  : "primary-footer-menu",
+    "container"       : "",
+    "container_class" : "",
+    "container_id"    : "",
+    "depth"           : 0,
+    "echo"            : false
+
+  }
+}
