@@ -11,4 +11,4 @@ global $core;
 
 $context = $core->get_context();
 
-$core->render('app/views/404.twig', $context);
+$core->render('404.twig', $context);
