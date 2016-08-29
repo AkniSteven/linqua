@@ -27,6 +27,6 @@ $twig = new Twig_Environment($loader, array(
 
 $settings = new Ice_Theme_Settings();
 $page =  $twig->render('setting.twig', array('name' => 'Fabien'));
-$settings->display_page($page);
+$settings->set_page($page);
 
 

@@ -10,6 +10,7 @@ namespace IceThemeSettings\Model;
 
 class Ice_Theme_Settings
 {
+    private $page;
     /**
      * Construct
      *
@@ -34,6 +35,15 @@ class Ice_Theme_Settings
 //            $this->initialize_settings();
 
     }
+
+    /**
+     * @param $page
+     * page setter
+     */
+    public function set_page($page){
+        $this->page = $page;
+    }
+    
     /**
      * Add options page
      *
@@ -50,10 +60,10 @@ class Ice_Theme_Settings
      * @param $page
      * display page
      */
-    public function display_page($page)
+    public function display_page()
     {
-        echo $page;
-        return $page;
+        echo $this->page;
+        return $this->page;
 
     }
 }
