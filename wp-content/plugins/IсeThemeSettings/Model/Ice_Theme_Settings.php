@@ -57,6 +57,19 @@ class Ice_Theme_Settings
             wp_enqueue_media();
             wp_enqueue_script('upload-script',$this->plugin_dir . '/views/public/js/upload.js');
             wp_enqueue_script('fields-script',$this->plugin_dir . '/views/public/js/fields.js');
+            wp_enqueue_script('jquery-tinymce-script',$this->plugin_dir . '/views/public/js/tinymce/jquery.tinymce.min.js');
+            wp_enqueue_script('tinymce-script',$this->plugin_dir . '/views/public/js/tinymce/tinymce.min.js');
+            wp_enqueue_script('tinymce-theme-script',$this->plugin_dir . '/views/public/js/theme_options_tinymce.js');
+            wp_enqueue_script('maskedinput',$this->plugin_dir . '/views/public/js/jquery.maskedinput.js');
+            wp_enqueue_script('theme_mask-script',$this->plugin_dir . '/views/public/js/theme_options_masks.js');
+    }
+
+    /**
+     * this add styles
+     */
+    public function styles() {
+            wp_register_style( 'ice-theme-settings', $this->plugin_dir . '/views/public/css/ice_theme_settings.css' );
+            wp_enqueue_style(  'ice-theme-settings' );
     }
 
     /**
@@ -72,8 +85,8 @@ class Ice_Theme_Settings
      */
     public function display_page()
     {
-        echo '<form method="post" action="options.php">';
-        
+        echo '<form method="post" action="options.php" class="settings-form">';
+
         settings_fields( 'ice-theme-settings' );
         echo $this->page;
         echo '</form>';

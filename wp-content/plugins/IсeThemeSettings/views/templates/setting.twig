@@ -1,36 +1,66 @@
-<div id="message" class="updated">
-    <p><strong></strong></p>
-</div>
+{% if success_msg is not empty %}
+    <div id="message" class="updated">
+        <p><strong>{{ success_msg }}</strong></p>
+    </div>
+{% endif %}
+<div class="form-group">
     <table width="600" border="0">
         <tr>
-            <td> Лого фирмы: </td>
+            <td> logo: </td>
             <td>
                 <img class="header_logo" src="{{ theme_options.header_logo }}" height="100" width="100"/>
-            </td>
-            <td>
-                <input type="hidden" class="header_logo_url" name="ice-theme-settings[header_logo]" size="60" value="{{ theme_options.header_logo }}"
-                alt="logo image" title="logo image">
-                <a href="#" class="header_logo_upload">Upload</a>
-                <a href="#" class="header_logo_reset">Reset</a>
+                <div>
+                    <a href="#" class="header_logo_upload">Upload</a>
+                    <a href="#" class="header_logo_reset">Reset</a>
+                </div>
+                <input type="hidden" class="header_logo_url" name="ice-theme-settings[header_logo]" size="60" value="{{ theme_options.header_logo }}" alt="logo image" title="logo image">
             </td>
         </tr>
         <tr>
-            <td>Телефоны фирмы:</td>
+            <td>vk</td>
             <td>
-                <input type="text" name="ice-theme-settings[phones][]" value ="{{theme_options.phones|first}}"/>
-                <button class="add_field_button_phone">Add More Fields</button>
+                <input type="text" name="ice-theme-settings[social][vk]" value ="{{theme_options.social.vk}}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>fb</td>
+            <td>
+                <input type="text" name="ice-theme-settings[social][fb]" value ="{{theme_options.social.fb}}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Instagram</td>
+            <td>
+                <input type="text" name="ice-theme-settings[social][insta]" value ="{{theme_options.social.insta}}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Twitter</td>
+            <td>
+                <input type="text" name="ice-theme-settings[social][twitter]" value ="{{theme_options.social.twitter}}"/>
+            </td>
+        </tr>
+        <tr>
+            <td>Phones:</td>
+            <td>
+                <input type="text" class="phone"name="ice-theme-settings[phones][]" value ="{{theme_options.phones|first}}"/>
+                <div>
+                    <button class="add_field_button_phone">Add More Fields</button>
+                </div>
                 <div class="input_fields_wrap_phone">
                     {% if theme_options.phones|length > 1 %}
                         {% for phone in theme_options.phones %}
                             {% if not loop.first %}
-                                <div><input type="text" name="ice-theme-settings[phones][]" value="{{phone}}"/><a href="#" class="remove_field">Remove</a></div>
+                                <div><input type="text" class="phone" name="ice-theme-settings[phones][]" value="{{phone}}"/><a href="#" class="remove_field">Remove</a></div>
                             {% endif %}
                         {% endfor %}
                     {% endif %}
                 </div>
             </td>
         </tr>
-        <tr>
-            <td colspan="2"><input type="submit" value="Применить" /></td>
-        </tr>
+
     </table>
+    <label>Work time:</label>
+    <textarea name="ice-theme-settings[work]">{{theme_options.work}}</textarea>
+    <input type="submit" value="Save" />
+</div>

@@ -8,7 +8,8 @@ function fields_creator(wrapper, add_button, max_fields, append_name){
         e.preventDefault();
         if(x < max_fields){ //max input box allowed
             x++; //text box increment
-            jQuery(wrapper).append('<div><input type="text" name="'+ append_name +'"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+            jQuery(wrapper).append('<div><input class="phone" type="text" name="'+ append_name +'"/><a href="#" class="remove_field">Remove</a></div>'); //add input box
+            jQuery(".phone").mask("(099) 99-99-999");
         }
     });
 

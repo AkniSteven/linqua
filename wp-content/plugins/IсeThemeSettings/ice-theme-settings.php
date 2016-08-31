@@ -20,19 +20,22 @@ if (file_exists($composer_autoload = __DIR__ . '/vendor/autoload.php')) {
     exit;
 }
 function clear(&$str){
-    $str =  trim(strip_tags($str));
+    $str =  trim($str);
 }
 
 $loader = new Twig_Loader_Filesystem( TEMPLATE_PATH);
 $twig = new Twig_Environment($loader);
-
 $settings = new Ice_Theme_Settings();
 
 $options = (array) get_option('ice-theme-settings');
+$succes = '';
 $walk = &$options;
 array_walk_recursive($walk,'clear');
 
-$page =  $twig->render('setting.twig', ['theme_options' => $options]);
+if (  $_REQUEST['settings-updated'] != '' ){
+    $success = 'Success!';
+}
+$page =  $twig->render('setting.twig', ['theme_options' => $options, 'success_msg' => $success]);
 $settings->set_page($page);
 
 
