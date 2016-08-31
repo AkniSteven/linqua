@@ -19,14 +19,21 @@ if (file_exists($composer_autoload = __DIR__ . '/vendor/autoload.php')) {
     _e('Install composer for current work');
     exit;
 }
+function clear(&$str){
+    $str =  trim(strip_tags($str));
+}
 
 $loader = new Twig_Loader_Filesystem( TEMPLATE_PATH);
-$twig = new Twig_Environment($loader, array(
-    'cache' => 'compilation_cache',
-));
+$twig = new Twig_Environment($loader);
 
 $settings = new Ice_Theme_Settings();
-$page =  $twig->render('setting.twig', array('name' => 'Fabien'));
+
+$options = (array) get_option('ice-theme-settings');
+$walk = &$options;
+array_walk_recursive($walk,'clear');
+
+$page =  $twig->render('setting.twig', ['theme_options' => $options]);
 $settings->set_page($page);
+
 
 
