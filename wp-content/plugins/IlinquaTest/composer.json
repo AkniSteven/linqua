@@ -1,0 +1,21 @@
+{
+  "name": "akni/IlinquaTest",
+  "description": "Plugin for testing",
+  "type": "Project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "stevenakni",
+      "email": "stevenaknidev@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "twig/twig": "~1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "IlinquaTest\\": ""
+    }
+  }
+}

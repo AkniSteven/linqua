@@ -19,6 +19,7 @@ if (file_exists($composer_autoload = __DIR__ . '/vendor/autoload.php')) {
     _e('Install composer for current work');
     exit;
 }
+
 function clear(&$str){
     $str =  trim($str);
 }
