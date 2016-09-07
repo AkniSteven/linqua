@@ -6,7 +6,7 @@
  * Time: 19:59
  */
 
-/* Template Name: Home Template */
+/* Template Name: Contact Template */
 
 global $core;
 global $post;
@@ -19,4 +19,4 @@ if($post && $post->post_type == 'page'){
     $context['page'] = $post;
 }
 
-$core->render('home-template.twig', $context);
+$core->render('contact-template.twig', $context);
