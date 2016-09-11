@@ -11,12 +11,12 @@ namespace IlinquaTest\Model;
 class Construct
 {
     public $config;
-
+    
     public function __construct()
     {
         add_action('init', array($this, 'registerTaxType'));
         add_action('init', array($this, 'registerPostType'));
-
+        add_action('admin_init', array($this, 'addMetabox'));
     }
 
     /**
@@ -80,5 +80,4 @@ class Construct
             $this->register_post_type($key, $item['args']);
         }
     }
-    
 }

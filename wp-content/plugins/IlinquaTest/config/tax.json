@@ -1,5 +1,5 @@
 {
-  "tests" : {
+  "test_questions" : {
     "labels"    : {
       "name"              : "Test",
       "singular_name"     : "Test",
@@ -19,8 +19,8 @@
       "show_admin_column" : true,
       "query_var"         : true,
       "public"            : true,
-      "rewrite"           : {"slug" : "tests"}
+      "rewrite"           : {"slug" : "tests_questions"}
     },
-    "post_type" : "test"
+    "post_type" : "test_question"
   }
 }

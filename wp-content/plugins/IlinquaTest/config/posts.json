@@ -1,16 +1,16 @@
 {
-  "test"  : {
+  "test_question"  : {
     "labels" : {
-      "name"               : "Tests",
-      "singular_name"      : "Test",
+      "name"               : "Test Question",
+      "singular_name"      : "Test Question",
       "add_new"            : "Add New",
-      "add_new_item"       : "Add new Test",
-      "edit_item"          : "Edit Test",
-      "new_item"           : "New Test",
-      "view_item"          : "View Test",
-      "search_items"       : "Search Test",
-      "not_found"          : "No Course found",
-      "not_found_in_trash" : "No Course found in Trash",
+      "add_new_item"       : "Add new Test Question",
+      "edit_item"          : "Edit Test Question",
+      "new_item"           : "New Test Question",
+      "view_item"          : "View Test Question",
+      "search_items"       : "Search Test Question",
+      "not_found"          : "No Question found",
+      "not_found_in_trash" : "No Question found in Trash",
       "parent_item_colon"  : ""
     },
     "args"   : {
