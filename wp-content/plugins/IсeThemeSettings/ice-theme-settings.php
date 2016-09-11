@@ -9,7 +9,7 @@ Author URI: https://ua.linkedin.com/in/steve-arshinikov-5a4184aa
 */
 use IceThemeSettings\Model\Ice_Theme_Settings;
 
-define('TEMPLATE_PATH' ,   __DIR__ . '/views/templates');
+define('TEMPLATE_PATH_SETTINGS' ,   __DIR__ . '/views/templates');
 /**
  * Use composer
  */
@@ -24,8 +24,9 @@ function clear(&$str){
     $str =  trim($str);
 }
 
-$loader = new Twig_Loader_Filesystem( TEMPLATE_PATH);
+$loader = new Twig_Loader_Filesystem( TEMPLATE_PATH_SETTINGS);
 $twig = new Twig_Environment($loader);
+
 $settings = new Ice_Theme_Settings();
 
 $options = (array) get_option('ice-theme-settings');

@@ -1,0 +1,26 @@
+{
+  "tests" : {
+    "labels"    : {
+      "name"              : "Test",
+      "singular_name"     : "Test",
+      "search_items"      : "Search Group",
+      "all_items"         : "All Groups",
+      "parent_item"       : "Parent Group",
+      "parent_item_colon" : "Parent Group:",
+      "edit_item"         : "Edit Group",
+      "update_item"       : "Update Group",
+      "add_new_item"      : "Add New Group",
+      "new_item_name"     : "New Group Name",
+      "menu_name"         : "Language"
+    },
+    "args"      : {
+      "hierarchical"      : true,
+      "show_ui"           : true,
+      "show_admin_column" : true,
+      "query_var"         : true,
+      "public"            : true,
+      "rewrite"           : {"slug" : "tests"}
+    },
+    "post_type" : "test"
+  }
+}

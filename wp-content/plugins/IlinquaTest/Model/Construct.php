@@ -12,33 +12,11 @@ class Construct
 {
     public $config;
 
-    /**
-     * @param $file
-     * @param string $dir
-     * @return array|mixed|object
-     */
-    public function getConfig($file, $dir ='')
-    {
-
-        if($dir !=''){
-            $file = get_template_directory() . '/config/' . $dir .'/' . $file . '.json';
-        }
-        else{
-            $file = get_template_directory() . '/config/'  . $file . '.json';
-        }
-        if (file_exists($file)) {
-            $this->config = json_decode(file_get_contents($file), true);
-        }
-        else{
-            $this->config = array();
-        }
-        return $this->config;
-    }
-
     public function __construct()
     {
-        $this->registerPostType();
-        $this->registerTaxType();
+        add_action('init', array($this, 'registerTaxType'));
+        add_action('init', array($this, 'registerPostType'));
+
     }
 
     /**
@@ -57,15 +35,36 @@ class Construct
     }
 
     /**
+     * @param $file
+     * @param string $dir
+     * @return array|mixed|object
+     */
+    public function getConfig($file, $dir ='')
+    {
+
+        if ($dir !='') {
+            $file = TEMPLATE_PATH_TEST . $dir .'/' . $file . '.json';
+        } else {
+            $file = TEMPLATE_PATH_TEST . '/config/'  . $file . '.json';
+        }
+        if (file_exists($file)) {
+            $this->config = json_decode(file_get_contents($file), true);
+        } else {
+            $this->config = array();
+        }
+        return $this->config;
+    }
+
+    /**
      * Register custom tax
      */
-    private function registerTaxType()
+    public function registerTaxType()
     {
         $tax = $this->getConfig('tax');
 
         foreach ($tax as $key => $item) {
             $item['args']['labels'] = $item['labels'];
-            register_taxonomy($key, $item['post_type'], $item['args']);
+            $this->register_taxonomy($key, $item['post_type'], $item['args']);
         }
 
     }
@@ -73,7 +72,7 @@ class Construct
     /**
      * Register custom post types
      */
-    private function registerPostType()
+    public function registerPostType()
     {
         $posts = $this->getConfig('posts');
         foreach ($posts as $key => $item) {
@@ -81,5 +80,5 @@ class Construct
             $this->register_post_type($key, $item['args']);
         }
     }
-
+    
 }
