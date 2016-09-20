@@ -13,13 +13,20 @@ class Metabox
     private $_metabox;
     private $_metaboxTitle;
     private $_metaboxPostType;
+    private $_pluginDir;
 
     public function __construct($type,$title)
     {
+        $this->set_dir();
         $this->_metaboxPostType = $type;
         $this->_metaboxTitle = $title;
 
-        add_action('add_meta_boxes', array($this, 'add'));
+        add_action('add_meta_boxes', [$this, 'add']);
+        add_action('admin_enqueue_scripts', [&$this, 'set_ajax_scripts']);
+        add_action(
+            'wp_ajax_createAnswerFields',
+            [&$this,'createAnswerFields']
+        );
     }
 
     /**
@@ -29,6 +36,25 @@ class Metabox
     public function set_view($metabox)
     {
         $this->_metabox = $metabox;
+    }
+
+    /**
+     * plugin dir setter
+     */
+    public function set_dir()
+    {
+        $this->_pluginDir = plugins_url() .'/IlinquaTest/';
+    }
+
+    /**
+     * this add script in admin
+     */
+    public function set_ajax_scripts()
+    {
+        wp_enqueue_script(
+            'test_ajax', $this->_pluginDir .
+            '/views/public/js/test.js'
+        );
     }
 
     public function add()
@@ -47,6 +73,20 @@ class Metabox
         echo $this->_metabox;
 
         return $this->_metabox;
+    }
+
+    public function createAnswerFields()
+    {
+        $html = '';
+        $counter = $_POST['counter'];
+        $postId = $_POST['post_id'];
+        if ($counter !='' && $postId !='') {
+            for ($i = 0; $i < $counter; $i++) {
+                $html.=$i;
+            }
+            echo $html;
+        }
+        return 1;
     }
 
     public function save()

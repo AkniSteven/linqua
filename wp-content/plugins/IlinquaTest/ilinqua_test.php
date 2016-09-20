@@ -27,7 +27,8 @@ $metabox = new Metabox('test_question', __('Test Questions Settings'));
 $loader = new Twig_Loader_Filesystem(TEMPLATE_PATH_TEST . '/views/templates/');
 $twig = new Twig_Environment($loader);
 
-$options ='';
+$options = [];
+$options['post_id'] = $_GET['post'];
 
 #render view for metabox
 $metaboxDisplay = $twig->render(

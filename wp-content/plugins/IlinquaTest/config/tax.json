@@ -3,15 +3,15 @@
     "labels"    : {
       "name"              : "Test",
       "singular_name"     : "Test",
-      "search_items"      : "Search Group",
-      "all_items"         : "All Groups",
-      "parent_item"       : "Parent Group",
-      "parent_item_colon" : "Parent Group:",
-      "edit_item"         : "Edit Group",
-      "update_item"       : "Update Group",
-      "add_new_item"      : "Add New Group",
-      "new_item_name"     : "New Group Name",
-      "menu_name"         : "Language"
+      "search_items"      : "Search Category",
+      "all_items"         : "All Categories",
+      "parent_item"       : "Parent Category",
+      "parent_item_colon" : "Parent Category:",
+      "edit_item"         : "Edit Category",
+      "update_item"       : "Update Category",
+      "add_new_item"      : "Add New Category",
+      "new_item_name"     : "New Category Name",
+      "menu_name"         : "Category"
     },
     "args"      : {
       "hierarchical"      : true,

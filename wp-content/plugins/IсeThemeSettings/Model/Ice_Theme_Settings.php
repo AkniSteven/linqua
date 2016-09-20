@@ -21,8 +21,8 @@ class Ice_Theme_Settings
     public function __construct()
     {
           $this->set_dir();
-          add_action('admin_menu', array( &$this, 'add_pages' ));
-          add_action('admin_init', array( &$this, 'register_settings' ));
+          add_action('admin_menu', [ &$this, 'add_pages' ]);
+          add_action('admin_init', [ &$this, 'register_settings' ]);
     }
 
     /**
@@ -49,17 +49,26 @@ class Ice_Theme_Settings
      */
     public function add_pages()
     {
-        $admin_page = add_theme_page( __( 'Theme Settings' ), __( 'Theme Settings' ), 'manage_options', 'ice-theme-settings', array( &$this, 'display_page' ) );
-        add_action('admin_print_scripts-' . $admin_page, array(&$this, 'scripts' ));
-        add_action('admin_print_styles-' . $admin_page, array(&$this, 'styles' ));
+        $admin_page = add_theme_page(
+            __('Theme Settings'), 
+            __('Theme Settings'),
+            'manage_options',
+            'ice-theme-settings',
+            [&$this, 'display_page']);
+        add_action('admin_print_scripts-' . $admin_page, [&$this, 'scripts' ]);
+        add_action('admin_print_styles-' . $admin_page, [&$this, 'styles']);
     }
 
     /**
      * this add scripts
      */
-    public function scripts() {
+    public function scripts()
+    {
             wp_enqueue_media();
-            wp_enqueue_script('upload-script',$this->_pluginDir . '/views/public/js/upload.js');
+            wp_enqueue_script(
+                'upload-script', $this->_pluginDir .
+                '/views/public/js/upload.js'
+            );
             wp_enqueue_script('fields-script',$this->_pluginDir . '/views/public/js/fields.js');
             wp_enqueue_script('jquery-tinymce-script',$this->_pluginDir . '/views/public/js/tinymce/jquery.tinymce.min.js');
             wp_enqueue_script('tinymce-script',$this->_pluginDir . '/views/public/js/tinymce/tinymce.min.js');
