@@ -1,13 +1,15 @@
+* {
+	box-sizing: border-box;
+}
 html {
-	// font-size: $fz;
+	 font-size: $fz;
 	height: 100%;
 }
 body {
 	margin:0;
-	font-family: $family;
-	font-weight: 300;
+	//font-family: $family;
 	// color: $colorText;
-	// font: $fw $fz/#{$lh} $family;
+	 font: $fw $fz/#{$lh} $family;
 	// background: $bgBody;
 	// -webkit-text-size-adjust: 100%;
 	// -ms-text-size-adjust: none;

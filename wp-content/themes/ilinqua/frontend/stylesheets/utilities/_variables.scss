@@ -1,6 +1,11 @@
 //// Custom global colors
 //
 //// Default global colors
+
+/*layout*/
+
+$colorBgEn: #0c7aff;
+
 //$colorText: #000;
 //$colorTextQuater: transparentize($colorText, .25);
 //$colorTextHalf: transparentize($colorText, .5);
@@ -36,6 +41,10 @@
 //
 //// Fonts
 $family: 'Gotham', Arial, Helvetica, sans-serif;
+$fw: 300;
+$fz: 16px;
+$lh: 1.5;
+
 //
 ////Images
 //$fonturl : '/dependencies/fonts';

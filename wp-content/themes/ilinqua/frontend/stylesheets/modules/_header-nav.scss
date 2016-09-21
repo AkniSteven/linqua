@@ -1,0 +1,32 @@
+.header-left-side {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+}
+.burger-menu {
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 2px;
+	padding: 0 0 17px;
+	background: #fff;
+	background-clip: content-box;
+	box-sizing: content-box;
+	&:before, &:after {
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 40px;
+		height: 2px;
+		background: #fff;
+		display: inline-block;
+	}
+	&:before {
+		transform: translateY(-50%);
+		top: 50%;
+	}
+	&:after {
+		bottom: 0;
+		top: auto;
+	}
+}
