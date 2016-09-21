@@ -1,0 +1,43 @@
+//@mixin anim($param: all, $dur: .15s, $type: ease-in-out, $delay: 0s) {
+//	transition: $param $dur $type $delay;
+//}
+//@mixin anim-param($params...) {
+//	transition-property: $params;
+//}
+//@mixin no-anim {
+//	transition: none;
+//}
+//@mixin gradv($color1, $color2, $opacity: 50%) {
+//	background: mix($color1, $color2, $opacity);
+//	background: -webkit-linear-gradient(top, $color1 0%, $color2 100%);
+//	background: -ms-linear-gradient(top, $color1 0%, $color2 100%);
+//	background: linear-gradient(to bottom, $color1 0%, $color2 100%);
+//}
+//@mixin centerize($horizontal: false, $vertical: false) {
+//	@if ($horizontal == true and $vertical == true) {
+//		top: 50%;
+//		left: 50%;
+//		transform: translate(-50%, -50%);
+//	} @else if ($horizontal == true) {
+//		left: 50%;
+//		transform: translateX(-50%);
+//	} @else if ($vertical == true) {
+//		top: 50%;
+//		transform: translateY(-50%);
+//	}
+//}
+//
+//
+//@mixin bp($point, $type: max) {
+//	@media screen and (#{$type}-width: #{$point}px) {@content;}
+//}
+//@mixin bp-height($point, $type: max) {
+//	@media screen and (#{$type}-height: #{$point}px) {@content;}
+//}
+//
+//@mixin placeholder {
+//	::-webkit-input-placeholder {@content}
+//	:-moz-placeholder           {@content}
+//	::-moz-placeholder          {@content}
+//	:-ms-input-placeholder      {@content}
+//}

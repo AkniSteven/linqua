@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta content="IE=10" http-equiv="X-UA-Compatible">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<title>{% spaceless %}{% block title %}{% endblock %}{% endspaceless %}</title>
+	
+	{% block base_stylesheets %}
+		<link href="{{ theme.path }}/public/css/styles.css" media="all"
+			  rel="stylesheet">
+		{% block stylesheets %}{% endblock %}
+	{% endblock %}
+	{% block base_scripts %}
+		<script src="{{ theme.path }}/public/js/require.js"></script>
+			<script src="{{ theme.path }}/public/js/index.js" type="text/javascript"></script>
+			{#<script type="text/javascript">window.assets_version = '{{ assets }}'</script>#}
+			<script src="{{ theme.path }}/public/js/require.js" type="text/javascript"></script>
+			<script src="{{ theme.path }}/public/js/config/require.js" type="text/javascript"></script>
+			{#<script async="async" src="{% block jsEntryPoint %}{% endblock %}"></script>#}
+	{% endblock %}
+	
+</head>
+<body {% block body_attributes %}{% endblock %}>
+<div id="wrapper">
+	
+	{% block header %}
+		{% include 'layout-blocks/_header.twig' %}
+	{% endblock %}
+	
+	<main id="main">
+		{% block content %}
+			
+		{% endblock %}
+	</main>
+	
+	{% block footer %}
+		
+	{% endblock %}
+</div>
+</body>
+</html>
