@@ -17,8 +17,15 @@
 			{#<script type="text/javascript">window.assets_version = '{{ assets }}'</script>#}
 			<script src="{{ theme.path }}/public/js/require.js" type="text/javascript"></script>
 			<script src="{{ theme.path }}/public/js/config/require.js" type="text/javascript"></script>
-			{#<script async="async" src="{% block jsEntryPoint %}{% endblock %}"></script>#}
+			<script async="async" src="{% block jsEntryPoint %}{% endblock %}"></script>
 	{% endblock %}
+	
+	<script type='text/javascript' id="__bs_script__">
+		//<![CDATA[
+		document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.12.8.js'><\/script>"
+			.replace("HOST", location.hostname));
+		//]]>
+	</script>
 	
 </head>
 <body {% block body_attributes %}{% endblock %}>
@@ -30,7 +37,7 @@
 	
 	<main id="main">
 		{% block content %}
-			
+
 		{% endblock %}
 	</main>
 	

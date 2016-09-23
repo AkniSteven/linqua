@@ -1,6 +1,6 @@
 // var gulp = require('gulp'),
 // 	sass = require('gulp-sass'),                            //Подключаем Sass пакет
-// 	watch = require('gulp-watch'),                          //Подключаем Sass пакет
+// 	watch = require('gulp-watch'),
 // 	// browserSync = require('browser-sync'),                  // Подключаем Browser Sync
 // 	autoprefixer = require('gulp-autoprefixer');
 //
@@ -26,7 +26,7 @@
 // #################################
 
 var gulp = require('gulp'),
-	// browserSync = require('browser-sync').create(),
+	browserSync = require('browser-sync').create(),
 	// cleanCSS = require('gulp-clean-css'),
 	// cmq = require('gulp-merge-media-queries'),
 	mainBowerFiles = require('gulp-main-bower-files'),
@@ -38,11 +38,12 @@ var gulp = require('gulp'),
 
 gulp.task('serve', ['sass'], function () {
 
-	// browserSync.init({
-	// 	proxy: "linqua.web/"
-	// });
+	browserSync.init({
+		proxy: "www.linqua.web/"
+	});
 
 	gulp.watch("./frontend/stylesheets/**/*.scss", ['sass']);
+	gulp.watch("./frontend/js/**/*.js", ['js:build']);
 	gulp.watch("./views/**/*.twig", ['twig']);
 
 });
@@ -50,7 +51,7 @@ gulp.task('serve', ['sass'], function () {
 gulp.task('mainfiles', ['js:build'], function () {
 	return gulp.src('./bower.json')
 		.pipe(mainBowerFiles())
-		.pipe(gulp.dest('./frontend/javascripts'));
+		.pipe(gulp.dest('./frontend/js'));
 });
 
 gulp.task('sass', function () {
@@ -68,12 +69,12 @@ gulp.task('sass', function () {
 		// .pipe(cmq({log: true}))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest("./public/css"))
-	// .pipe(browserSync.stream());
+	.pipe(browserSync.stream());
 });
 
 gulp.task('twig', function () {
 	return gulp.src("./views/**/*.twig")
-	// .pipe(browserSync.stream());
+	.pipe(browserSync.stream());
 });
 
 gulp.task('js:build', function () {
@@ -85,5 +86,6 @@ gulp.task('js:build', function () {
 		}))
 		.pipe(gulp.dest("./public/js"))
 });
+
 
 gulp.task('default', ['mainfiles', 'serve']);

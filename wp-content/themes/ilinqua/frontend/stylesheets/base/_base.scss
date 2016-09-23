@@ -7,9 +7,11 @@ html {
 }
 body {
 	margin:0;
-	//font-family: $family;
+	font-family: $family;
+	line-height: $lh;
+	font-weight: 300;
 	// color: $colorText;
-	 font: $fw $fz/#{$lh} $family;
+	// font: $fw $fz/#{$lh} $family;
 	// background: $bgBody;
 	// -webkit-text-size-adjust: 100%;
 	// -ms-text-size-adjust: none;
@@ -44,11 +46,11 @@ textarea {
 	vertical-align: top;
 }
 h1 {
-	font-size: 3rem;
-	line-height: 1.125;
-	font-weight: 900;
+	font-size: 4rem;
+	line-height: 1.13;
+	font-weight: 500;
 	text-transform: uppercase;
-	letter-spacing: .05em;
+	letter-spacing: -2px;
 	// @include letter-spacing(3em, 1.125);
 	margin: 0.67em 0;
 }
