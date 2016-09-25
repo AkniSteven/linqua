@@ -1,41 +1,27 @@
 requirejs([
-	'jquery'
-], function ($) {
+	'jquery',
+	'ScrollMagic',
+	'animation.gsap',
+	// 'TweenMax',
+	// 'TimelineLite',
+	// 'TimelineMax',
+	// 'TweenLite',
+	'debug.addIndicators'
+
+], function ($, ScrollMagic) {
 
 	'use strict';
 
-	/*init plugins*/
+	var controller = new ScrollMagic.Controller();
 
-	var initPlugins = {
-		init: function () {
-			// this.selectInit();
-		},
-
-	};
-	initPlugins.init();
-
-	/* end init plugins*/
-
-	// additional functions for plugins
-	var additionalForPlugins = {
-		init: function () {
-			this.selectVectorRotate();
-		},
-
-		selectVectorRotate: function () {
-			var filterTitle = $('.filter-item .title');
-
-			filterTitle.click(function () {
-				var holder = $('.holder'),
-					$filterTitle = $(this);
-
-				$filterTitle.parents('.filter-item').siblings().removeClass('active');
-				$filterTitle.parents('.filter-item').toggleClass('active');
-			});
-		}
-	};
-	additionalForPlugins.init();
-	// end additional functions for plugins
+	var scene = new ScrollMagic.Scene({
+		// triggerElement: ".price-block",
+		offset: 10,
+		duration: 1000
+	})
+		.setTween(".price-block-holder", 2, {css:{paddingLeft:"0", paddingRight:"0"}, ease:Power2.easeOut})
+		// .addIndicators({name: "2 (duration: 300)"}) // add indicators (requires plugin)
+		.addTo(controller);
 
 });
 

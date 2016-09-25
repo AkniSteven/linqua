@@ -1,0 +1,21 @@
+.english {
+	height: 200vh;
+	 .language-banner {
+		 background: $colorBgEn;
+	 }
+ }
+.language-banner {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	height: calc(200vh - 120px); /* 100vh - header height */
+	max-height: 850px;
+	margin-bottom: 100px;
+	&__title {
+		margin-left: 14.2%;
+		padding-top:102px;
+		color: #fff;
+		text-transform: none;
+
+	}
+}
