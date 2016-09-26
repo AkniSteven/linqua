@@ -1,0 +1,80 @@
+body,ul,ol,p{
+	margin: 0;
+	padding: 0;
+}
+img {
+	vertical-align: top;
+	max-width: 100%;
+	height: auto;
+	border: 0;
+	-ms-interpolation-mode: bicubic;
+}
+form,fieldset{
+	margin:0;
+	padding:0;
+	border-style:none;
+}
+input[type=text]::-ms-clear{display: none;}
+input[type="search"]::-webkit-search-decoration {display: none;}
+input[type="search"] {-webkit-appearance: none;}
+input[type="search"]::-webkit-search-cancel-button {-webkit-appearance: none;}
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+	-webkit-appearance: button;
+	cursor:pointer;
+}
+textarea,
+input{border-radius:0;}
+input[type=image]{
+	padding:0;
+	border:none;
+}
+*:focus {
+	outline: 0;
+}
+input, textarea {
+	&:focus {outline: none;}
+}
+input[type="email"]:invalid,
+input[type="number"]:invalid{
+	box-shadow: none;
+}
+input:required {box-shadow: none;}
+button::-moz-focus-inner,
+input::-moz-focus-inner{
+	padding:0;
+	border:0;
+	outline: 0;
+}
+main,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{
+	display: block;
+}
+mark{background:none;}
+q{quotes:none}
+q:before,
+q:after{content:'';content:none}
+dd{margin:0 0 0 40px}
+nav ul,nav ol{list-style:none;list-style-image:none}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	//font-family:$family;
+}
+ul,ol{
+	list-style-type: none;
+}
+a{
+	text-decoration: none;
+}
+/**
+ * Correct overflow not hidden in IE 9/10/11.
+ */
+/*svg { overflow: hidden;}*/
+
+// Corrent scroll
+// :root {
+// 	-ms-overflow-style: -ms-autohiding-scrollbar; // IE11+
+// 	overflow-y: scroll; // All browsers without overlaying scrollbars
+// }

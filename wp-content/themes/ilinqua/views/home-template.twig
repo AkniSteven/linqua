@@ -1,7 +1,15 @@
+{% extends '_layout.twig' %}
+
+{% block title %}
+	English
+{% endblock %}
+
+{% block jsEntryPoint %}
+
+{% endblock %}
+
 {% block content %}
-    <section>
-        <div class="page-content">
-            <h2>{{ page.post_content }}</h2>
-        </div>
-    </section>
+	<section class="language-holder">
+		{% include 'modules/_lp-banner.twig' %}
+	</section>
 {% endblock %}
