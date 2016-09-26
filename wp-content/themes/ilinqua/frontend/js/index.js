@@ -18,10 +18,19 @@ requirejs([
 		// triggerElement: ".price-block",
 		offset: 10,
 		duration: 1000
-	})
-		.setTween(".price-block-holder", 2, {css:{paddingLeft:"0", paddingRight:"0"}, ease:Power2.easeOut})
-		// .addIndicators({name: "2 (duration: 300)"}) // add indicators (requires plugin)
-		.addTo(controller);
 
+	})
+	// .setClassToggle(".price-block-holder", "js-del-shadow")
+	.setTween(".price-block-holder", 2, {css:{paddingLeft:"0", paddingRight:"0"}, ease:Power2.easeOut})
+	.addTo(controller);
+
+	new ScrollMagic.Scene({
+		triggerElement: "header",
+		offset: 100,
+		reverse: true
+	})
+		.setClassToggle(".price-block", "js-del-shadow") // add class toggle
+		.addIndicators() // add indicators (requires plugin)
+		.addTo(controller);
 });
 
