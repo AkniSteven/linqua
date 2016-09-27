@@ -16,7 +16,6 @@
 		background: #fff;
 		display: flex;
 		flex-direction: column;
-		//width: 300px;
 		width: 25%;
 		height: 260px;
 		padding: 52px 20px 20px 6.5%;
@@ -78,6 +77,15 @@
 			height: 50px;
 			border-radius: 50%;
 			border: 1px solid transparentize(#000, .7);
+		}
+	}
+	&.js-del-shadow {
+		.price-block__tariff-cell {
+			&:first-child, &:last-child {
+				&:before {
+					display: none;
+				}
+			}
 		}
 	}
 }

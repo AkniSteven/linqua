@@ -20,7 +20,7 @@
     <favorites_list name="ilinqua" />
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.41284403">
+    <splitter split-orientation="horizontal" split-proportion="0.27616647">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
           <file leaf-file-name="_header.twig" pinned="false" current-in-tab="false">
@@ -43,11 +43,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="_layout.twig" pinned="false" current-in-tab="false">
+          <file leaf-file-name="_layout.twig" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/views/_layout.twig">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="274">
-                  <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
+                <state relative-caret-position="600">
+                  <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
                   <folding />
                 </state>
               </provider>
@@ -73,7 +73,7 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="_lp-banner.twig" pinned="false" current-in-tab="true">
+          <file leaf-file-name="_lp-banner.twig" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/views/modules/_lp-banner.twig">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="90">
@@ -90,8 +90,18 @@
           <file leaf-file-name="_header-nav.scss" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/stylesheets/modules/_header-nav.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="420">
-                  <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
+                <state relative-caret-position="240">
+                  <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="_layout.scss" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/frontend/stylesheets/layout/_layout.scss">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="210">
+                  <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
                   <folding />
                 </state>
               </provider>
@@ -100,8 +110,8 @@
           <file leaf-file-name="_lp-banner.scss" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/stylesheets/modules/_lp-banner.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="135">
-                  <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
+                <state relative-caret-position="45">
+                  <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
                   <folding />
                 </state>
               </provider>
@@ -110,8 +120,8 @@
           <file leaf-file-name="_lp-price-block.scss" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/frontend/stylesheets/modules/_lp-price-block.scss">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="105">
-                  <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+                <state relative-caret-position="499">
+                  <caret line="82" column="20" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -120,8 +130,8 @@
           <file leaf-file-name="index.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/frontend/js/index.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="255">
-                  <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+                <state relative-caret-position="420">
+                  <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
                   <folding />
                 </state>
               </provider>
@@ -157,7 +167,6 @@
         <option value="$PROJECT_DIR$/gulpfile.js" />
         <option value="$PROJECT_DIR$/frontend/stylesheets/styles.scss" />
         <option value="$PROJECT_DIR$/frontend/stylesheets/modules/_index.scss" />
-        <option value="$PROJECT_DIR$/frontend/stylesheets/layout/_layout.scss" />
         <option value="$PROJECT_DIR$/views/layout-blocks/_header.twig" />
         <option value="$PROJECT_DIR$/views/pages/lang-page.twig" />
         <option value="$PROJECT_DIR$/frontend/stylesheets/modules/_header-nav.scss" />
@@ -172,6 +181,7 @@
         <option value="$PROJECT_DIR$/frontend/stylesheets/modules/_lp-banner.scss" />
         <option value="$PROJECT_DIR$/views/home-template.twig" />
         <option value="$PROJECT_DIR$/views/modules/_lp-banner.twig" />
+        <option value="$PROJECT_DIR$/frontend/stylesheets/layout/_layout.scss" />
         <option value="$PROJECT_DIR$/frontend/stylesheets/modules/_lp-price-block.scss" />
         <option value="$PROJECT_DIR$/frontend/js/index.js" />
       </list>
@@ -225,6 +235,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -455,7 +466,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
@@ -466,7 +476,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="price&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/modules/_lp-price-block.scss&#10;ba&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/modules/_lp-banner.twig&#10;bann&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/modules/_lp-banner.scss&#10;gulp&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/gulpfile.js&#10;index&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/js/index.js&#10;style&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/public/css/styles.css&#10;var&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_variables.scss&#10;_fon&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_fonts.scss&#10;base&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/base/_base.scss&#10;la&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/_layout.twig&#10;res&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/base/_reset.scss&#10;_font&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_fonts.scss&#10;demo&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/vendors/demo.css&#10;_mix&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_mixins.scss&#10;_la&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/_layout.twig&#10;lay&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/_layout.twig&#10;home&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/home-template.twig&#10;heade&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/layout-blocks/_header.twig&#10;inde&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/js/index.js&#10;hea&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/layout-blocks/_header.twig&#10;head&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/layout-blocks/_header.twig" />
+    <property name="SearchEverywhereHistoryKey" value="lay&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/layout/_layout.scss&#10;price&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/modules/_lp-price-block.scss&#10;ba&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/modules/_lp-banner.twig&#10;bann&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/modules/_lp-banner.scss&#10;gulp&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/gulpfile.js&#10;index&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/js/index.js&#10;style&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/public/css/styles.css&#10;var&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_variables.scss&#10;_fon&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_fonts.scss&#10;base&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/base/_base.scss&#10;la&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/_layout.twig&#10;res&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/base/_reset.scss&#10;_font&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_fonts.scss&#10;demo&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/vendors/demo.css&#10;_mix&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_mixins.scss&#10;_la&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/_layout.twig&#10;home&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/home-template.twig&#10;heade&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/layout-blocks/_header.twig&#10;inde&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/js/index.js&#10;hea&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/layout-blocks/_header.twig&#10;head&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/layout-blocks/_header.twig" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="editor.config.accepted" value="true" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
@@ -994,16 +1004,18 @@
       <workItem from="1474728972957" duration="4584000" />
       <workItem from="1474802646973" duration="3178000" />
       <workItem from="1474806937861" duration="3202000" />
-      <workItem from="1474810379902" duration="3036000" />
+      <workItem from="1474810379902" duration="3099000" />
+      <workItem from="1474873235653" duration="611000" />
+      <workItem from="1474910714505" duration="2877000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="36906000" />
+    <option name="totallyTimeSpent" value="40457000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="49" y="18" width="1871" height="1062" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1016,8 +1028,9 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27941176" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.11621621" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1427027" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1027,7 +1040,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1141,13 +1153,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/layout/_layout.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="32" selection-start-line="7" selection-start-column="32" selection-end-line="7" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -1306,30 +1311,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/modules/_header-nav.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/modules/_lp-banner.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="27" selection-start-line="9" selection-start-column="27" selection-end-line="9" selection-end-column="27" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/views/_layout.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="274">
-          <caret line="26" column="13" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/home-template.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -1346,18 +1327,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/_layout.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="600">
+          <caret line="32" column="4" selection-start-line="32" selection-start-column="4" selection-end-line="32" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/modules/_header-nav.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/layout/_layout.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frontend/stylesheets/modules/_lp-banner.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="32" selection-start-line="3" selection-start-column="32" selection-end-line="3" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/frontend/stylesheets/modules/_lp-price-block.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+        <state relative-caret-position="499">
+          <caret line="82" column="20" selection-start-line="82" selection-start-column="20" selection-end-line="82" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frontend/js/index.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="42" selection-start-line="17" selection-start-column="42" selection-end-line="17" selection-end-column="42" />
+        <state relative-caret-position="420">
+          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
           <folding />
         </state>
       </provider>
