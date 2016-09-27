@@ -29,9 +29,12 @@ $twig = new Twig_Environment($loader);
 
 $options = [];
 $options['post_id'] = $_GET['post'];
-
+$options['meta'] = get_post_meta($options['post_id']);
+$options['meta']['answer_case'] = get_post_meta(
+    $options['post_id'], 'answer_case', true
+);
 #render view for metabox
 $metaboxDisplay = $twig->render(
-    'metabox.twig', ['theme_options' => $options]
+    'metabox.twig', ['options' => $options]
 );
 $metabox->set_view($metaboxDisplay);
