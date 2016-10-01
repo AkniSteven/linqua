@@ -1,8 +1,7 @@
 #wrapper {
-	&.english {
-		background: $colorBgEn;
-	}
+	
 }
+
 #header {
 	display: flex;
 	flex-flow: row nowrap;
@@ -12,4 +11,15 @@
 	padding: 0 40px;
 	background-color: transparent;
 	z-index: 1;
+	.english & {
+		background: $colorBgEn;
+	}
+	@include bp($point: 1680, $type: min) {
+		height: 140px;
+		padding: 0 50px;
+	}
+	@include bp($point: 1024, $type: max) {
+		height: 80px;
+		padding: 0 20px;
+	}
 }

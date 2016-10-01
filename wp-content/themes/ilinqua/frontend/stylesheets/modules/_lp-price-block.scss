@@ -1,24 +1,40 @@
 .price-block-holder {
-	//position: absolute;
-	bottom: 0;
 	width: 100%;
-	//max-width: 1200px;
 	margin: auto auto 0;
-	//padding: 0 7.7%;
-	padding: 0 120px;
+	padding: 0 106px;
+	@include bp($point: 1680, $type: min) {
+		padding: 0 140px;
+	}
+	@include bp($point: 1024, $type: max) {
+		padding: 0 80px;
+	}
 }
 
 .price-block {
+	position: relative;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
+	margin: 0 auto;
+	&__status {
+		display: block;
+		position: absolute;
+		top: -29px;
+		left: 0;
+		padding: 11px 18px;
+		background: #fffc2b;
+		font-size: .75rem;
+		text-transform: uppercase;
+		font-weight: 500;
+		letter-spacing: 1px;
+	}
 	&__tariff-cell {
 		background: #fff;
 		display: flex;
 		flex-direction: column;
 		width: 25%;
 		height: 260px;
-		padding: 52px 20px 20px 6.5%;
+		padding: 52px 20px 20px 6.7%;
 		& + li {
 			border-left: 1px solid transparentize(#000, .9);
 		}
@@ -67,6 +83,7 @@
 			}
 		}
 		&__description {
+			display: inline-block;
 			font-size: 1rem;
 			color: transparentize(#000, .8);
 			margin-bottom: 7px;
@@ -75,6 +92,7 @@
 		&__button {
 			width: 50px;
 			height: 50px;
+			display: inline-block;
 			border-radius: 50%;
 			border: 1px solid transparentize(#000, .7);
 		}
@@ -85,6 +103,34 @@
 				&:before {
 					display: none;
 				}
+			}
+		}
+	}
+	@include bp($point: 1024, $type: max) {
+		&__tariff-cell {
+			height: 200px;
+			padding: 38px 20px 0 5%;
+		}
+		.tariff-cell {
+			&__title {
+				margin-bottom: 18px;
+				font-size: 1.75rem;
+				line-height: 1;
+			}
+			&__value-holder {
+				margin-bottom: 5px;
+				.value {
+					line-height: 1;
+				}
+			}
+			&__description {
+				font-size: .875rem;
+				//white-space: normal;
+			}
+			&__button {
+				width: 41px;
+				height: 41px;
+				margin-top: auto;
 			}
 		}
 	}

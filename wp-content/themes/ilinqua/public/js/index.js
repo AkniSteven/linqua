@@ -26,11 +26,11 @@ requirejs([
 
 	new ScrollMagic.Scene({
 		triggerElement: "header",
-		offset: 100,
+		offset: 1000,
 		reverse: true
 	})
 		.setClassToggle(".price-block", "js-del-shadow") // add class toggle
-		.addIndicators() // add indicators (requires plugin)
+		// .addIndicators() // add indicators (requires plugin)
 		.addTo(controller);
 });
 

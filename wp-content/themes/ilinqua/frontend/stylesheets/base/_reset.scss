@@ -51,6 +51,9 @@ input::-moz-focus-inner{
 main,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{
 	display: block;
 }
+figure {
+	margin: 0;
+}
 mark{background:none;}
 q{quotes:none}
 q:before,

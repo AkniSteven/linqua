@@ -82,6 +82,7 @@
 				.tile {
 					width: 28px;
 					height: 40px;
+					display: inline-block;
 					background: #b6b6b6;
 					@include anim-param(opacity, background);
 					left: 0;
