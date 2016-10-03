@@ -1,21 +1,38 @@
 .english {
-	height: 200vh;
-	 .language-banner {
-		 background: $colorBgEn;
-	 }
- }
+	.language-banner {
+		background: $colorBgEn;
+	}
+}
+
 .language-banner {
 	position: relative;
 	display: flex;
 	flex-direction: column;
-	height: calc(200vh - 120px); /* 100vh - header height */
-	max-height: 850px;
-	margin-bottom: 100px;
+	//height: calc(100vh - 120px); /* 100vh - header height */
+	height: 100vh;
 	&__title {
 		margin-left: 14.2%;
-		padding-top:102px;
+		padding-top:calc(102px + 120px);
 		color: #fff;
 		text-transform: none;
-
+	}
+	@include bp($point: 1680, $type: min) {
+		min-height: 950px;
+		&__title {
+			margin-left: 12.4%;
+			padding-top:calc(128px + 140px);
+		}
+	}
+	@include bp($point: 1039, $type: max) {
+		&__title {
+			margin-left: 12%;
+			padding-top:calc(83px + 80px);
+			font-size:3.5rem;
+		}
+	}
+	@include bp($point: 783, $type: max) {
+		&__title {
+			margin-left: 15.5%;
+		}
 	}
 }

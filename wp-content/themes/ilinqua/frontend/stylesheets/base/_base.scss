@@ -55,11 +55,11 @@ h1 {
 	margin: 0 0 20px;
 }
 h2 {
-	font-size: 2.5rem;
-	line-height: 1.15;
-	font-weight: 900;
-	text-transform: uppercase;
-	margin: 0.83em 0;
+	font-size: 4rem;
+	line-height: 1.13;
+	margin: 0 0 20px;
+	letter-spacing: -2px;
+	font-weight:500;
 	// @include breakpoint(480) {font-size: 1.25rem;}
 }
 h3 {
@@ -72,8 +72,9 @@ h3 {
 h4 {
 	font-size: 2rem;
 	line-height: 1.125;
-	font-weight: 400;
-	margin: 1.33em 0;
+	font-weight: 300;
+	letter-spacing: -1px;
+	margin: 0 0 20px;
 }
 h5 {
 	font-size: 0.83rem;
@@ -90,4 +91,5 @@ p {line-height: 2;}
 	text-transform: uppercase;
 	color: rgba(0, 0, 0, 0.6);
 }
+
 // ul {@extend %list-reset;}
