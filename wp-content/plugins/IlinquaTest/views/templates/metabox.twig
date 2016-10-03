@@ -6,15 +6,15 @@
     <div id="question-type">
         <label for="question_type">Question type</label>
         <select name="question_type" id="question_type"  onchange="questionSorter(jQuery(this).val())">
+            <option value="text"     {% if options.meta.question_type.0 == 'text' %}     selected="selected" {% endif %}>Text</option>
             <option value="radio"    {% if options.meta.question_type.0 == 'radio' %}    selected="selected" {% endif %}>Radiobuton</option>
             <option value="checkbox" {% if options.meta.question_type.0 == 'checkbox'%}  selected="selected" {% endif %}>Checkbox</option>
-            <option value="text"     {% if options.meta.question_type.0 == 'text' %}     selected="selected" {% endif %}>Text</option>
             <option value="fragment" {% if options.meta.question_type.0 == 'fragment'%}  selected="selected" {% endif %}>Fragment</option>
         </select>
     </div>
     <div id="answer_counter" {% if options.meta.question_type.0 != 'checkbox' and  options.meta.question_type.0 != 'radio' %} style="display:none;" {% endif %}>
         <label for="counter">Answers counter</label>
-        <input type="number" min="0" step="1" name="counter" max="20" id="counter" onchange="createAnswerFields(this.value, {{ options.post_id }});" value="{{ options.meta.counter.0 }}"/>
+        <input type="number" min="0" step="1" name="counter" max="20" id="counter" onchange="createAnswerFields(this.value, '{{ options.post_id }}');" value="{{ options.meta.counter.0 }}"/>
     </div>
     <div id="answer_fields">
         {% if options.meta.question_type.0 == 'checkbox' or  options.meta.question_type.0 == 'radio' %}

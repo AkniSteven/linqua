@@ -87,18 +87,26 @@ class Metabox
     public function createAnswerFields()
     {
         $html = '';
-        $counter = $_POST['counter'] > 20 ? $counter = 20 :  $_POST['counter'];
+        $counter = $_POST['counter'] > 20 ? $counter = 20 : $_POST['counter'];
         $postId = $_POST['post_id'];
         $answerCases = get_post_meta(
             $postId, 'answer_case', true
         );
-        if ($counter !='' && $postId !='') {
-            for ($i = 1; $i <= $counter; $i++) {
-                $html.= "<div><label for='answer_case'>$i - </label>
-                 <input type='text' name='answer_case[". $i . "]'
+        if ($counter != '') {
+            if ($postId != '') {
+                for ($i = 1; $i <= $counter; $i++) {
+                    $html .= "<div><label for='answer_case'>$i - </label>
+                 <input type='text' name='answer_case[" . $i . "]'
                   value='$answerCases[$i]'
                   />
                  </div>";
+                }
+            } else {
+                for ($i = 1; $i <= $counter; $i++) {
+                    $html .= "<div><label for='answer_case'>$i - </label>
+                 <input type='text' name='answer_case[" . $i . "]'/>
+                 </div>";
+                }
             }
             echo $html;
             wp_die();
