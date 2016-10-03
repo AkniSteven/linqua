@@ -1,28 +1,57 @@
 .price-block-holder {
-	//position: absolute;
-	bottom: 0;
 	width: 100%;
-	//max-width: 1200px;
 	margin: auto auto 0;
-	//padding: 0 7.7%;
 	padding: 0 120px;
+	will-change: padding;
+	@include bp($point: 1680, $type: min) {
+		padding: 0 140px;
+	}
+	@include bp($point: 1140, $type: max) {
+		padding: 0 80px;
+	}
+	@include bp($point: 1024, $type: max) {
+		padding: 0 50px;
+	}
+	@include bp($point: 783, $type: max) {
+		padding: 0 80px;
+		position: absolute;
+		bottom: -230px;
+	}
 }
 
 .price-block {
+	position: relative;
 	display: flex;
 	flex-flow: row nowrap;
 	justify-content: center;
+	margin: 0 auto;
+	&__status {
+		display: block;
+		position: absolute;
+		top: -30px;
+		left: 0;
+		padding: 11px 18px;
+		background: #fffc2b;
+		font-size: .75rem;
+		text-transform: uppercase;
+		font-weight: 500;
+		letter-spacing: 1px;
+		z-index: 1;
+	}
 	&__tariff-cell {
 		background: #fff;
 		display: flex;
 		flex-direction: column;
 		width: 25%;
-		height: 260px;
-		padding: 52px 20px 20px 6.5%;
+		height: auto;
+		min-height: 260px;
+		padding: 59px 20px 20px 6.7%;
+		@include anim-param(padding);
+		@include anim($dur: .25s);
 		& + li {
 			border-left: 1px solid transparentize(#000, .9);
 		}
-		&:first-child, &:last-child {
+		&:nth-of-type(2), &:last-child {
 			position: relative;
 			&:before {
 				content: '';
@@ -33,7 +62,7 @@
 				background: transparentize(#000, .85);
 			}
 		}
-		&:first-child {
+		&:nth-of-type(2) {
 			&:before {
 				left: -10px;
 			}
@@ -46,12 +75,15 @@
 	}
 	.tariff-cell {
 		&__title {
+			margin-bottom: 15px;
 			font-size: 2rem;
+			line-height: 1;
 			color: $colorLinkEn;
 			letter-spacing: -1px;
 			font-weight: 500;
 		}
 		&__value-holder {
+			white-space: nowrap;
 			.value, .unit {
 				color: #000;
 				font-weight: 500;
@@ -59,6 +91,7 @@
 			}
 			.value {
 				font-size: 2rem;
+				line-height: 1;
 				letter-spacing: -1px;
 			}
 			.unit {
@@ -67,23 +100,136 @@
 			}
 		}
 		&__description {
+			display: inline-block;
+			height: 48px; // scroll jump fix
+			padding-top: 10px;
 			font-size: 1rem;
+			line-height: 1;
 			color: transparentize(#000, .8);
-			margin-bottom: 7px;
-			white-space: nowrap;
 		}
 		&__button {
+			display: inline-block;
 			width: 50px;
 			height: 50px;
+			margin-top: auto;
 			border-radius: 50%;
 			border: 1px solid transparentize(#000, .7);
 		}
 	}
 	&.js-del-shadow {
 		.price-block__tariff-cell {
-			&:first-child, &:last-child {
+			&:nth-of-type(2), &:last-child {
 				&:before {
 					display: none;
+				}
+			}
+		}
+	}
+	@include bp($point: 1140, $type: max) {
+		&__tariff-cell {
+			padding: 52px 20px 20px 4%;
+		}
+		.tariff-cell {
+			&__description {
+				height: 50px; // scroll jump fix
+			}
+		}
+	}
+	@include bp($point: 1039, $type: max) {
+		&__tariff-cell {
+			min-height: 200px;
+			max-height: 220px;
+			padding: 40px 20px 10px 4.5%;
+		}
+		.tariff-cell {
+			&__title {
+				margin-bottom: 18px;
+				font-size: 2.8vw;
+				line-height: 1;
+			}
+			&__value-holder {
+				.value {
+					font-size:2.8vw;
+					line-height: 1;
+				}
+				.unit {
+					font-size:1.35vw;
+				}
+			}
+			&__description {
+				height: 42px; // scroll jump fix
+				padding-top: 5px;
+				font-size: .875rem;
+				white-space: normal;
+			}
+			&__button {
+				width: 41px;
+				height: 41px;
+				margin-top: auto;
+			}
+		}
+	}
+	@include bp($point: 783, $type: max) {
+		flex-wrap: wrap;
+		justify-content: flex-start;
+		&__tariff-cell {
+			width: 50%;
+			max-height: 230px;
+			min-height: 230px;
+			padding: 40px 20px 25px 6.5%;
+			& + li {
+				//border-left: none;
+			}
+			&:nth-child(odd) {
+				border-left: 1px solid transparentize(#000, .9);
+			}
+			&:nth-child(2), &:nth-child(3) {
+				border-bottom: 1px solid transparentize(#000, .9);
+			}
+			&:nth-child(4), &:nth-child(5) {
+				border-bottom: 1px solid transparentize(#000, .9);
+			}
+			&:last-child {
+				border-right: 1px solid transparentize(#000, .9);
+			}
+			&:last-child {
+				&:before {
+					display: none;
+				}
+			}
+			&:nth-child(3) {
+				position: relative;
+				&:before {
+					content: '';
+					position: absolute;
+					bottom: 0;
+					right: -10px;
+					width: 10px;
+					height: calc(100% - 10px);
+					background: transparentize(#000, .85);
+				}
+			}
+		}
+		.tariff-cell {
+			&__title {
+				margin-bottom: 18px;
+				font-size: 1.75rem;
+			}
+			&__value-holder {
+				.value {
+					font-size:1.75rem;
+				}
+				.unit {
+					font-size: .875rem;
+				}
+			}
+		}
+		&.js-del-shadow {
+			.price-block__tariff-cell {
+				&:first-child, &:nth-child(3) {
+					&:before {
+						display: none;
+					}
 				}
 			}
 		}
