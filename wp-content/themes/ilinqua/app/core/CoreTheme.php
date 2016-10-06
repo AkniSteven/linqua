@@ -57,7 +57,8 @@ class CoreTheme extends Timber
      * @return Model
      * Model getter
      */
-    public function getModel(){
+    public function getModel()
+    {
         return $this->model;
     }
 
@@ -65,7 +66,8 @@ class CoreTheme extends Timber
      * @return Config
      * Config getter
      */
-    public function getConfig(){
+    public function getConfig()
+    {
         return $this->config;
     }
     
@@ -89,6 +91,7 @@ class CoreTheme extends Timber
     {
         $data['site_url'] = $this->get_site_url();
         $data['rand'] = (string)rand();
+        $data['primary_header_menu'] = '';
         
         return $data;
     }

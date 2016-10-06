@@ -79,7 +79,8 @@ class Model extends Timber
     /**
      * set posts with wp query_post function
      */
-    public function setQueryPosts(){
+    public function setQueryPosts()
+    {
         $this->result = $this->query_posts($this->args);
     }
 
@@ -87,21 +88,34 @@ class Model extends Timber
      * @param $id
      * Set post by id with wp_get_post
      */
-    public function setSinglePost($id){
+    public function setSinglePost($id)
+    {
         $this->result = array( 0 => $this->get_post($id));
     }
 
     /**
      * set archive  with wp wp_get_archive
      */
-    public function setArchive(){
+    public function setArchive()
+    {
         $this->result = wp_get_archives($this->args);
     }
 
     /**
+     * set acf fields to post
+     */
+    public function formattedACF()
+    {
+        foreach ($this->result as &$item) {
+            $item->acf = get_field_objects($item->ID);
+        }
+    }
+    
+    /**
      * set posts urls to result
      */
-    public function setPostUrls(){
+    public function setPostUrls()
+    {
         foreach ($this->result as &$item) {
             $item->post_url = get_permalink ($item->ID);
         }
@@ -111,12 +125,13 @@ class Model extends Timber
      * @param int $lim
      * set post limit in result
      */
-    public function setLimit($lim = 1000){
+    public function setLimit($lim = 1000)
+    {
         $result = [];
         $i = 0;
         foreach ($this->result as $res) {
             $result[] = $res;
-            if($i == $lim) {
+            if ($i == $lim) {
                 break;
             }
             $i++;
@@ -128,7 +143,8 @@ class Model extends Timber
      * @param $result
      * set result for other manipulations
      */
-    public function setResult($result){
+    public function setResult($result)
+    {
         $this->result = $result;
     }
 
@@ -136,7 +152,8 @@ class Model extends Timber
      * @return mixed
      * return result
      */
-    public function getResult(){
+    public function getResult()
+    {
         return $this->result;
     }
 }
