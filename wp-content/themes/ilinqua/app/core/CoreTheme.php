@@ -10,8 +10,8 @@ namespace ilinqua\app\core;
 
 use ilinqua\app\Model\Construct;
 use ilinqua\app\Model\Model;
+use ilinqua\app\Helper\Data;
 use Timber\Timber;
-
 class CoreTheme extends Timber
 {
     /**
@@ -93,10 +93,18 @@ class CoreTheme extends Timber
      */
     public function addToContext($data)
     {
+        #site url
         $data['site_url'] = $this->get_site_url();
+        #random number in string format
         $data['rand'] = (string)rand();
-        $data['primary_header_menu'] = '';
-
+        #header menu
+        $headerMenuLocation =  get_nav_menu_locations()['primary-header-menu'];
+        if ($headerMenuLocation !== null) {
+            $data['primary_header_menu'] = wp_get_nav_menu_items(
+                $headerMenuLocation
+            );
+        }
+        
         return $data;
     }
 
