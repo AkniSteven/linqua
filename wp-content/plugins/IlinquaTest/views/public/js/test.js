@@ -1,24 +1,16 @@
 function questionSorter(name){
     switch (name){
         case 'text' :
-            hideFragment();
             hideAnswerFields();
             hideCounter();
             break;
         case 'radio':
-            hideFragment();
             showCounter();
             showAnswerFields();
             break;
         case 'checkbox':
-            hideFragment();
             showCounter();
             showAnswerFields();
-            break;
-        case 'fragment':
-            hideCounter();
-            hideAnswerFields();
-            showFragment();
             break;
     }
 }
@@ -33,14 +25,6 @@ function hideAnswerFields(){
 
 function showCounter(){
     jQuery('#answer_counter').show();
-}
-
-function hideFragment(){
-    jQuery('#fragment').hide();
-}
-
-function showFragment(){
-    jQuery('#fragment').show();
 }
 
 function showAnswerFields(){

@@ -9,7 +9,6 @@
             <option value="text"     {% if options.meta.question_type.0 == 'text' %}     selected="selected" {% endif %}>Text</option>
             <option value="radio"    {% if options.meta.question_type.0 == 'radio' %}    selected="selected" {% endif %}>Radiobuton</option>
             <option value="checkbox" {% if options.meta.question_type.0 == 'checkbox'%}  selected="selected" {% endif %}>Checkbox</option>
-            <option value="fragment" {% if options.meta.question_type.0 == 'fragment'%}  selected="selected" {% endif %}>Fragment</option>
         </select>
     </div>
     <div id="answer_counter" {% if options.meta.question_type.0 != 'checkbox' and  options.meta.question_type.0 != 'radio' %} style="display:none;" {% endif %}>
