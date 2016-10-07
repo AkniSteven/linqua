@@ -10,19 +10,19 @@ namespace ilinqua\app\core;
 
 use ilinqua\app\Model\Construct;
 use ilinqua\app\Model\Model;
+use ilinqua\app\Helper\Data;
 use Timber\Timber;
-
 class CoreTheme extends Timber
 {
     /**
      * @var Config load configurations method
      */
-    private $config;
+    private $_config;
 
     /**
      * @var Construct register parts of wp
      */
-    private $construct;
+    private $_construct;
     
     /**
      * @var Model usages
@@ -35,6 +35,10 @@ class CoreTheme extends Timber
     public function __construct()
     {
         add_action('after_setup_theme', [$this, 'setUp']);
+        add_filter(
+            'acf/fields/google_map/api', [$this, 'setMapApiKey']
+        );
+
         parent::__construct();
     }
 
@@ -57,7 +61,8 @@ class CoreTheme extends Timber
      * @return Model
      * Model getter
      */
-    public function getModel(){
+    public function getModel()
+    {
         return $this->model;
     }
 
@@ -65,8 +70,9 @@ class CoreTheme extends Timber
      * @return Config
      * Config getter
      */
-    public function getConfig(){
-        return $this->config;
+    public function getConfig()
+    {
+        return $this->_config;
     }
     
     /**
@@ -74,8 +80,8 @@ class CoreTheme extends Timber
      */
     public function setUp()
     {
-        $this->config = new Config();
-        $this->construct = new Construct();
+        $this->_config = new Config();
+        $this->_construct = new Construct();
         $this->model = new Model();
         $this->add_filter('timber_context', [$this, 'addToContext']);
     }
@@ -87,10 +93,30 @@ class CoreTheme extends Timber
      */
     public function addToContext($data)
     {
+        #site url
         $data['site_url'] = $this->get_site_url();
+        #random number in string format
         $data['rand'] = (string)rand();
+        #header menu
+        $headerMenuLocation =  get_nav_menu_locations()['primary-header-menu'];
+        if ($headerMenuLocation !== null) {
+            $data['primary_header_menu'] = wp_get_nav_menu_items(
+                $headerMenuLocation
+            );
+        }
         
         return $data;
+    }
+
+    /**
+     * @param $api
+     * @return mixed
+     * this set google map api
+     */
+    public function setMapApiKey($api)
+    {
+        $api['key'] = 'AIzaSyDlz7f8qQwqDy9wl8IRIZ58NiYgXTrqBTk';
+        return $api;
     }
 
 }

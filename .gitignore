@@ -18,6 +18,8 @@ error_log
 access_log
 .sass-cache
 
+.idea
+wp-content/themes/ilinqua/.idea
 
 #===================================#
 #       Config. and npm Files       #

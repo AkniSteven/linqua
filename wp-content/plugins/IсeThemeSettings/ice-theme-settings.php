@@ -15,7 +15,7 @@ define('TEMPLATE_PATH_SETTINGS', __DIR__ . '/views/templates');
  */
 if (file_exists($composerAutoload = __DIR__ . '/vendor/autoload.php')) {
     require_once $composerAutoload;
-}else{
+} else {
     _e('Install composer for current work');
     exit;
 }

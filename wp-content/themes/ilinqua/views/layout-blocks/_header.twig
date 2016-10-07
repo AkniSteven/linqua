@@ -9,21 +9,25 @@
 		</strong>
 	</div>
 	<ul class="header__right-side header-nav__list">
-		<li class="header-nav__item">
-			<a href="#" class="header-nav__link">Пройти тест</a>
-		</li>
-		<li class="header-nav__item">
-			<a href="#" class="header-nav__link">Контакты</a>
-		</li>
-		<li class="header-nav__item">
-			<a href="#" class="header-nav__link--striped">
-				<span class="tile"></span>
-				<span class="tile"></span>
-				<span class="tile"></span>
-				<span class="tile"></span>
-				<span class="tile"></span>
-				<span class="title">Corporate</span>
-			</a>
-		</li>
+		{% if primary_header_menu is not empty %}
+			{% for menu_item in primary_header_menu  %}
+				<li class="header-nav__item">
+					<a href="{{ menu_item.url }}" class="header-nav__link">{{ menu_item.title }}</a>
+				</li>
+			{% endfor %}
+			<li class="header-nav__item">
+				<a href="#" class="header-nav__link">Пройти тест</a>
+			</li>
+			<li class="header-nav__item">
+				<a href="#" class="header-nav__link--striped">
+					<span class="tile"></span>
+					<span class="tile"></span>
+					<span class="tile"></span>
+					<span class="tile"></span>
+					<span class="tile"></span>
+					<span class="title">Corporate</span>
+				</a>
+			</li>
+		{% endif %}
 	</ul>
 </header>
