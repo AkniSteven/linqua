@@ -35,4 +35,13 @@
 			margin-left: 15.5%;
 		}
 	}
+	@include bp($point: 640, $type: max) {
+		height: 460px;
+		&__title {
+			max-width: 250px;
+			margin-left: 6.7%;
+			padding-top:calc(81px + 120px);
+			font-size: 2.625rem;
+		}
+	}
 }

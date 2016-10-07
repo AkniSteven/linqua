@@ -2,11 +2,47 @@ requirejs([
 	'jquery',
 	'ScrollMagic',
 	'animation.gsap',
-	'debug.addIndicators'
+	'debug.addIndicators',
+	'enquire',
+	'swiper'
 
 ], function ($, ScrollMagic) {
 
 	'use strict';
+
+	function profileNavSwiper() {
+		enquire
+			.register("screen and (max-width : 640px)", {
+				match : function profileNavSwiper() {
+					var profileNav = new Swiper('.swiper-container', {
+						slidesPerView: 'auto',
+						centeredSlides: true,
+						grabCursor: true
+					});
+				},
+				unmatch : function() {
+					profileNav.destroy();
+				}
+			});
+	}
+	profileNavSwiper();
+
+
+	sharePopup();
+	function sharePopup() {
+		enquire
+			.register("screen and (max-width : 640px)", {
+				match : function sharePopup() {
+					controller.enabled(false);
+					console.log('acdsvcds');
+					$('.price-block').removeAttr('style');
+				},
+				unmatch : function() {
+					$('.price-block').attr('style');
+					console.log('sfvdfv');
+				}
+			})
+	}
 
 	var controller = new ScrollMagic.Controller();
 
@@ -15,7 +51,7 @@ requirejs([
 		duration: 1000
 
 	})
-	.setTween(".price-block-holder", 2, {css:{paddingLeft:"0", paddingRight:"0"}, ease:Power2.easeOut})
+	.setTween(".price-block", 2, {css:{paddingLeft:"0", paddingRight:"0"}, ease:Power2.easeOut})
 	.addTo(controller);
 
 	new ScrollMagic.Scene({
@@ -26,6 +62,8 @@ requirejs([
 
 	.setClassToggle(".price-block", "js-del-shadow") // add class toggle
 	.addTo(controller);
+
+
 
 });
 

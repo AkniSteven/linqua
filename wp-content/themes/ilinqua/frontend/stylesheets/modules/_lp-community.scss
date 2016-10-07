@@ -12,9 +12,8 @@
 		margin-bottom: 80px;
 	}
 	&__filter-item {
-		& + li {
-			margin-left: 10px;
-		}
+		white-space: nowrap;
+		margin-right: 10px;
 	}
 	@include bp($point: 1680, $type: min) {
 		max-width: 1440px;
@@ -29,6 +28,7 @@
 			font-size: 3.5rem;
 		}
 		&__filter-list {
+			flex-wrap: wrap;
 			margin-bottom: 40px;
 		}
 	}
@@ -38,6 +38,15 @@
 	@include bp($point: 783, $type: max) {
 		max-width: 528px;
 		padding-top: 300px;
+		&__filter-item {
+			margin-bottom: 10px;
+		}
+	}
+	@include bp($point: 640, $type: max) {
+		padding-top: 52px;
+		&__filter-list {
+			flex-wrap: nowrap;
+		}
 	}
 }
 
