@@ -52,3 +52,32 @@ function createAnswerFields(value, id){
         })
     }
 }
+function createRightAnswerField(){
+    var q_type  = jQuery("#question_type").val();
+    var a_count = jQuery("#counter").val();
+
+    if(q_type != 'undefined' && a_count != 'undefined'){
+        if(q_type != 'text'){
+            jQuery.ajax({
+                type: 'POST',
+                url: ajaxurl,
+                data: {
+                    'action':'createRightAnswerField',
+                    'q_type':q_type,
+                    'q_count':a_count
+                },
+                dataType: 'html',
+                success: function(response){
+                    jQuery('#right-answer').html(response);
+                },
+                error: function() {
+                    alert('Sory... error');
+                }
+
+            })
+        } else {
+            jQuery('#right-answer').html("<input type='hidden' name='right_answer' id='right_answer' value=''");
+        }
+
+    }
+}

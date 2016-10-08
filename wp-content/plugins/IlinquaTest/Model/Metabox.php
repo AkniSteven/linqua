@@ -27,6 +27,10 @@ class Metabox
             'wp_ajax_createAnswerFields',
             [&$this,'createAnswerFields']
         );
+        add_action(
+            'wp_ajax_createRightAnswerField',
+            [&$this,'createRightAnswerField']
+        );
         add_action('save_post', [&$this, 'save'], 10, 2);
     }
 
@@ -115,11 +119,52 @@ class Metabox
     }
 
     /**
+     * create right answer field
+     * @return bool
+     */
+    public function createRightAnswerField()
+    {
+        $html = '<label for="right_answer">Right answer</label>';
+        $counter = $_POST['q_count'] > 20 ? $counter = 20 : $_POST['q_count'];
+        $qType = $_POST['q_type'];
+
+        switch ($qType){
+            case 'checkbox':
+                $html.= "<select name='right_answer[]'
+                                 id='right_answer'
+                                 multiple='multiple'
+                                 size={$counter}>";
+                break;
+            case 'radio' :
+                $html.= "<select name='right_answer'
+                                 id='right_answer'
+                          >";
+                break;
+
+        }
+        for ($i = 1; $i <= $counter; $i++) {
+            $html .= "<option value='{$i}'>answer $i</option>";
+        }
+        $html.= "</select>";
+
+        if ($counter != '') {
+
+            echo $html;
+            wp_die();
+        }
+        return true;
+    }
+    /**
      * save meta
      */
     public function save()
     {
         $questionId = $_POST['ID'];
+        if (isset($_POST['question_score'])) {
+            update_post_meta(
+                $questionId, 'question_score', $_POST['question_score']
+            );
+        }
         if (isset($_POST['question_level'])) {
             update_post_meta(
                 $questionId, 'question_level', $_POST['question_level']
@@ -135,9 +180,9 @@ class Metabox
                 $questionId, 'counter', $_POST['counter']
             );
         }
-        if (isset($_POST['answer_case'])) {
+        if (isset($_POST['right_answer'])) {
             update_post_meta(
-                $questionId, 'answer_case', $_POST['answer_case']
+                $questionId, 'right_answer', $_POST['right_answer']
             );
         }
     }

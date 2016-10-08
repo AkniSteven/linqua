@@ -33,6 +33,9 @@ $options['meta'] = get_post_meta($options['post_id']);
 $options['meta']['answer_case'] = get_post_meta(
     $options['post_id'], 'answer_case', true
 );
+$options['meta']['right_answer'] = get_post_meta(
+    $options['post_id'], 'right_answer', true
+);
 #render view for metabox
 $metaboxDisplay = $twig->render(
     'metabox.twig', ['options' => $options]
