@@ -1,0 +1,29 @@
+<div class="form-group">
+    <div id="test_category_block">
+        <label for="questions_category">Test questions category</label>
+        <select name="questions_category" id="questions_category">
+            <option value="">All</option>
+            {% if options.question_terms is not empty %}
+                {% for question_term in options.question_terms %}
+                    <option value="{{ question_term.term_id }}"
+                            {% if options.meta.questions_category.0 == question_term.term_id %}
+                        selected="selected"
+                            {% endif %}>
+                        {{ question_term.name }}</option>
+                {% endfor %}
+            {% endif %}
+        </select>
+    </div>
+    <div id="test_steps_block">
+        <label for="test_steps">Test steps counter</label>
+        <input type="number" min="1" step="1" max="4"
+               name="test_steps"
+               id="test_steps"
+                {% if options.meta.test_steps.0 !='' %}
+                    value="{{ options.meta.test_steps.0 }}"
+                {% else %}
+                    value="1"
+                {% endif %}
+        />
+    </div>
+</div>
