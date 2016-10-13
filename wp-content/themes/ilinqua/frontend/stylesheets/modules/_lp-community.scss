@@ -1,10 +1,13 @@
 .lp-community {
+	position: relative;
 	background: #fff;
-	max-width: 1040px;
+	max-width: 1200px;
+	@include anim($param: max-width, $dur: .25s);
 	margin: 0 auto;
 	padding: 80px 0 300px;
+	padding-top: 0;
 	&__title {
-		margin: 0 0 30px;
+		margin: 0 0 30px $big;
 	}
 	&__filter-list {
 		display: flex;
@@ -16,15 +19,17 @@
 		margin-right: 10px;
 	}
 	@include bp($point: 1680, $type: min) {
-		max-width: 1440px;
+		max-width: 83vw;
+	}
+	@include bp($point: 1240, $type: max) {
+		max-width: 980px;
 	}
 	@include bp($point: 1140, $type: max) {
-		max-width: 784px;
 	}
 	@include bp($point: 1039, $type: max) {
-		padding-top: 40px;
+		max-width: 764px;
 		&__title {
-			margin: 0 0 21px;
+			margin: 0 0 21px $small;
 			font-size: 3.5rem;
 		}
 		&__filter-list {
@@ -32,20 +37,25 @@
 			margin-bottom: 40px;
 		}
 	}
-	@include bp($point: 980, $type: max) {
-		max-width: 690px;
+	@include bp($point: 890, $type: max) {
+		max-width: 680px;
 	}
 	@include bp($point: 783, $type: max) {
-		max-width: 528px;
-		padding-top: 300px;
+		max-width: 608px;
+		&__title {
+			margin: 0 0 21px $middle;
+		}
 		&__filter-item {
 			margin-bottom: 10px;
 		}
 	}
 	@include bp($point: 640, $type: max) {
-		padding-top: 52px;
+		max-width: 100%;
 		&__filter-list {
 			flex-wrap: nowrap;
+		}
+		&__title {
+			font-size: 2.625rem;
 		}
 	}
 }
@@ -53,7 +63,9 @@
 .lp-article {
 	&__holder {
 		display: flex;
-		flex-flow: row nowrap;
+		//flex-flow: row nowrap;
+		flex-flow: row wrap;
+		margin-left:$big;
 		[class*="lp-article__tile--"] {
 			margin-bottom: 80px;
 			will-change: width, margin;
@@ -112,6 +124,9 @@
 				}
 			}
 		}
+		@include bp($point: 1039, $type: max) {
+			margin-left:$small;
+		}
 		@include bp($point: 980, $type: max) {
 			.left-column-holder {
 				max-width: 450px;
@@ -121,6 +136,7 @@
 			}
 		}
 		@include bp($point: 783, $type: max) {
+			margin: 0 $middle;
 			flex-flow: column nowrap;
 			.left-column-holder {
 				max-width: 100%;
@@ -137,6 +153,9 @@
 					}
 				}
 			}
+		}
+		@include bp($point: 640, $type: max) {
+			margin: 0 10px;
 		}
 	}
 	&__tile {
@@ -268,6 +287,43 @@
 			padding: 13px 20px 0 0;
 		}
 	}
+}
+
+.isotope,
+.isotope .item  {
+	-webkit-transition-duration: 0.8s;
+	-moz-transition-duration: 0.8s;
+	-ms-transition-duration: 0.8s;
+	-o-transition-duration: 0.8s;
+	transition-duration: 0.8s;
+}
+
+.isotope {
+	-webkit-transition-property: height, width;
+	-moz-transition-property: height, width;
+	-ms-transition-property: height, width;
+	-o-transition-property: height, width;
+	transition-property: height, width;
+}
+
+.isotope .item  {
+	-webkit-transition-property: -webkit-transform, opacity;
+	-moz-transition-property:    -moz-transform, opacity;
+	-ms-transition-property:     -ms-transform, opacity;
+	-o-transition-property:      -o-transform, opacity;
+	transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .item ,
+.isotope .item .no-transition {
+	-webkit-transition-duration: 0s;
+	-moz-transition-duration: 0s;
+	-ms-transition-duration: 0s;
+	-o-transition-duration: 0s;
+	transition-duration: 0s;
 }
 
 
