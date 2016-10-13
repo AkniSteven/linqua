@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4e3ccad4-8936-487a-a803-7bdd97436c71" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="4e3ccad4-8936-487a-a803-7bdd97436c71" name="Default" comment="" />
     <ignored path="ilinqua.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -45,11 +43,41 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="isotope-filter2.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="isotope-filter2.html" pinned="false" current-in-tab="false">
             <entry file="file://$USER_HOME$/Downloads/filter/isotope-filter2.html">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="666">
                   <caret line="184" column="32" selection-start-line="184" selection-start-column="32" selection-end-line="184" selection-end-column="32" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="single-course.twig" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/single-course.twig">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="126">
+                  <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="single.twig" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/views/single.twig">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="0">
+                  <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="workspace.xml" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="180">
+                  <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
@@ -167,6 +195,7 @@
         <option value="$PROJECT_DIR$/frontend/js/index.js" />
         <option value="$PROJECT_DIR$/frontend/stylesheets/modules/_lp-community.scss" />
         <option value="$PROJECT_DIR$/views/modules/_lp-filters.twig" />
+        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
       </list>
     </option>
   </component>
@@ -189,7 +218,7 @@
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
     <option name="x" value="1958" />
-    <option name="y" value="18" />
+    <option name="y" value="-1062" />
     <option name="width" value="1882" />
     <option name="height" value="1062" />
   </component>
@@ -249,38 +278,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilinqua" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilinqua" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="modules" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilinqua" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ilinqua" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="frontend" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -295,11 +292,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="frontend" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
+              <option name="myItemId" value=".idea" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -313,7 +306,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="SearchEverywhereHistoryKey" value="comm&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/modules/_lp-community.twig&#10;var&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_variables.scss&#10;_la&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/_layout.twig&#10;index&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/js/index.js&#10;price&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/modules/_lp-price-block.twig&#10;mix&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_mixins.scss&#10;inde&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/js/index.js&#10;a&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_variables.scss&#10;banner&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/modules/_lp-banner.scss&#10;base&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/base/_base.scss&#10;va&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_variables.scss&#10;price-&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/modules/_lp-price-block.scss&#10;lp&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/pages/lang-page.twig&#10;banne&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/modules/_lp-banner.twig&#10;тфм&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/modules/_header-nav.scss&#10;in&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/js/index.js&#10;he&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/layout-blocks/_header.twig&#10;ba&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/modules/_lp-banner.twig&#10;nav&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/modules/_header-nav.scss&#10;la&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/layout/_layout.scss&#10;дз&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/modules/_lp-banner.scss&#10;_f&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_fonts.scss&#10;_ba&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/base/_base.scss&#10;_base&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/base/_base.scss&#10;re&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/base/_reset.scss&#10;style&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/public/css/styles.css&#10;lay&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/layout/_layout.scss&#10;bann&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/modules/_lp-banner.scss&#10;gulp&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/gulpfile.js&#10;_fon&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_fonts.scss&#10;res&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/base/_reset.scss&#10;_font&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_fonts.scss&#10;demo&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/vendors/demo.css&#10;_mix&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_mixins.scss&#10;home&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/home-template.twig&#10;heade&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/layout-blocks/_header.twig&#10;hea&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/layout-blocks/_header.twig&#10;head&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/layout-blocks/_header.twig" />
+    <property name="SearchEverywhereHistoryKey" value=".idea/&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/.idea&#10;comm&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/modules/_lp-community.twig&#10;var&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_variables.scss&#10;_la&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/_layout.twig&#10;index&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/js/index.js&#10;price&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/modules/_lp-price-block.twig&#10;mix&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_mixins.scss&#10;inde&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/js/index.js&#10;a&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_variables.scss&#10;banner&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/modules/_lp-banner.scss&#10;base&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/base/_base.scss&#10;va&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_variables.scss&#10;price-&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/modules/_lp-price-block.scss&#10;lp&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/pages/lang-page.twig&#10;banne&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/modules/_lp-banner.twig&#10;тфм&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/modules/_header-nav.scss&#10;in&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/js/index.js&#10;he&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/layout-blocks/_header.twig&#10;ba&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/modules/_lp-banner.twig&#10;nav&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/modules/_header-nav.scss&#10;la&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/layout/_layout.scss&#10;дз&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/modules/_lp-banner.scss&#10;_f&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_fonts.scss&#10;_ba&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/base/_base.scss&#10;_base&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/base/_base.scss&#10;re&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/base/_reset.scss&#10;style&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/public/css/styles.css&#10;lay&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/layout/_layout.scss&#10;bann&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/modules/_lp-banner.scss&#10;gulp&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/gulpfile.js&#10;_fon&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_fonts.scss&#10;res&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/base/_reset.scss&#10;_font&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_fonts.scss&#10;demo&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/vendors/demo.css&#10;_mix&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/frontend/stylesheets/utilities/_mixins.scss&#10;home&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/home-template.twig&#10;heade&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/layout-blocks/_header.twig&#10;hea&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/layout-blocks/_header.twig&#10;head&#9;FILE&#9;file:///home/anton/projects/www.linqua.web/www/wp-content/themes/ilinqua/views/layout-blocks/_header.twig" />
     <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="editor.config.accepted" value="true" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
@@ -863,15 +856,15 @@
       <workItem from="1475930363006" duration="11866000" />
       <workItem from="1475995312066" duration="22231000" />
       <workItem from="1476019027581" duration="7077000" />
-      <workItem from="1476371864956" duration="1001000" />
+      <workItem from="1476371864956" duration="1873000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="165578000" />
+    <option name="totallyTimeSpent" value="166450000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1958" y="18" width="1882" height="1062" extended-state="6" />
+    <frame x="1958" y="-1062" width="1882" height="1062" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -881,7 +874,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32941177" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44689378" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.44689378" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14400859" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -891,14 +885,13 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Dynamic Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -917,14 +910,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bower_components/scrollmagic/scrollmagic/uncompressed/ScrollMagic.js" />
     <entry file="file://$PROJECT_DIR$/public/js/config/require.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1110,13 +1095,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/single-course.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gulpfile.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1256,6 +1234,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="666">
           <caret line="184" column="32" selection-start-line="184" selection-start-column="32" selection-end-line="184" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/single-course.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/views/single.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="13" selection-start-line="0" selection-start-column="13" selection-end-line="0" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="20" column="14" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
           <folding />
         </state>
       </provider>
