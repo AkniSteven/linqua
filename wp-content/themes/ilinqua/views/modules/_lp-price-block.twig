@@ -1,18 +1,46 @@
-<div class="price-block-holder">
-	<ul class="price-block">
-		<li class="price-block__status">Идет набор</li>
+{#<div class="price-block-bg">#}
+	<div class="price-block-wrapper">
 		{% if coursesPosts is not empty %}
-		{% for course in coursesPosts  %}
-			<li class="price-block__tariff-cell">
-				<span class="tariff-cell__title">{{course.post_title }}</span>
-				<div class="tariff-cell__value-holder">
-					<span class="value">{{ course.price }}</span>
-					<span class="unit">грн/мес</span>
-				</div>
-				<span class="tariff-cell__description">{{ course.comment }}</span>
-				<a href="{{ course.post_url }}" class="tariff-cell__button btn--next"></a>
-			</li>
-		{% endfor %}
-	</ul>
-	{% endif %}
-</div>
+			{#<div class="price-block-holder">#}
+			<div class="price-block-bg"></div>
+			<div class="full"></div>
+			<div class="price-block">
+				<span class="price-block__status">Идет набор</span>
+				{% for course in coursesPosts %}
+					<div class="price-block__tariff-cell">
+						<span class="tariff-cell__title">{{ course.post_title }}</span>
+						<div class="tariff-cell__value-holder">
+							<span class="value">{{ course.price }}</span>
+							<span class="unit">грн/мес</span>
+						</div>
+						<span class="tariff-cell__description">{{ course.comment }}</span>
+						<a href="{{ course.post_url }}" class="tariff-cell__button btn--next"></a>
+					</div>
+				{% endfor %}
+			</div>
+			{#</div>#}
+		{% endif %}
+	</div>
+{#</div>#}
+
+{#<div class="price-block-wrapper">#}
+	{#{% if coursesPosts is not empty %}#}
+		{#<div class="fill-block"></div>#}
+		{#<div class="price-block-holder">#}
+			{#<ul class="price-block">#}
+				{#<li class="price-block__status">Идет набор</li>#}
+				{#{% for course in coursesPosts %}#}
+					{#<li class="price-block__tariff-cell">#}
+						{#<span class="tariff-cell__title">{{ course.post_title }}</span>#}
+						{#<div class="tariff-cell__value-holder">#}
+							{#<span class="value">{{ course.price }}</span>#}
+							{#<span class="unit">грн/мес</span>#}
+						{#</div>#}
+						{#<span class="tariff-cell__description">{{ course.comment }}</span>#}
+						{#<a href="{{ course.post_url }}" class="tariff-cell__button btn--next"></a>#}
+					{#</li>#}
+				{#{% endfor %}#}
+			{#</ul>#}
+		{#</div>#}
+	{#{% endif %}#}
+{#</div>#}
