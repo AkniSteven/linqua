@@ -1,0 +1,675 @@
+.article {
+    height: 100vh;
+    width: 100%;
+    &-header {
+        height: 100vh;
+        position: relative;
+        background-size: 100%;
+        overflow: hidden;
+        &__banner {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        &__title {
+            padding: 163px 0 0 0;
+            margin: 0 auto;
+            width: 58%;
+            z-index: 5;
+            .language {
+                width: 128px;
+                height: 40px;
+                background: #0c7aff;
+                line-height: 40px;
+                text-align: center;
+                margin: 0 0 20px;
+                span {
+                    color: #fff;
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                }
+            }
+            .title {
+                color: #fff;
+                text-transform: none;
+                span {
+                    display: block;
+                }
+            }
+        }
+        &__specification {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 62%;
+            bottom: -80px;
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+                left: -6px;
+                top: 6px;
+                width: 10px;
+                height: 95%;
+                background: rgba(0, 0, 0, 0.15);
+                z-index: 5;
+                transform: rotate(-1.9deg);
+            }
+            &:after {
+                left: auto;
+                right: -6px;
+                transform: rotate(1.9deg);
+            }
+            .specification-holder {
+                background: #fff;
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                padding: 80px;
+                position: relative;
+                z-index: 10;
+                .frame {
+                    margin-right: 19px;
+                    width: 34%;
+                    display: flex;
+                    align-items: center;
+                    padding: 5px 0 0 0;
+                    img {
+                        width: 80px;
+                        height: 80px;
+                        border-radius: 50%;
+                        display: inline-block;
+                        margin-right: 19px;
+                    }
+                    span {
+                        display: inline-block;
+                        font-size: $fz-small;
+                        line-height: 1.22;
+                    }
+                }
+                .subtitle {
+                    width: 63%;
+                    .name {
+                        display: block;
+                        font-weight: 500;
+                        letter-spacing: -1px;
+                        font-size: $fz-middle;
+                        line-height: 1;
+                        margin: 0 0 21px;
+                    }
+                    .descr {
+                        display: block;
+                        line-height: 1.75;
+                    }
+                }
+            }
+        }
+    }
+    &-main {
+        width: 100%;
+        &__holder {
+            padding: 80px 0 160px 0;
+            width: 54%;
+            margin: 0 auto;
+        }
+        &__frame {
+            width: 100%;
+            margin: 0 0 78px;
+        }
+        &__story {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            .left-column {
+                width: 28%;
+            }
+            .right-column {
+                width: calc(72% - 80px); // minus banner margin right
+            .txt {
+                p {
+                    display: block;
+                    margin: 0 0 50px;
+                    &:last-child {
+                        margin: 0 0 80px;
+                    }
+                }
+                    span {
+                        display: block;
+                        margin: 0 0 50px;
+                        font-size: 1.5rem;
+                        font-weight: 500;
+                        line-height: 1.5;
+                    }
+                }
+            }
+            .price {
+                width: 100%;
+                margin: 0 0 80px;
+                &-list {
+                    width: 100%;
+                    flex-flow: column;
+                    &__item {
+                        padding: 30px 0;
+                        display: flex;
+                        flex-flow: row nowrap;
+                        justify-content: space-between;
+                        border-bottom: 1px solid #d8d8d8;
+                        align-items: baseline;
+                        &:first-child {
+                            border-top: 1px solid #d8d8d8;
+                        }
+                        .name {
+                            width: 33%;
+                            font-size: 1.5rem;
+                            font-weight: 500;
+                            line-height: 1;
+                        }
+                        .pay {
+                            width: 67%;
+                            &__row {
+                                display: flex;
+                                flex-flow: row nowrap;
+                                align-items: flex-end;
+                                justify-content: flex-end;
+                                margin: 0 0 40px;
+                                &:last-child {
+                                    margin: 0 0 0;
+                                }
+                                .duration {
+                                    width: 45%;
+                                    opacity: 0.5;
+                                    font-weight: 500;
+                                    line-height: 1;
+                                    color: #000000;
+                                }
+                                .money {
+                                    font-size: 2rem;
+                                    font-weight: 500;
+                                    line-height: 1;
+                                    width: 50%;
+                                    padding-left: 10px;
+                                    .currency {
+                                        font-size: 1rem;
+                                        font-weight: 500;
+                                        line-height: 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .story-list {
+                width: 100%;
+                position: relative;
+                li {
+                    position: relative;
+                    margin: 0 0 80px;
+                    counter-increment: item;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                    &:before {
+                        display: block;
+                        position: absolute;
+                        left: -24px;
+                        top: 0;
+                        content: counter(item);
+                        z-index: 15;
+                        font-size: 1.5rem;
+                        font-weight: 500;
+                    }
+                    span {
+                        display: block;
+                        font-size: 1.5rem;
+                        font-weight: 500;
+                        line-height: 1.5;
+                        margin: 0 0 20px;
+                    }
+                    p {
+                        line-height: 1.75;
+                    }
+                }
+            }
+        }
+    }
+    &-more {
+        &__holder {
+            width: 54%;
+            margin: 0 auto;
+        }
+        &__title {
+            font-size: 4rem;
+            font-weight: 500;
+            line-height: 1.13;
+            letter-spacing: -2px;
+            margin:  0 0 80px;
+        }
+        &__list {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+        }
+        &__item {
+            display: block;
+            width: 28.6%;
+            margin: 0 0 80px;
+        }
+        &__link {
+            display: block;
+        }
+        &__frame {
+            display: block;
+            margin: 0 0 20px;
+        }
+        &__name {
+            padding: 0 0 0 1px;
+            display: block;
+            font-size: 1.125rem;
+            line-height: 1.22;
+        }
+    }
+    @include bp($point: 1600, $type: max) {
+        &-main {
+            &__story {
+                .right-column {
+                    .price {
+                        &-list {
+                            &__item {
+                                .pay {
+                                    &__row {
+                                        .money {
+                                            width: 55%;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include bp($point: 1440, $type: max) {
+        &-header {
+            &__title {
+                width: 79%;
+            }
+            &__specification {
+                width: 83%;
+            }
+        }
+        &-main {
+            &__holder {
+                width: 72%;
+            }
+            &__story {
+                .right-column {
+                    .price {
+                        &-list {
+                            &__item {
+                                .name {
+                                    font-size: 1rem;
+                                }
+                                .pay {
+                                    &__row {
+                                        .duration {
+                                            font-size: 0.875rem;
+                                        }
+                                        .money {
+                                            width: 70%;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &-more {
+            &__holder {
+                width: 83%;
+            }
+            &__item {
+                width: 26%;
+            }
+        }
+    }
+    @include bp($point: 1024, $type: max) {
+        &-header {
+            &__title {
+                padding: 109px 0 0 0;
+            }
+            &__specification {
+                bottom: -120px;
+                width: 84%;
+                .specification-holder {
+                    padding: 60px 40px 40px 40px;
+                }
+            }
+        }
+        &-main {
+            &__holder {
+                padding: 190px 0 80px 0;
+                width: 76%;
+            }
+            &__frame {
+                margin: 0 0 80px;
+            }
+            &__story {
+                .right-column {
+                    width: calc(72% - 40px);
+
+                .story__list {
+                    width: calc(72% - 40px);
+                }
+            }
+        }
+        &-more {
+            &__title {
+                margin: 0 0 40px;
+            }
+        }
+    }
+    @include bp($point: 768, $type: max) {
+        &-header {
+            height: 650px;
+            background-size: 100%;
+            &__holder {
+                width: 100%;
+            }
+            &__title {
+                width: 77%;
+                .title {
+                    font-size: 3.5rem;
+                    line-height: 1.14;
+                    letter-spacing: -1.8px;
+                }
+            }
+            &__specification {
+                width: 79%;
+                bottom: -120px;
+                .specification-holder {
+                    padding: 40px;
+                    .frame {
+                        display: none;
+                    }
+                    .subtitle {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        &-main {
+            &__holder {
+                padding: 160px 0 80px 0;
+                width: 68%;
+            }
+            &__story {
+                .left-column {
+                    display: none;
+                }
+                .right-column {
+                    width: 100%;
+                        .price {
+                            &-list {
+                                &__item {
+                                    flex-direction: column;
+                                    padding: 40px 0;
+                                    .name {
+                                        width: 100%;
+                                        font-size: 1.5rem;
+                                        margin: 0 0 20px;
+                                    }
+                                    .pay {
+                                        width: 100%;
+                                        &__row {
+                                            flex-direction: column;
+                                            align-items: flex-start;
+                                            justify-content: flex-start;
+                                            margin: 0 0 35px;
+                                            &:last-child {
+                                                margin: 0;
+                                            }
+                                            .duration {
+                                                font-size: 0.875rem;
+                                                margin: 0 0 10px;
+                                                width: 100%;
+                                            }
+                                            .money {
+                                                width: 100%;
+                                                padding: 0;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                .story-list {
+                    width: 100%;
+                    .txt {
+                        li {
+                            margin: 0 0 80px;
+                            span {
+                                margin: 0 0 67px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &-more {
+            &__holder {
+                width: 68%;
+            }
+            &__title {
+                padding: 0;
+                font-size: 3.5rem;
+                line-height: 1.14;
+                margin: 0 0 40px;
+            }
+            &__item {
+                width: calc(50% - 15px);
+                margin: 0 0 40px;
+            }
+            &__frame {
+                margin: 0 0 10px;
+            }
+            &__name {
+                padding: 0;
+            }
+        }
+    }
+    @include bp($point: 980, $type: max) {
+        &-main {
+            &__story {
+                .right-column {
+                    .price {
+                        margin: 0 0 40px;
+                        &-list {
+                            &__item {
+                                flex-direction: column;
+                                padding: 40px 0;
+                                .name {
+                                    width: 100%;
+                                    font-size: 1.5rem;
+                                    margin: 0 0 20px;
+                                }
+                                .pay {
+                                    width: 100%;
+                                    &__row {
+                                        flex-direction: column;
+                                        align-items: flex-start;
+                                        justify-content: flex-start;
+                                        margin: 0 0 35px;
+                                        &:last-child {
+                                            margin: 0;
+                                        }
+                                        .duration {
+                                            font-size: 0.875rem;
+                                            margin: 0 0 10px;
+                                            width: 100%;
+                                        }
+                                        .money {
+                                            font-size: 2rem;
+                                            width: 100%;
+                                            padding: 0;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include bp($point: 640, $type: max) {
+        &-header {
+            height: auto;
+            background-size: 100%;
+            &__holder {
+                width: 100%;
+            }
+            &__banner {
+                position: static;
+                height: 460px;
+                padding: 110px 0 0 0;
+            }
+            &__title {
+                padding: 0;
+                .title {
+                    font-size: 2.6rem;
+                    line-height: 1.1;
+                    letter-spacing: -1.5px;
+                }
+            }
+            &__specification {
+                width: 100%;
+                position: static;
+                transform: none;
+                &:before,
+                &:after {
+                    display: none;
+                }
+                .specification-holder {
+                    padding: 40px;
+                    .frame {
+                        display: none;
+                    }
+                    .subtitle {
+                        width: 100%;
+                        .name {
+                            font-size: 1.5rem;
+                            line-height: 1.17;
+                            letter-spacing: -0.8px;
+                        }
+                        .descr {
+                            font-size: 0.875rem;
+                            line-height: 1.71;
+                        }
+                    }
+                }
+            }
+        }
+        &-main {
+            &__holder {
+                padding: 0;
+                width: 100%;
+            }
+            &__frame {
+                padding: 0 10px;
+                margin: 0 0 40px;
+            }
+            &__story {
+                .left-column {
+                    display: none;
+                }
+                .right-column {
+                    width: 100%;
+                    .price {
+                        padding: 0 10px;
+                        &-list {
+                            &__item {
+                                padding: 40px 30px;
+                            }
+                        }
+                    }
+                    .txt {
+                        padding: 0 40px;
+                        p {
+                            font-size: 0.875rem;
+                            line-height: 1.71;
+                            margin: 0 0 25px;
+                            &:last-child {
+                                margin: 0 0 40px;
+                            }
+                        }
+                        span {
+                            font-size: 1.5rem;
+                            line-height: 1.17;
+                            letter-spacing: -0.8px;
+                            margin: 0 0 40px;
+                        }
+                    }
+                    .story-list {
+                        width: 100%;
+                        li {
+                            margin: 0 0 40px;
+                            &:before {
+                                left: 15px;
+                                font-size: 1.5rem;
+                                line-height: 1.17;
+                            }
+                            span {
+                                font-size: 1.5rem;
+                                line-height: 1.17;
+                                margin: 0 0 20px;
+                                padding: 0 40px;
+                            }
+                            p {
+                                font-size: 0.875rem;
+                                line-height: 1.71;
+                                padding: 0 40px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &-more {
+            &__holder {
+                width: 100%;
+                padding: 0 10px;
+            }
+            &__title {
+                margin: 0 0 20px;
+                padding: 80px 30px 0;
+                font-size: 2.625rem;
+                line-height: 1.1;
+                letter-spacing: -1.5px;
+            }
+            &__list {
+                flex-direction: column;
+            }
+            &__item {
+                width: 100%;
+                text-align: center;
+                margin: 0 0 40px;
+            }
+            &__frame {
+                margin: 0 0 20px;
+            }
+            &__name {
+                padding: 0 30px;
+                font-size: 1.125rem;
+                line-height: 1.22;
+            }
+        }
+    }
+}
