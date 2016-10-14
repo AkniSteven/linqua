@@ -6,42 +6,63 @@
 
 .language-banner {
 	position: relative;
-	display: flex;
-	flex-direction: column;
-	//height: calc(100vh - 120px); /* 100vh - header height */
-	height: 100vh;
+	width: 100%;
+	//height: 100vh;
+	//height: -webkit-calc(100% - 0px);
+	
+	height: calc(100vh - 260px);
 	&__title {
-		margin-left: 14.2%;
+		width: 100%;
+		max-width: calc(1200px - 60px); // max-w - $big
+		margin: 0 auto;
 		padding-top:calc(102px + 120px);
 		color: #fff;
 		text-transform: none;
+		@include anim($param: max-width, $dur: .25s);
 	}
 	@include bp($point: 1680, $type: min) {
-		min-height: 950px;
 		&__title {
-			margin-left: 12.4%;
+			max-width: calc(83vw - 60px); // max-w - $big
 			padding-top:calc(128px + 140px);
+			@include anim($param: max-width, $dur: .25s);
+		}
+	}
+	@include bp($point: 1240, $type: max) {
+		&__title {
+			max-width: calc(980px - 60px); // max-w - $big
 		}
 	}
 	@include bp($point: 1039, $type: max) {
 		&__title {
-			margin-left: 12%;
+			max-width: calc(764px - 30px); // max-w - $small
 			padding-top:calc(83px + 80px);
 			font-size:3.5rem;
 		}
 	}
+	@include bp($point: 890, $type: max) {
+		&__title {
+			max-width: calc(680px - 30px); // max-w - $small
+		}
+	}
 	@include bp($point: 783, $type: max) {
 		&__title {
-			margin-left: 15.5%;
+			//margin-left: 15.5%;
+			max-width: calc(608px - 40px);
 		}
 	}
 	@include bp($point: 640, $type: max) {
 		height: 460px;
 		&__title {
-			max-width: 250px;
-			margin-left: 6.7%;
-			padding-top:calc(81px + 120px);
+			max-width: 100%;
+			margin-left: 40px;
+			//margin-left: 6.7%;
+			padding-top:calc(40px + 80px);
 			font-size: 2.625rem;
+		}
+	}
+	@include bp($point: 640, $type: max) {
+		&__title {
+			max-width: 200px;
 		}
 	}
 }
