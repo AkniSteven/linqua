@@ -1,13 +1,16 @@
+<span data-post="{{ options.post_id }}"></span>
 <div class="form-group">
     <div id="test_category_block">
         <label for="questions_category">Test questions category</label>
-        <select name="questions_category" id="questions_category">
+        <select  onchange="createQuestionsFields();"
+                 name="questions_category"
+                 id="questions_category">
             <option value="">All</option>
             {% if options.question_terms is not empty %}
                 {% for question_term in options.question_terms %}
                     <option value="{{ question_term.term_id }}"
                             {% if options.meta.questions_category.0 == question_term.term_id %}
-                        selected="selected"
+                            selected="selected"
                             {% endif %}>
                         {{ question_term.name }}</option>
                 {% endfor %}
@@ -25,5 +28,8 @@
                     value="1"
                 {% endif %}
         />
+    </div>
+    <div id="test_questions_block">
+
     </div>
 </div>

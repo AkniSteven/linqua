@@ -32,7 +32,7 @@ class QuestionsMetabox extends Metabox
     public function set_ajax_scripts()
     {
         wp_enqueue_script(
-            'test_ajax', $this->_pluginDir .
+            'questions_ajax', $this->_pluginDir .
             '/views/public/js/questions.js'
         );
     }
