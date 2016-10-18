@@ -20,4 +20,5 @@ class Data
     {
         return trim(strip_tags($string, $allow));
     }
+    
 }

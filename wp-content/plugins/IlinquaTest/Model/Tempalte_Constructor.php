@@ -18,6 +18,10 @@ class Tempalte_Constructor
      */
     protected $_templates;
 
+    /**
+     * @var $_templateDir  - path to template render.
+     */
+    protected $_templateDir;
 
     /**
      * Tempalte_Constructor constructor.
@@ -25,6 +29,7 @@ class Tempalte_Constructor
      */
     public function __construct(array $templates)
     {
+        $this->_templateDir = TEMPLATE_PATH_TEST . '/page-templates/';
 
         $this->templates = $templates;
         add_filter(
@@ -43,9 +48,7 @@ class Tempalte_Constructor
     }
 
     /**
-     * Adds our template to the pages cache in order to trick WordPress
-     * into thinking the template file exists where it doens't really exist.
-     *
+     * add template to the cache
      */
 
     public function register_project_templates()
@@ -68,11 +71,12 @@ class Tempalte_Constructor
     }
 
     /**
-     * Checks if the template is assigned to the page
+     * @param $template
+     * @return string
+     * render template
      */
-    public function view_project_template( $template )
+    public function view_project_template($template)
     {
-
         global $post;
 
         if (! $post) {
@@ -80,24 +84,21 @@ class Tempalte_Constructor
         }
 
         // Return default template if we don't have a custom one defined
-        if (!isset( $this->templates[get_post_meta(
-                $post->ID, '_wp_page_template', true
-            )])) {
+        if (!isset(
+            $this->templates[
+            get_post_meta($post->ID, '_wp_page_template', true)
+            ]
+        )) {
             return $template;
         }
 
-        $file = plugin_dir_path(__FILE__). get_post_meta(
-                $post->ID, '_wp_page_template', true
-            );
+        $file = $this->_templateDir .
+            get_post_meta($post->ID, '_wp_page_template', true) . '.php';
 
-        // Just to be safe, we check if the file exist first
-        if ( file_exists( $file ) ) {
+        if (file_exists($file)) {
             return $file;
-        } else {
-            echo $file;
         }
-
-        // Return template
+        
         return $template;
 
     }
