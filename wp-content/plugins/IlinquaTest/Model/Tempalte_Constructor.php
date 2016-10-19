@@ -37,13 +37,12 @@ class Tempalte_Constructor
             [$this, 'register_project_templates']
         );
         add_filter(
-            'wp_insert_post_data',
-            [$this, 'register_project_templates']
-        );
-
-        add_filter(
             'template_include',
             [ $this, 'view_project_template']
+        );
+        add_filter(
+            'single_template',
+            [ $this, 'view_single_template']
         );
     }
 
@@ -98,9 +97,20 @@ class Tempalte_Constructor
         if (file_exists($file)) {
             return $file;
         }
-        
+
         return $template;
 
     }
+
+//    public function view_single_template($single)
+//    {
+//        global $wp_query, $post;
+//
+//        if ($post->post_type == "test"){
+//            if(file_exists($this->_templateDir. '/test.php'))
+//                return  $this->_templateDir. '/test.php';
+//        }
+//        return $single;
+//    }
 
 }
