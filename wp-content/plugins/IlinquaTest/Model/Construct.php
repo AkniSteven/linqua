@@ -86,7 +86,7 @@ class Construct
     }
 
     /**
-     * Register custom post types
+     * Register page templates
      */
     public function PageTemplates()
     {

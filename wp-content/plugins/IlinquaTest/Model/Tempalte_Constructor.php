@@ -37,6 +37,10 @@ class Tempalte_Constructor
             [$this, 'register_project_templates']
         );
         add_filter(
+            'wp_insert_post_data',
+            [$this, 'register_project_templates']
+        );
+        add_filter(
             'template_include',
             [ $this, 'view_project_template']
         );
@@ -50,7 +54,7 @@ class Tempalte_Constructor
      * add template to the cache
      */
 
-    public function register_project_templates()
+    public function register_project_templates($atts)
     {
         $cacheKey = 'page_templates-' .
             md5(get_theme_root() . '/' . get_stylesheet());
@@ -66,7 +70,7 @@ class Tempalte_Constructor
             $cacheKey, $templates, 'themes', 1800
         );
 
-        return true;
+        return $atts;
     }
 
     /**
@@ -78,7 +82,7 @@ class Tempalte_Constructor
     {
         global $post;
 
-        if (! $post) {
+        if (!$post) {
             return $template;
         }
 
@@ -102,15 +106,20 @@ class Tempalte_Constructor
 
     }
 
-//    public function view_single_template($single)
-//    {
-//        global $wp_query, $post;
-//
-//        if ($post->post_type == "test"){
-//            if(file_exists($this->_templateDir. '/test.php'))
-//                return  $this->_templateDir. '/test.php';
-//        }
-//        return $single;
-//    }
+    /**
+     * @param $single
+     * @return string
+     * This set view for plugin templates
+     * TODO::Now it works only for post type test. Update to work correctly.
+     */
+    public function view_single_template($single)
+    {
+        global $post;
+        if ($post->post_type == "test") {
+            if(file_exists($this->_templateDir. '/test.php'))
+                return  $this->_templateDir. '/test.php';
+        }
+        return $single;
+    }
 
 }
