@@ -10,6 +10,7 @@ namespace IlinquaTest\Controller;
 
 use Twig_Loader_Filesystem;
 use Twig_Environment;
+use IlinquaTest\Model\PostsHandler;
 
 class PageView
 {
@@ -32,6 +33,12 @@ class PageView
     protected $_renderer;
 
     /**
+     * @var PostsHandler
+     * using for working with posts
+     */
+    public $postsHandler;
+
+    /**
      * PageView constructor.
      * use this for create objects for view models.
      */
@@ -41,6 +48,7 @@ class PageView
             TEMPLATE_PATH_TEST . '/views/templates/'
         );
         $this->_twig = new Twig_Environment($this->_loader);
+        $this->postsHandler = new PostsHandler();
     }
 
     /**

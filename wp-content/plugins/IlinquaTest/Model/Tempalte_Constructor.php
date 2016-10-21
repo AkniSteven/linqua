@@ -48,10 +48,13 @@ class Tempalte_Constructor
             'single_template',
             [ $this, 'view_single_template']
         );
+        return $templates;
     }
 
     /**
-     * add template to the cache
+     * Add template to the cache
+     * @param $atts
+     * @return mixed
      */
 
     public function register_project_templates($atts)
@@ -74,9 +77,9 @@ class Tempalte_Constructor
     }
 
     /**
+     * render template
      * @param $template
      * @return string
-     * render template
      */
     public function view_project_template($template)
     {
@@ -107,10 +110,10 @@ class Tempalte_Constructor
     }
 
     /**
+     * TODO::Now it works only for post type test. Update to work correctly.
+     * This set view for plugin templates
      * @param $single
      * @return string
-     * This set view for plugin templates
-     * TODO::Now it works only for post type test. Update to work correctly.
      */
     public function view_single_template($single)
     {

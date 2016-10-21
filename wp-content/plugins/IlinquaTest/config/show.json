@@ -3,5 +3,12 @@
     "posts_per_page": -1,
     "post_type": "test_question",
     "post_status": "publish"
+  },
+  "test": {
+    "posts_per_page": -1,
+    "post_type": "test",
+    "post_status": "publish",
+    "orderby": "post_date",
+    "order": "ASC"
   }
 }
