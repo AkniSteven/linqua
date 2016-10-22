@@ -147,7 +147,7 @@ class TestMetabox extends Metabox
             $html .= "<select 
                                     multiple = 'multiple'
                                     name     = 'questions_text[$i][]'
-                                    id       = 'questions_{$i}' 
+                                    id       = 'questions_text{$i}' 
                                     size     = '$qTextCount'
                                     >";
             foreach ($questions as $qText) {
@@ -183,6 +183,18 @@ class TestMetabox extends Metabox
      */
     private function createQuestionsOtherFields($questions, $i)
     {
+        $postData = $this->_testData;
+        $questionValues = [];
+        $questionCountValues = [];
+
+        if (!empty($postData)) {
+            if ($postData->meta['questions_category'][0] === $_POST['q_type']) {
+                $questionValues = get_post_meta($postData->ID, 'questions')[0];
+                $questionCountValues = get_post_meta(
+                    $postData->ID, 'questions_count'
+                )[0];
+            }
+        }
         $html = '';
         $qOthersCount = count($questions);
         if ($qOthersCount > 0) {
@@ -257,6 +269,18 @@ class TestMetabox extends Metabox
         }
         return $html;
     }
+
+    private function setTestData($postID)
+    {
+        $post = get_post($postID);
+        if (!empty($post)) {
+            $post->meta = get_post_meta($postID);
+            $this->_testData = $post;
+            return true;
+        }
+        return false;
+    }
+
     /**
      * create Questions fields
      * @return bool
@@ -329,12 +353,12 @@ class TestMetabox extends Metabox
                 $testId, 'questions_count', $_POST['questions_count']
             );
         }
-        if (isset($_POST['questions_test'])) {
+        if (isset($_POST['questions_text'])) {
             update_post_meta(
                 $testId, 'questions_text', $_POST['questions_text']
             );
         }
-        if (isset($_POST['questions_test_count'])) {
+        if (isset($_POST['questions_text_count'])) {
             update_post_meta(
                 $testId, 'questions_text_count', $_POST['questions_text_count']
             );
