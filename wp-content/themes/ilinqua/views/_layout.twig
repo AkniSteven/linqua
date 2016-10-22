@@ -13,11 +13,10 @@
 	{% endblock %}
 	{% block base_scripts %}
 		<script src="{{ theme.path }}/public/js/require.js"></script>
-			<script src="{{ theme.path }}/public/js/index.js" type="text/javascript"></script>
-			{#<script type="text/javascript">window.assets_version = '{{ assets }}'</script>#}
-			<script src="{{ theme.path }}/public/js/require.js" type="text/javascript"></script>
-			<script src="{{ theme.path }}/public/js/config/require.js" type="text/javascript"></script>
-			<script async="async" src="{% block jsEntryPoint %}{% endblock %}"></script>
+		<script src="{{ theme.path }}/public/js/config/require.js" type="text/javascript"></script>
+		<script src="{{ theme.path }}/public/js/index.js" type="text/javascript"></script>
+		<script async="async" src="{% block jsEntryPoint %}{% endblock %}"></script>
+		{% block scripts %}{% endblock %}
 	{% endblock %}
 	
 	<script type='text/javascript' id="__bs_script__">
