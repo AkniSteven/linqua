@@ -12,6 +12,16 @@ use IlinquaTest\Helper\Data;
 
 class TestMetabox extends Metabox
 {
+    /**
+     * It`s current post data
+     * @var $_testData
+     */
+    private $_testData;
+
+    /**
+     * It`s using for configs
+     * @var $config
+     */
     public $config;
 
     public function __construct($type,$title)
@@ -84,7 +94,10 @@ class TestMetabox extends Metabox
         return $this->config;
     }
 
-
+    /**
+     * @param $qType
+     * @return array
+     */
     public function getFormateQuestions($qType)
     {
         $questions = [];
@@ -251,6 +264,13 @@ class TestMetabox extends Metabox
 
     public function createQuestionsFields()
     {
+        $testPost = $_POST['post_id'];
+        if ($testPost && $testPost != 'undefined') {
+           $testPost = get_post($testPost);
+           $testPostMeta = get_post_meta($testPost->ID);
+        } else {
+            $testPost = '';
+        }
         $html = '';
         $qType = Data::cleanString($_POST['q_type']);
         $questions = $this->getFormateQuestions($qType);
