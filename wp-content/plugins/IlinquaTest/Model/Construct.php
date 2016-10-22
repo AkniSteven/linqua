@@ -8,6 +8,7 @@
  */
 namespace IlinquaTest\Model;
 
+
 class Construct
 {
     public $config;
@@ -16,7 +17,7 @@ class Construct
     {
         add_action('init', array($this, 'registerTaxType'));
         add_action('init', array($this, 'registerPostType'));
-        add_action('admin_init', array($this, 'addMetabox'));
+
     }
 
     /**

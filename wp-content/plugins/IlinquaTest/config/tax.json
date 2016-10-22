@@ -1,8 +1,8 @@
 {
   "test_questions" : {
     "labels"    : {
-      "name"              : "Test",
-      "singular_name"     : "Test",
+      "name"              : "Test Questions",
+      "singular_name"     : "Test Questions",
       "search_items"      : "Search Category",
       "all_items"         : "All Categories",
       "parent_item"       : "Parent Category",
@@ -19,7 +19,7 @@
       "show_admin_column" : true,
       "query_var"         : true,
       "public"            : true,
-      "rewrite"           : {"slug" : "tests_questions"}
+      "rewrite"           : {"slug" : "test_questions"}
     },
     "post_type" : "test_question"
   }

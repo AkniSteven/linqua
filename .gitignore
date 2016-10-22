@@ -6,6 +6,7 @@
 ehthumbs.db
 *[Tt]humbs.db
 *.Trashes
+wp-content/themes/ilinqua/.idea
 
 
 #==================#
@@ -37,6 +38,7 @@ bower_components
 #===================================#
 /*
 !.gitignore
+!Readme.md
 !wp-content/
 # !media/
 !favicon.ico
