@@ -29,9 +29,12 @@ class Data
      */
     public static function getAttachmentMeta($attachment_id)
     {
-        $alt = get_post_meta($attachment_id, '_wp_attachment_image_alt', true);
-        if($alt == ''){
-            $alt = explode('.', basename(get_attached_file($attachment_id)))[0];
+        $alt = get_post_meta(
+            $attachment_id, '_wp_attachment_image_alt', true
+        );
+        if ($alt == '') {
+            $alt = explode(
+                '.', basename(get_attached_file($attachment_id)))[0];
         }
         return $alt;
     }

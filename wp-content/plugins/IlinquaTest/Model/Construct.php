@@ -15,8 +15,11 @@ class Construct
     
     public function __construct()
     {
-        add_action('init', array($this, 'registerTaxType'));
-        add_action('init', array($this, 'registerPostType'));
+        add_action(
+            'plugins_loaded', [$this, 'PageTemplates']
+        );
+        add_action('init', [$this, 'registerTaxType']);
+        add_action('init', [$this, 'registerPostType']);
 
     }
 
@@ -79,6 +82,17 @@ class Construct
         foreach ($posts as $key => $item) {
             $item['args']['labels'] = $item['labels'];
             $this->register_post_type($key, $item['args']);
+        }
+    }
+
+    /**
+     * Register page templates
+     */
+    public function PageTemplates()
+    {
+        $pageTemplates = $this->getConfig('page_templates');
+        if (!empty($pageTemplates)) {
+            new Tempalte_Constructor($pageTemplates);
         }
     }
 }
