@@ -104,6 +104,8 @@ class CoreTheme extends Timber
                 $headerMenuLocation
             );
         }
+        #theme_options
+        $data['theme_options'] = (array) get_option('ice-theme-settings');
         
         return $data;
     }

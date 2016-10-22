@@ -1,4 +1,12 @@
 <?php
+/*
+Plugin Name: ilinqua test
+Plugin URI:
+Description: Plugin for testing
+Version: 0.0.1
+Author: Stevenaknidev@gmail.com
+Author URI: https://ua.linkedin.com/in/steve-arshinikov-5a4184aa
+*/
 use IlinquaTest\Model\Construct;
 use IlinquaTest\Model\QuestionsMetabox;
 use IlinquaTest\Model\TestMetabox;

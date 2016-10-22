@@ -1,7 +1,7 @@
 {% extends '_layout.twig' %}
 
 {% block title %}
-    Contacts
+    {{ page.post_title }}
 {% endblock %}
 
 {% block jsEntryPoint %}
@@ -13,79 +13,62 @@
 {% endblock %}
 
 {% block content %}
+    <span
+            data-lat = "{{ page.acf.contact_map.value.lat }}"
+            data-lng = "{{ page.acf.contact_map.value.lng }}"
+            id="coordinates"
+    ></span>
     <div class="contacts">
         <div class="contacts__map" id="map"></div>
         <div class="contacts__place">
             <h1>
-                <span class="city">Харьков</span>
-                <span class="street">пер. Кравцова, 8</span>
+                {% if page.acf.city.value != '' %}
+                    <span class="city">{{ page.acf.city.value }}</span>
+                {% endif %}
+                {% if page.acf.street.value != '' %}
+                    <span class="street">{{ page.acf.street.value }}</span>
+                {% endif %}
             </h1>
         </div>
-        <div class="contacts__work">
-            <div class="phones">
-                <ul>
-                    <li>
-                        <a href="#">(057) 756 11 66</a>
-                    </li>
-                    <li>
-                        <a href="#">(099) 235 26 04</a>
-                    </li>
-                    <li>
-                        <a href="#">(063) 978 22 94</a>
-                    </li>
-                    <li>
-                        <a href="#">(063) 978 22 94</a>
-                    </li>
-                    <li>
-                        <a href="#">(063) 978 22 94</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="time">
-                <ul>
-                    <li>
-                        <span class="day">пн-пт</span>
-                        <span class="value">11:30 - 19:30</span>
-                    </li>
-                    <li>
-                        <span class="day">сб</span>
-                        <span class="value">11:30 - 19:30</span>
-                    </li>
-                    <li>
-                        <span class="day">вс</span>
-                        <span class="value">выходной</span>
-                    </li>
-                </ul>
-            </div>
-            <div class="link">
-                <ul class="link__list">
-                    <li>
-                        <a href="#">info@ilingua.com.ua</a>
-                    </li>
-                    <li>
-                        <a href="#">Telegram, Skype: ilingua</a>
-                    </li>
-                </ul>
-                <div class="soc-net">
-                    <ul class="soc-net__list">
-                        <li>
-                            <a href="#">
-                                <img src="{{ theme.path }}/public/images/inst.svg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="{{ theme.path }}/public/images/vk.svg" alt="">
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="{{ theme.path }}/public/images/fb.svg" alt="">
-                            </a>
-                        </li>
-                    </ul>
+        {% if theme_options is not empty %}
+            <div class="contacts__work">
+                {% if theme_options.phones is not empty %}
+                    <div class="phones">
+                        <ul>
+                            {% for phone in theme_options.phones %}
+                                <li>
+                                    <a href="tel:{{ phone }}">{{ phone }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+                {% if theme_options.work is not empty %}
+                <div class="time">
+                    {{ theme_options.work }}
+                </div>
+                {% endif %}
+                <div class="link">
+                    {% if page.post_content is not empty %}
+                        {{ page.post_content }}
+                    {% endif %}
+                    {% if theme_options.social is not empty %}
+                        <div class="soc-net">
+                            <ul class="soc-net__list">
+                                {% for name,href in theme_options.social %}
+                                    {% if href != '' %}
+                                        <li>
+                                            <a href="{{ href }}">
+                                                <img src="{{ theme.path }}/public/images/{{ name }}.svg" alt="{{ name }}">
+                                            </a>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
                 </div>
             </div>
-        </div>
+        {% endif %}
     </div>
 {% endblock %}
