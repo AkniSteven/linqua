@@ -4,7 +4,12 @@ requirejs([
 	'animation.gsap',
 	'TweenMax',
 	'debug.addIndicators',
-	'enquire'
+	'enquire',
+	'jquery-ias.min',
+	'spinner',
+	'trigger',
+	'noneleft'
+
 //	'swiper'
 
 ], function ($, ScrollMagic) {
@@ -130,7 +135,7 @@ requirejs([
 	priceCellChangePosition();
 
 	/*filters*/
-	var PRODUCTLIST = (function () {
+	var ArticleLits = (function () {
 
 		var
 			filter = document.querySelectorAll(".filter"),
@@ -143,16 +148,21 @@ requirejs([
 					productHtml = "",
 					productsHtml = [];
 
-				productsHtml.push("<ul class=\"article-list__holder\">");
+				productsHtml.push("<div class=\"article-list__holder\">");
 
 				for(i = 0; i < JSONdata.length; i ++) {
 					currentItem = JSONdata[i];
-					productHtml = "<li class=\"" + currentItem.category + "\"><a href='" + currentItem.url + "'>" + currentItem.name
-						+ "</a> - <span>Price: " + currentItem.price + "</span>";
+					productHtml = "<figure class=\"lp-article__tile--big\" style=\"background-image: url('http://cdn.head-fi.org/6/6d/6d51bd27_moto.jpeg')\">" +
+						"<figcaption class=\"article-tile__description\">" +
+						"<a href='#' class=\"tile-description__btn btn grey\">18 ОКТЯБРЯ</a>" +
+						"<h4 class=\"tile-description__title\">Кино-клуб</h4>" +
+						"<span class=\"tile-description__subtitle\">Будем ахать и охать. Моральные и этические принципы оставим дома </span>" +
+						"</figcaption>" +
+						"</figure>";
 					productsHtml.push(productHtml);
 				}
 
-				productsHtml.push("</ul>");
+				productsHtml.push("</div>");
 
 				finalHtml = productsHtml.join("\n");
 
@@ -173,7 +183,6 @@ requirejs([
 				var
 					category = event.target.getAttribute("data-category");
 
-
 				$.ajax({
 					url: "http://staff.city.ac.uk/~sbbh718/api/products-list/products.php?callback=&category=" + category,
 					dataType: "JSONP",
@@ -185,8 +194,6 @@ requirejs([
 			},
 
 			init = function () {
-				// event handler here for all filter
-				// start with 4 handlers and improve with bubbling
 
 				filter[0].addEventListener(
 					"click",
@@ -226,11 +233,21 @@ requirejs([
 
 	}());
 
-	PRODUCTLIST.init();
-
-
+	ArticleLits.init();
 
 	/* end filters*/
+
+	var ias = $.ias({
+		container: ".container",
+		item: ".item",
+		pagination: "#pagination",
+		next: ".next a"
+	});
+
+	ias.extension(new IASSpinnerExtension());
+	ias.extension(new IASTriggerExtension({offset: 1}));
+	ias.extension(new IASNoneLeftExtension({text: 'There are no more pages left to load.'}));
+
 
 
 
