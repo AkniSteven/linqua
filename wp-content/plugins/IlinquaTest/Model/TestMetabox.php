@@ -141,6 +141,22 @@ class TestMetabox extends Metabox
      */
     private function createQuestionsTextFields($questions, $i)
     {
+        $postData = $this->_testData;
+        $questionTextValues = [];
+        $questionTextCountValues = [];
+
+        if (!empty($postData)) {
+            if ($postData->meta['questions_category'][0] === $_POST['q_type']) {
+                $questionTextValues = get_post_meta(
+                    $postData->ID, 'questions_text'
+                )[0];
+                $questionTextCountValues = get_post_meta(
+                    $postData->ID, 'questions_text_count'
+                )[0];
+            }
+        }
+
+        $selected ='';
         $html='';
         $qTextCount = count($questions);
         if ($qTextCount > 0) {
@@ -151,19 +167,30 @@ class TestMetabox extends Metabox
                                     size     = '$qTextCount'
                                     >";
             foreach ($questions as $qText) {
-                $html .="<option value='".
+                if (!empty($questionTextValues)) {
+                    if (in_array(
+                        $qText->ID, $questionTextValues[$i]
+                    )) {
+                        $selected = " selected='selected' ";
+                    }
+                }
+                $html .="<option $selected value='".
                     $qText->ID .
                     "'>
                                 $qText->post_title
                                 </option>";
+                $selected = '';
             }
+
+            $countValue = $questionTextCountValues[$i]
+                ? $questionTextCountValues[$i] : 1;
             $html .='</select>';
             $html .= '<div>';
             $html .= "<label for='questions_text_count[$i]' >
                                     Use n questions this type in test
                                   </label>";
             $html .= "<input type='number'
-                                         value = '0'
+                                         value = $countValue
                                          step  = '1'
                                          min   = '1'
                                          max   = '$qTextCount'
@@ -223,6 +250,8 @@ class TestMetabox extends Metabox
                          "'>
                          $qOthers->post_title ($score p)
                          </option>";
+                $selected = '';
+
             }
 
             $html .= '</select>';
@@ -230,13 +259,16 @@ class TestMetabox extends Metabox
             $html .= "<label for='question_others_count_{$i}' >
                                     Use n questions this type in test
                                   </label>";
+            $countValue = $questionCountValues[$i]
+                        ? $questionCountValues[$i] : 1;
             $html .= "<input type ='number'
-                                         value = '1'
+                                         value = $countValue
                                          step  = '1'
                                          min   = '1'
                                          max   =  '$qOthersCount'
                                          name  = 'questions_count[$i]'
                                          id    = 'questions_count_{$i}'
+                                         
                                   />";
             $html .= '</div>';
         }
@@ -251,6 +283,15 @@ class TestMetabox extends Metabox
      */
     private function createQuestionsScoreLimit($questions,$i)
     {
+        $scoreForPass =[];
+        $postData = $this->_testData;
+        if (!empty($postData)) {
+            if ($postData->meta['questions_category'][0] === $_POST['q_type']) {
+                $scoreForPass = get_post_meta(
+                    $postData->ID, 'score_for_pass'
+                )[0];
+            }
+        }
         $html = '';
         $maxScore = 0;
         $qOthersCount = count($questions);
@@ -262,13 +303,16 @@ class TestMetabox extends Metabox
                 $maxScore += $score;
             }
 
-
+            $scoreValue = 0;
+            if (!empty($scoreForPass[$i])) {
+                $scoreValue = $scoreForPass[$i];
+            }
             $html .= '<div>';
             $html .= "<label>
                                     Score for pass to nex step
                                   </label>";
             $html .= "<input type='number'
-                                         value = '0'
+                                         value = $scoreValue
                                          step  = '1'
                                          min   = '1'
                                          max   = '$maxScore'
