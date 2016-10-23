@@ -196,9 +196,10 @@ class TestMetabox extends Metabox
             }
         }
         $html = '';
+        $selected ='';
+
         $qOthersCount = count($questions);
         if ($qOthersCount > 0) {
-
             $html .= "<select 
                                     multiple = 'multiple'
                                     name     = 'questions[{$i}][]'
@@ -206,15 +207,24 @@ class TestMetabox extends Metabox
                                     size     = '$qOthersCount'
                                     >";
             foreach ($questions as $qOthers) {
+                if (!empty($questionValues)) {
+                    if (in_array(
+                        $qOthers->ID, $questionValues[$i]
+                    )) {
+                       $selected = " selected='selected' ";
+                    }
+                }
+
                 $score = $qOthers
                     ->qMeta['question_score'][0];
 
-                $html .= "<option value='".
+                $html .= "<option $selected value='".
                             $qOthers->ID .
                          "'>
                          $qOthers->post_title ($score p)
                          </option>";
             }
+
             $html .= '</select>';
             $html .= '<div>';
             $html .= "<label for='question_others_count_{$i}' >
@@ -285,20 +295,17 @@ class TestMetabox extends Metabox
      * create Questions fields
      * @return bool
      */
-
     public function createQuestionsFields()
     {
-        $testPost = $_POST['post_id'];
-        if ($testPost && $testPost != 'undefined') {
-           $testPost = get_post($testPost);
-           $testPostMeta = get_post_meta($testPost->ID);
-        } else {
-            $testPost = '';
+        $testPostId = $_POST['post_id'];
+        if ($testPostId && $testPostId != 'undefined') {
+            $this->setTestData($testPostId);
         }
         $html = '';
         $qType = Data::cleanString($_POST['q_type']);
         $questions = $this->getFormateQuestions($qType);
         if (!empty($questions)) {
+            ksort($questions);
             $i = 1;
             foreach ($questions as $question) {
                 $html .= '<div>';
