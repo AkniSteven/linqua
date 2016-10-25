@@ -45,7 +45,7 @@ class PostsHandler
      * @param $args
      * set special args
      */
-    public function setSpecialArgs($name='',$args)
+    public function setSpecialArgs($name='', $args)
     {
         $this->_args[$name] = $args;
 
@@ -100,6 +100,15 @@ class PostsHandler
     {
         foreach ($this->_result as &$item) {
             $item->acf = get_field_objects($item->ID);
+        }
+    }
+    /**
+     * set meta fields to post
+     */
+    public function formattedMeta()
+    {
+        foreach ($this->_result as &$item) {
+            $item->meta = get_post_meta($item->ID);
         }
     }
     
