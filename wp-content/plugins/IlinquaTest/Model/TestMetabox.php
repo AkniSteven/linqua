@@ -141,29 +141,56 @@ class TestMetabox extends Metabox
      */
     private function createQuestionsTextFields($questions, $i)
     {
+        $postData = $this->_testData;
+        $questionTextValues = [];
+        $questionTextCountValues = [];
+
+        if (!empty($postData)) {
+            if ($postData->meta['questions_category'][0] === $_POST['q_type']) {
+                $questionTextValues = get_post_meta(
+                    $postData->ID, 'questions_text'
+                )[0];
+                $questionTextCountValues = get_post_meta(
+                    $postData->ID, 'questions_text_count'
+                )[0];
+            }
+        }
+
+        $selected ='';
         $html='';
         $qTextCount = count($questions);
         if ($qTextCount > 0) {
             $html .= "<select 
                                     multiple = 'multiple'
                                     name     = 'questions_text[$i][]'
-                                    id       = 'questions_{$i}' 
+                                    id       = 'questions_text{$i}' 
                                     size     = '$qTextCount'
                                     >";
             foreach ($questions as $qText) {
-                $html .="<option value='".
+                if (!empty($questionTextValues)) {
+                    if (in_array(
+                        $qText->ID, $questionTextValues[$i]
+                    )) {
+                        $selected = " selected='selected' ";
+                    }
+                }
+                $html .="<option $selected value='".
                     $qText->ID .
                     "'>
                                 $qText->post_title
                                 </option>";
+                $selected = '';
             }
+
+            $countValue = $questionTextCountValues[$i]
+                ? $questionTextCountValues[$i] : 1;
             $html .='</select>';
             $html .= '<div>';
             $html .= "<label for='questions_text_count[$i]' >
                                     Use n questions this type in test
                                   </label>";
             $html .= "<input type='number'
-                                         value = '0'
+                                         value = $countValue
                                          step  = '1'
                                          min   = '1'
                                          max   = '$qTextCount'
@@ -183,10 +210,23 @@ class TestMetabox extends Metabox
      */
     private function createQuestionsOtherFields($questions, $i)
     {
+        $postData = $this->_testData;
+        $questionValues = [];
+        $questionCountValues = [];
+
+        if (!empty($postData)) {
+            if ($postData->meta['questions_category'][0] === $_POST['q_type']) {
+                $questionValues = get_post_meta($postData->ID, 'questions')[0];
+                $questionCountValues = get_post_meta(
+                    $postData->ID, 'questions_count'
+                )[0];
+            }
+        }
         $html = '';
+        $selected ='';
+
         $qOthersCount = count($questions);
         if ($qOthersCount > 0) {
-
             $html .= "<select 
                                     multiple = 'multiple'
                                     name     = 'questions[{$i}][]'
@@ -194,27 +234,41 @@ class TestMetabox extends Metabox
                                     size     = '$qOthersCount'
                                     >";
             foreach ($questions as $qOthers) {
+                if (!empty($questionValues)) {
+                    if (in_array(
+                        $qOthers->ID, $questionValues[$i]
+                    )) {
+                       $selected = " selected='selected' ";
+                    }
+                }
+
                 $score = $qOthers
                     ->qMeta['question_score'][0];
 
-                $html .= "<option value='".
+                $html .= "<option $selected value='".
                             $qOthers->ID .
                          "'>
                          $qOthers->post_title ($score p)
                          </option>";
+                $selected = '';
+
             }
+
             $html .= '</select>';
             $html .= '<div>';
             $html .= "<label for='question_others_count_{$i}' >
                                     Use n questions this type in test
                                   </label>";
+            $countValue = $questionCountValues[$i]
+                        ? $questionCountValues[$i] : 1;
             $html .= "<input type ='number'
-                                         value = '1'
+                                         value = $countValue
                                          step  = '1'
                                          min   = '1'
                                          max   =  '$qOthersCount'
                                          name  = 'questions_count[$i]'
                                          id    = 'questions_count_{$i}'
+                                         
                                   />";
             $html .= '</div>';
         }
@@ -229,6 +283,15 @@ class TestMetabox extends Metabox
      */
     private function createQuestionsScoreLimit($questions,$i)
     {
+        $scoreForPass =[];
+        $postData = $this->_testData;
+        if (!empty($postData)) {
+            if ($postData->meta['questions_category'][0] === $_POST['q_type']) {
+                $scoreForPass = get_post_meta(
+                    $postData->ID, 'score_for_pass'
+                )[0];
+            }
+        }
         $html = '';
         $maxScore = 0;
         $qOthersCount = count($questions);
@@ -240,13 +303,16 @@ class TestMetabox extends Metabox
                 $maxScore += $score;
             }
 
-
+            $scoreValue = 0;
+            if (!empty($scoreForPass[$i])) {
+                $scoreValue = $scoreForPass[$i];
+            }
             $html .= '<div>';
             $html .= "<label>
                                     Score for pass to nex step
                                   </label>";
             $html .= "<input type='number'
-                                         value = '0'
+                                         value = $scoreValue
                                          step  = '1'
                                          min   = '1'
                                          max   = '$maxScore'
@@ -257,24 +323,33 @@ class TestMetabox extends Metabox
         }
         return $html;
     }
+
+    private function setTestData($postID)
+    {
+        $post = get_post($postID);
+        if (!empty($post)) {
+            $post->meta = get_post_meta($postID);
+            $this->_testData = $post;
+            return true;
+        }
+        return false;
+    }
+
     /**
      * create Questions fields
      * @return bool
      */
-
     public function createQuestionsFields()
     {
-        $testPost = $_POST['post_id'];
-        if ($testPost && $testPost != 'undefined') {
-           $testPost = get_post($testPost);
-           $testPostMeta = get_post_meta($testPost->ID);
-        } else {
-            $testPost = '';
+        $testPostId = $_POST['post_id'];
+        if ($testPostId && $testPostId != 'undefined') {
+            $this->setTestData($testPostId);
         }
         $html = '';
         $qType = Data::cleanString($_POST['q_type']);
         $questions = $this->getFormateQuestions($qType);
         if (!empty($questions)) {
+            ksort($questions);
             $i = 1;
             foreach ($questions as $question) {
                 $html .= '<div>';
@@ -329,12 +404,12 @@ class TestMetabox extends Metabox
                 $testId, 'questions_count', $_POST['questions_count']
             );
         }
-        if (isset($_POST['questions_test'])) {
+        if (isset($_POST['questions_text'])) {
             update_post_meta(
                 $testId, 'questions_text', $_POST['questions_text']
             );
         }
-        if (isset($_POST['questions_test_count'])) {
+        if (isset($_POST['questions_text_count'])) {
             update_post_meta(
                 $testId, 'questions_text_count', $_POST['questions_text_count']
             );

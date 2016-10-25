@@ -35,10 +35,6 @@ $tMetabox = new TestMetabox(
     'test', __('Test Settings')
 );
 
-
-
-
-
 $options = [];
 $options['post_id'] = $_GET['post'];
 $options['post_type'] = get_post_type($options['post_id']);
@@ -59,19 +55,13 @@ switch($options['post_type']){
         $options['meta']['right_answer'] = get_post_meta(
             $options['post_id'], 'right_answer', true
         );
-
-
         break;
     case 'test':
         $options['meta']['questions_terms'] = get_post_meta(
             $options['post_id'], 'answer_case', true
         );
-
         break;
-
-
 }
-
 
 #render view for questions metabox
 $qMetaboxDisplay = $twig->render(
