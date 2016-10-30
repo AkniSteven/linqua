@@ -30,20 +30,30 @@ $colorLinkEn: #0c7aff;
 //$colorAboveMiddleRisk: #ffc208;
 //$colorHighRisk: #eb823e;
 //
-//// breakpoints
-//
-//$tablet: 1366;
-//$tabletMiddle: 1180;
-//$Mobile: 640;
-//
-//// Widths
+/* ---------- Breakpoints ---------- */
+$bpLarge: 1680;
+$bpNormal: 1366;
+$bpMiddle: 1240;
+$bpTablet: 1024;
+$bpPortrait: 768;
+$Mobile: 640;
+
+/* ---------- Widths ---------- */
+	/* ---------- Language page holder ---------- */
+$LpWithLarge: 85vw; // bp 1680
+$LpWithNormal: 1200px; // bp 1366
+$LpWithMiddle: 980px; // bp 1240
+$LpWithTablet: 764px; // bp 1024
+//$LpWithPortrait: 764px; // bp 768
 //$minWidth: 1024px;
 //$minWidthMobile: 320px;
-////bp margin
-$big: 60px;
-$middle: 40px;
-$small: 30px;
-//
+/* ---------- Bp margin ---------- */
+$big: 101px;
+$normal: 82px;
+$middle: 60px;
+$small: 41px;
+
+
 //// Fonts
 $family: 'Gotham', Arial, Helvetica, sans-serif;
 $fw: 300;

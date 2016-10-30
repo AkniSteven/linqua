@@ -37,7 +37,7 @@
 			width: 100px;
 			margin-right: 30px;
 		}
-		@include bp($point: 783, $type: max) {
+		@include bp($point: 768, $type: max) {
 			.burger-menu {
 				margin-right: 20px;
 			}
@@ -155,7 +155,7 @@
 				}
 			}
 		}
-		@include bp($point: 783, $type: max) {
+		@include bp($point: 768, $type: max) {
 			&__item {
 				& + li {
 					margin-left: 30px;

@@ -2,48 +2,64 @@
 	position: relative;
 	background: #fff;
 	max-width: 1200px;
-	@include anim($param: max-width, $dur: .25s);
 	margin: 0 auto;
 	padding: 80px 0 300px;
 	padding-top: 0;
 	&__title {
-		margin: 0 0 30px $big;
+		margin: 0 0 30px $normal;
 	}
 	&__filter-list {
 		display: flex;
 		flex-flow: row nowrap;
-		margin-bottom: 80px;
+		margin: 0 0 80px $normal;
 	}
 	&__filter-item {
 		white-space: nowrap;
 		margin-right: 10px;
 	}
-	@include bp($point: 1680, $type: min) {
-		max-width: 83vw;
+	@include bp($point: $bpLarge, $type: min) {
+		max-width: 85vw;
+		&__title {
+			margin: 0 0 30px $big;
+		}
+		&__filter-list {
+			display: flex;
+			flex-flow: row nowrap;
+			margin: 0 0 80px $big;
+		}
 	}
-	@include bp($point: 1240, $type: max) {
+	@include bp($point: $bpMiddle, $type: max) {
 		max-width: 980px;
+		&__title {
+			margin: 0 0 30px $middle;
+		}
+		&__filter-list {
+			display: flex;
+			flex-flow: row nowrap;
+			margin: 0 0 80px $middle;
+		}
 	}
-	@include bp($point: 1140, $type: max) {
-	}
-	@include bp($point: 1039, $type: max) {
-		max-width: 764px;
+	@include bp($point: $bpTablet, $type: max) {
+		max-width: 860px;
 		&__title {
 			margin: 0 0 21px $small;
 			font-size: 3.5rem;
 		}
 		&__filter-list {
 			flex-wrap: wrap;
-			margin-bottom: 40px;
+			margin: 0 0 40px $small;
 		}
 	}
 	@include bp($point: 890, $type: max) {
 		max-width: 680px;
 	}
-	@include bp($point: 783, $type: max) {
+	@include bp($point: $bpPortrait, $type: max) {
 		max-width: 608px;
 		&__title {
-			margin: 0 0 21px $middle;
+			margin: 0 0 21px $small;
+		}
+		&__filter-list {
+			margin: 0 0 31px $small;
 		}
 		&__filter-item {
 			margin-bottom: 10px;
@@ -62,16 +78,16 @@
 
 .lp-article {
 	&__holder {
-		display: flex;
+		//display: flex;
 		//flex-flow: row nowrap;
-		flex-flow: row wrap;
-		margin-left:$big;
+		//flex-flow: row wrap;
+		margin-left:$normal;
 		[class*="lp-article__tile--"] {
-			margin-bottom: 80px;
-			margin-left: 40px;
-			will-change: width, margin;
-			@include anim-param(width, margin);
-			@include anim($dur: .25s);
+			margin-bottom: 40px;
+			//margin-left: 40px;
+			//will-change: width, margin;
+			//@include anim-param(width, margin);
+			//@include anim($dur: .25s);
 			&:not(.lp-article__tile--big) {
 				cursor: pointer;
 			}
@@ -84,9 +100,6 @@
 			max-width: 667px;
 			.left-column {
 				justify-content: space-between;
-				.lp-article__tile--high {
-					margin-top: -130px;
-				}
 			}
 		}
 		.right-column-holder {
@@ -98,22 +111,26 @@
 				margin-left: 80px;
 			}
 		}
-		@include bp($point: 1680, $type: min) {
+		@include bp($point: $bpLarge, $type: min) {
+			margin-left:$big;
 			.right-column-holder {
 				height: 1600px;
 				.right-column {
 					height: 100%;
 					[class*="lp-article__tile--"] {
 						&:nth-child(odd) {
-							margin-right: 80px;
+							//margin-right: 80px;
 						}
 					}
 				}
 			}
 		}
+		@include bp($point: $bpMiddle, $type: max) {
+			margin-left:$middle;
+		}
 		@include bp($point: 1140, $type: max) {
 			[class*="lp-article__tile--"] {
-				margin-bottom: 40px;
+				//margin-bottom: 40px;
 			}
 			.left-column-holder {
 				max-width: 509px;
@@ -125,7 +142,7 @@
 				}
 			}
 		}
-		@include bp($point: 1039, $type: max) {
+		@include bp($point: $bpTablet, $type: max) {
 			margin-left:$small;
 		}
 		@include bp($point: 980, $type: max) {
@@ -136,8 +153,8 @@
 				max-width: 275px;
 			}
 		}
-		@include bp($point: 783, $type: max) {
-			margin: 0 $middle;
+		@include bp($point: $bpPortrait, $type: max) {
+			margin: 0 $small;
 			flex-flow: column nowrap;
 			.left-column-holder {
 				max-width: 100%;
@@ -246,7 +263,7 @@
 				height: calc(160px + 62px);
 			}
 		}
-		@include bp($point: 783, $type: max) {
+		@include bp($point: 768, $type: max) {
 			&--big {
 				width: 100%;
 				height: 450px;
@@ -290,84 +307,4 @@
 	}
 }
 
-
-.box,
-button {
-	font-family: 'Open Sans', sans-serif;
-	border: 1px solid grey;
-	border-radius: 3px;
-	padding: .5rem;
-	margin: .15rem;
-	/*   float: left; */
-	background-color: rgba(0, 20, 50, 0.05);
-}
-.boxWidth{
-	min-width: 8rem;
-}
-
-.boxHeight{
-	min-height: 2rem;
-	margin:.1rem;
-}
-
-.category-fashion,
-.btn-fashion {
-	background-color: orange;
-}
-
-.category-design,
-.btn-design {
-	background-color: green;
-	color: white;
-}
-
-.category-leisure,
-.btn-leisure {
-	background-color: purple;
-	color: white;
-}
-
-.category-entertainment,
-.btn-entertainment {
-	background-color: pink;
-}
-
-.btn-all {
-	background-color: white;
-}
-
-.category {
-	background-color: white;
-}
-
-.category{
-	padding-left:1rem;
-}
-
-.flex-row {
-	display: flex;
-	justify-content: center;
-	flex-direction: row;
-}
-
-.flex-col {
-	display: flex;
-	flex-direction: column;
-	/*    align-items: flex-start; */
-	/*    justify-content: center; */
-}
-
-.spread {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-}
-
-.circle{
-	border:1px solid grey;
-	width: 0.8rem;
-	height: 0.8rem;/**/
-	border-radius: 50%;
-	margin:0;
-}
 

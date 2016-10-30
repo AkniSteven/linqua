@@ -1,7 +1,11 @@
+/* ----------  Base stytles ---------- */
 @import "style-map";
 
+/* ----------  Header styles ---------- */
 @import "header-nav";
 
+/* ----------  Language page  ---------- */
+@import "lp-home-template";
 @import "lp-banner";
 @import "lp-price-block";
 @import "lp-community";

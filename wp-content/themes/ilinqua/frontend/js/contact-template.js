@@ -28,7 +28,7 @@ requirejs([
 		var map = new google.maps.Map(document.getElementById("map"), mapOptions);
 
 		var markerImage = new google.maps.MarkerImage(
-			'wp-content/themes/ilinqua/public/images/pin.svg',
+			'/wp-content/themes/ilinqua/public/images/pin.svg',
 			new google.maps.Size(60,60),
 			new google.maps.Point(0,0),
 			new google.maps.Point(0,44)

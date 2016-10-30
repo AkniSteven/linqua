@@ -25,6 +25,7 @@
     "enquire": "^2.1.2",
     "Swiper": "swiper#^3.3.1",
     "isotope": "^3.0.1",
-    "jquery-ias": "infinite-ajax-scroll#^2.2.2"
+    "jquery-ias": "infinite-ajax-scroll#^2.2.2",
+    "masonry": "^4.1.1"
   }
 }
