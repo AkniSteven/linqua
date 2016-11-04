@@ -1,7 +1,7 @@
 {% extends '_layout.twig' %}
 
 {% block title %}
-	English
+    {{ course.post_title }}
 {% endblock %}
 
 {% block jsEntryPoint %}
@@ -17,16 +17,16 @@
                     <div class="language">
                         <span>English</span>
                     </div>
-                    <h1 class="title">Страх и ненависть
-                        <span>в iLingua</span>
+                    <h1 class="title">
+                        {{ course.post_title }}
                     </h1>
                 </div>
             </div>
             <div class="article-header__specification">
                 <div class="specification-holder">
                     <div class="frame">
-                        <img src="{{ theme.path }}/public/images/moto.jpg" alt="">
-                        <span>iLingua School</span>
+                        <img src="{{ author_thumb }}" alt="">
+                        <span>{{ author_name }}</span>
                     </div>
                     <div class="subtitle">
                         <span class="name">
