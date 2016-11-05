@@ -22,22 +22,26 @@
                     </h1>
                 </div>
             </div>
-            <div class="article-header__specification">
-                <div class="specification-holder">
-                    <div class="frame">
-                        <img src="{{ author_thumb }}" alt="">
-                        <span>{{ author_name }}</span>
-                    </div>
-                    <div class="subtitle">
+            {% if course.acf.show_author_block.value and course.acf.headline_author_text.value !='' and course.acf.author_text.value !=''  %}
+                <div class="article-header__specification">
+                    <div class="specification-holder">
+                        {% if author_thumb !='' and author_name !='' %}
+                            <div class="frame">
+                                <img src="{{ author_thumb }}" alt="">
+                                <span>{{ author_name }}</span>
+                            </div>
+                        {% endif %}
+                        <div class="subtitle">
                         <span class="name">
-                            Будет совсем не страшно
+                            {{ course.acf.headline_author_text.value }}
                         </span>
                         <span class="descr">
-                            Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале. Почему? Потому что в оригинальной версии все настоящее - голоса актеров, окружающие звуки. Все выглядит именно так, как это задумал режисер фильма. Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале.
+                           {{ course.acf.author_text.value }}
                         </span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% endif %}
         </div>
         <div class="article-main">
             <div class="article-main__holder">
@@ -94,7 +98,7 @@
                             </p>
                             <p>
                                 Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале. Почему? Потому что в оригинальной версии все настоящее - голоса актеров, окружающие звуки. Все выглядит именно так, как это задумал режисер фильма. Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале.
-    Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале. Почему? Потому что в оригинальной версии все настоящее - голоса актеров, окружающие звуки. Все выглядит именно так, как это задумал режисер фильма. Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале.
+                                Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале. Почему? Потому что в оригинальной версии все настоящее - голоса актеров, окружающие звуки. Все выглядит именно так, как это задумал режисер фильма. Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале.
                             </p>
                             <span class="title">Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале. Почему?</span>
                             <p>Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале. Почему? Потому что в оригинальной версии все настоящее - голоса актеров, окружающие звуки. Все выглядит именно так, как это задумал режисер филь`ма.</p>
@@ -129,8 +133,8 @@
                 <ul class="article-more__list">
                     <li class="article-more__item">
                         <a class="article-more__link" href="#">
-                           <div class="article-more__frame">
-                               <img src="{{ theme.path }}/public/images/1.jpg" alt="">
+                            <div class="article-more__frame">
+                                <img src="{{ theme.path }}/public/images/1.jpg" alt="">
                             </div>
                             <span class="article-more__name">
                                 10 заповедей шкоы ilingua
@@ -139,8 +143,8 @@
                     </li>
                     <li class="article-more__item">
                         <a class="article-more__link" href="#">
-                           <div class="article-more__frame">
-                               <img src="{{ theme.path }}/public/images/2.jpg" alt="">
+                            <div class="article-more__frame">
+                                <img src="{{ theme.path }}/public/images/2.jpg" alt="">
                             </div>
                             <span class="article-more__name">
                                 10 заповедей шкоы ilingua

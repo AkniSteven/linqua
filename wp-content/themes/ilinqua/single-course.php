@@ -22,6 +22,7 @@ if ($post) {
 }
 if (!empty($context['course'])) {
     $authorID = $context['course']->post_author;
+    
     if ($authorID) {
        $authorData = get_user_by(
            'ID', $authorID
