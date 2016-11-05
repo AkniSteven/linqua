@@ -26,6 +26,7 @@
     "Swiper": "swiper#^3.3.1",
     "isotope": "^3.0.1",
     "jquery-ias": "infinite-ajax-scroll#^2.2.2",
-    "masonry": "^4.1.1"
+    "masonry": "^4.1.1",
+    "vue": "^2.0.5"
   }
 }

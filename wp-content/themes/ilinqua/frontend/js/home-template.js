@@ -3,6 +3,8 @@ requirejs([
 	'ScrollMagic',
 	'masonry.pkgd',
 	'swiper',
+//	'http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.min.js',
+//	'https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.9.3/vue-resource.min.js',
 	'animation.gsap',
 	'TweenMax',
 	'debug.addIndicators',
@@ -11,6 +13,7 @@ requirejs([
 	'spinner',
 	'trigger',
 	'noneleft',
+
 
 ], function ($, ScrollMagic, Masonry, Swiper) {
 
