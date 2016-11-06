@@ -9,6 +9,7 @@
 namespace ilinqua\app\Model;
 
 use Timber\Timber;
+use MultiPostThumbnails;
 
 class Model extends Timber
 {
@@ -169,7 +170,22 @@ class Model extends Timber
             $item->main_thumnail_name = $this->getAttachmentMeta(get_post_thumbnail_id ($item->ID));
         }
     }
-    
+
+
+    public function setCustomImagelUrl($post_type, $image_id='', $image_size=null)
+    {
+        foreach ($this->result as &$item) {
+            if (!isset($item->other_image_urls) || empty($item->other_image_urls)) {
+                $item->other_image_urls = [];
+            }
+            if (!isset($item->other_image_names) || empty($item->other_image_names)) {
+                $item->other_image_names = [];
+            }
+            $item->other_image_urls[$image_id] = MultiPostThumbnails::get_post_thumbnail_url($post_type, $image_id, $item->ID, $image_size);
+            $item->other_image_names[$image_id] = $this->getAttachmentMeta(get_post_thumbnail_id ($item->ID));
+        }
+    }
+
     /**
      * @param $result
      * set result for other manipulations

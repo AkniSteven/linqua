@@ -12,7 +12,7 @@
 
     <div class="article">
         <div class="article-header">
-            <div class="article-header__banner" style="background-image: url('{{ theme.path }}/public/images/Desktop.jpg')">
+            <div class="article-header__banner" {% if course.other_image_urls.background_image !='' %} style="background-image: url('{{ course.other_image_urls.background_image }}') {% endif %}">
                 <div class="article-header__title">
                     {% if course.acf.label.value != '' %}
                         <div class="language">
@@ -47,13 +47,18 @@
         </div>
         <div class="article-main">
             <div class="article-main__holder">
-                <div class="article-main__frame">
-                    <img src="{{ theme.path }}/public/images/Desktop.jpg" alt="">
-                </div>
-                <div class="article-main__story">
-                    <div class="left-column">
-                        <img src="{{ theme.path }}/public/images/Desktop.jpg" alt="">
+                {% if course.other_image_urls.main_image !='' %}
+                    <div class="article-main__frame">
+                        <img src="{{ course.other_image_urls.main_image }}" alt="{{ course.other_image_names.main_image }}">
                     </div>
+                {% endif %}
+                <div class="article-main__story">
+                {% if course.main_thumnail_url !='' %}
+                    <div class="left-column">
+                        <img src="{{ course.main_thumnail_url }}" alt="{{ course.main_thumnail_name }}">
+                    </div>
+                {% endif %}
+                    {{ course.post_content }}
                     <div class="right-column">
                         <div class="price">
                             <ul class="price-list">
@@ -111,9 +116,7 @@
                     <img src="{{ theme.path }}/public/images/Desktop.jpg" alt="">
                 </div>
                 <div class="article-main__story">
-                    <div class="left-column">
-                        {#<img src="{{ theme.path }}/public/images/Desktop.jpg" alt="">#}
-                    </div>
+
                     <div class="right-column">
                         <ul class="story-list">
                             <li class="story-list__item">

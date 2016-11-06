@@ -15,8 +15,20 @@ $model  = $core->getModel();
 $config = $core->getConfig();
 
 if ($post) {
+    $backGroundImagePostType = $config->getConfig(
+        "postImages", "style_config"
+    )["background_image"]["post_type"];
+    
+    $mainImagePostType = $config->getConfig(
+        "postImages", "style_config"
+    )["main_image"]["post_type"];
+    
+        
     $model->setResult(['0'=>$post]);
     $model->formattedACF();
+    $model->setMainThumbnailUrls();
+    $model->setCustomImagelUrl($backGroundImagePostType, "background_image");
+    $model->setCustomImagelUrl($mainImagePostType, "main_image");
     $post = $model->getResult();
     $context['course'] = $post[0];
 }
