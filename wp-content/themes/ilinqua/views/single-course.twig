@@ -14,9 +14,11 @@
         <div class="article-header">
             <div class="article-header__banner" style="background-image: url('{{ theme.path }}/public/images/Desktop.jpg')">
                 <div class="article-header__title">
-                    <div class="language">
-                        <span>English</span>
-                    </div>
+                    {% if course.acf.label.value != '' %}
+                        <div class="language">
+                            <span>{{ course.acf.label.value }}</span>
+                        </div>
+                    {% endif %}
                     <h1 class="title">
                         {{ course.post_title }}
                     </h1>
@@ -127,43 +129,30 @@
                 </div>
             </div>
         </div>
-        <div class="article-more">
-            <div class="article-more__holder">
-                <div class="article-more__title">По теме</div>
-                <ul class="article-more__list">
-                    <li class="article-more__item">
-                        <a class="article-more__link" href="#">
-                            <div class="article-more__frame">
-                                <img src="{{ theme.path }}/public/images/1.jpg" alt="">
-                            </div>
-                            <span class="article-more__name">
-                                10 заповедей шкоы ilingua
-                            </span>
-                        </a>
-                    </li>
-                    <li class="article-more__item">
-                        <a class="article-more__link" href="#">
-                            <div class="article-more__frame">
-                                <img src="{{ theme.path }}/public/images/2.jpg" alt="">
-                            </div>
-                            <span class="article-more__name">
-                                10 заповедей шкоы ilingua
-                            </span>
-                        </a>
-                    </li>
-                    <li class="article-more__item">
-                        <a class="article-more__link" href="#">
-                            <div class="article-more__frame">
-                                <img src="{{ theme.path }}/public/images/3.jpg" alt="">
-                            </div>
-                            <span class="article-more__name">
-                                10 заповедей шкоы ilingua
-                            </span>
-                        </a>
-                    </li>
-                </ul>
+        {% if by_the_theme is not empty %}
+            <div class="article-more">
+                <div class="article-more__holder">
+                    <div class="article-more__title">По теме</div>
+                    <ul class="article-more__list">
+                        {% for post in by_the_theme %}
+                        <li class="article-more__item">
+                            <a class="article-more__link" href="{{ post.post_url }}">
+                                {% if post.default_thumnail_url !='' or post.main_thumnail_url !='' %}
+                                    {% if  post.main_thumnail_url !='' %}
+                                            <img src="{{ post.main_thumnail_url }}" alt="{{ post.main_thumnail_name }}">
+                                    {% else %}
+                                            <img src="{{ post.default_thumnail_url }}" alt="{{ post.default_thumnail_name }}">
+                                    {% endif %}
+                                {% endif %}
+                                <span class="article-more__name">
+                                    {{ post.post_title }}
+                                </span>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
-        </div>
+        {% endif %}
     </div>
-
 {% endblock %}

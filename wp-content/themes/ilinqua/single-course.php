@@ -21,8 +21,21 @@ if ($post) {
     $context['course'] = $post[0];
 }
 if (!empty($context['course'])) {
-    $authorID = $context['course']->post_author;
+
+
+    $byTheTheme = $context['course']->acf['by_the_theme']['value'];
+    if (!empty($byTheTheme)) {
+        $model->setResult($byTheTheme);
+        $model->setPostUrls();
+        $model->formattedACF();
+        $model->setMainThumbnailUrls();
+        $byTheTheme = $model->getResult();
+    }
     
+    
+    $context['by_the_theme'] = $byTheTheme;
+    
+    $authorID = $context['course']->post_author;
     if ($authorID) {
        $authorData = get_user_by(
            'ID', $authorID

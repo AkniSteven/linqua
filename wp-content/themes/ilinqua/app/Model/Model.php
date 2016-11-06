@@ -38,6 +38,20 @@ class Model extends Timber
      */
     private $args;
 
+
+    /**
+     * Return theme options
+     * @return array
+     */
+    private function getThemeOtpions()
+    {
+        $options = (array) $this->get_option('ice-theme-settings');
+        if (is_array($options) && !empty($options)) {
+           return $options;
+        }
+        return [];
+
+    }
     /**
      * @param array $args
      * set main args
@@ -47,7 +61,6 @@ class Model extends Timber
         $this->args = $args;
 
     }
-
     /**
      * @param string $name
      * @param $args
@@ -139,6 +152,24 @@ class Model extends Timber
         }
     }
 
+    /**
+     * @param string $size
+     * image size
+     */
+    public function setMainThumbnailUrls($size='full')
+    {
+        foreach ($this->result as &$item) {
+            /* for using this you must have iceThemeSettingsPlugin; */
+            $options = $this->getThemeOtpions();
+            if(!empty($options) && $options['default_image_id'] != ''){
+                $item->default_thumnail_url = image_downsize ($options['default_image_id'], $size )[0];
+                $item->default_thumnail_name = explode('.', basename(get_attached_file($options['default_image_id'])))[0];
+            }
+            $item->main_thumnail_url = get_the_post_thumbnail_url($item->ID,$size);
+            $item->main_thumnail_name = $this->getAttachmentMeta(get_post_thumbnail_id ($item->ID));
+        }
+    }
+    
     /**
      * @param $result
      * set result for other manipulations
