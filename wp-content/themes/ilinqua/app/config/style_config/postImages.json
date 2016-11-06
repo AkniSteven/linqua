@@ -1,0 +1,12 @@
+{
+  "background_image":{
+    "label" : "Background image",
+    "id" : "background_image",
+    "post_type" : ["post","course"]
+  },
+  "main_image":{
+    "label" : "Main image",
+    "id" : "main_image",
+    "post_type" : ["post","course"]
+  }
+}

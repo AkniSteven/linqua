@@ -9,6 +9,7 @@
 namespace ilinqua\app\Model;
 
 use ilinqua\app\core\Config;
+use MultiPostThumbnails;
 
 class Construct
 {
@@ -26,6 +27,7 @@ class Construct
         $this->registerTaxType();
         $this->supportInstall();
         $this->addImageSize();
+        $this->addCustomFeatureImages();
     }
 
     /**
@@ -46,14 +48,16 @@ class Construct
     /**
      * Add thumbnails to theme.
      */
-    private function supportInstall(){
+    private function supportInstall()
+    {
         $this->add_theme_support('post-thumbnails');
     }
 
     /**
      * Register widgets zone.
      */
-    private function registerWidgets(){
+    private function registerWidgets()
+    {
         $widgets = $this->config->getConfig('widgets_config','style_config');
         foreach ($widgets as $widget) {
             $this->register_sidebar($widget);
@@ -63,7 +67,8 @@ class Construct
     /**
      * Register menu zones
      */
-    private function registerMenus(){
+    private function registerMenus()
+    {
         $this->register_nav_menus(
             $this->config->getConfig('menu')
         );
@@ -98,11 +103,30 @@ class Construct
     /**
      * Add image sizes
      */
-    private function addImageSize(){
+    private function addImageSize()
+    {
         $images_size = $this->config->getConfig('images_size','style_config');
         foreach($images_size as $size){
             add_image_size($size);
         }
     }
+
+    /**
+     * add more thumbs to theme
+     */
+    private function addCustomFeatureImages()
+    {
+        if (class_exists('MultiPostThumbnails')) {
+            $images_config = $this->config->getConfig(
+                'postImages','style_config'
+            );
+            if(!empty($images_config)){
+                foreach($images_config as $image_config){
+                    new MultiPostThumbnails($image_config);
+                }
+            }
+        }
+    }
+
 
 }
