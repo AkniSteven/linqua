@@ -1,4 +1,11 @@
 <div class="container">
+	{% if categories is not empty %}
+		{% for category in categories %}
+			{% if category.count > 0 %}
+				{{ category.name }} {{ category.slug }}
+			{% endif %}
+		{% endfor %}
+	{% endif %}
 	<div :class="currentClass">
 		<div class="switch lp-community__filter-list swiper-wrapper">
 			<a href="#all" class="lp-community__filter-item swiper-slide btn grey">

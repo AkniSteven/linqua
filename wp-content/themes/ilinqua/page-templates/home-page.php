@@ -29,7 +29,7 @@ if ($showConfig['courses']) {
     $model->formattedAcf();
     $context['coursesPosts'] = $model->getResult();
 }
-
+$context['categories'] =  get_categories();
 
 
 $core->render('home-template.twig', $context);
