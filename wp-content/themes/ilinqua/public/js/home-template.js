@@ -134,7 +134,7 @@ requirejs([
 	/* ========== END Price cell change position ========== */
 
 	/* ========== Article filters ========== */
-	/*var ArticleFilters = (function () {
+	var ArticleFilters = (function () {
 		var
 			filter = document.querySelectorAll(".filter"),
 			productList = document.getElementById("article-list"),
@@ -147,8 +147,8 @@ requirejs([
 
 				productsHtml.push("<div class=\"lp-article__holder\">");
 
-				/!* ========== big article item  ========== *!/
-				/!*				for(i = 0; i < JSONdata.length; i ++) {
+				/* ========== big article item  ========== */
+				/*				for(i = 0; i < JSONdata.length; i ++) {
 				 currentItem = JSONdata[i];
 				 productHtml = "<figure class=\"lp-article__tile--big\" style=\"background-image: url('http://cdn.head-fi.org/6/6d/6d51bd27_moto.jpeg')\">" +
 				 "<figcaption class=\"article-tile__description\">" +
@@ -158,10 +158,10 @@ requirejs([
 				 "</figcaption>" +
 				 "</figure>";
 				 productsHtml.push(productHtml);
-				 }*!/
-				/!* ========== END big article item   ========== *!/
+				 }*/
+				/* ========== END big article item   ========== */
 
-				/!* ========== small article item ========== *!/
+				/* ========== small article item ========== */
 				for (i = 0; i < JSONdata.length; i++) {
 					currentItem = JSONdata[i];
 					productHtml = "<figure class=\"lp-article__tile--middle\">" +
@@ -170,7 +170,7 @@ requirejs([
 						"</figure>";
 					productsHtml.push(productHtml);
 				}
-				/!* ========== END small article item  ========== *!/
+				/* ========== END small article item  ========== */
 
 				productsHtml.push("</div>");
 
@@ -233,7 +233,7 @@ requirejs([
 			init: init
 		};
 	}());
-	ArticleFilters.init();*/
+	ArticleFilters.init();
 	/* ========== END Article filters  ========== */
 
 	/* ========== Test section ========== */
