@@ -13,10 +13,19 @@ $handler->formattedMeta();
 $context = [];
 
 if (!empty($post)) {
-    $textSteps        = get_post_meta($post->ID, 'test_steps', true);
+    $context['test'] = $post;
+
+    $testSteps        = get_post_meta($post->ID, 'test_steps', true);
+    $context['default_test_steps'] = $testSteps;
     $questionsIds     = get_post_meta($post->ID, 'questions', true);
     $questionsTextIds = get_post_meta($post->ID, 'questions_text', true);
-    $scoresForePass   = get_post_meta($post->ID, 'score_for_pass', true);
+    $scoresForPass    = get_post_meta($post->ID, 'score_for_pass', true);
+    $countQuestionsIds = count($questionsIds);
+    if ($testSteps > $countQuestionsIds) {
+        $testSteps = $countQuestionsIds;
+        $context['test_steps'] = $testSteps;
+    }
+
 }
 
-$view->display('single_test.twig', ['context'=>'test']);
+$view->display('single_test.twig', ['test'=>$context]);
