@@ -3,8 +3,6 @@ requirejs([
 	'ScrollMagic',
 	'masonry.pkgd',
 	'swiper',
-//	'http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.min.js',
-//	'https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.9.3/vue-resource.min.js',
 	'animation.gsap',
 	'TweenMax',
 	'debug.addIndicators',
@@ -134,7 +132,7 @@ requirejs([
 	/* ========== END Price cell change position ========== */
 
 	/* ========== Article filters ========== */
-	var ArticleFilters = (function () {
+	/*var ArticleFilters = (function () {
 		var
 			filter = document.querySelectorAll(".filter"),
 			productList = document.getElementById("article-list"),
@@ -147,8 +145,8 @@ requirejs([
 
 				productsHtml.push("<div class=\"lp-article__holder\">");
 
-				/* ========== big article item  ========== */
-				/*				for(i = 0; i < JSONdata.length; i ++) {
+				/!* ========== big article item  ========== *!/
+				/!*				for(i = 0; i < JSONdata.length; i ++) {
 				 currentItem = JSONdata[i];
 				 productHtml = "<figure class=\"lp-article__tile--big\" style=\"background-image: url('http://cdn.head-fi.org/6/6d/6d51bd27_moto.jpeg')\">" +
 				 "<figcaption class=\"article-tile__description\">" +
@@ -158,10 +156,10 @@ requirejs([
 				 "</figcaption>" +
 				 "</figure>";
 				 productsHtml.push(productHtml);
-				 }*/
-				/* ========== END big article item   ========== */
+				 }*!/
+				/!* ========== END big article item   ========== *!/
 
-				/* ========== small article item ========== */
+				/!* ========== small article item ========== *!/
 				for (i = 0; i < JSONdata.length; i++) {
 					currentItem = JSONdata[i];
 					productHtml = "<figure class=\"lp-article__tile--middle\">" +
@@ -170,7 +168,7 @@ requirejs([
 						"</figure>";
 					productsHtml.push(productHtml);
 				}
-				/* ========== END small article item  ========== */
+				/!* ========== END small article item  ========== *!/
 
 				productsHtml.push("</div>");
 
@@ -233,7 +231,7 @@ requirejs([
 			init: init
 		};
 	}());
-	ArticleFilters.init();
+	ArticleFilters.init();*/
 	/* ========== END Article filters  ========== */
 
 	/* ========== Test section ========== */
@@ -249,17 +247,16 @@ requirejs([
 	/* ========== END Test section  ========== */
 
 	/* ========== Masonry init ========== */
-	masonryInit();
+	/*masonryInit();
 	function masonryInit() {
 		var elem = document.querySelector('.lp-article__holder');
 		var msnry = new Masonry(elem, {
 			itemSelector: 'figure',
 			columnWidth: 293,
 			gutter: 40,
-//			percentPosition: true
 		});
 
-		/* ========== Infinity scroll ========== */
+		/!* ========== Infinity scroll ========== *!/
 		var ias = jQuery.ias({
 			container: '#article-list',
 			item: 'figure',
@@ -273,16 +270,11 @@ requirejs([
 		ias.on('rendered', function (items) {
 			msnry.appended(items);
 		});
-// Add a loader image which is displayed during loading
 		ias.extension(new IASSpinnerExtension());
-
-// Add a link after page 2 which has to be clicked to load the next page
 		ias.extension(new IASTriggerExtension({offset: 4}));
-
-// Add a text when there are no more pages left to load
 		ias.extension(new IASNoneLeftExtension({text: "You reached the end"}));
-		/* ========== END Infinity scroll  ========== */
-	}
+		/!* ========== END Infinity scroll  ========== *!/
+	}*/
 
 	/* ========== END Masonry init  ========== */
 
