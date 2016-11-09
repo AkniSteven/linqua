@@ -134,106 +134,106 @@ requirejs([
 	/* ========== END Price cell change position ========== */
 
 	/* ========== Article filters ========== */
-	/*var ArticleFilters = (function () {
-		var
-			filter = document.querySelectorAll(".filter"),
-			productList = document.getElementById("article-list"),
-			jsonTOhtml = function (JSONdata) {
-				var i,
-					currentItem,
-					finalHtml,
-					productHtml = "",
-					productsHtml = [];
-
-				productsHtml.push("<div class=\"lp-article__holder\">");
-
-				/!* ========== big article item  ========== *!/
-				/!*				for(i = 0; i < JSONdata.length; i ++) {
-				 currentItem = JSONdata[i];
-				 productHtml = "<figure class=\"lp-article__tile--big\" style=\"background-image: url('http://cdn.head-fi.org/6/6d/6d51bd27_moto.jpeg')\">" +
-				 "<figcaption class=\"article-tile__description\">" +
-				 "<a href='#' class=\"tile-description__btn btn grey\">18 ОКТЯБРЯ</a>" +
-				 "<h4 class=\"tile-description__title\">Кино-клуб</h4>" +
-				 "<span class=\"tile-description__subtitle\">Будем ахать и охать. Моральные и этические принципы оставим дома </span>" +
-				 "</figcaption>" +
-				 "</figure>";
-				 productsHtml.push(productHtml);
-				 }*!/
-				/!* ========== END big article item   ========== *!/
-
-				/!* ========== small article item ========== *!/
-				for (i = 0; i < JSONdata.length; i++) {
-					currentItem = JSONdata[i];
-					productHtml = "<figure class=\"lp-article__tile--middle\">" +
-						"<div class=\"article-tile__img\" style=\"background-image: url('http://cdn.head-fi.org/6/6d/6d51bd27_moto.jpeg')\"></div>" +
-						"<figcaption class=\"article-tile__description item\">10 заповедей школы iLingua</figcaption>" +
-						"</figure>";
-					productsHtml.push(productHtml);
-				}
-				/!* ========== END small article item  ========== *!/
-
-				productsHtml.push("</div>");
-
-				finalHtml = productsHtml.join("\n");
-
-				addHTMLtoDOM(finalHtml);
-			},
-
-			addHTMLtoDOM = function (html) {
-				var exisitingProducts = productList.querySelectorAll(".lp-article__holder");
-
-				if (exisitingProducts.length !== 0) {
-					exisitingProducts[0].parentNode.removeChild(exisitingProducts[0]);
-				}
-				productList.insertAdjacentHTML("afterbegin", html);
-			},
-
-			callAjax = function (event) {
-
-				var
-					category = event.target.getAttribute("data-category");
-
-				$.ajax({
-					url: "http://staff.city.ac.uk/~sbbh718/api/products-list/products.php?callback=&category=" + category,
-					dataType: "JSONP",
-					success: function (data) {
-						jsonTOhtml(data.products);
-					}
-				});
-
-			},
-
-			init = function () {
-
-				filter[0].addEventListener(
-					"click",
-					callAjax,
-					false
-				);
-
-				filter[1].addEventListener(
-					"click",
-					callAjax,
-					false
-				);
-
-				filter[2].addEventListener(
-					"click",
-					callAjax,
-					false
-				);
-
-				filter[3].addEventListener(
-					"click",
-					callAjax,
-					false
-				);
-			};
-		return {
-			init: init
-		};
-	}());
-	ArticleFilters.init();*/
+//	var ArticleFilters = (function () {
+//		var
+//			filter = document.querySelectorAll(".filter"),
+//			productList = document.getElementById("article-list"),
+//			jsonTOhtml = function (JSONdata) {
+//				var i,
+//					currentItem,
+//					finalHtml,
+//					productHtml = "",
+//					productsHtml = [];
+//
+//				productsHtml.push("<div class=\"lp-article__holder\">");
+//
+//				/* ========== big article item  ========== */
+//				/*				for(i = 0; i < JSONdata.length; i ++) {
+//				 currentItem = JSONdata[i];
+//				 productHtml = "<figure class=\"lp-article__tile--big\" style=\"background-image: url('http://cdn.head-fi.org/6/6d/6d51bd27_moto.jpeg')\">" +
+//				 "<figcaption class=\"article-tile__description\">" +
+//				 "<a href='#' class=\"tile-description__btn btn grey\">18 ОКТЯБРЯ</a>" +
+//				 "<h4 class=\"tile-description__title\">Кино-клуб</h4>" +
+//				 "<span class=\"tile-description__subtitle\">Будем ахать и охать. Моральные и этические принципы оставим дома </span>" +
+//				 "</figcaption>" +
+//				 "</figure>";
+//				 productsHtml.push(productHtml);
+//				 }*/
+//				/* ========== END big article item   ========== */
+//
+//				/* ========== small article item ========== */
+//				for (i = 0; i < JSONdata.length; i++) {
+//					currentItem = JSONdata[i];
+//					productHtml = "<figure class=\"lp-article__tile--middle\">" +
+//						"<div class=\"article-tile__img\" style=\"background-image: url('http://cdn.head-fi.org/6/6d/6d51bd27_moto.jpeg')\"></div>" +
+//						"<figcaption class=\"article-tile__description item\">10 заповедей школы iLingua</figcaption>" +
+//						"</figure>";
+//					productsHtml.push(productHtml);
+//				}
+//				/* ========== END small article item  ========== */
+//
+//				productsHtml.push("</div>");
+//
+//				finalHtml = productsHtml.join("\n");
+//
+//				addHTMLtoDOM(finalHtml);
+//			},
+//
+//			addHTMLtoDOM = function (html) {
+//				var exisitingProducts = productList.querySelectorAll(".lp-article__holder");
+//
+//				if (exisitingProducts.length !== 0) {
+//					exisitingProducts[0].parentNode.removeChild(exisitingProducts[0]);
+//				}
+//				productList.insertAdjacentHTML("afterbegin", html);
+//			},
+//
+//			callAjax = function (event) {
+//
+//				var
+//					category = event.target.getAttribute("data-category");
+//
+//				$.ajax({
+//					url: "http://staff.city.ac.uk/~sbbh718/api/products-list/products.php?callback=&category=" + category,
+//					dataType: "JSONP",
+//					success: function (data) {
+//						jsonTOhtml(data.products);
+//					}
+//				});
+//
+//			},
+//
+//			init = function () {
+//
+//				filter[0].addEventListener(
+//					"click",
+//					callAjax,
+//					false
+//				);
+//
+//				filter[1].addEventListener(
+//					"click",
+//					callAjax,
+//					false
+//				);
+//
+//				filter[2].addEventListener(
+//					"click",
+//					callAjax,
+//					false
+//				);
+//
+//				filter[3].addEventListener(
+//					"click",
+//					callAjax,
+//					false
+//				);
+//			};
+//		return {
+//			init: init
+//		};
+//	}());
+//	ArticleFilters.init();
 	/* ========== END Article filters  ========== */
 
 	/* ========== Test section ========== */
@@ -249,7 +249,7 @@ requirejs([
 	/* ========== END Test section  ========== */
 
 	/* ========== Masonry init ========== */
-	masonryInit();
+	/*masonryInit();
 	function masonryInit() {
 		var elem = document.querySelector('.lp-article__holder');
 		var msnry = new Masonry(elem, {
@@ -259,7 +259,7 @@ requirejs([
 //			percentPosition: true
 		});
 
-		/* ========== Infinity scroll ========== */
+		/!* ========== Infinity scroll ========== *!/
 		var ias = jQuery.ias({
 			container: '#article-list',
 			item: 'figure',
@@ -273,16 +273,11 @@ requirejs([
 		ias.on('rendered', function (items) {
 			msnry.appended(items);
 		});
-// Add a loader image which is displayed during loading
 		ias.extension(new IASSpinnerExtension());
-
-// Add a link after page 2 which has to be clicked to load the next page
 		ias.extension(new IASTriggerExtension({offset: 4}));
-
-// Add a text when there are no more pages left to load
 		ias.extension(new IASNoneLeftExtension({text: "You reached the end"}));
-		/* ========== END Infinity scroll  ========== */
-	}
+		/!* ========== END Infinity scroll  ========== *!/
+	}*/
 
 	/* ========== END Masonry init  ========== */
 

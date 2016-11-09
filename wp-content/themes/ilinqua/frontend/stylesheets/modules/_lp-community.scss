@@ -78,16 +78,11 @@
 
 .lp-article {
 	&__holder {
-		//display: flex;
-		//flex-flow: row nowrap;
-		//flex-flow: row wrap;
+		display: flex;
+		flex-flow: row wrap;
 		margin-left:$normal;
 		[class*="lp-article__tile--"] {
-			margin-bottom: 40px;
-			//margin-left: 40px;
-			//will-change: width, margin;
-			//@include anim-param(width, margin);
-			//@include anim($dur: .25s);
+			margin: 0 20px 40px;
 			&:not(.lp-article__tile--big) {
 				cursor: pointer;
 			}
