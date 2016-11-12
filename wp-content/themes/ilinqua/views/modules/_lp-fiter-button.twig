@@ -1,0 +1,11 @@
+{#{% if button.categories is not empty %}#}
+	{#{% for category in categories %}#}
+		{#{% if category.count > 0 %}#}
+		{#<a href="#" class="lp-community__filter-item">#}
+			{#<input class="all " name="radio" id="category1"#}
+				   {#type="radio" value="category1" v-model="status" checked>#}
+			{#<label for="category1">All{{ category.test }}</label>#}
+		{#</a>#}
+		{#{% endif %}#}
+	{#{% endfor %}#}
+{#{% endif %}#}
