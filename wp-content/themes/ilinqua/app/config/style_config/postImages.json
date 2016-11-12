@@ -8,5 +8,15 @@
     "label" : "Main image",
     "id" : "main_image",
     "post_type" : ["post","course"]
+  },
+  "banner_image":{
+    "label" : "Banner image",
+    "id" : "banner_image",
+    "post_type" : ["post","course"]
+  },
+  "story_image":{
+    "label" : "Story image",
+    "id" : "story_image",
+    "post_type" : ["post","course"]
   }
 }

@@ -1,1 +1,105 @@
-<h1>test</h1>
+{% extends '_layout.twig' %}
+
+{% block title %}
+    {{ article.post_title }}
+{% endblock %}
+
+{% block jsEntryPoint %}
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="article">
+        <div class="article-header">
+            <div class="article-header__banner" {% if article.other_image_urls.background_image !='' %} style="background-image: url('{{ article.other_image_urls.background_image }}') {% endif %}">
+                <div class="article-header__title">
+                    {% if article.acf.label.value != '' %}
+                        <div class="language">
+                            <span>{{ article.acf.label.value }}</span>
+                        </div>
+                    {% endif %}
+                    <h1 class="title">
+                        {{ article.post_title }}
+                    </h1>
+                </div>
+            </div>
+            {% if article.acf.show_author_block.value and article.acf.headline_author_text.value !='' and article.acf.author_text.value !=''  %}
+                <div class="article-header__specification">
+                    <div class="specification-holder">
+                        {% if author_thumb !='' and author_name !='' %}
+                            <div class="frame">
+                                <img src="{{ author_thumb }}" alt="">
+                                <span>{{ author_name }}</span>
+                            </div>
+                        {% endif %}
+                        <div class="subtitle">
+                        <span class="name">
+                            {{ article.acf.headline_author_text.value }}
+                        </span>
+                        <span class="descr">
+                           {{ article.acf.author_text.value }}
+                        </span>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+        <div class="article-main">
+            <div class="article-main__holder">
+                {% if article.other_image_urls.main_image !='' %}
+                    <div class="article-main__frame">
+                        <img src="{{ article.other_image_urls.main_image }}" alt="{{ article.other_image_names.main_image }}">
+                    </div>
+                {% endif %}
+                <div class="article-main__story">
+                    {% if article.other_image_urls.banner_image !='' %}
+                        <div class="left-column">
+                            <img src="{{ article.other_image_urls.banner_image }}" alt="{{ article.other_image_names.banner_image_name}}">
+                        </div>
+                    {% endif %}
+                    <div class="right-column">
+                        {% if article.acf.info_block.value !=''  %}
+                            {{ article.acf.info_block.value }}
+                        {% endif %}
+                    </div>
+                </div>
+                {% if article.other_image_urls.story_image !='' %}
+                    <div class="article-main__frame">
+                        <img src="{{ article.other_image_urls.story_image }}" alt="{{ article.other_image_names.story_image_name}}">
+                    </div>
+                {% endif %}
+                <div class="article-main__story">
+                    <div class="right-column">
+                        {{ article.post_content }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% if by_the_theme is not empty %}
+            <div class="article-more">
+                <div class="article-more__holder">
+                    <div class="article-more__title">По теме</div>
+                    <ul class="article-more__list">
+                        {% for post in by_the_theme %}
+                            <li class="article-more__item">
+                                <a class="article-more__link" href="{{ post.post_url }}">
+                                    {% if post.default_thumnail_url !='' or post.main_thumnail_url !='' %}
+                                        {% if  post.main_thumnail_url !='' %}
+                                            <img src="{{ post.main_thumnail_url }}" alt="{{ post.main_thumnail_name }}">
+                                        {% else %}
+                                            <img src="{{ post.default_thumnail_url }}" alt="{{ post.default_thumnail_name }}">
+                                        {% endif %}
+                                    {% endif %}
+                                    <span class="article-more__name">
+                                    {{ post.post_title }}
+                                </span>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
