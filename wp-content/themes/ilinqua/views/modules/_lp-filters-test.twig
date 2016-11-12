@@ -6,7 +6,7 @@
 			{% endif %}
 		{% endfor %}
 	{% endif %}
-	<div :class="currentClass">
+	<div class="currentClass">
 		<div class="switch lp-community__filter-list swiper-wrapper">
 			<a href="#all" class="lp-community__filter-item swiper-slide btn grey">
 				<input class="all " name="radio" id="all"
@@ -45,28 +45,6 @@
 				${ list.name }
 			</figcaption>
 		</figure>
-
-		{#<div class="list">#}
-			{#<div class="img-con">#}
-				{#<img v-if="list.img" v-bind:src="list.img" class="img-responsive thumbnail">#}
-				{#<img v-else src="http://dummyimage.com/300x300/ecf0e7/5c5457.jpg&text=0x3F"#}
-					 {#class="img-responsive thumbnail">#}
-				{##}
-				{#<div class="text-con">#}
-					{#<a v-bind:href="list.url" target="_blank">#}
-						{#<h2 v-if="list.name">#}
-							{#<span>${ list.name }</span>#}
-						{#</h2>#}
-					{#</a>#}
-					{#<p v-if="list.desc">#}
-						{#${ list.desc }#}
-					{#</p>#}
-					{#<p v-else>#}
-						{#Not much info from this Author#}
-					{#</p>#}
-				{#</div>#}
-			{#</div>#}
-		{#</div>#}
 	</template>
 	<!-- end of template -->
 </div>

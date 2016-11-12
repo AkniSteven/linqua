@@ -123,6 +123,10 @@
 		}
 	}
 	.tariff-cell {
+		&__wrapper {
+			display: flex;
+			flex-direction: column;
+		}
 		&__title {
 			margin-bottom: 15px;
 			font-size: 2rem;

@@ -1,20 +1,24 @@
-	<div class="price-block-wrapper">
-		{% if coursesPosts is not empty %}
-			<div class="price-block-bg"></div>
-			<div class="full"></div>
-			<div class="price-block">
-				<span class="price-block__status">Идет набор</span>
-				{% for course in coursesPosts %}
-					<div class="price-block__tariff-cell">
+<div class="price-block-wrapper">
+	{% if coursesPosts is not empty %}
+		<div class="price-block-bg"></div>
+		<div class="full"></div>
+		<div class="price-block">
+			<span class="price-block__status">Идет набор</span>
+			{% for course in coursesPosts %}
+				<div class="price-block__tariff-cell">
+					<a href="{{ course.post_url }}" class="tariff-cell__wrapper">
 						<span class="tariff-cell__title">{{ course.post_title }}</span>
 						<div class="tariff-cell__value-holder">
 							<span class="value">{{ course.price }}</span>
 							<span class="unit">грн/мес</span>
 						</div>
 						<span class="tariff-cell__description">{{ course.comment }}</span>
-						<a href="{{ course.post_url }}" class="tariff-cell__button btn--next"></a>
-					</div>
-				{% endfor %}
-			</div>
-		{% endif %}
-	</div>
+						<span class="tariff-cell__button btn--next">
+							<img src="{{ theme.path }}/public/images/img_arrow.svg" alt=""/>
+						</span>
+					</a>
+				</div>
+			{% endfor %}
+		</div>
+	{% endif %}
+</div>

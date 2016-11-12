@@ -3,8 +3,6 @@ requirejs([
 	'ScrollMagic',
 	'masonry.pkgd',
 	'swiper',
-//	'http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.min.js',
-//	'https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.9.3/vue-resource.min.js',
 	'animation.gsap',
 	'TweenMax',
 	'debug.addIndicators',
@@ -249,17 +247,16 @@ requirejs([
 	/* ========== END Test section  ========== */
 
 	/* ========== Masonry init ========== */
-	masonryInit();
+	/*masonryInit();
 	function masonryInit() {
 		var elem = document.querySelector('.lp-article__holder');
 		var msnry = new Masonry(elem, {
 			itemSelector: 'figure',
 			columnWidth: 293,
 			gutter: 40,
-//			percentPosition: true
 		});
 
-		/* ========== Infinity scroll ========== */
+		/!* ========== Infinity scroll ========== *!/
 		var ias = jQuery.ias({
 			container: '#article-list',
 			item: 'figure',
@@ -273,16 +270,11 @@ requirejs([
 		ias.on('rendered', function (items) {
 			msnry.appended(items);
 		});
-// Add a loader image which is displayed during loading
 		ias.extension(new IASSpinnerExtension());
-
-// Add a link after page 2 which has to be clicked to load the next page
 		ias.extension(new IASTriggerExtension({offset: 4}));
-
-// Add a text when there are no more pages left to load
 		ias.extension(new IASNoneLeftExtension({text: "You reached the end"}));
-		/* ========== END Infinity scroll  ========== */
-	}
+		/!* ========== END Infinity scroll  ========== *!/
+	}*/
 
 	/* ========== END Masonry init  ========== */
 
