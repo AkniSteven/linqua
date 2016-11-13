@@ -8,33 +8,36 @@
 	{#{% endif %}#}
 
 	<div :class="currentClass">
-		<div class="switch lp-community__filter-list swiper-wrapper">
-			{% if categories is not empty %}
-				{% for category in categories %}
-					{% if category.count > 0 %}
-						<a href="#" class="lp-community__filter-item">
-							<input name="radio" id="{{ category.id }}"
-								   type="radio" value="{{ category.value }}" v-model="status" {{ category.checked }}>
-							<label for="{{ category.id }}">{{ category.name }}</label>
-						</a>
-					{% endif %}
-				{% endfor %}
-			{% endif %}
-			{#<a href="#" class="lp-community__filter-item">#}
+		<div class="swiper-container">
+			<div class="switch lp-community__filter-list swiper-wrapper">
+				{% if categories is not empty %}
+					{% for category in categories %}
+						{% if category.count > 0 %}
+							<a href="#" class="lp-community__filter-item swiper-slide">
+								<input name="radio" id="{{ category.id }}"
+									   type="radio" value="{{ category.value }}"
+									   v-model="status" {{ category.checked }}>
+								<label for="{{ category.id }}">{{ category.name }}</label>
+							</a>
+						{% endif %}
+					{% endfor %}
+				{% endif %}
+				{#<a href="#" class="lp-community__filter-item">#}
 				{#<input class="all " name="radio" id="all"#}
-					   {#type="radio" value="all" v-model="status" checked>#}
+				{#type="radio" value="all" v-model="status" checked>#}
 				{#<label for="all">All</label>#}
-			{#</a>#}
-			{#<a href="#" class="lp-community__filter-item">#}
+				{#</a>#}
+				{#<a href="#" class="lp-community__filter-item">#}
 				{#<input class="online" name="radio" id="online"#}
-					   {#type="radio" value="online" v-model="status">#}
+				{#type="radio" value="online" v-model="status">#}
 				{#<label for="online">Online</label>#}
-			{#</a>#}
-			{#<a href="#" class="lp-community__filter-item">#}
+				{#</a>#}
+				{#<a href="#" class="lp-community__filter-item">#}
 				{#<input class="offline" name="radio" id="offline"#}
-					   {#type="radio" value="offline" v-model="status">#}
+				{#type="radio" value="offline" v-model="status">#}
 				{#<label for="offline">Offline</label>#}
-			{#</a>#}
+				{#</a>#}
+			</div>
 		</div>
 	</div>
 	

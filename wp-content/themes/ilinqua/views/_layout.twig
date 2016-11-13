@@ -30,7 +30,6 @@
 			.replace("HOST", location.hostname));
 		//]]>
 	</script>
-	
 </head>
 <body {% block body_attributes %}{% endblock %}>
 <div id="wrapper" class="english">
@@ -38,17 +37,14 @@
 	{% block header %}
 		{% include 'layout-blocks/_header.twig' %}
 	{% endblock %}
-	
+
 	<main id="main">
 		{% block content %}
-			
 		{% endblock %}
 	</main>
-	
+
 	{% block footer %}
-		
 	{% endblock %}
-	
 </div>
 </body>
 </html>

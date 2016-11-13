@@ -72,7 +72,7 @@
 								if (response.json().stream === null || response.json().stream === undefined) {
 									instance.channelRes.$set(
 										index,{
-											status: 'offline',
+											status: 'all',
 											name: data.json().name,
 											desc: data.json().status,
 											img: data.json().logo,
@@ -80,7 +80,7 @@
 										})
 								} else {
 									instance.channelRes.$set(index,{
-										status: 'online',
+										status: 'school',
 										name: data.json().name,
 										desc: data.json().status,
 										img: data.json().logo,

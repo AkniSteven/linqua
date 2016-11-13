@@ -18,7 +18,25 @@ requirejs([
 	'use strict';
 
 	/* ========== End ios trouble fix ========== */
-//	function iosHeightFix() {
+	function iosHeightFix() {
+
+		function priceCellChangePosition() {
+			var priceBlockCell = $('.price-block__tariff-cell'),
+				priceBlockHolder = $('.price-block-wrapper');
+			enquire
+				.register("screen and (max-width : 768px)", {
+					match: function priceCellChangePosition() {
+						$('.language-banner').height($(window).height()/1 - 200);
+//						$('.language-banner').height($(window).height()/1 - 200);
+					},
+					unmatch: function () {
+//						alert('a')
+						$('.language-banner').height($(window).height()/1 -200);
+					}
+				});
+		}
+		priceCellChangePosition();
+
 //		var ua = navigator.userAgent.toLowerCase();
 ////		ui = (navigator.userAgent.match('CriOS'));
 //		var vHeight = 200;
@@ -36,28 +54,44 @@ requirejs([
 //		} else if(ua.match('CriOS') > -1) {
 //			alert('chrome')
 //		}
-//		$(window).resize(function () {
-//			if (ua.indexOf('safari') != -1) {
-//				if (ua.indexOf('chrome') > -1) {
-//				} else {
-//					$('.language-banner').height($(window).height() / 1 - vHeight);
-//				}
-//			}
-//		});
+//		function get_name_browser(){
+//			// получаем данные userAgent
+//			var ua = navigator.userAgent;
+//			// с помощью регулярок проверяем наличие текста,
+//			// соответствующие тому или иному браузеру
+//			if (ua.search(/Chrome/) > 0) return 'Google Chrome';
+//			if (ua.search(/Firefox/) > 0) return 'Firefox';
+//			if (ua.search(/Opera/) > 0) return 'Opera';
+//			if (ua.search(/Safari/) > 0) return 'Safari';
+//			if (ua.search(/MSIE/) > 0) return 'Internet Explorer';
+//			// условий может быть и больше.
+//			// сейчас сделаны проверки только
+//			// для популярных браузеров
+//			return 'Не определен';
+//		}
 //
-////		var isiPad = navigator.userAgent.toLowerCase().indexOf("ipad");
-////		if (isiPad > -1) {
-////			$('.language-banner').height($(window).height() / 1 - vHeight);
-////		}
+//// пример использования
+//		var browser = get_name_browser();
+//		alert(browser);
 ////
+		var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
+		var is_explorer = navigator.userAgent.indexOf('MSIE') > -1;
+		var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
+		var is_safari = navigator.userAgent.indexOf("Safari") > -1;
+		var is_Opera = navigator.userAgent.indexOf("Presto") > -1;
+		if ((is_chrome)&&(is_safari)) {is_safari=false;}
+
+//		if (is_safari) alert('Sacdscfari');
+//		if (is_chrome) alert('Chrome');
+//		alert(navigator.userAgent);
 ////		$(window).resize(function () {
 ////			if (isiPad > -1) {
 ////				$('.language-banner').height($(window).height() / 1 - vHeight);
 ////			}
 ////		});
-//	}
+	}
 //
-//	iosHeightFix();
+	iosHeightFix();
 	/* ========== END End ios trouble fix  ========== */
 
 	/* ========== Scroll-responsive price-block ========== */
@@ -93,7 +127,7 @@ requirejs([
 				match : function profileNavSwiper() {
 					var profileNav = new Swiper('.swiper-container', {
 						slidesPerView: 'auto',
-						centeredSlides: true,
+						centeredSlides: false,
 						grabCursor: true
 					});
 				},
@@ -115,14 +149,12 @@ requirejs([
 					if (priceBlockCell.length > 2) {
 						priceBlockHolder.addClass('js-restructuring-cells');
 					} else {
-						console.log('not-done');
 					}
 				},
 				unmatch: function () {
 					if (priceBlockCell.length > 2) {
 						priceBlockHolder.removeClass('js-restructuring-cells');
 					} else {
-						console.log('not-done');
 					}
 				}
 			});
