@@ -13,7 +13,7 @@ requirejs([
 	'noneleft',
 
 
-], function ($, ScrollMagic, Masonry, Swiper) {
+], function ($, ScrollMagic, Swiper) {
 
 	'use strict';
 
