@@ -1,7 +1,7 @@
 requirejs([
 	'jquery',
 	'ScrollMagic',
-	'masonry.pkgd',
+//	'masonry.pkgd',
 	'swiper',
 	'animation.gsap',
 	'TweenMax',

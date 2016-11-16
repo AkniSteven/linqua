@@ -1,66 +1,49 @@
 <section class="lp-community">
 	{% include 'modules/_lp-price-block.twig' %}
-	<h2 class="lp-community__title">Community</h2>
-	{% include 'modules/_lp-filters.twig' with {
-	"categories" : [
-		{
-			"count": 1,
-			'name' : 'All',
-			"value": 'all',
-			"id": 'all',
-			"checked": 'checked'
-		},
-		{
-			"count": 1,
-			'name' : 'school',
-			"value": 'school',
-			"id": 'school'
-		},
-		{
-			"count": 1,
-			'name' : 'party',
-			"value": 'party',
-			"id": 'party'
-		},
-		{
-			"count": 1,
-			'name' : 'life',
-			"value": 'life',
-			"id": 'life'
-		},
-		{
-			"count": 1,
-			'name' : 'gramm',
-			"value": 'gramm',
-			"id": 'gramm'
-		}
-	]
-	} %}
-	{% include 'modules/_lp-article-list.twig' with {
-	"tile":
-		{
-		'tileBig' : false
-		}
-	} %}
-	{#<div class="swiper-container">#}
-	{#<div class=" lp-community__filter-list swiper-wrapper">#}
-	{#<div class="swiper-slide lp-community__filter-item">#}
-	{#<a href="#" class="btn grey">ВСЕ</a>#}
-	{#</div>#}
-	{#<div class="swiper-slide lp-community__filter-item">#}
-	{#<a href="#" class="btn grey">О ШКОЛЕ</a>#}
-	{#</div>#}
-	{#<div class="swiper-slide lp-community__filter-item">#}
-	{#<a href="#" class="btn grey">РАЗВЛЕЧЕНИЯ</a>#}
-	{#</div>#}
-	{#<div class="swiper-slide lp-community__filter-item">#}
-	{#<a href="#" class="btn grey">ЖИЗНЬ</a>#}
-	{#</div>#}
-	{#<div class="swiper-slide lp-community__filter-item">#}
-	{#<a href="#" class="btn grey">ГРАММАТИКА</a>#}
-	{#</div>#}
-	{#</div>#}
-	{#</div>#}
+	{% include 'modules/_test-block.twig' %}
+	{#<h2 class="lp-community__title">Community</h2>#}
+	{#{% include 'modules/_lp-filters.twig' with {#}
+	{#"categories" : [#}
+		{#{#}
+			{#"count": 1,#}
+			{#'name' : 'All',#}
+			{#"value": 'all',#}
+			{#"id": 'all',#}
+			{#"checked": 'checked'#}
+		{#},#}
+		{#{#}
+			{#"count": 1,#}
+			{#'name' : 'school',#}
+			{#"value": 'school',#}
+			{#"id": 'school'#}
+		{#},#}
+		{#{#}
+			{#"count": 1,#}
+			{#'name' : 'party',#}
+			{#"value": 'party',#}
+			{#"id": 'party'#}
+		{#},#}
+		{#{#}
+			{#"count": 1,#}
+			{#'name' : 'life',#}
+			{#"value": 'life',#}
+			{#"id": 'life'#}
+		{#},#}
+		{#{#}
+			{#"count": 1,#}
+			{#'name' : 'gramm',#}
+			{#"value": 'gramm',#}
+			{#"id": 'gramm'#}
+		{#}#}
+	{#]#}
+	{#} %}#}
+
+	{#{% include 'modules/_lp-article-list.twig' with {#}
+	{#"tile":#}
+		{#{#}
+		{#'tileBig' : false#}
+		{#}#}
+	{#} %}#}
 
 </section>
 
