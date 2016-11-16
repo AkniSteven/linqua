@@ -16,6 +16,13 @@
 		{% include 'modules/_lp-banner.twig' %}
 		{#{% include 'modules/_lp-price-block.twig' %}#}
 		{% include 'modules/_lp-community.twig' %}
+		{% if categories is not empty %}
+			{% for category in categories %}
+				{% if category.count > 0 %}
+					{{ category.name }} {{ category.slug }}
+				{% endif %}
+			{% endfor %}
+		{% endif %}
 	</section>
 	<script>
 		
@@ -53,7 +60,7 @@
 				// users: ['freecodecamp', 'storbeck', 'terakilobyte'],
 				channelRes: [],
 				obj: {},
-				status: ['all','online', 'offline'],
+				status: ['all','school', 'party', 'life', 'gramm'],
 				reverse: true,
 				listStyle: '',
 			},
@@ -99,6 +106,7 @@
                     //http://www.linqua.web/wp-json/posts?type[]=post&filter[posts_per_page]=10 - Берем 10 постов
                     //http://www.linqua.web/wp-json/posts?type[]=post&filter[posts_per_page]=10&filter[order]=ASC - фильтруем по возрастанию
                     //http://www.linqua.web/wp-json/posts?type[]=post&filter[posts_per_page]=10&filter[order]=ASC&filter[category_name]=events - посты из категории события
+
 					return 'https://api.twitch.tv/kraken/' +type+ '/' +name+ '?client_id=5j0r5b7qb7kro03fvka3o8kbq262wwm';
 				},
 				changeClass: function () {

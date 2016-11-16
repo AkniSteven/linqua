@@ -8,24 +8,10 @@
 	&__title {
 		margin: 0 0 30px $normal;
 	}
-	&__filter-list {
-		display: flex;
-		flex-flow: row nowrap;
-		margin: 0 0 80px $normal;
-	}
-	&__filter-item {
-		white-space: nowrap;
-		margin-right: 10px;
-	}
 	@include bp($point: $bpLarge, $type: min) {
 		max-width: 85vw;
 		&__title {
 			margin: 0 0 30px $big;
-		}
-		&__filter-list {
-			display: flex;
-			flex-flow: row nowrap;
-			margin: 0 0 80px $big;
 		}
 	}
 	@include bp($point: $bpMiddle, $type: max) {
@@ -33,21 +19,12 @@
 		&__title {
 			margin: 0 0 30px $middle;
 		}
-		&__filter-list {
-			display: flex;
-			flex-flow: row nowrap;
-			margin: 0 0 80px $middle;
-		}
 	}
 	@include bp($point: $bpTablet, $type: max) {
 		max-width: 860px;
 		&__title {
 			margin: 0 0 21px $small;
 			font-size: 3.5rem;
-		}
-		&__filter-list {
-			flex-wrap: wrap;
-			margin: 0 0 40px $small;
 		}
 	}
 	@include bp($point: 890, $type: max) {
@@ -58,23 +35,15 @@
 		&__title {
 			margin: 0 0 21px $small;
 		}
-		&__filter-list {
-			margin: 0 0 31px $small;
-		}
-		&__filter-item {
-			margin-bottom: 10px;
-		}
 	}
 	@include bp($point: 640, $type: max) {
 		max-width: 100%;
-		&__filter-list {
-			flex-wrap: nowrap;
-		}
 		&__title {
 			font-size: 2.625rem;
 		}
 	}
 }
+
 
 .lp-article {
 	&__holder {
@@ -301,5 +270,4 @@
 		}
 	}
 }
-
 

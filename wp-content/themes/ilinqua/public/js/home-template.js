@@ -3,8 +3,6 @@ requirejs([
 	'ScrollMagic',
 	'masonry.pkgd',
 	'swiper',
-//	'http://cdnjs.cloudflare.com/ajax/libs/vue/1.0.25/vue.min.js',
-//	'https://cdnjs.cloudflare.com/ajax/libs/vue-resource/0.9.3/vue-resource.min.js',
 	'animation.gsap',
 	'TweenMax',
 	'debug.addIndicators',
@@ -134,6 +132,7 @@ requirejs([
 	/* ========== END Price cell change position ========== */
 
 	/* ========== Article filters ========== */
+
 //	var ArticleFilters = (function () {
 //		var
 //			filter = document.querySelectorAll(".filter"),
@@ -234,6 +233,7 @@ requirejs([
 //		};
 //	}());
 //	ArticleFilters.init();
+
 	/* ========== END Article filters  ========== */
 
 	/* ========== Test section ========== */
@@ -256,7 +256,6 @@ requirejs([
 			itemSelector: 'figure',
 			columnWidth: 293,
 			gutter: 40,
-//			percentPosition: true
 		});
 
 		/!* ========== Infinity scroll ========== *!/

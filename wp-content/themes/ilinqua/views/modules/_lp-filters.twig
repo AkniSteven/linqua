@@ -1,28 +1,32 @@
 <div class="container">
-	{#{% if categories is not empty %}#}
-	{#{% for category in categories %}#}
-	{#{% if category.count > 0 %}#}
-	{#{{ category.name }} {{ category.slug }}#}
-	{#{% endif %}#}
-	{#{% endfor %}#}
-	{#{% endif %}#}
 	<div :class="currentClass">
 		<div class="switch lp-community__filter-list swiper-wrapper">
-			<div href="#" class="lp-community__filter-item btn grey">
-				<input class="all " name="radio" id="all"
-					   type="radio" value="all" v-model="status" checked>
-				<label for="all">All</label>
-			</div>
-			<div href="#" class="lp-community__filter-item btn grey">
-				<input class="online" name="radio" id="online"
-					   type="radio" value="online" v-model="status">
-				<label for="online">online</label>
-			</div>
-			<div href="#" class="lp-community__filter-item btn grey">
-				<input class="offline" name="radio" id="offline"
-					   type="radio" value="offline" v-model="status">
-				<label for="offline">offline</label>
-			</div>
+			{% if categories is not empty %}
+				{% for category in categories %}
+					{% if category.count > 0 %}
+						<a href="#" class="lp-community__filter-item">
+							<input name="radio" id="{{ category.id }}"
+								   type="radio" value="{{ category.value }}" v-model="status" {{ category.checked }}>
+							<label for="{{ category.id }}">{{ category.name }}</label>
+						</a>
+					{% endif %}
+				{% endfor %}
+			{% endif %}
+			{#<a href="#" class="lp-community__filter-item">#}
+				{#<input class="all " name="radio" id="all"#}
+					   {#type="radio" value="all" v-model="status" checked>#}
+				{#<label for="all">All</label>#}
+			{#</a>#}
+			{#<a href="#" class="lp-community__filter-item">#}
+				{#<input class="online" name="radio" id="online"#}
+					   {#type="radio" value="online" v-model="status">#}
+				{#<label for="online">Online</label>#}
+			{#</a>#}
+			{#<a href="#" class="lp-community__filter-item">#}
+				{#<input class="offline" name="radio" id="offline"#}
+					   {#type="radio" value="offline" v-model="status">#}
+				{#<label for="offline">Offline</label>#}
+			{#</a>#}
 		</div>
 	</div>
 	
@@ -45,28 +49,6 @@
 				${ list.name }
 			</figcaption>
 		</figure>
-		
-		{#<div class="list">#}
-		{#<div class="img-con">#}
-		{#<img v-if="list.img" v-bind:src="list.img" class="img-responsive thumbnail">#}
-		{#<img v-else src="http://dummyimage.com/300x300/ecf0e7/5c5457.jpg&text=0x3F"#}
-		{#class="img-responsive thumbnail">#}
-		{##}
-		{#<div class="text-con">#}
-		{#<a v-bind:href="list.url" target="_blank">#}
-		{#<h2 v-if="list.name">#}
-		{#<span>${ list.name }</span>#}
-		{#</h2>#}
-		{#</a>#}
-		{#<p v-if="list.desc">#}
-		{#${ list.desc }#}
-		{#</p>#}
-		{#<p v-else>#}
-		{#Not much info from this Author#}
-		{#</p>#}
-		{#</div>#}
-		{#</div>#}
-		{#</div>#}
 	</template>
 	<!-- end of template -->
 </div>
