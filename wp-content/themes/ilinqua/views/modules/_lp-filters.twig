@@ -1,70 +1,77 @@
+<!-- ISOTOPE FILTER TABS--------------->
+<div class="swiper-container">
+	<div class="container button-group filters-button-group swiper-wrapper">
+		{% if categories is not empty %}
+			{% for category in categories %}
+				{% if category.count > 0 %}
+					<div class="lp-community__filter-item swiper-slide btn button is-checked"
+							data-filter="{{ category.dataFilter }}">
+						{{ category.filterBtnTxt }}
+					</div>
+				{% endif %}
+			{% endfor %}
+		{% endif %}
+	</div>
+</div>
+<!-- END ISOTOPE FILTER TABS--------------->
+
+
 <div class="container">
-	{#{% if categories is not empty %}#}
+<!-- VUE FILTER TABS--------------->
+	{#<div :class="currentClass">#}
+		{#<div class="swiper-container">#}
+			{#<div class="switch lp-community__filter-list swiper-wrapper">#}
+				{#{% if categories is not empty %}#}
+					{#{% for category in categories %}#}
+						{#{% if category.count > 0 %}#}
+							{#<a href="#" class="lp-community__filter-item swiper-slide">#}
+								{#<input name="radio" id="{{ category.id }}"#}
+									   {#type="radio" value="{{ category.value }}"#}
+									   {#v-model="status" {{ category.checked }}>#}
+								{#<label for="{{ category.id }}">{{ category.name }}</label>#}
+							{#</a>#}
+						{#{% endif %}#}
+					{#{% endfor %}#}
+				{#{% endif %}#}
+			{#</div>#}
+		{#</div>#}
+	{#</div>#}
+<!-- END VUE FILTER TABS--------------->
+
+<!-- VUE FILTER TEMPLATE--------------->
+
+	{#<div class="list-content lp-article__holder" id="article-list" :class="currentStyle">#}
+		{#<list v-for="list in channelRes | status" :list="list" track-by="$index" transition="expand"></list>#}
+	{#</div>#}
+
+	{#<template id="list-header"></template>#}
+
+	{#<template id="list-template">#}
+		{#<div class="lp-article__tile high party item">#}
+			{#<a href="#" class="article-tile__link">#}
+				{#<div class="article-tile__img"#}
+					 {#style="background-image: url('http://www.sunhome.ru/UsersGallery/Cards/prazdnik_den_zemli_kartinka.jpg')">#}
+				{#</div>#}
+				{#<div class="article-tile__description item">#}
+					{#{% if tile.tileBig is defined and tile.tileBig == true %}#}
+						{#<span class="tile-description__btn btn grey">18 ОКТЯБРЯ</span>#}
+						{#<h4 class="tile-description__title">Кино-клуб</h4>#}
+					{#{% endif %}#}
+					{#<span class="tile-description__subtitle">#}
+						{#${ list.name }#}
+					{#</span>#}
+				{#</div>#}
+			{#</a>#}
+		{#</div>#}
+	{#</template>#}
+<!-- END VUE FILTER TEMPLATE--------------->
+</div>
+
+
+{#{% if categories is not empty %}#}
 		{#{% for category in categories %}#}
 			{#{% if category.count > 0 %}#}
 				{#{{ category.name }} {{ category.slug }}#}
 			{#{% endif %}#}
 		{#{% endfor %}#}
 	{#{% endif %}#}
-
-	<div :class="currentClass">
-		<div class="switch lp-community__filter-list swiper-wrapper">
-			{% if categories is not empty %}
-				{% for category in categories %}
-					{% if category.count > 0 %}
-						<a href="#" class="lp-community__filter-item">
-							<input name="radio" id="{{ category.id }}"
-								   type="radio" value="{{ category.value }}" v-model="status" {{ category.checked }}>
-							<label for="{{ category.id }}">{{ category.name }}</label>
-						</a>
-					{% endif %}
-				{% endfor %}
-			{% endif %}
-			{#<a href="#" class="lp-community__filter-item">#}
-				{#<input class="all " name="radio" id="all"#}
-					   {#type="radio" value="all" v-model="status" checked>#}
-				{#<label for="all">All</label>#}
-			{#</a>#}
-			{#<a href="#" class="lp-community__filter-item">#}
-				{#<input class="online" name="radio" id="online"#}
-					   {#type="radio" value="online" v-model="status">#}
-				{#<label for="online">Online</label>#}
-			{#</a>#}
-			{#<a href="#" class="lp-community__filter-item">#}
-				{#<input class="offline" name="radio" id="offline"#}
-					   {#type="radio" value="offline" v-model="status">#}
-				{#<label for="offline">Offline</label>#}
-			{#</a>#}
-		</div>
-	</div>
-	
-	<div class="list-content lp-article__holder" id="article-list" :class="currentStyle">
-		<list v-for="list in channelRes | status" :list="list" track-by="$index" transition="expand"></list>
-	</div>
-	<!-- end of top-content -->
-	
-	<!-- template -->
-	<template id="list-header">
-	
-	</template>
-	
-	<template id="list-template">
-		<div class="lp-article__tile high party item">
-			<a href="#" class="article-tile__link">
-				<div class="article-tile__img"
-					 style="background-image: url('http://pulson.ru/wp-content/uploads/2013/11/wallpaper-3007964.jpg')">
-				</div>
-				<div class="article-tile__description item">
-					{% if tile.tileBig is defined and tile.tileBig == true %}
-						<span class="tile-description__btn btn grey">18 ОКТЯБРЯ</span>
-						<h4 class="tile-description__title">Кино-клуб</h4>
-					{% endif %}
-					<span class="tile-description__subtitle">
-						${ list.name }
-					</span>
-				</div>
-			</a>
-		</div>
-	</template>
-	<!-- end of template -->
-</div>

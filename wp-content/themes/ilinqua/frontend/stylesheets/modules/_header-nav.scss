@@ -161,6 +161,10 @@
 					margin-left: 30px;
 				}
 			}
+			&__link {
+				font-size: .7rem;
+				letter-spacing: 0;
+			}
 		}
 		@include bp($point: 640, $type: max) {
 			

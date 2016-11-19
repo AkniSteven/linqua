@@ -1,0 +1,95 @@
+* {
+	box-sizing: border-box;
+}
+html {
+	 font-size: $fz;
+	height: 100%;
+}
+body {
+	margin:0;
+	font-family: $family;
+	line-height: $lh;
+	font-weight: 300;
+	// color: $colorText;
+	// font: $fw $fz/#{$lh} $family;
+	// background: $bgBody;
+	// -webkit-text-size-adjust: 100%;
+	// -ms-text-size-adjust: none;
+	// min-width: $minWidth;
+	// -webkit-tap-highlight-color: rgba(0,0,0,0);
+	height: 100%;
+	padding: 0;
+}
+a {
+	text-decoration: none;
+	cursor: pointer;
+	color: #000;
+	//font-size: 1.125rem;
+	//line-height: 1.25;
+	// @include anim;
+}
+// a:not([class]) {
+// 	// color: $colorLink;
+// 	font-weight: 700;
+// 	cursor: pointer;
+// 	@include anim;
+// 	@include anim-param(color, background, border-color);
+// 	// &:hover {color: darken($colorLink, 10%);}
+// }
+input,textarea,select,button {
+	// font: $fz/#{$lh} $family;
+	vertical-align: middle;
+}
+textarea {
+	resize: vertical;
+	overflow: auto;
+	vertical-align: top;
+}
+h1 {
+	font-size: 4rem;
+	line-height: 1.13;
+	font-weight: 500;
+	text-transform: uppercase;
+	letter-spacing: -2px;
+	// @include letter-spacing(3em, 1.125);
+	margin: 0 0 20px;
+}
+h2 {
+	font-size: 4rem;
+	line-height: 1.13;
+	margin: 0 0 20px;
+	letter-spacing: -2px;
+	font-weight:500;
+	// @include breakpoint(480) {font-size: 1.25rem;}
+}
+h3 {
+	font-size: 2rem;
+	line-height: 1.125;
+	font-weight: 900;
+	text-transform: uppercase;
+	margin: 1em 0;
+}
+h4 {
+	font-size: 2rem;
+	line-height: 1.125;
+	font-weight: 300;
+	letter-spacing: -1px;
+	margin: 0 0 20px;
+}
+h5 {
+	font-size: 0.83rem;
+	margin: 1.67em 0;
+}
+h6 {
+	font-size: 0.75rem;
+	margin: 2.33em 0;
+}
+p {line-height: 2;}
+.caption {
+	font-size: 0.875rem;
+	line-height: 1.45;
+	text-transform: uppercase;
+	color: rgba(0, 0, 0, 0.6);
+}
+
+// ul {@extend %list-reset;}

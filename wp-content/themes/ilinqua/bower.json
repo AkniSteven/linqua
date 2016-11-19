@@ -27,6 +27,7 @@
     "isotope": "^3.0.1",
     "jquery-ias": "infinite-ajax-scroll#^2.2.2",
     "masonry": "^4.1.1",
-    "vue": "^2.0.5"
+    "vue": "^2.0.5",
+    "quicksand": "^1.2.2"
   }
 }

@@ -11,7 +11,10 @@
 			background-position: calc(100% - ((100vw - 980px) / 2)) bottom;
 		}
 		@include bp($point: $bpTablet, $type: max) {
-			background-position: calc(100% - ((100vw - 764px) / 2)) bottom;
+			background-position: calc(100% - ((100vw - 860px) / 2)) bottom;
+		}
+		@include bp($point: $bpMiddle, $type: max) {
+			background-position: right bottom;
 		}
 	}
 }
@@ -44,6 +47,8 @@
 	}
 	@include bp($point: $bpTablet, $type: max) {
 		height: calc(100vh - 200px);
+		//height: 100vh;
+		//max-height: 824px;
 		&__title {
 			max-width: calc(860px - 82px); // max-w - $small*2
 			padding-top: calc(83px + 80px);
@@ -70,9 +75,11 @@
 			font-size: 2.625rem;
 		}
 	}
-	@include bp($point: 640, $type: max) {
+	@include bp($point: 480, $type: max) {
 		&__title {
 			max-width: 200px;
+			font-size: 2.2rem;
+			padding-top: 80px;
 		}
 	}
 }
