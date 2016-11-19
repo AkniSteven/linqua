@@ -1,0 +1,56 @@
+.all-tests {
+	.choose-test {
+		display: flex;
+		flex-flow: row nowrap;
+		height: 100vh;
+		padding: 150px 0 0 12.3vw;
+		&__title {
+			text-transform: none;
+			font-size: 3rem;
+		}
+		&__empty-post {
+			font-size: 2rem;
+			text-transform: none;
+		}
+		.language-list {
+			margin-left: 93px;
+			padding-top: 18px;
+			&__language-item {
+				margin-bottom: 8px;
+				a {
+					font-size: 1.6rem;
+					font-weight: 500;
+				}
+				&.chosen-item {
+					position: relative;
+					&:before {
+						content: "\e935";
+						font-family: 'icomoon';
+						position: absolute;
+						top: 50%;
+						left: -30px;
+						color: #fe3131;
+						font-size: 1.1rem;
+						transform: translateY(-50%) rotate(180deg);
+					}
+					a {
+						color: #fe3131;
+					}
+				}
+			}
+		}
+		&__img-holder {
+			width: 40vw;
+			//width: 553px;
+			margin-left: auto;
+			display: flex;
+			flex-direction: row;
+			align-items: flex-end;
+			img {
+				width: 100%;
+			}
+		}
+	}
+}
+
+
