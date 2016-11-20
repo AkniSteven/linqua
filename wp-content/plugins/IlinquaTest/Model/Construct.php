@@ -67,21 +67,27 @@ class Construct
     }
 
     /**
-     * This add only the test page
+     * This add only the test page (
+     * TODO::Rewrite this hardcode!
      */
     public function add_test_page()
     {
         add_menu_page(
             'Test page',
             'Test page',
-            8, __FILE__,
-            [&$this, ['display_test_page']]
+            'read',
+            'test_page',
+            [$this, 'display_test_page']
         );
 
     }
+    /**
+     * This display only test page
+     * TODO::Rewrite this hardcode!
+     */
     public function display_test_page()
     {
-        echo TEMPLATE_PATH_TEST . '/config/'  . 'config' . '.json';
+        require_once TEMPLATE_PATH_TEST . '/page-templates/admin_test_page.php';
 
     }
 

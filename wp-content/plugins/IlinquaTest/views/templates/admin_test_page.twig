@@ -1,0 +1,50 @@
+<table cellpadding="7">
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Info</th>
+        <th>Test</th>
+        <th>Score</th>
+        <th>Date</th>
+    </tr>
+    {% if test.allTests is not empty %}
+        {% for val in test.allTests %}
+            <tr
+
+                    {% if val.status == 0 %}
+                        style="background:gray;"
+                    {% elseif val.status == 1%}
+                        style="background:green;"
+                    {% elseif val.status == 2%}
+                        style="background:red;"
+                    {% endif %}
+            >
+                <form  action="" method="post">
+                    <td>{{ val.name }}</td>
+                    <td>{{ val.email }}</td>
+                    <td>
+                        <select name ='status'>
+                            <option {% if val.status == 0 %} selected="selected" {% endif %} value='0' disabled>New!</option>
+                            <option {% if val.status == 1 %} selected="selected" {% endif %} value='1'>Pass</option>
+                            <option {% if val.status == 2 %} selected="selected" {% endif %} value='2'>Fail</option>
+                        </select>
+                    </td>
+                    <td>{{ val.info }}</td>
+                    <td>{{ val.test }}</td>
+                    <td>{{ val.score }}</td>
+                    <td>
+                        {{ val.date }}
+                        <input type="hidden" name="id" value="{{ val.id }}"/>
+                    </td>
+                    <td>
+                        <input type='submit' name = 'update_status' value = 'Change status'/>
+                    </td>
+                    <td>
+                        <input type='submit' name = 'delete_test' value = 'Delete test'/>
+                    </td>
+                </form>
+            </tr>
+        {% endfor %}
+    {% endif %}
+</table>
