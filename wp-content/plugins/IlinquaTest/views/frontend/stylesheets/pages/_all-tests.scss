@@ -3,6 +3,7 @@
 		display: flex;
 		flex-flow: row nowrap;
 		height: 100vh;
+		//min-height: 100vh;
 		padding: 150px 0 0 12.3vw;
 		&__title {
 			text-transform: none;
@@ -15,6 +16,8 @@
 		.language-list {
 			margin-left: 93px;
 			padding-top: 18px;
+			//max-height: 450px;
+			//overflow: auto;
 			&__language-item {
 				margin-bottom: 8px;
 				a {
@@ -47,6 +50,53 @@
 			flex-direction: row;
 			align-items: flex-end;
 			img {
+				width: 100%;
+			}
+		}
+		@include bp($point: $bpTablet, $type: max) {
+			&__img-holder {
+				width: 47vw;
+			}
+		}
+		@include bp($point: $bpPortrait, $type: max) {
+			position: relative;
+			flex-flow: column nowrap;
+			padding: 150px 0 0 0;
+			&__title {
+				padding-left: 16vw;
+			}
+			&__language {
+				padding-left: 16vw;
+			}
+			.language-list {
+				margin-left: 0;
+			}
+			&__img-holder {
+				position: absolute;
+				bottom: 0;
+				right: 0;
+				width: 88vw;
+				align-self: flex-end;
+				margin: auto 0 0;
+				pointer-events: none;
+			}
+		}
+		@include bp($point: $Mobile, $type: max) {
+			padding: 120px 0 0 0;
+			&__title {
+				font-size: 2.5rem;
+				padding-left: 13vw;
+			}
+			&__language {
+				padding-left: 13vw;
+			}
+			.language-list {
+				margin-left: 0;
+				&__language-item {
+					//margin-bottom: 14px;
+				}
+			}
+			&__img-holder {
 				width: 100%;
 			}
 		}

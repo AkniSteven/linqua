@@ -11,7 +11,7 @@
 			width: 40px;
 			height: 2px;
 			margin-right: 40px;
-			padding: 0 0 17px;
+			padding: 0 0 16px;
 			background: #fff;
 			background-clip: content-box;
 			box-sizing: content-box;
@@ -187,6 +187,20 @@
 			width: 100%;
 			flex-flow: row-reverse nowrap;
 			justify-content: space-between;
+			//.logo {
+			//	width: 215px;
+			//}
+			//.burger-menu {
+			//	.all-tests & {
+			//		width: 80px;
+			//		height: 4px;
+			//		padding: 0 0 33px;
+			//		&:before, &:after{
+			//			width: 80px;
+			//			height: 4px;
+			//		}
+			//	}
+			//}
 		}
 	}
 }

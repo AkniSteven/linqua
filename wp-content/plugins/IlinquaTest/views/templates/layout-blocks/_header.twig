@@ -13,7 +13,7 @@
 	</div>
 	<ul class="header__right-side header-nav__list">
 		{% if all_tests.primary_header_menu is not empty %}
-			{% for menu_item in bob.primary_header_menu  %}
+			{% for menu_item in all_tests.primary_header_menu  %}
 				<li class="header-nav__item">
 					<a href="{{ menu_item.url }}" class="header-nav__link">{{ menu_item.title }}</a>
 				</li>
