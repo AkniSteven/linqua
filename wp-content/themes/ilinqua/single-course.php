@@ -22,6 +22,12 @@ if ($post) {
     $mainImagePostType = $config->getConfig(
         "postImages", "style_config"
     )["main_image"]["post_type"];
+    $bannerImagePostType = $config->getConfig(
+        "postImages", "style_config"
+    )["banner_image"]["post_type"];
+    $storyImagePostType = $config->getConfig(
+        "postImages", "style_config"
+    )["story_image"]["post_type"];
     
         
     $model->setResult(['0'=>$post]);
@@ -29,6 +35,8 @@ if ($post) {
     $model->setMainThumbnailUrls();
     $model->setCustomImagelUrl($backGroundImagePostType, "background_image");
     $model->setCustomImagelUrl($mainImagePostType, "main_image");
+    $model->setCustomImagelUrl($mainImagePostType, "banner_image");
+    $model->setCustomImagelUrl($mainImagePostType, "story_image");
     $post = $model->getResult();
     $context['course'] = $post[0];
 }
@@ -52,7 +60,9 @@ if (!empty($context['course'])) {
        $authorData = get_user_by(
            'ID', $authorID
        );
-       $authorThumb =   get_field('image', 'user_2')['sizes']['thumbnail'];
+       $authorThumb =   get_field(
+           'image', "user_{$authorID}"
+       )['sizes']['thumbnail'];
         
        $context['author_name'] = $authorData ? $authorData->display_name : '';
        $context['author_thumb'] = $authorThumb ? $authorThumb : '';

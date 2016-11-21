@@ -3,6 +3,9 @@
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center top;
+		margin-top: 40px;
+		@include anim($dur: .2s);
+		@include anim-param(width);
 		.article-tile__link {
 			position: relative;
 			display: block;
@@ -24,7 +27,7 @@
 				width: 100%;
 				max-width: 515px;
 				text-align: center;
-				margin: 0 auto;
+				margin: 40px 0 auto;
 				padding: 0;
 				.tile-description {
 					&__btn {
@@ -106,7 +109,7 @@
 			&.big {
 				height: 528px;
 				width: 100%;
-				margin: 0 auto;
+				margin: 40px 0 auto;
 			}
 			&.middle {
 				width: 244px;
@@ -139,7 +142,7 @@
 			&.high {
 				width: 100%;
 				max-width: 600px;
-				margin: 0 auto;
+				margin: 40px 0 auto;
 				height: calc(80.3vw + 62px); // height picture + height figcaption
 				max-height: calc(513px + 62px);
 				.article-tile__img {
@@ -150,7 +153,7 @@
 			&.middle {
 				width: 100%;
 				max-width: 600px;
-				margin: 0 auto;
+				margin: 40px 0 auto;
 				height: calc(63.3vw + 62px); // height picture + height figcaption
 				max-height: calc(389px + 62px);
 				.article-tile__img {
@@ -161,7 +164,7 @@
 			&.small {
 				width: 100%;
 				max-width: 600px;
-				margin: 0 auto;
+				margin: 40px 0 auto;
 				height: calc(53.3vw + 62px); // height picture + height figcaption
 				max-height: calc(341px + 62px);
 				.article-tile__img {

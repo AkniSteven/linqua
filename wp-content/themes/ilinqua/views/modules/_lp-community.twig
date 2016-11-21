@@ -3,47 +3,90 @@
 	<h2 class="lp-community__title">Community</h2>
 	{#{% include 'modules/_lp-filters.twig' %}#}
 
+<!-- ISOTOPE FILTER TABS--------------->
+
 	{% include 'modules/_lp-filters.twig' with {
 	"categories" : [
 		{
 			"count": 1,
-			'name' : 'All',
-			"value": 'all',
-			"id": 'all',
-			"checked": 'checked'
+			"dataFilter": '*',
+			'filterBtnTxt' : 'All',
 		},
 		{
 			"count": 1,
-			'name' : 'school',
-			"value": 'school',
-			"id": 'school'
+			"dataFilter": '.school',
+			'filterBtnTxt' : 'школа',
 		},
 		{
 			"count": 1,
-			'name' : 'party',
-			"value": 'party',
-			"id": 'party'
+			"dataFilter": '.party',
+			'filterBtnTxt' : 'развлечения',
 		},
 		{
 			"count": 1,
-			'name' : 'life',
-			"value": 'life',
-			"id": 'life'
+			"dataFilter": '.life',
+			'filterBtnTxt' : 'жизнь',
 		},
 		{
 			"count": 1,
-			'name' : 'gramm',
-			"value": 'gramm',
-			"id": 'gramm'
-		}
+			"dataFilter": '.gramm',
+			'filterBtnTxt' : 'грамматика',
+		},
 	]
 	} %}
-	{% include 'modules/_lp-article-list.twig' with {
+
+<!-- END ISOTOPE FILTER TABS--------------->
+<!-- ARTICLE TILE TEMPLATE--------------->
+
+	{% include 'modules/_test-block.twig' with {
 	"tile":
-	{
-	'test': 'dscdscdscs',
-	'tileBig' : false,
-	}
+		{
+			articleList: [
+			{dataFilterClass: 'school', articleTileSize: 'big', tileBig: true},
+			{dataFilterClass: 'school', articleTileSize: 'middle'},
+			{dataFilterClass: 'party', articleTileSize: 'high'},
+			{dataFilterClass: 'school', articleTileSize: 'small'},
+			{dataFilterClass: 'party', articleTileSize: 'middle'},
+			{dataFilterClass: 'school', articleTileSize: 'middle'},
+			{dataFilterClass: 'party', articleTileSize: 'middle'},
+			{dataFilterClass: 'life', articleTileSize: 'middle'},
+			{dataFilterClass: 'gramm', articleTileSize: 'middle'},
+			{dataFilterClass: 'life', articleTileSize: 'middle'},
+			{dataFilterClass: 'gramm', articleTileSize: 'middle'},
+			{dataFilterClass: 'gramm', articleTileSize: 'middle'},
+			{dataFilterClass: 'gramm', articleTileSize: 'middle'},
+			{dataFilterClass: 'gramm', articleTileSize: 'middle'},
+			]
+		}
 	} %}
+<!-- END ARTICLE TILE TEMPLATE--------------->
+
+<!-- VUE FILTER TABS--------------->
+
+	{#{% include 'modules/_lp-filters.twig' with {#}
+	{#"categories" : [#}
+		{#{#}
+			{#"count": 1,#}
+			{#'name' : 'All',#}
+			{#"value": 'all',#}
+			{#"id": 'all',#}
+		{#},#}
+		{#{#}
+			{#"count": 1,#}
+			{#'name' : 'online',#}
+			{#"value": 'online',#}
+			{#"id": 'online'#}
+		{#},#}
+		{#{#}
+			{#"count": 1,#}
+			{#'name' : 'offline',#}
+			{#"value": 'offline',#}
+			{#"id": 'offline'#}
+		{#},#}
+	{#]#}
+	{#} %}#}
+
+<!-- END VUE FILTER TABS--------------->
+
 </section>
 

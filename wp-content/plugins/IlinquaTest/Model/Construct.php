@@ -12,12 +12,14 @@ namespace IlinquaTest\Model;
 class Construct
 {
     public $config;
-    
+
     public function __construct()
     {
         add_action(
             'plugins_loaded', [$this, 'PageTemplates']
         );
+        add_action('admin_menu', [ &$this, 'add_test_page' ]);
+        add_action('init', [$this, 'create_plugin_table']);
         add_action('init', [$this, 'registerTaxType']);
         add_action('init', [$this, 'registerPostType']);
 
@@ -36,6 +38,57 @@ class Construct
             return call_user_func_array($name, $arguments);
         }
         return false;
+    }
+
+    /**
+     * create plugin table
+     */
+    public function create_plugin_table()
+    {
+        global $wpdb;
+        $table_name = $wpdb->prefix . 'test';
+        $charsetCollate = "DEFAULT CHARACTER SET {$wpdb->charset} COLLATE {$wpdb->collate}";
+        if ($wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name) {
+            $sql = "CREATE TABLE " . $table_name . " (
+              id int NOT NULL AUTO_INCREMENT,
+              name text NOT NULL,
+              email text NOT NULL,
+              status int default 0,
+              info text NOT NULL,
+              test text NOT NULL,
+              score int default 0,
+              date  datetime NOT NULL,
+              UNIQUE KEY id (id)
+            ){$charsetCollate};";
+
+            require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+            dbDelta($sql);
+        }
+    }
+
+    /**
+     * This add only the test page (
+     * TODO::Rewrite this hardcode!
+     */
+    public function add_test_page()
+    {
+        add_menu_page(
+            'Test page',
+            'Test page',
+            'read',
+            'test_page',
+            [$this, 'display_test_page']
+        );
+
+    }
+    /**
+     * This display only test page
+     * TODO::Rewrite this hardcode!
+     */
+    public function display_test_page()
+    {
+        require_once TEMPLATE_PATH_TEST . '/page-templates/admin_test_page.php';
+
     }
 
     /**

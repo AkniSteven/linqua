@@ -9,6 +9,8 @@
 
 {% block scripts %}
 	<script src="{{ theme.path }}/public/js/home-template.js" type="text/javascript"></script>
+	<script src="{{ theme.path }}/public/js/test-block.js" type="text/javascript"></script>
+	
 {% endblock %}
 
 {% block content %}
@@ -24,109 +26,111 @@
 			{% endfor %}
 		{% endif %}
 	</section>
-	<script>
-		
-		Vue.config.debug = true;
-		Vue.config.delimiters = ['${', '}'];
-		
-		Vue.component('list', {
-			template: '#list-template',
-			props: ['list']
-		});
-		
-		Vue.component('list-header', {
-			template: '#list-header',
-			props: ['list-header']
-		});
-		
-		var vm = new Vue({
-			el: '.lp-community',
-			data: {
-				users: [
-					"freecodecamp",
-					"storbeck",
-					"terakilobyte",
-					"habathcx",
-					"RobotCaleb",
-					"thomasballinger",
-					"noobs2ninjas",
-					"beohoff",
-					"test_channel",
-					"cretetion",
-					"sheevergaming",
-					"TR7K",
-					"OgamingSC2",
-					"ESL_SC2"],
-				// users: ['freecodecamp', 'storbeck', 'terakilobyte'],
-				channelRes: [],
-				obj: {},
-				status: ['all','school', 'party', 'life', 'gramm'],
-				reverse: true,
-				listStyle: '',
-			},
-			ready: function () {
-				this.getChannel();
-			},
-			methods: {
-				getChannel: function () {
-					var instance = this;
-					var resnow = this.channelRes;
-					
-					this.users.forEach(function(channel, index){
-						instance.$http.get(instance.makeUrl('streams', channel)).then((response) => {
-							instance.$http.get(instance.makeUrl('channels', channel)).then((data) => {
-								if (response.json().stream === null || response.json().stream === undefined) {
-									instance.channelRes.$set(
-										index,{
-											status: 'offline',
-											name: data.json().name,
-											desc: data.json().status,
-											img: data.json().logo,
-											url: data.json().url
-										})
-								} else {
-									instance.channelRes.$set(index,{
-										status: 'online',
-										name: data.json().name,
-										desc: data.json().status,
-										img: data.json().logo,
-										url: data.json().url
-									})
-								}
-							}, (data) => {
-								console.log(data)
-							})
-						}, (response) => {
-							console.log(response)
-						})
-					})
-				},
-				makeUrl: function (type, name) {
-					//http://www.linqua.web/wp-json/posts?type[]=post - берем все посты типа пост
-                    //http://www.linqua.web/wp-json/posts?type[]=post&filter[posts_per_page]=10 - Берем 10 постов
-                    //http://www.linqua.web/wp-json/posts?type[]=post&filter[posts_per_page]=10&filter[order]=ASC - фильтруем по возрастанию
-                    //http://www.linqua.web/wp-json/posts?type[]=post&filter[posts_per_page]=10&filter[order]=ASC&filter[category_name]=events - посты из категории события
-
-					return 'https://api.twitch.tv/kraken/' +type+ '/' +name+ '?client_id=5j0r5b7qb7kro03fvka3o8kbq262wwm';
-				},
-				changeClass: function () {
-					this.reverse = !this.reverse
-				},
-				getClass: function (option) {
-					this.displayMode = option;
-				},
-			},
-			filters: {
-				status: function (account) {
-					if (this.status == 'all') {
-						return account
-					}
-					
-					return account.filter(function(account) {
-						return account.status == this.status
-					}.bind(this))
-				}
-			}
-		})
-	</script>
+	
+	{#<script>#}
+		{##}
+		{#Vue.config.debug = true;#}
+		{#Vue.config.delimiters = ['${', '}'];#}
+		{##}
+		{#Vue.component('list', {#}
+			{#template: '#list-template',#}
+			{#props: ['list']#}
+		{#});#}
+		{##}
+{#//		Vue.component('list-header', {#}
+{#//			template: '#list-header',#}
+{#//			props: ['list-header']#}
+{#//		});#}
+		{##}
+		{#var vm = new Vue({#}
+			{#el: '.lp-community',#}
+			{#data: {#}
+				{#users: [#}
+					{#"freecodecamp",#}
+					{#"storbeck",#}
+					{#"terakilobyte",#}
+					{#"habathcx",#}
+					{#"RobotCaleb",#}
+					{#"thomasballinger",#}
+					{#"noobs2ninjas",#}
+					{#"beohoff",#}
+					{#"test_channel",#}
+					{#"cretetion",#}
+					{#"sheevergaming",#}
+					{#"TR7K",#}
+					{#"OgamingSC2",#}
+					{#"ESL_SC2"],#}
+				{#// users: ['freecodecamp', 'storbeck', 'terakilobyte'],#}
+				{#channelRes: [],#}
+				{#obj: {},#}
+				{#status: ['all','school', 'party', 'life', 'gramm'],#}
+				{#reverse: true,#}
+				{#listStyle: '',#}
+			{#},#}
+			{#ready: function () {#}
+				{#this.getChannel();#}
+			{#},#}
+			{#methods: {#}
+				{#getChannel: function () {#}
+					{#var instance = this;#}
+					{#var resnow = this.channelRes;#}
+					{##}
+					{#this.users.forEach(function(channel, index){#}
+						{#instance.$http.get(instance.makeUrl('streams', channel)).then((response) => {#}
+							{#instance.$http.get(instance.makeUrl('channels', channel)).then((data) => {#}
+								{#if (response.json().stream === null || response.json().stream === undefined) {#}
+									{#instance.channelRes.$set(#}
+										{#index,{#}
+											{#status: 'all',#}
+											{#name: data.json().name,#}
+											{#desc: data.json().status,#}
+											{#img: data.json().logo,#}
+											{#url: data.json().url#}
+										{#})#}
+								{#} else {#}
+									{#instance.channelRes.$set(index,{#}
+										{#status: 'school',#}
+										{#name: data.json().name,#}
+										{#desc: data.json().status,#}
+										{#img: data.json().logo,#}
+										{#url: data.json().url#}
+									{#})#}
+								{#}#}
+								{#console.log('stream:', data.json().stream);#}
+							{#}, (data) => {#}
+								{#console.log(data)#}
+							{#})#}
+						{#}, (response) => {#}
+							{#console.log(response)#}
+						{#})#}
+					{#})#}
+				{#},#}
+				{#makeUrl: function (type, name) {#}
+{#//					/http://www.linqua.web/wp-json/posts?type[]=post - берем все посты типа пост#}
+					{#//http://www.linqua.web/wp-json/posts?type[]=post&filter[posts_per_page]=10 - Берем 10 постов#}
+					{#//http://www.linqua.web/wp-json/posts?type[]=post&filter[posts_per_page]=10&filter[order]=ASC - фильтруем по возрастанию#}
+					{#//http://www.linqua.web/wp-json/posts?type[]=post&filter[posts_per_page]=10&filter[order]=ASC&filter[category_name]=events - посты из категории события#}
+					{##}
+					{#return 'https://api.twitch.tv/kraken/' + type + '/' + name + '?client_id=5j0r5b7qb7kro03fvka3o8kbq262wwm';#}
+				{#},#}
+				{#changeClass: function () {#}
+					{#this.reverse = !this.reverse#}
+				{#},#}
+				{#getClass: function (option) {#}
+					{#this.displayMode = option;#}
+				{#}#}
+			{#},#}
+			{#filters: {#}
+				{#status: function (account) {#}
+					{#if (this.status == 'all') {#}
+						{#return account#}
+					{#}#}
+					{##}
+					{#return account.filter(function(account) {#}
+						{#return account.status == this.status#}
+					{#}.bind(this))#}
+				{#}#}
+			{#}#}
+		{#})#}
+	{#</script>#}
 {% endblock %}

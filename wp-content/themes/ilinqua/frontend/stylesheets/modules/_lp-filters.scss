@@ -5,6 +5,8 @@
 		margin: 0 0 80px $normal;
 	}
 	&__filter-item {
+		width:initial !important;
+		//width: auto !important;
 		display: inline-block;
 		margin-right: 10px;
 		background: #e5e5e5;
@@ -15,6 +17,8 @@
 		white-space: nowrap;
 		cursor: pointer;
 		@include anim($param: background, $dur: .2s);
+		
+		/* ---------- Vue filter button srtyles ---------- */
 		input {
 			position: absolute;
 			left: -99999px;
@@ -24,6 +28,8 @@
 			padding: 14px 19px;
 			cursor: pointer;
 		}
+		/* ---------- END Vue filter button srtyles ---------- */
+		
 		&:hover {
 			background: darken(#e5e5e5, 10%);
 		}
@@ -52,8 +58,12 @@
 		}
 	}
 	@include bp($point: $bpPortrait, $type: max) {
+		.swiper-container {
+			padding: 0 0 40px $small;
+		}
 		&__filter-list {
-			margin: 0 0 31px $small;
+			margin: 0;
+			//padding: 0 0 40px $small;
 		}
 		&__filter-item {
 			margin-bottom: 10px;

@@ -32,4 +32,9 @@
     <div id="test_questions_block">
 
     </div>
+    <div id="random_block">
+        <label for="test_steps">Use random questions order</label>
+        <input type="radio" name="test_random" value="y" {% if options.meta.test_random.0 == "y" %} checked="checked" {% endif %}/>Yes
+        <input type="radio" name="test_random" value="n" {% if options.meta.test_random.0 == "n" %} checked="checked" {% endif %}/>No
+    </div>
 </div>
