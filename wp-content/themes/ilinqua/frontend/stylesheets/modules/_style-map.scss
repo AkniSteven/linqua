@@ -10,3 +10,73 @@
 		color: #000;
 	}
 }
+
+.form {
+	&__field {
+		position: relative;
+		margin: 0 0 38px;
+		input {
+			width: 100%;
+			border-width: 0 0 2px 0 !important;
+			&[type='checkbox'] {
+				visibility: hidden;
+				position: absolute;
+				left: 0;
+				top: 0;
+				& ~ label {
+					padding: 0 0 0 79px;
+					&:after {
+						content: '';
+						position: absolute;
+						left: 0;
+						top: 0;
+						width: 60px;
+						height: 40px;
+						background: red;
+						border-radius: 50px;
+						cursor: pointer;
+						@include anim($param: background);
+					}
+					&:before {
+						content: '';
+						position: absolute;
+						left: 8px;
+						top: 8px;
+						width: 24px;
+						height: 24px;
+						border-radius: 50%;
+						background: #fff;
+						z-index: 2;
+						cursor: pointer;
+						@include anim($param: transform);
+						will-change: transform;
+						transform-origin: 0;
+					}
+				}
+				& ~ .description {
+					padding: 0 0 0 79px;
+				}
+				&:checked {
+					& ~ label {
+						&:after {
+							background: red;
+						}
+						&:before {
+							transform: translateX(20px);
+						}
+					}
+				}
+			}
+		}
+	}
+	&__note {
+		font-size: .875em;
+		line-height: 1.5;
+		margin: -24px 0 40px;
+	}
+	&__button {
+		width: 100%;
+		margin: 0 0 22px;
+		padding: 23px 55px;
+	}
+}

@@ -28,6 +28,8 @@
     "jquery-ias": "infinite-ajax-scroll#^2.2.2",
     "masonry": "^4.1.1",
     "vue": "^2.0.5",
-    "quicksand": "^1.2.2"
+    "quicksand": "^1.2.2",
+    "jquery.steps": "^1.1.0",
+    "jquery-validation": "^1.15.1"
   }
 }

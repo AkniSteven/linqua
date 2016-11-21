@@ -73,7 +73,7 @@ gulp.task('sass', function () {
 });
 
 gulp.task('twig', function () {
-	return gulp.src("./views/**/*.twig")
+	return gulp.src("./templates/**/*.twig")
 	.pipe(browserSync.stream());
 });
 

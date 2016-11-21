@@ -39,7 +39,7 @@ var gulp = require('gulp'),
 gulp.task('serve', ['sass'], function () {
 
 	browserSync.init({
-		proxy: "www.linqua.web/course/kurs2/"
+		proxy: "www.linqua.web/dscdscds/"
 	});
 
 	gulp.watch("./frontend/stylesheets/**/*.scss", ['sass']);

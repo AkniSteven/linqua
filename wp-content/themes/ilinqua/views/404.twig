@@ -1,49 +1,73 @@
 {% extends '_layout.twig' %}
 
 {% block title %}
-    Choose test
+	Choose test
 {% endblock %}
 
-{% block jsEntryPoint %}
-
+{% block scripts %}
+	<script src="{{ theme.path }}/public/js/single-test.js" type="text/javascript"></script>
 {% endblock %}
-
 
 {% block content %}
-    <div class="choose-test">
-        <h1 class="choose-test__title">
-            Тест
-        </h1>
-        <div class="choose-test__language">
-            <ul class="language-list">
-                <li>
-                    <a href="#">English</a>
-                </li>
-                <li>
-                    <a href="#">Французский</a>
-                </li>
-                <li>
-                    <a href="#">Русский</a>
-                </li>
-                <li>
-                    <a href="#">Китайский</a>
-                </li>
-                <li>
-                    <a href="#">English</a>
-                </li>
-                <li>
-                    <a href="#">Французский</a>
-                </li>
-                <li>
-                    <a href="#">Русский</a>
-                </li>
-                <li>
-                    <a href="#">Китайский</a>
-                </li>
-            </ul>
-        </div>
-        <div class="choose-test__banner">
-            <img src="{{ theme.path }}/public/images/moto.jpg" alt="">
-        </div>
-    </div>
+	<div class="single-test-page">
+		{#{% include 'utilities/_form.twig' with {#}
+		{#"form" : [#}
+		{#{#}
+		{#'id' : 'userName',#}
+		{#'placeholder' : 'Имя',#}
+		{#},#}
+		{#{#}
+		{#'id' : 'telephone',#}
+		{#'placeholder' : 'Телефон',#}
+		{#},#}
+		{#{#}
+		{#'id' : 'email',#}
+		{#'placeholder' : 'E-mail',#}
+		{#},#}
+		{#]#}
+		{#} %}#}
+		<h1>English test</h1>
+		<div class="test-holder">
+			{#{% include 'modules/form-test.twig' %}#}
+			<div class="single-test__step">
+				{% include 'utilities/_form.twig' with {
+				"form" : [
+				{
+				'id' : 'user-name',
+				'placeholder' : 'Имя',
+				},
+				{
+				'id' : 'telephone',
+				'placeholder' : 'Телефон',
+				},
+				{
+				'id' : 'email',
+				'placeholder' : 'E-mail',
+				},
+				]
+				} %}
+			</div>
+			<div class="single-test__step">
+				<p>Wonderful transition effects.</p>
+			</div>
+			<div class="single-test__step">
+				<p>The next and previous buttons help you to navigate through your content.</p>
+			</div>
+			<div class="single-test__step">
+				<p>The next and previous buttons help you to navigate through your content.</p>
+			</div>
+			<div class="single-test__step">
+				<p>The next and previous buttons help you to navigate through your content.</p>
+			</div>
+			<div class="single-test__step">
+				<p>The next and previous buttons help you to navigate through your content.</p>
+			</div>
+			<div class="pagination"></div>
+			<div class="pagination"></div>
+			<div class="pagination"></div>
+			<div class="pagination"></div>
+			<div class="pagination"></div>
+			<div class="pagination"></div>
+		</div>
+	</div>
 {% endblock %}
