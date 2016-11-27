@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 	requirejs.config({
-		"baseUrl": '/wp-content/themes/ilinqua/public/js',
+		"baseUrl": '/wp-content/plugins/IlinquaTest/views/public/js',
 		"waitSeconds": 30,
 		"paths": {},
 		"map": {

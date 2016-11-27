@@ -1,0 +1,15 @@
+{% for item in form %}
+	<div class="form__field {{ item.class }}">
+		<input type="{{ item.type|default('text') }}" placeholder="{{ item.placeholder }}" name="{{ item.id }}" id="{{ item.id }}" required>
+		<label for="{{ item.id }}">{{ item.placeholder }}</label>
+		<span class="form__caret"></span>
+	</div>
+{% endfor %}
+
+{#{% macro field(type, id, placeholder, class) %}#}
+	{#<div class="form__field {{ class }}">#}
+		{#<input type="{{ type|default('text') }}" id="{{ id }}" required>#}
+		{#<label for="{{ id }}">{{ placeholder }}</label>#}
+		{#<span class="form__caret"></span>#}
+	{#</div>#}
+{#{% endmacro %}#}

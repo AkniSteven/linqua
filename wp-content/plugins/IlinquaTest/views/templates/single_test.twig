@@ -1,51 +1,116 @@
-<div class="user-info">
-    {% if test.session_test_id != test.test.ID %}
-        <form action="" method="post" name="test">
-            <input type="hidden" name="test_id" value="{{ test.test.ID }}" />
-            <label for="name">Имя</label>
-            <input id="name" name="name" value=""/>
-            <label for="email">Email</label>
-            <input id="email" name="email" value=""/>
-            <input type="submit" name="start-test" value="Начать">
-        </form>
-    {% endif %}
-    {% if test.session_test_id == test.test.ID %}
-        {% if test.questions is not empty %}
-        {% for questions_arr in test.questions %}
-            {% for question in questions_arr %}
-                <div class="question">
-                    <form action ="" method="post" name="question_{{ question.ID }}">
-                        <h3>{{ question.post_title }}</h3>
-                        {% if question.main_thumnail_url != "" %}
-                            <img src="{{ question.main_thumnail_url }}" />
-                        {% endif %}
-                        <div class="question_body">
-                            {{ question.post_content }}
-                        </div>
-                        <div class="answers">
-                            {% if question.meta.question_type == "radio" %}
-                                {% for key, answer in question.meta.answer_case %}
-                                    <div class="answer-val">
-                                        <input type="radio" name="answer" value="{{ key }}" /> {{ answer }}
-                                    </div>
-                                {% endfor %}
-                            {% elseif question.meta.question_type == "checkbox" %}
-                                {% for key, answer in question.meta.answer_case %}
-                                    <div class="answer-val">
-                                        <input type="checkbox" name="answer" value="{{ key }}" /> {{ answer }}
-                                    </div>
-                                {% endfor %}
-                            {% elseif question.meta.question_type == "text" %}
-                                <div class="answer-val">
-                                    <input type="text" name="answer" value="" />
-                                </div>
-                            {% endif %}
-                            <button type="submit">Ответить</button>
-                        </div>
-                    </form>
-                </div>
-            {% endfor %}
-        {% endfor %}
-    {% endif %}
-    {% endif %}
+{% extends '_layout-test.twig' %}
+
+{% block title %}
+	Single test
+{% endblock %}
+
+{% block jsEntryPoint %}
+{% endblock %}
+
+{% block scripts %}
+	<script src="/wp-content/plugins/IlinquaTest/views/public/js/single-test.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block body_attributes %}
+	{{ bodyClass }}
+{% endblock %}
+
+{% block content %}
+
+<div class="single-test-page">
+	<h1>English test</h1>
+	<div class="user-info">
+		{% if test.session_test_id != test.test.ID %}
+		<form action="" method="post" name="test">
+			<div class="form__field">
+				<input type="hidden" name="test_id" value="{{ test.test.ID }}"/>
+				<input id="name" placeholder="Имя" name="name" value=""/>
+				<label for="name">Имя</label>
+				<span class="form__caret"></span>
+			</div>
+			<div class="form__field">
+				<input id="email" placeholder="Email" name="email" value=""/>
+				<label for="email">Email</label>
+				<span class="form__caret"></span>
+			</div>
+			<div class="btn yellow">
+				<input type="submit" name="start-test" value="Начать">
+			</div>
+		</form>
+		{% endif %}
+	</div>
+	<div class="test-holder">
+		{% if test.session_test_id == test.test.ID %}
+		{% if test.questions is not empty %}
+			{% for questions_arr in test.questions %}
+				{% for question in questions_arr %}
+					<div class="question">
+						<form class="question__form" action="" method="post" name="question_{{ question.ID }}">
+							<h3 class="question__title">{{ question.post_title }}</h3>
+							{% if question.main_thumnail_url != "" %}
+								<div class="question__img-holder">
+									<img src="{{ question.main_thumnail_url }}"/>
+								</div>
+							{% endif %}
+							<div class="question__body">
+								{{ question.post_content }}
+							</div>
+							<div class="answers">
+								{% if question.meta.question_type == "radio" %}
+									{% for key, answer in question.meta.answer_case %}
+										{#<div class="answer-val">#}
+											{#<input type="radio" name="answer" value="{{ key }}"/>#}
+											{#<span class="answer-title">#}
+												{#{{ answer }}#}
+											{#</span>#}
+										{#</div>#}
+										
+										<div class="answer-val">
+											<label for="some-id{{ key }}" class="radio">
+												<input type="radio" name="answer" id="some-id{{ key }}" value="{{ key }}"/>
+												<span class="radio__frame"></span>
+												<span class="radio__title">{{ answer }}</span>
+											</label>
+										</div>
+									{% endfor %}
+								{% elseif question.meta.question_type == "checkbox" %}
+									{% for key, answer in question.meta.answer_case %}
+										{#<div class="answer-val">#}
+											{#<input id="some-id2" type="checkbox" name="answer" value="{{ key }}"/>#}
+											{#<span class="answer-title">#}
+												{#{{ answer }}#}
+											{#</span>#}
+										{#</div>#}
+										<div class="answer-val">
+											<label for="some-id{{ key }}" class="checkbox">
+												<input type="checkbox" name="answer" id="some-id{{ key }}" value="{{ key }}"/>
+												<span class="checkbox__frame"></span>
+												<span class="checkbox__title">{{ answer }}</span>
+											</label>
+										</div>
+									{% endfor %}
+								{% elseif question.meta.question_type == "text" %}
+									<div class="answer-val">
+										<textarea class="textarea" type="text" name="answer" value="" rows="10" name="text"></textarea>
+									</div>
+								{% endif %}
+								<button class="answer-button" type="submit">Ответить</button>
+							</div>
+						</form>
+					</div>
+				{% endfor %}
+			{% endfor %}
+		{% endif %}
+		{% endif %}
+		<div class="pagination"></div>
+		<div class="pagination"></div>
+		<div class="pagination"></div>
+		<div class="pagination"></div>
+		<div class="pagination"></div>
+		<div class="pagination"></div>
+		<div class="pagination"></div>
+		<div class="pagination"></div>
+		<div class="pagination"></div>
+	</div>
 </div>
+{% endblock %}

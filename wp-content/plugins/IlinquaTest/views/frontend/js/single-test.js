@@ -6,18 +6,19 @@ requirejs([
 ], function ($) {
 
 	'use strict';
+	console.log('cdscsd');
 
 	var PluginsInit = {
 		init: function () {
-			this.testSteps();
+			this.singleTest();
 		},
 
 
-		testSteps: function () {
-			var steps = $(".steps-holder");
+		singleTest: function () {
+			var steps = $(".test-holder");
 			steps.steps({
 				headerTag: ".pagination",
-				bodyTag: ".single-test__step",
+				bodyTag: ".question",
 				transitionEffect: "slideLeft",
 				autoFocus: true,
 				titleTemplate: "#title#",
@@ -26,4 +27,5 @@ requirejs([
 	};
 	PluginsInit.init();
 });
+
 

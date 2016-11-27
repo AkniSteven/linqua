@@ -1,0 +1,122 @@
+.btn {
+	display: inline-block;
+	padding: 14px 19px;
+	font-size: .75rem;
+	line-height: 1;
+	letter-spacing: 1px;
+	font-weight: 500;
+	&.grey {
+		background: #e5e5e5;
+		color: #000;
+	}
+	&.yellow {
+		background: #fffc2b;
+		input {
+			background: #fffc2b;
+		}
+	}
+	
+}
+
+.form {
+	&__field {
+		position: relative;
+		margin: 0 0 38px;
+		
+	}
+	&__note {
+		font-size: .875em;
+		line-height: 1.5;
+		margin: -24px 0 40px;
+	}
+	&__button {
+		width: 100%;
+		margin: 0 0 22px;
+		padding: 23px 55px;
+	}
+}
+
+/* ---------- Input styles ---------- */
+	/* ---------- checkbox ---------- */
+.answer-val {
+	.radio, .checkbox {
+		display: flex;
+		flex-flow: row nowrap;
+		align-items: center;
+		input {
+			position: absolute;
+			left: -9999px;
+			&:checked {
+				& + .radio__frame,
+				& + .checkbox__frame{
+					&:before, &:after {
+						opacity: 1;
+					}
+				}
+				& ~ .radio__title,
+				& ~ .checkbox__title {
+					color: #000;
+					/* ---------- Language page style ---------- */
+					.english & {
+						color: #fffc2b;
+					}
+				}
+			}
+		}
+		&__frame {
+			display: inline-block;
+			position: relative;
+			width: 24px;
+			height: 24px;
+			border: 2px solid transparentize(#fff, .4);
+			&:before {
+				content: "\e92f";
+				position: absolute;
+				width: 20px;
+				height: 20px;
+				line-height: 20px;
+				top: -3px;
+				right: -3px;
+				font-family: 'icomoon';
+				display: block;
+				opacity: 0;
+				font-size: 1.8rem;
+				@include anim($param: opacity, $dur: .1s);
+				color: #000;
+				/* ---------- Language page style ---------- */
+				.english & {
+					color: #fffc2b;
+				}
+			}
+		}
+		&__title {
+			margin-left: 10px;
+			line-height: 1.2;
+			color: #fff;
+			cursor: pointer;
+			@include anim($param: color, $dur: .1s);
+		}
+	}
+	.radio {
+		&__frame {
+			border-radius: 50%;
+		}
+	}
+	.checkbox {
+		&__frame {
+			
+		}
+	}
+	.textarea {
+		width: 100%;
+		padding: 30px;
+		border: 2px solid transparentize(#fff, .4);
+		border-radius: 9px;
+		background: transparent;
+		/* ---------- Language page style ---------- */
+		.english & {
+			color: #fff;
+		}
+	}
+}
+/* ---------- END Input styles ---------- */
