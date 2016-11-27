@@ -2,7 +2,7 @@
 	<div class="header__left-side">
 		<a href="#" class="burger-menu"></a>
 		<strong class="logo">
-			<a href="#">
+			<a href="{{ site_url }}">
 				{% if all_tests %}
 					<img src="/wp-content/plugins/IlinquaTest/views/public/images/{{ all_tests.logoColor }}" alt=""/>
 				{% else %}
@@ -11,9 +11,10 @@
 			</a>
 		</strong>
 	</div>
+
 	<ul class="header__right-side header-nav__list">
-		{% if all_tests.primary_header_menu is not empty %}
-			{% for menu_item in all_tests.primary_header_menu  %}
+		{% if primary_header_menu is not empty %}
+			{% for menu_item in primary_header_menu  %}
 				<li class="header-nav__item">
 					<a href="{{ menu_item.url }}" class="header-nav__link">{{ menu_item.title }}</a>
 				</li>

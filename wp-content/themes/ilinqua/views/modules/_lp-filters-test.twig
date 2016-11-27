@@ -1,11 +1,5 @@
 <div class="container">
-	{% if categories is not empty %}
-		{% for category in categories %}
-			{% if category.count > 0 %}
-				{{ category.name }} {{ category.slug }}
-			{% endif %}
-		{% endfor %}
-	{% endif %}
+
 	<div class="currentClass">
 		<div class="switch lp-community__filter-list swiper-wrapper">
 			<a href="#all" class="lp-community__filter-item swiper-slide btn grey">
@@ -25,7 +19,7 @@
 			</a>
 		</div>
 	</div>
-	
+
 	<div class="list-content lp-article__holder" id="article-list" :class="currentStyle">
 		<list v-for="list in channelRes | status" :list="list" track-by="$index" transition="expand"></list>
 	</div>

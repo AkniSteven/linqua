@@ -5,5 +5,12 @@
     "post_status": "publish",
     "orderby": "post_date",
     "order": "ASC"
+  },
+  "posts": {
+    "posts_per_page": -1,
+    "post_type": "post",
+    "post_status": "publish",
+    "orderby": "post_date",
+    "order": "ASC"
   }
 }

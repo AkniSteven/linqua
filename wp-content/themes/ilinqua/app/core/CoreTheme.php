@@ -111,6 +111,24 @@ class CoreTheme extends Timber
     }
 
     /**
+     * This formate date
+     * @param $date
+     * @return string
+     */
+    public function specialDateFormat($date)
+    {
+        $d = date('d',strtotime($date));
+        $m = date('m',strtotime($date));
+        $y = date('Y',strtotime($date));
+        $month = __($this->_config->getConfig(
+            "date",
+            "style_config"
+        )
+        ['months'][$m]);
+        $formated_date = $d . ' ' .  mb_strtolower($month,'UTF-8') . ' ' . $y;
+        return $formated_date;
+    }
+    /**
      * @param $api
      * @return mixed
      * this set google map api
