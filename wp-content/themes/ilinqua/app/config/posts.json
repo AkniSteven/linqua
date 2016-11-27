@@ -20,7 +20,7 @@
       "hierarchical"    : true,
       "query_var"       : true,
       "has_archive"     : true,
-      "supports"        : ["title","editor", "thumbnail", "excerpt"]
+      "supports"        : ["title","editor", "thumbnail", "excerpt", "author"]
     }
   }
 }

@@ -1,7 +1,7 @@
 {% extends '_layout.twig' %}
 
 {% block title %}
-	English
+    {{ course.post_title }}
 {% endblock %}
 
 {% block jsEntryPoint %}
@@ -12,154 +12,94 @@
 
     <div class="article">
         <div class="article-header">
-            <div class="article-header__banner" style="background-image: url('{{ theme.path }}/public/images/Desktop.jpg')">
+            <div class="article-header__banner" {% if course.other_image_urls.background_image !='' %} style="background-image: url('{{ course.other_image_urls.background_image }}') {% endif %}">
                 <div class="article-header__title">
-                    <div class="language">
-                        <span>English</span>
-                    </div>
-                    <h1 class="title">Страх и ненависть
-                        <span>в iLingua</span>
+                    {% if course.acf.label.value != '' %}
+                        <div class="language">
+                            <span>{{ course.acf.label.value }}</span>
+                        </div>
+                    {% endif %}
+                    <h1 class="title">
+                        {{ course.post_title }}
                     </h1>
                 </div>
             </div>
-            <div class="article-header__specification">
-                <div class="specification-holder">
-                    <div class="frame">
-                        <img src="{{ theme.path }}/public/images/moto.jpg" alt="">
-                        <span>iLingua School</span>
-                    </div>
-                    <div class="subtitle">
+            {% if course.acf.show_author_block.value and course.acf.headline_author_text.value !='' and course.acf.author_text.value !=''  %}
+                <div class="article-header__specification">
+                    <div class="specification-holder">
+                        {% if author_thumb !='' and author_name !='' %}
+                            <div class="frame">
+                                <img src="{{ author_thumb }}" alt="">
+                                <span>{{ author_name }}</span>
+                            </div>
+                        {% endif %}
+                        <div class="subtitle">
                         <span class="name">
-                            Будет совсем не страшно
+                            {{ course.acf.headline_author_text.value }}
                         </span>
                         <span class="descr">
-                            Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале. Почему? Потому что в оригинальной версии все настоящее - голоса актеров, окружающие звуки. Все выглядит именно так, как это задумал режисер фильма. Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале.
+                           {{ course.acf.author_text.value }}
                         </span>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {% endif %}
         </div>
         <div class="article-main">
             <div class="article-main__holder">
-                <div class="article-main__frame">
-                    <img src="{{ theme.path }}/public/images/Desktop.jpg" alt="">
-                </div>
+                {% if course.other_image_urls.main_image !='' %}
+                    <div class="article-main__frame">
+                        <img src="{{ course.other_image_urls.main_image }}" alt="{{ course.other_image_names.main_image }}">
+                    </div>
+                {% endif %}
                 <div class="article-main__story">
-                    <div class="left-column">
-                        <img src="{{ theme.path }}/public/images/Desktop.jpg" alt="">
-                    </div>
+                    {% if course.other_image_urls.banner_image !='' %}
+                        <div class="left-column">
+                            <img src="{{ course.other_image_urls.banner_image }}" alt="{{ course.other_image_names.banner_image_name}}">
+                        </div>
+                    {% endif %}
                     <div class="right-column">
-                        <div class="price">
-                            <ul class="price-list">
-                                <li class="price-list__item">
-                                    <div class="name">
-                                        Стоимость
-                                    </div>
-                                    <div class="pay">
-                                        <div class="pay__row">
-                                            <span class="duration">Оплата 1 месяца</span>
-                                            <span class="money">660 <span class="currency">грн/мес</span></span>
-                                        </div>
-                                        <div class="pay__row">
-                                            <span class="duration">Оплата 3 месяцев</span>
-                                            <span class="money">610 <span class="currency">грн/мес</span></span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="price-list__item">
-                                    <div class="name">
-                                        График
-                                    </div>
-                                    <div class="pay">
-                                        <div class="pay__row">
-                                            <span class="money">3 <span class="currency">р/нед. по </span>1.5 <span class="currency">ч</span></span>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="price-list__item">
-                                    <div class="name">
-                                        Speaking Club
-                                    </div>
-                                    <div class="pay">
-                                        <div class="pay__row">
-                                            <span class="money">3 <span class="currency">р/нед. по </span>1.5 <span class="currency">ч</span></span>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="txt">
-                            <p>
-                                Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале. Почему? Потому что в оригинальной версии все настоящее - голоса актеров, окружающие звуки. Все выглядит именно так, как это задумал режисер фильма. Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале.
-                            </p>
-                            <p>
-                                Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале. Почему? Потому что в оригинальной версии все настоящее - голоса актеров, окружающие звуки. Все выглядит именно так, как это задумал режисер фильма. Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале.
-    Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале. Почему? Потому что в оригинальной версии все настоящее - голоса актеров, окружающие звуки. Все выглядит именно так, как это задумал режисер фильма. Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале.
-                            </p>
-                            <span class="title">Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале. Почему?</span>
-                            <p>Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале. Почему? Потому что в оригинальной версии все настоящее - голоса актеров, окружающие звуки. Все выглядит именно так, как это задумал режисер филь`ма.</p>
-                        </div>
+                        {% if course.acf.info_block.value !=''  %}
+                            {{ course.acf.info_block.value }}
+                        {% endif %}
                     </div>
                 </div>
-                <div class="article-main__frame">
-                    <img src="{{ theme.path }}/public/images/Desktop.jpg" alt="">
-                </div>
+                {% if course.other_image_urls.story_image !='' %}
+                    <div class="article-main__frame">
+                        <img src="{{ course.other_image_urls.story_image }}" alt="{{ course.other_image_names.story_image_name}}">
+                    </div>
+                {% endif %}
                 <div class="article-main__story">
-                    <div class="left-column">
-                        {#<img src="{{ theme.path }}/public/images/Desktop.jpg" alt="">#}
-                    </div>
                     <div class="right-column">
-                        <ul class="story-list">
-                            <li class="story-list__item">
-                                <span class="title">Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале. Почему?</span>
-                                <p>Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале. Почему? Потому что в оригинальной версии все настоящее - голоса актеров, окружающие звуки. Все выглядит именно так, как это задумал режисер фильма. Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале.</p>
-                            </li>
-                            <li class="story-list__item">
-                                <span class="title">Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся.</span>
-                                <p>Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале. Почему? Потому что в оригинальной версии все настоящее - голоса актеров, окружающие звуки. Все выглядит именно так, как это задумал режисер фильма. Если вы любите фильмы, вы можете обнаружить, что они намного интереснее смотрятся в оригинале.</p>
-                            </li>
-                        </ul>
+                        {{ course.post_content }}
                     </div>
                 </div>
             </div>
         </div>
-        <div class="article-more">
-            <div class="article-more__holder">
-                <div class="article-more__title">По теме</div>
-                <ul class="article-more__list">
-                    <li class="article-more__item">
-                        <a class="article-more__link" href="#">
-                           <div class="article-more__frame">
-                               <img src="{{ theme.path }}/public/images/1.jpg" alt="">
-                            </div>
-                            <span class="article-more__name">
-                                10 заповедей шкоы ilingua
-                            </span>
-                        </a>
-                    </li>
-                    <li class="article-more__item">
-                        <a class="article-more__link" href="#">
-                           <div class="article-more__frame">
-                               <img src="{{ theme.path }}/public/images/2.jpg" alt="">
-                            </div>
-                            <span class="article-more__name">
-                                10 заповедей шкоы ilingua
-                            </span>
-                        </a>
-                    </li>
-                    <li class="article-more__item">
-                        <a class="article-more__link" href="#">
-                            <div class="article-more__frame">
-                                <img src="{{ theme.path }}/public/images/3.jpg" alt="">
-                            </div>
-                            <span class="article-more__name">
-                                10 заповедей шкоы ilingua
-                            </span>
-                        </a>
-                    </li>
-                </ul>
+        {% if by_the_theme is not empty %}
+            <div class="article-more">
+                <div class="article-more__holder">
+                    <div class="article-more__title">По теме</div>
+                    <ul class="article-more__list">
+                        {% for post in by_the_theme %}
+                            <li class="article-more__item">
+                                <a class="article-more__link" href="{{ post.post_url }}">
+                                    {% if post.default_thumnail_url !='' or post.main_thumnail_url !='' %}
+                                        {% if  post.main_thumnail_url !='' %}
+                                            <img src="{{ post.main_thumnail_url }}" alt="{{ post.main_thumnail_name }}">
+                                        {% else %}
+                                            <img src="{{ post.default_thumnail_url }}" alt="{{ post.default_thumnail_name }}">
+                                        {% endif %}
+                                    {% endif %}
+                                    <span class="article-more__name">
+                                    {{ post.post_title }}
+                                </span>
+                                </a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
             </div>
-        </div>
+        {% endif %}
     </div>
-
 {% endblock %}

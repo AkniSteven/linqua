@@ -419,6 +419,11 @@ class TestMetabox extends Metabox
                 $testId, 'score_for_pass', $_POST['score_for_pass']
             );
         }
+        if (isset($_POST['test_random'])) {
+            update_post_meta(
+                $testId, 'test_random', $_POST['test_random']
+            );
+        }
 
     }
 

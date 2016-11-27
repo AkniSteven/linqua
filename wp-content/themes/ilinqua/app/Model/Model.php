@@ -9,6 +9,7 @@
 namespace ilinqua\app\Model;
 
 use Timber\Timber;
+use MultiPostThumbnails;
 
 class Model extends Timber
 {
@@ -38,6 +39,20 @@ class Model extends Timber
      */
     private $args;
 
+
+    /**
+     * Return theme options
+     * @return array
+     */
+    private function getThemeOtpions()
+    {
+        $options = (array) $this->get_option('ice-theme-settings');
+        if (is_array($options) && !empty($options)) {
+           return $options;
+        }
+        return [];
+
+    }
     /**
      * @param array $args
      * set main args
@@ -47,7 +62,6 @@ class Model extends Timber
         $this->args = $args;
 
     }
-
     /**
      * @param string $name
      * @param $args
@@ -136,6 +150,39 @@ class Model extends Timber
             }
             $i++;
             $this->result = $result;
+        }
+    }
+
+    /**
+     * @param string $size
+     * image size
+     */
+    public function setMainThumbnailUrls($size='full')
+    {
+        foreach ($this->result as &$item) {
+            /* for using this you must have iceThemeSettingsPlugin; */
+            $options = $this->getThemeOtpions();
+            if(!empty($options) && $options['default_image_id'] != ''){
+                $item->default_thumnail_url = image_downsize ($options['default_image_id'], $size )[0];
+                $item->default_thumnail_name = explode('.', basename(get_attached_file($options['default_image_id'])))[0];
+            }
+            $item->main_thumnail_url = get_the_post_thumbnail_url($item->ID,$size);
+            $item->main_thumnail_name = $this->getAttachmentMeta(get_post_thumbnail_id ($item->ID));
+        }
+    }
+
+
+    public function setCustomImagelUrl($post_type, $image_id='', $image_size=null)
+    {
+        foreach ($this->result as &$item) {
+            if (!isset($item->other_image_urls) || empty($item->other_image_urls)) {
+                $item->other_image_urls = [];
+            }
+            if (!isset($item->other_image_names) || empty($item->other_image_names)) {
+                $item->other_image_names = [];
+            }
+            $item->other_image_urls[$image_id] = MultiPostThumbnails::get_post_thumbnail_url($post_type, $image_id, $item->ID, $image_size);
+            $item->other_image_names[$image_id] = $this->getAttachmentMeta(get_post_thumbnail_id ($item->ID));
         }
     }
 

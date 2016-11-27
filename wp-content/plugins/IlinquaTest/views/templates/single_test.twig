@@ -1,0 +1,51 @@
+<div class="user-info">
+    {% if test.session_test_id != test.test.ID %}
+        <form action="" method="post" name="test">
+            <input type="hidden" name="test_id" value="{{ test.test.ID }}" />
+            <label for="name">Имя</label>
+            <input id="name" name="name" value=""/>
+            <label for="email">Email</label>
+            <input id="email" name="email" value=""/>
+            <input type="submit" name="start-test" value="Начать">
+        </form>
+    {% endif %}
+    {% if test.session_test_id == test.test.ID %}
+        {% if test.questions is not empty %}
+        {% for questions_arr in test.questions %}
+            {% for question in questions_arr %}
+                <div class="question">
+                    <form action ="" method="post" name="question_{{ question.ID }}">
+                        <h3>{{ question.post_title }}</h3>
+                        {% if question.main_thumnail_url != "" %}
+                            <img src="{{ question.main_thumnail_url }}" />
+                        {% endif %}
+                        <div class="question_body">
+                            {{ question.post_content }}
+                        </div>
+                        <div class="answers">
+                            {% if question.meta.question_type == "radio" %}
+                                {% for key, answer in question.meta.answer_case %}
+                                    <div class="answer-val">
+                                        <input type="radio" name="answer" value="{{ key }}" /> {{ answer }}
+                                    </div>
+                                {% endfor %}
+                            {% elseif question.meta.question_type == "checkbox" %}
+                                {% for key, answer in question.meta.answer_case %}
+                                    <div class="answer-val">
+                                        <input type="checkbox" name="answer" value="{{ key }}" /> {{ answer }}
+                                    </div>
+                                {% endfor %}
+                            {% elseif question.meta.question_type == "text" %}
+                                <div class="answer-val">
+                                    <input type="text" name="answer" value="" />
+                                </div>
+                            {% endif %}
+                            <button type="submit">Ответить</button>
+                        </div>
+                    </form>
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+    {% endif %}
+</div>

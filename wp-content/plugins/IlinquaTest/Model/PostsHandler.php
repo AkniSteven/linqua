@@ -45,7 +45,7 @@ class PostsHandler
      * @param $args
      * set special args
      */
-    public function setSpecialArgs($name='',$args)
+    public function setSpecialArgs($name='', $args)
     {
         $this->_args[$name] = $args;
 
@@ -100,6 +100,38 @@ class PostsHandler
     {
         foreach ($this->_result as &$item) {
             $item->acf = get_field_objects($item->ID);
+        }
+    }
+
+    /**
+     * @param $name
+     * set custom post Meta
+     */
+    public function setCustomPostMeta($name)
+    {
+        foreach ($this->_result as &$item) {
+            $item->meta[$name] = get_post_meta($item->ID, $name, true);
+        }
+    }
+    /**
+     * set meta fields to post
+     */
+    public function formattedMeta()
+    {
+        foreach ($this->_result as &$item) {
+            $item->meta = get_post_meta($item->ID);
+        }
+    }
+
+    /**
+     * @param string $size
+     * image size
+     */
+    public function setMainThumbnailUrls($size='full')
+    {
+        foreach ($this->_result as &$item) {
+            $item->main_thumnail_url = get_the_post_thumbnail_url($item->ID,$size);
+            $item->main_thumnail_name = $this->getAttachmentMeta(get_post_thumbnail_id ($item->ID));
         }
     }
     

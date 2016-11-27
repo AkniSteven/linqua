@@ -134,6 +134,11 @@ class QuestionsMetabox extends Metabox
                 $questionId, 'question_score', $_POST['question_score']
             );
         }
+        if (isset($_POST['answer_case'])) {
+            update_post_meta(
+                $questionId, 'answer_case', $_POST['answer_case']
+            );
+        }
         if (isset($_POST['question_level'])) {
             update_post_meta(
                 $questionId, 'question_level', $_POST['question_level']

@@ -18,10 +18,14 @@
 		{% include 'modules/_lp-banner.twig' %}
 		{#{% include 'modules/_lp-price-block.twig' %}#}
 		{% include 'modules/_lp-community.twig' %}
-		
+		{% if categories is not empty %}
+			{% for category in categories %}
+				{% if category.count > 0 %}
+					{{ category.name }} {{ category.slug }}
+				{% endif %}
+			{% endfor %}
+		{% endif %}
 	</section>
-	
-	<script>
 	
 	{#<script>#}
 		{##}
