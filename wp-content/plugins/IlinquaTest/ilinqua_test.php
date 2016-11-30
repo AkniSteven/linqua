@@ -10,6 +10,8 @@ Author URI: https://ua.linkedin.com/in/steve-arshinikov-5a4184aa
 use IlinquaTest\Model\Construct;
 use IlinquaTest\Model\QuestionsMetabox;
 use IlinquaTest\Model\TestMetabox;
+use IlinquaTest\Controller\TestingController;
+
 define('TEMPLATE_PATH_TEST', __DIR__);
 
 /**
@@ -75,3 +77,19 @@ $tMetaboxDisplay = $twig->render(
 );
 
 $tMetabox->set_view($tMetaboxDisplay);
+
+add_action(
+    'wp_ajax_addTestStep',
+    'addTestStep'
+);
+add_action(
+    'wp_ajax_nopriv_addTestStep',
+    'addTestStep'
+);
+
+function addTestStep()
+{
+    $testing = new TestingController;
+    $testing->addTestStep();
+
+}

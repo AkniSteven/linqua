@@ -1,16 +1,17 @@
 <?php
 
 use IlinquaTest\Controller\PageView;
+use IlinquaTest\Controller\TestingController;
 use IlinquaTest\Helper\Data;
-use IlinquaTest\Model\Testing;
 
-$testing = new Testing();
+$testing = new TestingController();
 
 if ($_POST['test_id']) {
     $data = [];
-    $data['name'] = $_POST['name'];
-    $data['email'] = $_POST['email'];
-    $data['test_id'] = $_POST['test_id'];
+    $data['name']    = Data::cleanString($_POST['name']);
+    $data['email']   = Data::cleanString($_POST['email']);
+    $data['test_id'] = Data::cleanString($_POST['test_id']);
+    $data['realStepsCount'] = (int)Data::cleanString($_POST['realStepsCount']);
     $testing->startTesting($data);
 }
 
@@ -26,8 +27,8 @@ $context = [];
 if (!empty($post)) {
     $context['test'] = $post;
 
-    $questionsRandom = get_post_meta($post->ID, 'test_random', true);
-    $testSteps  = get_post_meta($post->ID, 'test_steps', true);
+    $questionsRandom  = get_post_meta($post->ID, 'test_random', true);
+    $testSteps        = get_post_meta($post->ID, 'test_steps', true);
     $questionsIds     = get_post_meta($post->ID, 'questions', true);
     $questionsLimit   = get_post_meta($post->ID, 'questions_count', true);
 
@@ -129,7 +130,9 @@ if (!empty($post)) {
     if ($testSteps > 0 && count($postQuestions) > $testSteps) {
         array_splice($postQuestions, $testSteps);
     }
+    $context['realStepsCount'] = count($postQuestions);
     $context['questions'] = $postQuestions;
+
     if ($_SESSION['test_id']) {
         $context['session_test_id'] = $_SESSION['test_id'];
     }
