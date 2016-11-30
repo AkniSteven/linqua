@@ -1,7 +1,10 @@
+<script src="/wp-content/plugins/IlinquaTest/views/public/js/jquery.js" type="text/javascript"></script>
+<script src="/wp-content/plugins/IlinquaTest/views/public/js/testing.js" type="text/javascript"></script>
 <div class="user-info">
     {% if test.session_test_id != test.test.ID %}
         <form action="" method="post" name="test">
             <input type="hidden" name="test_id" value="{{ test.test.ID }}" />
+            <input type="hidden" name="realStepsCount" value="{{ test.realStepsCount }}" />
             <label for="name">Имя</label>
             <input id="name" name="name" value=""/>
             <label for="email">Email</label>
@@ -14,7 +17,7 @@
         {% for questions_arr in test.questions %}
             {% for question in questions_arr %}
                 <div class="question">
-                    <form action ="" method="post" name="question_{{ question.ID }}">
+                    <form action ="" method="post" name="question_{{ question.ID }}" id="question_{{ question.ID }}">
                         <h3>{{ question.post_title }}</h3>
                         {% if question.main_thumnail_url != "" %}
                             <img src="{{ question.main_thumnail_url }}" />
@@ -40,7 +43,7 @@
                                     <input type="text" name="answer" value="" />
                                 </div>
                             {% endif %}
-                            <button type="submit">Ответить</button>
+                            <button type="submit" onclick="return false;" class="submit_question">Ответить</button>
                         </div>
                     </form>
                 </div>
