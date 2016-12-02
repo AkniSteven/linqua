@@ -14,7 +14,7 @@ requirejs([
 
 
 		testSteps: function () {
-			var steps = $(".test-holder");
+			var steps = $(".steps-holder");
 			steps.steps({
 				headerTag: ".pagination",
 				bodyTag: ".single-test__step",
