@@ -2,7 +2,7 @@
 	&__filter-list {
 		display: flex;
 		flex-flow: row nowrap;
-		margin: 0 0 80px $normal;
+		margin: 0 0 80px $normal !important;
 	}
 	&__filter-item {
 		width:initial !important;
@@ -41,29 +41,25 @@
 		&__filter-list {
 			display: flex;
 			flex-flow: row nowrap;
-			margin: 0 0 80px $big;
+			margin: 0 0 80px $big !important;
 		}
 	}
 	@include bp($point: $bpMiddle, $type: max) {
 		&__filter-list {
 			display: flex;
 			flex-flow: row nowrap;
-			margin: 0 0 80px $middle;
+			margin: 0 0 80px $middle !important;
 		}
 	}
 	@include bp($point: $bpTablet, $type: max) {
 		&__filter-list {
 			flex-wrap: wrap;
-			margin: 0 0 40px $small;
+			margin: 0 0 40px $small !important;
 		}
 	}
 	@include bp($point: $bpPortrait, $type: max) {
-		.swiper-container {
-			padding: 0 0 40px $small;
-		}
 		&__filter-list {
-			margin: 0;
-			//padding: 0 0 40px $small;
+			margin: 0 0 40px $small;
 		}
 		&__filter-item {
 			margin-bottom: 10px;

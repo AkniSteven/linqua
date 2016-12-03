@@ -1,10 +1,10 @@
-<div class="swiper-container">
+<div class="swiper-container lp-community__filter-list">
 	<div class="container button-group filters-button-group swiper-wrapper">
 		{% if categories is not empty %}
 			{% for category in categories %}
 				{% if category.count > 0 %}
 					<div class="lp-community__filter-item swiper-slide btn button is-checked"
-							data-filter="{{ category.slug }}">
+							data-filter=".{{ category.slug }}">
 						{{ category.name }}
 					</div>
 				{% endif %}
