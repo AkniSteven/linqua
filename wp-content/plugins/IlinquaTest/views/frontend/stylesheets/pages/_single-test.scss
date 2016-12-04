@@ -8,8 +8,16 @@
 	.english & {
 		background: $colorBgEn;
 	}
+	/* ---------- Finish test state ---------- */
+	.finish-test-state & {
+		padding: 201px 0 0;
+		height: auto;
+		h1 {
+			margin-bottom: 33px;
+		}
+	}
 	h1 {
-		padding-left: 15vw;
+		padding-left: 14vw;
 		text-transform: none;
 		color: #fff;
 		/* ---------- Language page style  ---------- */
@@ -17,7 +25,30 @@
 			color: #fff;
 		}
 	}
+	@include bp($point: $bpLarge, $type: min) {
+		.finish-test-state & {
+			padding: 150px 0 0;
+			h1 {
+				margin-bottom: 50px;
+			}
+		}
+	}
+	@include bp($bpTablet) {
+		.finish-test-state & {
+			padding: 142px 0 0;
+			h1 {
+				margin-bottom: 25px;
+			}
+		}
+	}
+	@include bp($bpTablet) {
+	}
+	@include bp($bpPortrait) {
+	}
+	@include bp($Mobile) {
+	}
 }
+
 /* ---------- User info form ---------- */
 .user-info {
 	padding-left: 14vw;
@@ -64,6 +95,7 @@
 		}
 	}
 }
+
 /* ---------- END User info form ---------- */
 
 /* ---------- Custom wizard styles ---------- */
@@ -72,6 +104,10 @@
 		position: relative;
 		height: 100%;
 		padding: 0 14vw;
+		/* ---------- Finish test state ---------- */
+		.finish-test-state & {
+			display: none !important;
+		}
 		/* ---------- Tab pagination ---------- */
 		.steps {
 			position: absolute;
@@ -87,7 +123,7 @@
 					a {
 						border-radius: 0;
 						width: 100%;
-						height:8px;
+						height: 8px;
 						margin: 0;
 						padding: 0;
 						background: transparent;
@@ -110,7 +146,7 @@
 		/* ---------- END Tab pagination ---------- */
 		&.wizard {
 			& > .actions {
-				display: inline-block;
+				display: none;
 				width: auto;
 				position: absolute;
 				bottom: 50px;
@@ -140,6 +176,7 @@
 		}
 	}
 }
+
 /* ---------- END Custom wizard styles ---------- */
 
 /* ---------- Questions ---------- */
@@ -147,6 +184,7 @@
 	.question {
 		&__title {
 			width: 100%;
+			margin-bottom: 100px;
 			font-size: 1.2rem;
 			/* ---------- Language page style ---------- */
 			.english & {
@@ -154,17 +192,18 @@
 			}
 		}
 		&__img-holder {
-			width: 100%;
+			width: 50%;
 		}
 		&__body {
 			width: 100%;
 		}
 		&__form {
-			//display: flex;
-			//flex-flow: row wrap;
+			display: flex;
+			flex-flow: row-reverse wrap;
+			justify-content: flex-end;
 		}
 		.answers {
-			width: 100%;
+			width: 50%;
 		}
 		.answer-button {
 			margin-top: 80px;
@@ -175,4 +214,121 @@
 		}
 	}
 }
+
 /* ---------- END Questions ---------- */
+
+/* ---------- Finish test ---------- */
+/* ---------- Publications grid ---------- */
+.test-finish {
+	display: none;
+	width: 83vw;
+	margin: 0 auto;
+	.finish-test-state & {
+		display: block;
+	}
+	&:before, &:after {
+		content: '';
+		position: absolute;
+		top: 10px;
+		width: 10px;
+		height: 100%;
+		background: transparentize(#000, .85);
+	}
+	&:before {
+		left: -10px;
+	}
+	&:after {
+		right: -10px;
+	}
+	&__title,
+	&__content {
+		padding-left: 80px;
+		/* ---------- Language styles ---------- */
+		.english & {
+			color: #fff;
+		}
+	}
+	&__title {
+		margin-bottom: 20px;
+		font-size: 1.6rem;
+		font-weight: 500;
+	}
+	&__content {
+		max-width: 68%;
+		margin-bottom: 170px;
+		font-size: 1.2rem;
+	}
+	.grid {
+		background: #fff;
+		width: 100%;
+		padding: 30px 60px 80px 80px;
+		//&:before, &:after {
+		//	content: '';
+		//	position: absolute;
+		//	top: 10px;
+		//	width: 10px;
+		//	height: 100%;
+		//	background: transparentize(#000, .85);
+		//}
+		//&:before {
+		//	left: -10px;
+		//}
+		//&:after {
+		//	right: -10px;
+		//}
+	}
+	@include bp($point: $bpLarge, $type: min) {
+		&__title,
+		&__content {
+			padding-left: 100px;
+		}
+		&__title {
+			margin-bottom: 21px;
+		}
+		&__content {
+			margin-bottom: 180px;
+		}
+		.grid {
+			padding: 60px 0 100px 100px;
+		}
+	}
+	@include bp($bpTablet) {
+		width: 90vw;
+		&__title,
+		&__content {
+			padding-left: 60px;
+		}
+		&__title {
+			margin-bottom: 11px;
+			font-size: 1.4rem;
+		}
+		&__content {
+			margin-bottom: 122px;
+		}
+		.grid {
+			padding: 12px 40px 60px 60px;
+		}
+	}
+	@include bp($bpPortrait) {
+		width: 90vw;
+		padding: 0 20px;
+		&__title,
+		&__content {
+			padding-left: 60px;
+		}
+		&__title {
+			margin-bottom: 11px;
+			font-size: 1.4rem;
+		}
+		&__content {
+			margin-bottom: 122px;
+		}
+		.grid {
+			padding: 0 0 60px;
+			border: 20px solid #fff;
+		}
+	}
+}
+
+/* ---------- END Publications grid ---------- */
+/* ---------- END Finish test ---------- */

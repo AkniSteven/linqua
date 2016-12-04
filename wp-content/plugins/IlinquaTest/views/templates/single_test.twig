@@ -54,19 +54,12 @@
 									<img src="{{ question.main_thumnail_url }}"/>
 								</div>
 							{% endif %}
-							<div class="question__body">
-								{{ question.post_content }}
-							</div>
+							{#<div class="question__body">#}
+								{#{{ question.post_content }}#}
+							{#</div>#}
 							<div class="answers">
 								{% if question.meta.question_type == "radio" %}
 									{% for key, answer in question.meta.answer_case %}
-										{#<div class="answer-val">#}
-											{#<input type="radio" name="answer" value="{{ key }}"/>#}
-											{#<span class="answer-title">#}
-												{#{{ answer }}#}
-											{#</span>#}
-										{#</div>#}
-										
 										<div class="answer-val">
 											<label for="some-id{{ key }}" class="radio">
 												<input type="radio" name="answer" id="some-id{{ key }}" value="{{ key }}"/>
@@ -77,12 +70,6 @@
 									{% endfor %}
 								{% elseif question.meta.question_type == "checkbox" %}
 									{% for key, answer in question.meta.answer_case %}
-										{#<div class="answer-val">#}
-											{#<input id="some-id2" type="checkbox" name="answer" value="{{ key }}"/>#}
-											{#<span class="answer-title">#}
-												{#{{ answer }}#}
-											{#</span>#}
-										{#</div>#}
 										<div class="answer-val">
 											<label for="some-id{{ key }}" class="checkbox">
 												<input type="checkbox" name="answer" id="some-id{{ key }}" value="{{ key }}"/>
@@ -96,7 +83,8 @@
 										<textarea class="textarea" type="text" name="answer" value="" rows="10" name="text"></textarea>
 									</div>
 								{% endif %}
-								<button class="answer-button  submit_question" type="submit" >Ответить</button>
+								{#<button class="answer-button submit_question" type="submit" >Ответить</button>#}
+								<a class="answer-button submit_question btn" href="#">Ответить</a>
 							</div>
 						</form>
 					</div>
@@ -104,6 +92,7 @@
 			{% endfor %}
 		{% endif %}
 		{% endif %}
+		<!-- Количество элементов должно совпадать с количеством слайдов -->
 		<div class="pagination"></div>
 		<div class="pagination"></div>
 		<div class="pagination"></div>
@@ -113,6 +102,35 @@
 		<div class="pagination"></div>
 		<div class="pagination"></div>
 		<div class="pagination"></div>
+	</div>
+
+	<!-- Отображаем при наличии класса на body finish-test-state -->
+	<div class="test-finish">
+		<div class="test-finish__title">Спасибо!</div>
+		<div class="test-finish__content">Этого достаточно, чтобы определить ваш уровень. Наш менеджер свяжется с вами (с 11 до 19:30 в будние дни).</div>
+		<div class="test-finish-publications">
+			{% include '_publications.twig' with {
+			"tile":
+			{
+			articleList: [
+			{dataFilterClass: 'school', articleTileSize: 'big events', tileBig: true},
+			{dataFilterClass: 'school', articleTileSize: 'middle'},
+			{dataFilterClass: 'party', articleTileSize: 'high'},
+			{dataFilterClass: 'school', articleTileSize: 'small'},
+			{dataFilterClass: 'party', articleTileSize: 'middle'},
+			{dataFilterClass: 'school', articleTileSize: 'middle'},
+			{dataFilterClass: 'party', articleTileSize: 'middle'},
+			{dataFilterClass: 'life', articleTileSize: 'middle'},
+			{dataFilterClass: 'gramm', articleTileSize: 'middle'},
+			{dataFilterClass: 'life', articleTileSize: 'middle'},
+			{dataFilterClass: 'gramm', articleTileSize: 'middle'},
+			{dataFilterClass: 'gramm', articleTileSize: 'middle'},
+			{dataFilterClass: 'gramm', articleTileSize: 'middle'},
+			{dataFilterClass: 'gramm', articleTileSize: 'middle'},
+			]
+			}
+			} %}
+		</div>
 	</div>
 </div>
 {% endblock %}

@@ -5,6 +5,12 @@
 html {
 	font-size: $fz;
 	height: 100%;
+	@include bp($point: $bpLarge, $type: min) {
+		//font-size:21px;
+	}
+	@include bp($bpTablet) {
+		font-size:12px;
+	}
 }
 
 body {

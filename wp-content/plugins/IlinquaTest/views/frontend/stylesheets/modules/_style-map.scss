@@ -1,10 +1,11 @@
 .btn {
 	display: inline-block;
-	padding: 14px 19px;
+	padding: 23px 25px;
 	font-size: .75rem;
 	line-height: 1;
 	letter-spacing: 1px;
 	font-weight: 500;
+	text-transform: uppercase;
 	&.grey {
 		background: #e5e5e5;
 		color: #000;
@@ -47,18 +48,21 @@
 			position: absolute;
 			left: -9999px;
 			&:checked {
-				& + .radio__frame,
-				& + .checkbox__frame{
-					&:before, &:after {
-						opacity: 1;
-					}
-				}
-				& ~ .radio__title,
-				& ~ .checkbox__title {
+				& + .checkbox__frame {
 					color: #000;
 					/* ---------- Language page style ---------- */
 					.english & {
 						color: #fffc2b;
+					}
+					&:before, &:after {
+						opacity: 1;
+					}
+				}
+				& + .radio__frame {
+					/* ---------- Language page style ---------- */
+					&:before {
+						border: 6px solid #fffc2b;
+						opacity: 1;
 					}
 				}
 			}
@@ -69,9 +73,46 @@
 			width: 24px;
 			height: 24px;
 			border: 2px solid transparentize(#fff, .4);
+			border-radius: 50%;
+			cursor: pointer;
+			&:before {
+				position: absolute;
+				display: block;
+			}
+		}
+		&__title {
+			margin-left: 10px;
+			line-height: 1.2;
+			color: #fff;
+			cursor: pointer;
+			@include anim($param: color, $dur: .1s);
+		}
+	}
+	.radio {
+		&__frame {
+			&:before {
+				content: "";
+				@include centerize(true, true);
+				border: 0 solid red;
+				display: block;
+				width: 0;
+				height: 0;
+				border-radius: 50%;
+				background: #000;
+				@include anim($dur: .2s);
+				opacity: 0;
+				@include anim-param(border, opacity);
+				/* ---------- Language page style ---------- */
+				.english & {
+					background: #fffc2b;
+				}
+			}
+		}
+	}
+	.checkbox {
+		&__frame {
 			&:before {
 				content: "\e92f";
-				position: absolute;
 				width: 20px;
 				height: 20px;
 				line-height: 20px;
@@ -88,23 +129,6 @@
 					color: #fffc2b;
 				}
 			}
-		}
-		&__title {
-			margin-left: 10px;
-			line-height: 1.2;
-			color: #fff;
-			cursor: pointer;
-			@include anim($param: color, $dur: .1s);
-		}
-	}
-	.radio {
-		&__frame {
-			border-radius: 50%;
-		}
-	}
-	.checkbox {
-		&__frame {
-			
 		}
 	}
 	.textarea {
