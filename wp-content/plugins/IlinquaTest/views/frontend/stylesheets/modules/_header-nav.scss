@@ -45,15 +45,35 @@
 		}
 		@include bp($point: 768, $type: max) {
 			.burger-menu {
-				margin-right: 20px;
+				width: 80px;
+				height: 4px;
+				margin-right: 0;
+				padding: 0 0 32px;
+				&:before, &:after {
+					width: 80px;
+					height: 4px;
+				}
 			}
 			.logo {
+				width: 210px;
 				margin-right: 0;
 			}
 		}
 		@include bp($point: 640, $type: max) {
 			.logo, .burger-menu {
 				margin: 0;
+			}
+			.burger-menu {
+				width: 40px;
+				height: 2px;
+				padding: 0 0 15px;
+				&:before, &:after {
+					width: 40px;
+					height: 2px;
+				}
+			}
+			.logo {
+				width: 100px;
 			}
 		}
 	}
@@ -179,7 +199,7 @@
 			
 		}
 	}
-	@include bp($point: 640, $type: max) {
+	@include bp($point: 768, $type: max) {
 		&__right-side {
 			display: none;
 		}

@@ -21,7 +21,8 @@ requirejs([
 			steps.steps({
 				headerTag: ".pagination",
 				bodyTag: ".question",
-				transitionEffect: "slideLeft",
+				transitionEffect: "fade",
+				transitionEffectSpeed: 350,
 				autoFocus: true,
 				titleTemplate: "#title#",
 				labels: {

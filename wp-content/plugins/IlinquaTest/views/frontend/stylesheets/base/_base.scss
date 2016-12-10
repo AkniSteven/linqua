@@ -11,6 +11,12 @@ html {
 	@include bp($bpTablet) {
 		font-size:12px;
 	}
+	@include bp($bpPortrait) {
+		font-size:16px;
+	}
+	@include bp($Mobile) {
+		font-size:16px;
+	}
 }
 
 body {
@@ -40,11 +46,14 @@ textarea {
 
 .form__field {
 	input, textarea {
+		width: 100%;
 		appearance: none;
 		border: 0;
 		border-bottom: 1px solid #d9d9d9;
 		font-size: 1em;
 		color: #000;
+		font-weight: 300;
+		font-family:$family;
 		padding: 0 0 5px;
 		background: transparent;
 		& ~ label {

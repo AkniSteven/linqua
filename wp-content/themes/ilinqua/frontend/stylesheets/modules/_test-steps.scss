@@ -59,6 +59,8 @@
 			}
 		}
 	}
+	@include bp($point: $bpLarge, $type: min) {
+	}
 }
 /* ---------- END Custom wizard styles ---------- */
 

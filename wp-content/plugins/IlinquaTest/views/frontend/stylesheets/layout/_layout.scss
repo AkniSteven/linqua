@@ -1,5 +1,8 @@
 #wrapper {
 	height: 100%;
+	@include bp($bpPortrait) {
+		height: auto;
+	}
 	//overflow: hidden;
 }
 
@@ -33,9 +36,15 @@
 		height: 80px;
 		padding: 0 20px;
 	}
+	@include bp($point: 768, $type: max) {
+		height: 150px;
+		padding: 0 80px;
+	}
 	@include bp($point: 640, $type: max) {
+		height: 75px;
+		padding: 0 20px;
 		.all-tests & {
-			//height: 40px;
+			height: 75px;
 			padding: 0 40px;
 		}
 	}

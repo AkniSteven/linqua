@@ -47,6 +47,9 @@
 		&__title {
 			margin: 0 0 21px $small;
 		}
+		.grid {
+			margin-left: 0;
+		}
 	}
 	@include bp($point: 640, $type: max) {
 		max-width: 100%;
