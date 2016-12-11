@@ -147,6 +147,13 @@
 			color: #fff;
 		}
 	}
+	&.error-inputs {
+		.radio, .checkbox {
+			&__frame {
+				background: #ff9686;
+			}
+		}
+	}
 	@include bp($bpPortrait) {
 		.radio, .checkbox {
 			&__frame {

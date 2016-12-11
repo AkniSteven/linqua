@@ -18,7 +18,6 @@
 {% endblock %}
 
 {% block content %}
-	
 	<div class="single-test-page {% if test.questions is not empty and test.session_test_id == test.test.ID %} test-steps {% endif %}">
 		<h1>English test</h1>
 		<div class="user-info">
@@ -57,9 +56,7 @@
 										<span class="question-number">1.</span>
 										{{ question.post_title }}</h3>
 									{% if question.main_thumnail_url != "" %}
-										<div class="question__img-holder" style="background-image: url('{{ question.main_thumnail_url }}')">
-											{#<img src="{{ question.main_thumnail_url }}"/>#}
-										</div>
+										<div class="question__img-holder" style="background-image: url('{{ question.main_thumnail_url }}')"></div>
 									{% endif %}
 									{#<div class="question__body">#}
 									{#{{ question.post_content }}#}
@@ -69,7 +66,7 @@
 											{% for key, answer in question.meta.answer_case %}
 												<div class="answer-val">
 													<label for="radio-some-id{{ key }}" class="radio">
-														<input type="radio" name="answer" id="radio-some-id{{ key }}"
+														<input type="radio" required name="answer" id="radio-some-id{{ key }}"
 															   value="{{ key }}"/>
 														<span class="radio__frame"></span>
 														<span class="radio__title">{{ answer }} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, praesentium?</span>
@@ -80,7 +77,7 @@
 											{% for key, answer in question.meta.answer_case %}
 												<div class="answer-val">
 													<label for="checkbox-some-id{{ key }}" class="checkbox">
-														<input type="checkbox" name="answer"
+														<input type="checkbox" name="answer" required
 															   id="checkbox-some-id{{ key }}" value="{{ key }}"/>
 														<span class="checkbox__frame"></span>
 														<span class="checkbox__title">{{ answer }}</span>
@@ -129,7 +126,7 @@
 				{dataFilterClass: 'school', articleTileSize: 'middle'},
 				{dataFilterClass: 'party', articleTileSize: 'high'},
 				{dataFilterClass: 'school', articleTileSize: 'small'},
-				{dataFilterClass: 'party', articleTileSize: 'middle'},
+				{dataFilterClass: 'party', articleTileSize: 'middle events', tileBig: true},
 				{dataFilterClass: 'school', articleTileSize: 'middle'},
 				{dataFilterClass: 'party', articleTileSize: 'middle'},
 				{dataFilterClass: 'life', articleTileSize: 'middle'},

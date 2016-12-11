@@ -9,8 +9,8 @@
 		background: $colorBgEn;
 	}
 	/* ---------- Finish test state ---------- */
-	.finish-test-state & {
-		padding: 201px 0 0;
+	&.js-show-finish-test {
+		padding: 201px 0 50px;
 		height: auto;
 		h1 {
 			margin-bottom: 33px;
@@ -39,7 +39,7 @@
 		}
 	}
 	@include bp($bpTablet) {
-		.finish-test-state & {
+		&.js-show-finish-test {
 			padding: 142px 0 0;
 			h1 {
 				margin-bottom: 25px;
@@ -47,6 +47,13 @@
 		}
 	}
 	@include bp($bpPortrait) {
+		&.js-show-finish-test {
+			h1 {
+				margin-bottom: 25px;
+			}
+		}
+		min-height: 100vh;
+		height: 100%;
 		padding: 160px 0 0;
 		h1 {
 			margin-bottom: 50px;
@@ -65,6 +72,9 @@
 		}
 	}
 	@include bp($Mobile) {
+		&.js-show-finish-test {
+			padding: 80px 0 40px;
+		}
 		padding: 80px 0 0;
 		h1 {
 			margin-bottom: 25px;
@@ -76,6 +86,11 @@
 
 /* ---------- User info form ---------- */
 .single-test-page {
+	&.test-steps {
+		.user-info {
+			display: none;
+		}
+	}
 	.user-info {
 		width: 290px;
 		padding-left: 13.8vw;
@@ -130,34 +145,7 @@
 			}
 		}
 	}
-	@include bp($Mobile) {
-		.user-info {
-			padding-left: 6.4vw;
-			.btn {
-				input {
-					padding: 22px 44px;
-					font-size: 1rem;
-				}
-			}
-			.form__field {
-				margin-bottom: 44px;
-				&:nth-last-child(2) {
-					margin-bottom: 40px;
-				}
-				input {
-					border-bottom-width: 2px;
-					padding-bottom: 11px;
-					font-size: 1.1rem;
-				}
-				.form__caret {
-					height: 2px;
-				}
-				@include placeholder {
-					font-size: 1.1rem;
-				}
-			}
-		}
-	}
+	
 	@include bp($bpPortrait) {
 		.user-info {
 			width: 100%;
@@ -214,12 +202,48 @@
 			}
 		}
 	}
+	@include bp($Mobile) {
+		.user-info {
+			width: 100%;
+			padding: 0 6.4vw 50px;
+			box-sizing: border-box;
+			.btn {
+				input {
+					padding: 22px 44px;
+					font-size: 1rem;
+				}
+			}
+			.form__field {
+				margin-bottom: 44px;
+				&:nth-last-child(2) {
+					margin-bottom: 40px;
+				}
+				input {
+					border-bottom-width: 2px;
+					padding-bottom: 11px;
+					font-size: 1.1rem;
+				}
+				.form__caret {
+					height: 2px;
+				}
+				@include placeholder {
+					font-size: 1.1rem;
+				}
+			}
+		}
+	}
 }
 
 /* ---------- END User info form ---------- */
 
 /* ---------- Custom wizard styles ---------- */
 .single-test-page {
+	/* ---------- Finish test state ---------- */
+	&.js-show-finish-test {
+		.test-holder {
+			display: none;
+		}
+	}
 	.test-holder {
 		position: relative;
 		height: 0;
@@ -228,10 +252,7 @@
 			height: 100%;
 			padding: 0 11.2vw;
 		}
-		/* ---------- Finish test state ---------- */
-		.finish-test-state & {
-			display: none !important;
-		}
+		
 		/* ---------- Tab pagination ---------- */
 		.steps {
 			position: absolute;
@@ -518,25 +539,19 @@
 /* ---------- Finish test ---------- */
 /* ---------- Publications grid ---------- */
 .test-finish {
-	display: none;
 	width: 83vw;
 	margin: 0 auto;
-	.finish-test-state & {
-		display: block;
-	}
-	&:before, &:after {
-		content: '';
-		position: absolute;
-		top: 10px;
-		width: 10px;
-		height: 100%;
-		background: transparentize(#000, .85);
-	}
-	&:before {
-		left: -10px;
-	}
-	&:after {
-		right: -10px;
+	opacity: 0;
+	visibility: hidden;
+	pointer-events: none;
+	position: absolute;
+	transform: translateX(-9999px);
+	.js-show-finish-test & {
+		opacity: 1;
+		visibility: visible;
+		pointer-events: auto;
+		position: static;
+		transform: translateX(0);
 	}
 	&__title,
 	&__content {
@@ -556,24 +571,27 @@
 		margin-bottom: 170px;
 		font-size: 1.2rem;
 	}
+	.test-finish-publications {
+		position: relative;
+		&:before, &:after {
+			content: '';
+			position: absolute;
+			top: 10px;
+			width: 10px;
+			height: calc(100% - 9px);
+			background: transparentize(#000, .85);
+		}
+		&:before {
+			left: -10px;
+		}
+		&:after {
+			right: -10px;
+		}
+	}
 	.grid {
 		background: #fff;
 		width: 100%;
 		padding: 30px 60px 80px 80px;
-		//&:before, &:after {
-		//	content: '';
-		//	position: absolute;
-		//	top: 10px;
-		//	width: 10px;
-		//	height: 100%;
-		//	background: transparentize(#000, .85);
-		//}
-		//&:before {
-		//	left: -10px;
-		//}
-		//&:after {
-		//	right: -10px;
-		//}
 	}
 	@include bp($point: $bpLarge, $type: min) {
 		&__title,
@@ -616,7 +634,7 @@
 		}
 		&__title {
 			margin-bottom: 11px;
-			font-size: 1.4rem;
+			font-size: 1.7rem;
 		}
 		&__content {
 			margin-bottom: 122px;
@@ -631,13 +649,15 @@
 		&__title,
 		&__content {
 			padding-left: 30px;
+			max-width: 100%;
 		}
 		&__title {
 			margin-bottom: 5px;
-			font-size: 1rem;
+			font-size: 1.4rem;
 		}
 		&__content {
 			margin-bottom: 60px;
+			font-size: 1rem;
 		}
 		.grid {
 			padding: 0 0 30px;
