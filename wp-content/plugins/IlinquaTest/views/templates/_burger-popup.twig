@@ -1,0 +1,34 @@
+<div class="burger-popup">
+	<span class="burger-popup__close-popup"></span>
+	<div class="burger-popup__language-navigation">
+		<h3 class="language-navigation__title">iLigua для студентов</h3>
+		<ul class="language-navigation__language-list">
+			{% for language in languageNav.languageList %}
+				<li class="language-item"><a href="{{ language.url }}">{{ language.item }}</a></li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div class="burger-popup__right-side">
+		<div class="burger-popup__corporate">
+			<div class="corporate__content">
+				<h3 class="corporate-title">iLigua Corporate</h3>
+				<div class="corporate-descr">Если вы любите фильмы, вы можете обнаружить.</div>
+				<a href="#" class="button-next">
+					<img src="/wp-content/plugins/IlinquaTest/views/public/images/img_arrow.svg" alt=""/>
+				</a>
+			</div>
+		</div>
+		<div class="burger-popup__test" style="background-image: url('/wp-content/plugins/IlinquaTest/views/public/images/img_Test.svg')">
+			<div class="test__content">
+				<h3 class="test-title">Пройти тест</h3>
+				<div class="test-descr">Если вы любите фильмы, вы можете обнаружить, что они намного.</div>
+				<a href="#" class="button-next">
+					<img src="/wp-content/plugins/IlinquaTest/views/public/images/img_arrow.svg" alt=""/>
+				</a>
+				{#<div class="test-img">#}
+					{#<img src="/wp-content/plugins/IlinquaTest/views/public/images/img_Test.svg" alt=""/>#}
+				{#</div>#}
+			</div>
+		</div>
+	</div>
+</div>

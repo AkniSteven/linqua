@@ -50,8 +50,24 @@
 		} %}
 	{% endblock %}
 
+	{% include '_burger-popup.twig' with {
+		"languageNav" : {
+			"languageList" : [
+				{'item' : 'English', 'url':'#'},
+				{'item' : 'Deutsch', 'url':'#'},
+				{'item' : 'Français', 'url':'#'},
+				{'item' : 'Italiano', 'url':'#'},
+				{'item' : 'Español', 'url':'#'},
+				{'item' : 'Português', 'url':'#'},
+				{'item' : 'Polska', 'url':'#'},
+				{'item' : 'Russian', 'url':'#'},
+			]
+		}
+	}%}
+
 	<main id="main">
 		{% block content %}
+			
 		{% endblock %}
 	</main>
 

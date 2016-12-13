@@ -1,75 +1,89 @@
-/* ---------- Custom wizard styles ---------- */
-.single-test-page {
+.burger-popup {
+	width: 100vw;
 	height: 100vh;
-	.test-holder {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: flex;
+	flex-flow: row nowrap;
+	z-index: 99;
+	&__language-navigation {
+		width: 50%;
+		background: #0c7aff;
+	}
+	.language-navigation {
+		&__title {
+			color: #fff;
+			text-transform: none;
+		}
+		&__language-list {
+			.language-item {
+				a {
+					color: #fff;
+				}
+			}
+		}
+	}
+	&__right-side {
+		width: 50%;
+	}
+	&__corporate, &__test {
+		height: 50vh;
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		justify-content: center;
+		.corporate-descr, .test-descr {
+			max-width: 240px;
+			margin-bottom: 40px;
+			position: relative;
+			z-index: 1;
+		}
+		.corporate-title, .test-title {
+			text-transform: none;
+			font-weight: 500;
+			max-width: 240px;
+			margin-bottom: 40px;
+			position: relative;
+			z-index: 1;
+		}
+		.button-next {
+			display: block;
+			width: 45px;
+			height: 45px;
+		}
+	}
+	&__corporate {
+		background:
+			linear-gradient(to right,
+				#e4e4e4 0%,
+				#e4e4e4 19.99%,
+				#dadada 20%,
+				#dadada 39.75%,
+				#cbcbcb 0.5%,
+				#d1d1d1 40%,
+				#d1d1d1 59.99%,
+				#c8c8c8 60%,
+				#c8c8c8 79.75%,
+				#b8b8b8 0.5%,
+				#bfbfbf 80%,
+				#bfbfbf 100%);
+	}
+	&__test {
 		position: relative;
-		/* ---------- Tab pagination ---------- */
-		.steps {
+		background-color: #fff;
+		background-position: 100% 100%;
+		background-size: 400px;
+		background-repeat: no-repeat;
+		.test-title {
+			max-width: 150px;
+		}
+		.test-img {
 			position: absolute;
 			bottom: 0;
-			ul {
-				display: flex;
-				flex-flow: row nowrap;
-				li {
-					width: auto;
-					flex-grow: 1;
-					a {
-						border-radius: 0;
-						width: 100%;
-						height:8px;
-						margin: 0;
-						padding: 0;
-						background: transparent;
-					}
-					&.current {
-						border-left: none;
-						a {
-							background: #fffc2b;
-						}
-						& + li {
-							border-left: none;
-						}
-					}
-					& + li {
-						border-left: 1px solid transparentize(#fff, .3);
-					}
-				}
-			}
-		}
-		/* ---------- END Tab pagination ---------- */
-		&.wizard {
-			& > .actions {
-				display: inline-block;
-				width: auto;
-			}
-			& > .content {
-				margin: 0;
-				border-radius: 0;
-				background: transparent;
-			}
-		}
-		.form__field {
-			input {
-				padding-bottom: 10px;
-				border-bottom-color: transparentize(#fff, .8);
-				color: #fff;
-				& ~ .form__caret {
-					background: #fffc2b;
-				}
-			}
-		}
-	}
-	@include bp($point: $bpLarge, $type: min) {
-	}
-}
-/* ---------- END Custom wizard styles ---------- */
-
-.single-test-page {
-	.test-holder {
-		.form__field {
-			input {
-				
-			}
+			right: 0;
+			width: 500px;
+			z-index: 0;
 		}
 	}
 }
