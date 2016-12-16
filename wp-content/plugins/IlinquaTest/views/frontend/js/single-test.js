@@ -4,7 +4,6 @@ requirejs([
 	'jquery.steps',
 	'jquery.validate',
 
-
 ], function ($, Masonry) {
 
 	'use strict';
@@ -31,27 +30,63 @@ requirejs([
 				},
 			});
 
-			/* ========== Check validation inputs ========== */
-			$('.answer-button').on('click', function () {
-				var checkRadio = $(this).siblings('.answer-val').find('#radio-some-id1');
-				var checkCheckbox = $(this).siblings('.answer-val').find('#checkbox-some-id1');
-				var answerBlock = $(this).siblings('.answer-val');
-				if (checkRadio.prop('checked') || checkCheckbox.prop('checked')) {
-					console.log('ok');
-					steps.steps("next");
-				} else {
-					console.log('fuck');
-					answerBlock.addClass('error-inputs')
-				}
-			});
-			/* ========== END Check validation inputs  ========== */
+			AnswerBtnEvents();
+			function AnswerBtnEvents() {
+				/* ========== Check validation inputs ========== */
+				$('.answer-button').on('click', function () {
+					var checkRadio = $(this).siblings('.answer-val').find('input:checked'),
+						checkCheckbox = $(this).siblings('.answer-val').find('input:checked'),
+						checkTextarea = $(this).siblings('.answer-val').find('textarea'),
+						answerBlock = $(this).siblings('.answer-val');
+
+					if (checkTextarea.val() !== '' && checkTextarea.length) {
+						steps.steps("next");
+					}
+					if (checkRadio.length || checkCheckbox.length) {
+						steps.steps("next");
+					} else {
+						answerBlock.addClass('error-inputs')
+					}
+				});
+				/* ========== END Check validation inputs  ========== */
+
+				/* ========== Show finish tests page ======= */
+				var lastBlock = $(".question").last().find('.answer-button');
+				lastBlock.on('click', function () {
+					var checkRadio = $(this).siblings('.answer-val').find('input:checked'),
+						checkCheckbox = $(this).siblings('.answer-val').find('input:checked'),
+						checkTextarea = $(this).siblings('.answer-val').find('textarea'),
+						answerBlock = $(this).siblings('.answer-val');
+
+					if (checkTextarea.val() !== '' && checkTextarea.length) {
+						$('.single-test-page').addClass('js-show-finish-test');
+					}
+					if (checkRadio.length || checkCheckbox.length) {
+						$('.single-test-page').addClass('js-show-finish-test');
+					} else {
+						answerBlock.addClass('error-inputs')
+					}
+				});
+				/* ========== END Show finish page   ========== */
+			}
+
+			/* ========== Remove input error  ========== */
+			RemoveErrorState();
+			function RemoveErrorState(){
+				$('.answer-val').on('click', function () {
+					if ($(this).find('input:checked')) {
+						$('.answer-val').removeClass('error-inputs');
+					}
+				})
+			}
+			/* ========== END Remove input error   ========== */
 		},
 		/* ========== END Tests steps  ========== */
 
 		/* ========== Publications grid ========== */
 		publicationsGrid: function () {
 			var elem = document.querySelector('.grid');
-			var msnry = new Masonry( elem, {
+			var msnry = new Masonry(elem, {
 				itemSelector: '.lp-article__tile',
 				columnWidth: 50,
 				rowHeight: 110,
@@ -60,26 +95,10 @@ requirejs([
 				stagger: '0,03s',
 				gutter: 40,
 			});
-		}
+		},
 		/* ========== END Publications grid  ========== */
 	};
 	PluginsInit.init();
-
-	var singleTestPage = {
-		init: function () {
-			this.showFinishTest();
-		},
-
-		/* ========== Show finish tests page ======= */
-		showFinishTest: function () {
-			var lastBlock = $(".question").last().find('.answer-button');
-			lastBlock.on('click', function () {
-				$('.single-test-page').addClass('js-show-finish-test');
-			});
-		}
-		/* ========== END Show finish page   ========== */
-	};
-	singleTestPage.init();
 });
 
 

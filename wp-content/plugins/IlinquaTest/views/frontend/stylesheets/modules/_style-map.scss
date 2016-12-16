@@ -59,11 +59,21 @@
 						opacity: 1;
 					}
 				}
+				& ~ .checkbox__title {
+					.english & {
+						color: #fffc2b;
+					}
+				}
 				& + .radio__frame {
 					/* ---------- Language page style ---------- */
 					&:before {
 						border: 6px solid #fffc2b;
 						opacity: 1;
+					}
+				}
+				& ~ .radio__title {
+					.english & {
+						color: #fffc2b;
 					}
 				}
 			}
@@ -78,6 +88,7 @@
 			border: 2px solid transparentize(#fff, .4);
 			border-radius: 50%;
 			cursor: pointer;
+			@include anim($param: background, $dur: .15s);
 			&:before {
 				position: absolute;
 				display: block;
@@ -142,6 +153,7 @@
 		border: 2px solid transparentize(#fff, .4);
 		border-radius: 9px;
 		background: transparent;
+		@include anim($param: border, $dur: .15s);
 		/* ---------- Language page style ---------- */
 		.english & {
 			color: #fff;
@@ -150,8 +162,13 @@
 	&.error-inputs {
 		.radio, .checkbox {
 			&__frame {
-				background: #ff9686;
+				background: #ff4430;
+				@include anim($param: background, $dur: .15s);
 			}
+		}
+		.textarea {
+			border: 2px solid #ff4430;
+			@include anim($param: border, $dur: .15s);
 		}
 	}
 	@include bp($bpPortrait) {
