@@ -246,6 +246,24 @@
 		.textarea {
 			font-size: 1.5rem;
 		}
+		&.error-inputs {
+			.checkbox {
+				&__frame {
+					background: none;
+				}
+			}
+			.checkbox {
+				&__frame {
+					&:before {
+						color: #ff4430;
+					}
+				}
+			}
+			.textarea {
+				border: 2px solid #ff4430;
+				@include anim($param: border, $dur: .15s);
+			}
+		}
 	}
 	@include bp($point: $Mobile, $type: max) {
 		.radio, .checkbox {

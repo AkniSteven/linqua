@@ -85,15 +85,20 @@ requirejs([
 
 		/* ========== Publications grid ========== */
 		publicationsGrid: function () {
+			var lastBlock = $(".question").last().find('.answer-button');
 			var elem = document.querySelector('.grid');
 			var msnry = new Masonry(elem, {
 				itemSelector: '.lp-article__tile',
 				columnWidth: 50,
 				rowHeight: 110,
-				percentPosition: true,
+				percentPosition: false,
 				transitionDuration: '0.4s',
 				stagger: '0,03s',
 				gutter: 40,
+			});
+
+			lastBlock.on('click', function () {
+//				elem.masonry('layout');
 			});
 		},
 		/* ========== END Publications grid  ========== */

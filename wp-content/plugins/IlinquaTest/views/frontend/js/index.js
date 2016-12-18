@@ -10,14 +10,15 @@ requirejs([
 		},
 		/* ========== Burger popup open ========== */
 		burgerPopupOpen: function () {
-			$('.burger-menu').on('click', function () {
-				$(this).parents('body').find('.burger-popup').addClass('burger-popup--open');
+			$('.burger-menu').on('click', function (e) {
+				e.stopPropagation();
+				$(this).parents('body').addClass('burger-popup--open');
 			});
 		/* ========== END Burger popup open  ========== */
 
 		/* ========== Burger popup close ========== */
 			$('.burger-popup__close-popup').on('click', function () {
-				$(this).parents('.burger-popup').removeClass('burger-popup--open');
+				$(this).parents('body').removeClass('burger-popup--open');
 			});
 		/* ========== END Burger popup close  ========== */
 		}

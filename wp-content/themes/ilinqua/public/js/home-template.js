@@ -123,7 +123,7 @@ requirejs([
 	/* ========== Will build slider ========== */
 	function profileNavSwiper() {
 		enquire
-			.register("screen and (max-width : 640px)", {
+			.register("screen and (max-width : 1024px)", {
 				match : function profileNavSwiper() {
 					var profileNav = new Swiper('.swiper-container', {
 						slidesPerView: 'auto',

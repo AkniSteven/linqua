@@ -66,12 +66,16 @@
 		&.test-steps {
 			min-height: 100vh;
 			height: 100%;
+			.answers {
+				height: auto;
+			}
 			h1 {
 				flex: 0 0 auto;
 			}
 		}
 	}
 	@include bp($Mobile) {
+		//display: block;
 		&.js-show-finish-test {
 			padding: 80px 0 40px;
 		}
@@ -368,6 +372,7 @@
 	@include bp($point: $Mobile, $type: max) {
 		.test-holder {
 			&.wizard {
+				flex: 1;
 				padding: 0 2.2vw;
 				& > .content {
 					padding-bottom: 35px;
@@ -425,7 +430,7 @@
 		.answers {
 			width: 50%;
 			textarea {
-				max-height: 290px;
+				max-height: 180px;
 			}
 			.answer-val {
 				margin-bottom: 10px;
@@ -505,7 +510,7 @@
 					font-size: 1.3rem;
 				}
 				textarea {
-					max-height: 270px;
+					max-height: 220px;
 					resize: none;
 				}
 			}

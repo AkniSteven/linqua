@@ -5,7 +5,10 @@
 
 #main {
 	height: 100%;
-	//overflow: hidden;
+	.burger-popup--open & {
+		overflow: hidden;
+		height: 100vh;
+	}
 }
 
 #header {
