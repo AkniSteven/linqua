@@ -19,7 +19,7 @@
 {% endblock %}
 
 {% block content %}
-	<div class="single-test-page js-show-finish-test {% if test.questions is not empty and test.session_test_id == test.test.ID %} test-steps {% endif %}">
+	<div class="single-test-page {% if test.questions is not empty and test.session_test_id == test.test.ID %} test-steps {% endif %}">
 		<h1>English test</h1>
 		<div class="user-info">
 			{% if test.session_test_id != test.test.ID %}
@@ -97,16 +97,11 @@
 					{% endfor %}
 				{% endif %}
 			{% endif %}
-			<!-- Количество элементов должно совпадать с количеством слайдов -->
-			<div class="pagination"></div>
-			<div class="pagination"></div>
-			<div class="pagination"></div>
-			<div class="pagination"></div>
-			<div class="pagination"></div>
-			<div class="pagination"></div>
-			<div class="pagination"></div>
-			<div class="pagination"></div>
-			<div class="pagination"></div>
+			{% if test.allQuestionsCount != 0 %}
+				{% for i in 1..test.allQuestionsCount %}
+					<div class="pagination"></div>
+				{% endfor %}
+			{% endif %}
 		</div>
 		
 		<!-- Отображаем при наличии класса на body finish-test-state -->
