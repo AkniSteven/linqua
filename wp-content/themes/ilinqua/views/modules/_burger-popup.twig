@@ -3,8 +3,8 @@
 	<div class="burger-popup__language-navigation">
 		<h3 class="language-navigation__title"><span>iLingua</span>для студентов</h3>
 		<ul class="language-navigation__language-list">
-			{% for language in languageNav.languageList %}
-				<li class="language-item"><a href="{{ language.url }}">{{ language.item }}</a></li>
+			{% for language in languageList %}
+				<li class="language-item"><a href="{{ language.post_url }}">{{ language.post_title }}</a></li>
 			{% endfor %}
 		</ul>
 		<div class="language-navigation__bottom-block">

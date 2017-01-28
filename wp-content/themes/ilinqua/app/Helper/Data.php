@@ -38,4 +38,23 @@ class Data
         }
         return $alt;
     }
+
+    /**
+     * Return term Ids
+     * @param $post
+     * @param string $taxonomyName
+     * @return array
+     */
+    public static function getPostTermIds($post, $taxonomyName="category")
+    {
+        $termIds = [];
+
+        $postTerms = get_the_terms($post, $taxonomyName);
+        if (!empty($postTerms)) {
+            foreach ($postTerms as $term) {
+                $termIds[] = $term->term_id;
+            }
+        }
+        return $termIds;
+    }
 }
