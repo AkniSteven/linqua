@@ -1,11 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: icefier
- * Date: 29.08.16
- * Time: 19:59
- */
-
 /* Template Name: Contact Template */
 
 global $core;

@@ -131,6 +131,14 @@ if (!empty($post)) {
         array_splice($postQuestions, $testSteps);
     }
     $context['realStepsCount'] = count($postQuestions);
+    $allQuestionsCount = 0;
+
+    foreach ($postQuestions as $postQuestion) {
+        $allQuestionsCount += count($postQuestion);
+    }
+
+    $context['allQuestionsCount'] = $allQuestionsCount;
+
     $context['questions'] = $postQuestions;
 
     if ($_SESSION['test_id']) {

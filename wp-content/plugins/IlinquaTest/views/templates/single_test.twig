@@ -97,16 +97,11 @@
 					{% endfor %}
 				{% endif %}
 			{% endif %}
-			<!-- Количество элементов должно совпадать с количеством слайдов -->
-			<div class="pagination"></div>
-			<div class="pagination"></div>
-			<div class="pagination"></div>
-			<div class="pagination"></div>
-			<div class="pagination"></div>
-			<div class="pagination"></div>
-			<div class="pagination"></div>
-			<div class="pagination"></div>
-			<div class="pagination"></div>
+			{% if test.allQuestionsCount != 0 %}
+				{% for i in 1..test.allQuestionsCount %}
+					<div class="pagination"></div>
+				{% endfor %}
+			{% endif %}
 		</div>
 		
 		<!-- Отображаем при наличии класса на body finish-test-state -->
