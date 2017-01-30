@@ -9,13 +9,9 @@
 		</ul>
 		<div class="language-navigation__bottom-block">
 			{% if theme_options.phones is not empty %}
-				{% if contact_page_url  %}
-					<a href="{% if contact_page_url  %}{{ contact_page_url }}{% endif %}">
+					<a href="{% if contact_page_url  %}{{ contact_page_url }}{% else %}#{% endif %}">
 						<span class="phone">{{ theme_options.phones|first }}</span>
 					</a>
-				{% else %}
-					<span class="phone">{{ theme_options.phones|first }}</span>
-				{% endif %}
 			{% endif %}
 
 			<a href="{% if contact_page_url  %}{{ contact_page_url }}{% else %}#{% endif %}" class="button-next">
