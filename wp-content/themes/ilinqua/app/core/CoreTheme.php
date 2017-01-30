@@ -119,6 +119,22 @@ class CoreTheme extends Timber
             $this->model->setPostUrls();
             $data['languageList'] = $this->model->getResult();
         }
+        #pages_urls
+        if (!empty($data['theme_options']['contact_page_id'])) {
+            $data['contact_page_url'] = get_permalink(
+                $data['theme_options']['contact_page_id']
+            );
+        }
+        if (!empty($data['theme_options']['corporate_page_id'])) {
+            $data['corporate_page_url'] = get_permalink(
+                $data['theme_options']['corporate_page_id']
+            );
+        }
+        if (!empty($data['theme_options']['test_page_id'])) {
+            $data['test_page_url'] = get_permalink(
+                $data['theme_options']['test_page_id']
+            );
+        }
         return $data;
     }
 

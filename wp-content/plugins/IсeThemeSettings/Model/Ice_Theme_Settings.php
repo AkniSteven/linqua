@@ -1,11 +1,4 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: icefier
- * Date: 27.08.16
- * Time: 17:30
- */
 namespace IceThemeSettings\Model;
 
 class Ice_Theme_Settings

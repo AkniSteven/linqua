@@ -8,8 +8,17 @@
 			{% endfor %}
 		</ul>
 		<div class="language-navigation__bottom-block">
-			<span class="phone">(095) 245 84 36</span>
-			<a href="#" class="button-next">
+			{% if theme_options.phones is not empty %}
+				{% if contact_page_url  %}
+					<a href="{% if contact_page_url  %}{{ contact_page_url }}{% endif %}">
+						<span class="phone">{{ theme_options.phones|first }}</span>
+					</a>
+				{% else %}
+					<span class="phone">{{ theme_options.phones|first }}</span>
+				{% endif %}
+			{% endif %}
+
+			<a href="{% if contact_page_url  %}{{ contact_page_url }}{% else %}#{% endif %}" class="button-next">
 				<img src="/wp-content/plugins/IlinquaTest/views/public/images/img_arrow-white.svg" alt=""/>
 			</a>
 		</div>
@@ -19,7 +28,7 @@
 			<div class="corporate__content">
 				<h3 class="corporate-title"><span>iLingua</span>Corporate</h3>
 				<div class="corporate-descr">Если вы любите фильмы, вы можете обнаружить.</div>
-				<a href="#" class="button-next">
+				<a href="{% if corporate_page_url  %}{{ corporate_page_url }}{% else %}#{% endif %}" class="button-next">
 					<img src="/wp-content/plugins/IlinquaTest/views/public/images/img_arrow-grey.svg" alt=""/>
 				</a>
 			</div>
@@ -28,7 +37,7 @@
 			<div class="test__content">
 				<h3 class="test-title">Пройти тест</h3>
 				<div class="test-descr">Если вы любите фильмы, вы можете обнаружить, что они намного.</div>
-				<a href="#" class="button-next">
+				<a href="{% if test_page_url  %}{{ test_page_url }}{% else %}#{% endif %}" class="button-next">
 					<img src="/wp-content/plugins/IlinquaTest/views/public/images/img_arrow-grey.svg" alt=""/>
 				</a>
 			</div>
