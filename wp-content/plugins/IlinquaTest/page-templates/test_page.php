@@ -4,11 +4,12 @@ use IlinquaTest\Controller\PageView;
 use IlinquaTest\Helper\Data;
 
 global $post;
+global $core;
 
 $view = new PageView();
 $config = Data::getConfig('show');
 $handler = $view->postsHandler;
-$context = [];
+$context = $core->get_context();
 $testPosts = [];
 
 if ($post) {
