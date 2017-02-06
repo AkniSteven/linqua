@@ -88,17 +88,27 @@
                 <input type="number" step="1" min="1" name="ice-theme-settings[test_page_id]" value ="{{theme_options.test_page_id}}"/>
             </td>
         </tr>
+        <tr>
+            <td>
+                <label>iLingua Corporate text:</label>
+                <textarea rows="5" cols="50" name="ice-theme-settings[corporate_text]">
+                    {{ theme_options.corporate_text }}
+                </textarea>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>iLingua Test text:</label>
+                <textarea rows="5" cols="50" name="ice-theme-settings[test_text]">
+                    {{ theme_options.test_text }}
+                </textarea>
+            </td>
+        </tr>
     </table>
-    <label>iLingua Corporate text:</label>
-    <textarea name="ice-theme-settings[corporate_text]">
-        {{ theme_options.corporate_text }}
-    </textarea>
-    <label>iLingua Test text:</label>
-    <textarea name="ice-theme-settings[test_text]">
-        {{ theme_options.test_text }}
-    </textarea>
+
+
 
     <label>Work time:</label>
-    <textarea name="ice-theme-settings[work]">{{theme_options.work}}</textarea>
+    <textarea name="ice-theme-settings[work]" class="tiny-wysiwyg">{{theme_options.work}}</textarea>
     <input type="submit" value="Save" />
 </div>

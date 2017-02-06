@@ -2,7 +2,7 @@
  * Created by icefier on 31.08.16.
  */
 tinymce.init({
-selector: 'textarea',
+selector:'.tiny-wysiwyg',
     height:170,
     width: 600,
     theme: 'modern',
