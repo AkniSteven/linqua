@@ -23,7 +23,10 @@
 		<div class="burger-popup__corporate">
 			<div class="corporate__content">
 				<h3 class="corporate-title"><span>iLingua</span>Corporate</h3>
-				<div class="corporate-descr">Если вы любите фильмы, вы можете обнаружить.</div>
+				{% if theme_options.corporate_text !='' %}
+					<div class="corporate-descr">{{ theme_options.corporate_text }}</div>
+				{% endif %}
+
 				<a href="{% if corporate_page_url  %}{{ corporate_page_url }}{% else %}#{% endif %}" class="button-next">
 					<img src="/wp-content/plugins/IlinquaTest/views/public/images/img_arrow-grey.svg" alt=""/>
 				</a>
@@ -32,7 +35,10 @@
 		<div class="burger-popup__test" style="background-image: url('/wp-content/plugins/IlinquaTest/views/public/images/img_Test.svg')">
 			<div class="test__content">
 				<h3 class="test-title">Пройти тест</h3>
-				<div class="test-descr">Если вы любите фильмы, вы можете обнаружить, что они намного.</div>
+				{% if theme_options.test_text !='' %}
+					<div class="test-descr">{{ theme_options.test_text }}</div>
+				{% endif %}
+
 				<a href="{% if test_page_url  %}{{ test_page_url }}{% else %}#{% endif %}" class="button-next">
 					<img src="/wp-content/plugins/IlinquaTest/views/public/images/img_arrow-grey.svg" alt=""/>
 				</a>
