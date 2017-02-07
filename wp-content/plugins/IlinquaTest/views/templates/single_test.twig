@@ -20,13 +20,13 @@
 {% endblock %}
 
 {% block content %}
-	<div class="single-test-page {% if test.questions is not empty and test.session_test_id == test.test.ID %} test-steps {% endif %}">
+	<div class="single-test-page {% if questions is not empty and session_test_id == test.ID %} test-steps {% endif %}">
 		<h1>English test</h1>
 		<div class="user-info">
-			{% if test.session_test_id != test.test.ID %}
+			{% if session_test_id != test.ID %}
 				<form id="start-form" action="" method="post" name="test">
 					<div class="form__field">
-						<input type="hidden" name="test_id" value="{{ test.test.ID }}"/>
+						<input type="hidden" name="test_id" value="{{ test.ID }}"/>
 						<input id="name" placeholder="Имя" name="name" />
 						<label for="name">Имя</label>
 						<span class="form__caret"></span>
@@ -48,9 +48,9 @@
 			{% endif %}
 		</div>
 		<div class="test-holder">
-			{% if test.session_test_id == test.test.ID %}
-				{% if test.questions is not empty %}
-					{% for questions_arr in test.questions %}
+			{% if session_test_id == test.ID %}
+				{% if questions is not empty %}
+					{% for questions_arr in questions %}
 						{% for question in questions_arr %}
 							<div class="question">
 								<form class="question__form" action="" method="post" name="question_{{ question.ID }}">
@@ -98,8 +98,8 @@
 					{% endfor %}
 				{% endif %}
 			{% endif %}
-			{% if test.allQuestionsCount != 0 %}
-				{% for i in 1..test.allQuestionsCount %}
+			{% if allQuestionsCount != 0 %}
+				{% for i in 1..allQuestionsCount %}
 					<div class="pagination"></div>
 				{% endfor %}
 			{% endif %}

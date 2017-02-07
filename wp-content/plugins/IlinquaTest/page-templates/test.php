@@ -16,13 +16,14 @@ if ($_POST['test_id']) {
 }
 
 global $post;
+global $core;
 $view = new PageView();
 $config = Data::getConfig('show');
+$context = $core->get_context();
+
 $handler = $view->postsHandler;
 $handler->setResult([0 =>$post]);
 $handler->formattedMeta();
-
-$context = [];
 
 if (!empty($post)) {
     $context['test'] = $post;
@@ -146,4 +147,4 @@ if (!empty($post)) {
     }
 }
 
-$view->display('single_test.twig', ['test'=>$context]);
+$view->display('single_test.twig',  $context);
