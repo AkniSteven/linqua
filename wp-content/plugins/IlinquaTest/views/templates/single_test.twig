@@ -10,6 +10,7 @@
 {% block scripts %}
 	<script src="/wp-content/plugins/IlinquaTest/views/public/js/index.js" type="text/javascript"></script>
 	<script src="/wp-content/plugins/IlinquaTest/views/public/js/jquery.js" type="text/javascript"></script>
+	<script src="/wp-content/plugins/IlinquaTest/views/public/js/form-validate.js" type="text/javascript"></script>
 	<script src="/wp-content/plugins/IlinquaTest/views/public/js/testing.js" type="text/javascript"></script>
 	<script src="/wp-content/plugins/IlinquaTest/views/public/js/single-test.js" type="text/javascript"></script>
 {% endblock %}
@@ -23,25 +24,25 @@
 		<h1>English test</h1>
 		<div class="user-info">
 			{% if test.session_test_id != test.test.ID %}
-				<form action="" method="post" name="test">
+				<form id="start-form" action="" method="post" name="test">
 					<div class="form__field">
 						<input type="hidden" name="test_id" value="{{ test.test.ID }}"/>
-						<input id="name" placeholder="Имя" name="name" required/>
+						<input id="name" placeholder="Имя" name="name" />
 						<label for="name">Имя</label>
 						<span class="form__caret"></span>
 					</div>
 					<div class="form__field">
-						<input id="tel" placeholder="Телефон" name="tel" required value=""/>
+						<input id="tel" placeholder="Телефон" name="tel" class="validate-phone-no-empty" value=""/>
 						<label for="tel">Телефон</label>
 						<span class="form__caret"></span>
 					</div>
 					<div class="form__field">
-						<input id="email" placeholder="Email" name="email" required value=""/>
+						<input id="email" placeholder="Email" name="email" value=""/>
 						<label for="email">Email</label>
 						<span class="form__caret"></span>
 					</div>
 					<div class="btn yellow">
-						<input type="submit" name="start-test" value="Начать">
+						<input type="submit" id="start" name="start-test" value="Начать">
 					</div>
 				</form>
 			{% endif %}
