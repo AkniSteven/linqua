@@ -54,6 +54,7 @@
 						{% for question in questions_arr %}
 							<div class="question">
 								<form class="question__form" action="" method="post" name="question_{{ question.ID }}">
+									<input type="hidden" name="questuion_id" value="8==>"/>
 									<h3 class="question__title">
 										<span class="question-number">1.</span>
 										{{ question.post_title }}</h3>
@@ -68,7 +69,7 @@
 														<input type="radio" required name="answer" id="radio-id__{{ loop.index * question.ID }}"
 															   value="{{ key }}"/>
 														<span class="radio__frame"></span>
-														<span class="radio__title">{{ answer }} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, praesentium?</span>
+														<span class="radio__title">{{ answer }}</span>
 													</label>
 												</div>
 											{% endfor %}
