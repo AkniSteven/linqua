@@ -1,12 +1,4 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: icefier
- * Date: 22.08.16
- * Time: 22:56
- */
-
 namespace ilinqua\app\Helper;
 
 class Data
@@ -56,5 +48,11 @@ class Data
             }
         }
         return $termIds;
+    }
+
+    public static function getTermPermalink($term, $taxonomyName )
+    {
+        return get_term_link($term,$taxonomyName); 
+
     }
 }

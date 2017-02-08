@@ -1,11 +1,4 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: icefier
- * Date: 22.08.16
- * Time: 22:46
- */
 namespace ilinqua\app\Model;
 
 use ilinqua\app\core\Config;

@@ -1,11 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: icefier
- * Date: 07.10.16
- * Time: 0:49
- */
 /* Template Name: Single-article Template */
+use ilinqua\app\Helper\Data;
 
 global $core;
 global $post;
@@ -14,7 +9,28 @@ $context = $core->get_context();
 $model  = $core->getModel();
 $config = $core->getConfig();
 
+$lang['name'] = '';
+$lang['link'] = '';
+
 if ($post) {
+    /*
+    $postLangTerms = Data::getPostTermIds($post, 'language');
+    if ($postLangTerms) {
+        if (count($postLangTerms) > 1) {
+            $cat = new WPSEO_Primary_Term('language', $post->ID);
+            $cat = $cat->get_primary_term();
+            if ($cat != '') {
+                $catObj = $core->get_term(12);
+                $lang['name'] = $catObj->name;
+                $lang['link'] = Data::getTermPermalink($catObj,'language');
+            }
+//            $catName = get_cat_name($cat);
+        } else {
+
+        }
+    }
+*/
+
     $backGroundImagePostType = $config->getConfig(
         "postImages", "style_config"
     )["background_image"]["post_type"];
@@ -66,6 +82,10 @@ if (!empty($context['article'])) {
 
         $context['author_name'] = $authorData ? $authorData->display_name : '';
         $context['author_thumb'] = $authorThumb ? $authorThumb : '';
+    }
+    
+    if ($lang['name'] !='' && $lang['link'] !='') {
+        $context['label'] = $lang;
     }
 }
 

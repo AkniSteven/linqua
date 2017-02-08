@@ -14,9 +14,11 @@
         <div class="article-header">
             <div class="article-header__banner" {% if article.other_image_urls.background_image !='' %} style="background-image: url('{{ article.other_image_urls.background_image }}') {% endif %}">
                 <div class="article-header__title">
-                    {% if article.acf.label.value != '' %}
+                    {% if article.acf.label.value != '' and article.acf.label_link.value !='' %}
                         <div class="language">
-                            <span>{{ article.acf.label.value }}</span>
+                            <a href="{{ article.acf.label_link.value }}">
+                                <span>{{ article.acf.label.value }}</span>
+                            </a>
                         </div>
                     {% endif %}
                     <h1 class="title">
