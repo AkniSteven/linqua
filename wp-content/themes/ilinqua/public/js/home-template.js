@@ -124,7 +124,7 @@ requirejs([
 	function profileNavSwiper() {
 		enquire
 			.register("screen and (max-width : 1024px)", {
-				match : function profileNavSwiper() {
+				match : function profileNavSwiper(e) {
 					var profileNav = new Swiper('.swiper-container', {
 						slidesPerView: 'auto',
 						centeredSlides: false,
@@ -132,7 +132,7 @@ requirejs([
 					});
 				},
 				unmatch : function() {
-					profileNav.destroy();
+					e.destroy();
 				}
 			});
 	}
