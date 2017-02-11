@@ -1,3 +1,9 @@
+.column-width{
+	width: 333px;
+	@include bp($point: $bpMiddle, $type: max) {
+		
+	}
+}
 .lp-article {
 	&__tile {
 		background-repeat: no-repeat;

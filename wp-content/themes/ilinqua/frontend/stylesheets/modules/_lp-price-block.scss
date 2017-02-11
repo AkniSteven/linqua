@@ -91,7 +91,7 @@
 	flex-flow: row nowrap;
 	justify-content: center;
 	will-change: padding;
-	&__status {
+	/*&__status {
 		display: block;
 		position: absolute;
 		top: -30px;
@@ -107,7 +107,7 @@
 		visibility: visible;
 		@include anim-param(opacity, visibility);
 		@include anim($dur: .2s);
-	}
+	}*/
 	&__tariff-cell {
 		background: #fff;
 		display: flex;
@@ -136,7 +136,7 @@
 			color: $colorLinkEn;
 			letter-spacing: -1px;
 			font-weight: 500;
-			white-space: nowrap;
+			//white-space: nowrap;
 		}
 		&__value-holder {
 			white-space: nowrap;

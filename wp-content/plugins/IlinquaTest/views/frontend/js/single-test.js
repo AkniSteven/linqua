@@ -88,8 +88,9 @@ requirejs([
 			var lastBlock = $(".question").last().find('.answer-button');
 			var elem = document.querySelector('.grid');
 			var msnry = new Masonry(elem, {
+				columnWidth: '.column-width',
 				itemSelector: '.lp-article__tile',
-				columnWidth: 50,
+//				columnWidth: 50,
 				rowHeight: 110,
 				percentPosition: false,
 				transitionDuration: '0.4s',

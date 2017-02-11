@@ -12,7 +12,7 @@ requirejs([
         submit_action:function(){
             var _this = this;
             $(document).on( "click", this.submit_btn, function(){
-                debugger;
+//                debugger;
                 _this.addTestStep($(this).closest('form').serialize());
             });
         },
@@ -31,7 +31,7 @@ requirejs([
                     alert(response);
                 },
                 error: function () {
-                    alert(0);
+                    console.log(0);
                 }
 
             })
