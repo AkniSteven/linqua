@@ -1,0 +1,26 @@
+{
+  "language" : {
+    "labels"    : {
+      "name"              : "Language",
+      "singular_name"     : "Language",
+      "search_items"      : "Search Language",
+      "all_items"         : "All Languages",
+      "parent_item"       : "Parent Language",
+      "parent_item_colon" : "Parent Language:",
+      "edit_item"         : "Edit Language",
+      "update_item"       : "Update Language",
+      "add_new_item"      : "Add New Language",
+      "new_item_name"     : "New Language Name",
+      "menu_name"         : "Languages"
+    },
+    "args"      : {
+      "hierarchical"      : true,
+      "show_ui"           : true,
+      "show_admin_column" : true,
+      "query_var"         : true,
+      "public"            : true,
+      "rewrite"           : {"slug" : "language"}
+    },
+    "post_type" : ["post", "course" , "test", "page"]
+  }
+}

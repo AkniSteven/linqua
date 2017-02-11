@@ -106,7 +106,35 @@ class CoreTheme extends Timber
         }
         #theme_options
         $data['theme_options'] = (array) get_option('ice-theme-settings');
-        
+
+        #Home template pages
+        $data['home_pages'] = get_pages(
+            [
+                'meta_key' => '_wp_page_template',
+                'meta_value' => 'page-templates/home-page.php'
+            ]
+        );
+        if (!empty($data['home_pages'])) {
+            $this->model->setResult($data['home_pages']);
+            $this->model->setPostUrls();
+            $data['languageList'] = $this->model->getResult();
+        }
+        #pages_urls
+        if (!empty($data['theme_options']['contact_page_id'])) {
+            $data['contact_page_url'] = get_permalink(
+                $data['theme_options']['contact_page_id']
+            );
+        }
+        if (!empty($data['theme_options']['corporate_page_id'])) {
+            $data['corporate_page_url'] = get_permalink(
+                $data['theme_options']['corporate_page_id']
+            );
+        }
+        if (!empty($data['theme_options']['test_page_id'])) {
+            $data['test_page_url'] = get_permalink(
+                $data['theme_options']['test_page_id']
+            );
+        }
         return $data;
     }
 

@@ -1,12 +1,4 @@
 <?php
-
-/**
- * Created by PhpStorm.
- * User: icefier
- * Date: 22.08.16
- * Time: 22:56
- */
-
 namespace ilinqua\app\Helper;
 
 class Data
@@ -37,5 +29,30 @@ class Data
                 '.', basename(get_attached_file($attachment_id)))[0];
         }
         return $alt;
+    }
+
+    /**
+     * Return term Ids
+     * @param $post
+     * @param string $taxonomyName
+     * @return array
+     */
+    public static function getPostTermIds($post, $taxonomyName="category")
+    {
+        $termIds = [];
+
+        $postTerms = get_the_terms($post, $taxonomyName);
+        if (!empty($postTerms)) {
+            foreach ($postTerms as $term) {
+                $termIds[] = $term->term_id;
+            }
+        }
+        return $termIds;
+    }
+
+    public static function getTermPermalink($term, $taxonomyName )
+    {
+        return get_term_link($term,$taxonomyName); 
+
     }
 }

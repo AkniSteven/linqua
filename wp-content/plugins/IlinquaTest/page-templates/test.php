@@ -16,13 +16,14 @@ if ($_POST['test_id']) {
 }
 
 global $post;
+global $core;
 $view = new PageView();
 $config = Data::getConfig('show');
+$context = $core->get_context();
+
 $handler = $view->postsHandler;
 $handler->setResult([0 =>$post]);
 $handler->formattedMeta();
-
-$context = [];
 
 if (!empty($post)) {
     $context['test'] = $post;
@@ -131,6 +132,14 @@ if (!empty($post)) {
         array_splice($postQuestions, $testSteps);
     }
     $context['realStepsCount'] = count($postQuestions);
+    $allQuestionsCount = 0;
+
+    foreach ($postQuestions as $postQuestion) {
+        $allQuestionsCount += count($postQuestion);
+    }
+
+    $context['allQuestionsCount'] = $allQuestionsCount;
+
     $context['questions'] = $postQuestions;
 
     if ($_SESSION['test_id']) {
@@ -138,4 +147,4 @@ if (!empty($post)) {
     }
 }
 
-$view->display('single_test.twig', ['test'=>$context]);
+$view->display('single_test.twig',  $context);

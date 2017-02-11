@@ -1,6 +1,8 @@
 <div class="language-banner" style="background-image: url('{{ theme.path }}/public/images/img_En.svg');">
 	<h1 class="language-banner__title">
-		<span class="active-language">English.</span> Learn.<br>Together.
+		{% if page.post_content != "" %}
+			{{ page.post_content }}
+		{% endif %}
 	</h1>
 	{#{% include 'modules/_lp-price-block.twig' %}#}
 	{#<div id="trigger2" class="spacer s1"></div>#}

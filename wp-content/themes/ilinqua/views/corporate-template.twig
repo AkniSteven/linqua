@@ -1,0 +1,28 @@
+{% extends '_layout.twig' %}
+
+{% block title %}
+	{{ page.post_name }}
+{% endblock %}
+
+{% block jsEntryPoint %}
+{% endblock %}
+
+{% block scripts %}
+	<script src="{{ theme.path }}/public/js/home-template.js" type="text/javascript"></script>
+	<script src="{{ theme.path }}/public/js/article-filters.js" type="text/javascript"></script>
+{% endblock %}
+
+{% block content %}
+	<h1>COMING SOON</h1>
+	{#<section class="language-holder">#}
+		{#{% include 'modules/_lp-banner.twig' %}#}
+		{#{% include 'modules/_lp-community.twig' %}#}
+		{#{% if categories is not empty %}#}
+			{#{% for category in categories %}#}
+				{#{% if category.count > 0 %}#}
+					{#{{ category.name }} {{ category.slug }}#}
+				{#{% endif %}#}
+			{#{% endfor %}#}
+		{#{% endif %}#}
+	{#</section>#}
+{% endblock %}

@@ -26,6 +26,7 @@ class TestingController
 
     public function addTestStep()
     {
+        $a=1;
         echo "Тест";
         
     }
