@@ -1,28 +1,3 @@
-// var gulp = require('gulp'),
-// 	sass = require('gulp-sass'),                            //Подключаем Sass пакет
-// 	watch = require('gulp-watch'),
-// 	// browserSync = require('browser-sync'),                  // Подключаем Browser Sync
-// 	autoprefixer = require('gulp-autoprefixer');
-//
-// gulp.task('sass', function () {                            // Создаем таск "sass"
-// 	return gulp.src('frontend/stylesheets/**/*.scss')            // // Берем все sass файлы из папки sass и дочерних, если таковые будут
-// 		.pipe(sass())                                      // Преобразуем Sass в CSS посредством gulp-sass
-// 		.pipe(gulp.dest('public/css'));                    // Выгружаем результата в папку app/css
-// });
-//
-// gulp.task('watch', function() {
-// 	gulp.watch('frontend/stylesheets/**/*.scss', ['sass']); // Наблюдение за sass файлами
-// });
-//
-// gulp.task('prefix', function () {
-// 	return gulp.src('public/css/**/*.css')
-// 		.pipe(autoprefixer({
-// 			browsers: ['last 16 versions'],
-// 			cascade: false
-// 		}))
-// 		.pipe(gulp.dest('public/css'));
-// });
-
 // #################################
 
 var gulp = require('gulp'),
@@ -39,7 +14,7 @@ var gulp = require('gulp'),
 gulp.task('serve', ['sass'], function () {
 
 	browserSync.init({
-		proxy: "www.linqua.web/werwere/"
+		proxy: "www.linqua.web/"
 	});
 
 	gulp.watch("./frontend/stylesheets/**/*.scss", ['sass']);

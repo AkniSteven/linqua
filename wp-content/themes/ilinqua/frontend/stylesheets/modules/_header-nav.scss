@@ -1,4 +1,5 @@
 .header {
+	background: red !important;
 	&__left-side, &__right-side {
 		display: flex;
 		flex-flow: row nowrap;

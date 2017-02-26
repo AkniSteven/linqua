@@ -15,8 +15,9 @@ requirejs([
 			columnWidth: '.column-width',
 			rowHeight: 110,
 			percentPosition: false,
-			gutter: 40,
-		},
+//			gutter: '.gutter-sizer'
+			gutter: 40
+	}
 	});
 
 
