@@ -17,8 +17,15 @@
 		font-weight: 500;
 		white-space: nowrap;
 		cursor: pointer;
-		@include anim($param: background, $dur: .2s);
-		
+		@include anim-param(background, color);
+		@include anim($dur: .2s);
+		&.is-checked {
+			background: #000;
+			color: #fff;
+			&:hover {
+				background: transparentize(#000, .2);
+			}
+		}
 		/* ---------- Vue filter button srtyles ---------- */
 		input {
 			position: absolute;

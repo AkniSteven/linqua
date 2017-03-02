@@ -49,12 +49,25 @@ requirejs([
 		iso.arrange({filter: filterValue});
 	});
 
-	function radioButtonGroup(buttonGroup) {
-		buttonGroup.addEventListener('click', function (event) {
-			buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
-			event.target.classList.add('is-checked');
-		});
+
+	ActiveFilterButton();
+	function ActiveFilterButton() {
+		var filterButton = $('.lp-community__filter-item');
+
+		filterButton.on('click', function () {
+			$(this).addClass('is-checked');
+			$(this).siblings('.lp-community__filter-item').removeClass('is-checked');
+		})
 	}
+
+//	function radioButtonGroup(buttonGroup) {
+//		buttonGroup.addEventListener('click', function (event) {
+//			buttonGroup.querySelector('.is-checked').classList.remove('is-checked');
+//			event.target.classList.add('is-checked');
+//			console.log('csdcdsc');
+//		});
+//	}
+//	radioButtonGroup();
 
 });
 
