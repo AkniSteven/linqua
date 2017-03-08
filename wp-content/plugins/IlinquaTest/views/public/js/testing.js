@@ -18,7 +18,7 @@ requirejs([
         },
 
         addTestStep:function(data) {
-            debugger;
+//            debugger;
             $.ajax({
                 type: 'POST',
                 url: 'http://www.linqua.web/wp-admin/admin-ajax.php',

@@ -34,10 +34,15 @@
                 }
             }
             .title {
+                max-width: 650px;
+                padding-right: 20px;
                 color: #fff;
                 text-transform: none;
                 span {
                     display: block;
+                }
+                @include bp($bpTablet) {
+                    max-width: 400px;
                 }
             }
         }
