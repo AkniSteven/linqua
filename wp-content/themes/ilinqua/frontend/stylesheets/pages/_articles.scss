@@ -128,12 +128,16 @@
         &__story {
             display: flex;
             align-items: flex-start;
-            justify-content: space-between;
+            justify-content: flex-end;
+            @include bp($Mobile) {
+                padding: 0 10px;
+            }
             .left-column {
                 width: 28%;
             }
             .right-column {
                 width: calc(72% - 80px); // minus banner margin right
+                margin-left: auto;
             .txt {
                 p {
                     display: block;
@@ -216,7 +220,7 @@
                     margin: 0 0 80px;
                     counter-increment: item;
                     &:last-child {
-                        margin-bottom: 0;
+                        margin-bottom: 20px;
                     }
                     &:before {
                         display: block;
