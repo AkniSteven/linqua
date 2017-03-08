@@ -26,8 +26,8 @@ requirejs([
 				titleTemplate: "#title#",
 				labels: {
 					next: 'Ответ',
-					finish: "Finish",
-				},
+					finish: "Finish"
+				}
 			});
 
 			AnswerBtnEvents();
@@ -85,11 +85,10 @@ requirejs([
 
 		/* ========== Publications grid ========== */
 		publicationsGrid: function () {
-			var lastBlock = $(".question").last().find('.answer-button');
 			var elem = document.querySelector('.grid');
 			var msnry = new Masonry(elem, {
+				columnWidth: '.column-width',
 				itemSelector: '.lp-article__tile',
-				columnWidth: 50,
 				rowHeight: 110,
 				percentPosition: false,
 				transitionDuration: '0.4s',
@@ -97,10 +96,20 @@ requirejs([
 				gutter: 40,
 			});
 
-			lastBlock.on('click', function () {
-//				elem.masonry('layout');
+			msnry.on( 'layoutComplete', function() {
+				if($(window).width() <= 1240) {
+//					var elem = document.querySelector('.grid');
+//
+//					var msnry = new Masonry(elem, {
+//						gutter: 20
+//					});
+					console.log('small');
+				} else {
+					console.log('big');
+				}
 			});
-		},
+		}
+
 		/* ========== END Publications grid  ========== */
 	};
 	PluginsInit.init();
