@@ -20,7 +20,7 @@
 {% endblock %}
 
 {% block content %}
-	<div class="single-test-page js-show-finish-test {% if questions is not empty and session_test_id == test.ID %} test-steps {% endif %}">
+	<div class="single-test-page {% if questions is not empty and session_test_id == test.ID %} test-steps {% endif %}">
 		<h1>English test</h1>
 		<div class="user-info">
 			{% if session_test_id != test.ID %}
