@@ -10,6 +10,7 @@ if ($_POST['test_id']) {
     $data = [];
     $data['name']    = Data::cleanString($_POST['name']);
     $data['email']   = Data::cleanString($_POST['email']);
+    $data['tel']   = Data::cleanString($_POST['tel']);
     $data['test_id'] = Data::cleanString($_POST['test_id']);
     $data['realStepsCount'] = (int)Data::cleanString($_POST['realStepsCount']);
     $testing->startTesting($data);

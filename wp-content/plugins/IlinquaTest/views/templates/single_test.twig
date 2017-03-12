@@ -27,15 +27,16 @@
                 <form id="start-form" action="" method="post" name="test">
                     <div class="form__field">
                         <input type="hidden" name="test_id" value="{{ test.ID }}"/>
+                        <input type="hidden" name="realStepsCount" value="{{ realStepsCount }}"/>
                         <input id="name" placeholder="Имя" name="name"/> <label for="name">Имя</label>
                         <span class="form__caret"></span>
                     </div>
                     <div class="form__field">
-                        <input id="tel" placeholder="Телефон" name="tel" class="validate-phone-no-empty" value=""/>
+                        <input id="tel" placeholder="Телефон" name="tel" class="validate-phone-no-empty"/>
                         <label for="tel">Телефон</label> <span class="form__caret"></span>
                     </div>
                     <div class="form__field">
-                        <input id="email" placeholder="Email" name="email" value=""/> <label for="email">Email</label>
+                        <input id="email" placeholder="Email" name="email"/> <label for="email">Email</label>
                         <span class="form__caret"></span>
                     </div>
                     <div class="btn yellow">
@@ -51,9 +52,10 @@
                         {% for question in questions_arr %}
                             <div class="question">
                                 <form class="question__form" action="" method="post" name="question_{{ question.ID }}">
-                                    <input type="hidden" name="questuion_id" value="8==>"/>
+                                    <input type="hidden" name="question_id" value="{{ question.ID }}"/>
+                                    <input type="hidden" name="current_step" value="{{ loop.index }}"/>
                                     <h3 class="question__title">
-                                        <span class="question-number">1.</span>
+                                        <span class="question-number">{{ loop.index }}.</span>
                                         {{ question.post_title }}</h3>
                                     {% if question.main_thumnail_url != "" %}
                                         <div class="question__img-holder" style="background-image: url('{{ question.main_thumnail_url }}')"></div>

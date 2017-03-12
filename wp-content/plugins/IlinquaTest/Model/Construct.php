@@ -52,6 +52,7 @@ class Construct
             $sql = "CREATE TABLE " . $table_name . " (
               id int NOT NULL AUTO_INCREMENT,
               name text NOT NULL,
+              phone text NOT NULL,
               email text NOT NULL,
               status int default 0,
               info text NOT NULL,
