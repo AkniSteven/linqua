@@ -1,9 +1,10 @@
 .column-width{
 	width: 333px;
 	@include bp($point: $bpMiddle, $type: max) {
-		
+		width: 220px;
 	}
 }
+
 .lp-article {
 	&__tile {
 		background-repeat: no-repeat;
@@ -26,7 +27,6 @@
 		&.events {
 			.article-tile__description {
 				position: absolute;
-				//top: 120px;
 				@include centerize(true, true);
 				width: 100%;
 				max-width: 515px;
@@ -44,7 +44,6 @@
 					}
 					&__subtitle {
 						display: block;
-						//color: #fff;
 						color: #fff;
 					}
 				}
@@ -57,9 +56,6 @@
 			.article-tile__img {
 				height: 660px;
 			}
-			//&.events {
-			//	height: 660px;
-			//}
 			&:not(.events) {
 				height: calc(660px + 62px); // height picture + height figcaption
 			}
@@ -94,6 +90,17 @@
 				height: 200px;
 			}
 		}
+		//@include bp($point: $bpMiddle, $type: max) {
+		//	&.big {
+		//		width: 400px;
+		//		.article-tile__img {
+		//			height: 400px;
+		//		}
+		//		&:not(.events) {
+		//			height: calc(400px + 62px);
+		//		}
+		//	}
+		//}
 		@include bp($point: 1140, $type: max) {
 			&.events {
 				.article-tile__description {
