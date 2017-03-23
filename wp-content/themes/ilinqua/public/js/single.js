@@ -17,7 +17,7 @@ requirejs([
 //	}
 //	});
 
-	var elem = document.querySelector('.grid');
+	var elem = document.querySelector('.article-more__list');
 	var msnry = new Masonry(elem, {
 		columnWidth: '.column-width--article',
 		rowHeight: 110,
