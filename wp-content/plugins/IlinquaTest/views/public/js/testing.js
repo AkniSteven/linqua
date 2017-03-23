@@ -19,7 +19,7 @@ requirejs([
         addTestStep:function(data) {
             $.ajax({
                 type: 'POST',
-                url: 'http://www.linqua.web/wp-admin/admin-ajax.php',
+                url:$('#ajax').data('url'),
                 data: {
                     'action': 'addTestStep',
                     'data': data

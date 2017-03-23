@@ -20,16 +20,19 @@ class Testing
             session_start();
         }
     }
-    
+
     public function startTesting(array $data)
     {
         if (session_id()) {
-            $currentTester = $this->_dbModel->add_customer(
-                $data['name'],
-                $data['tel'],
-                $data['email']
-            );
-            $_SESSION["tester_id"] =  $currentTester;
+            if (!($_SESSION['tester_id'])) {
+                $currentTester = $this->_dbModel->add_customer(
+                    $data['name'],
+                    $data['tel'],
+                    $data['email']
+                );
+                $_SESSION["tester_id"] =  $currentTester;
+            }
+
             $_SESSION["test_id"] = $data['test_id'];
             $_SESSION["name"]  =  $data['name'];
             $_SESSION["tel"]  =  $data['tel'];
@@ -44,8 +47,14 @@ class Testing
         $handler = $view->postsHandler;
 
         $currentTest = get_post($_SESSION['test_id']);
-        $currentQuestion = get_post($data['question_id']);
 
+        $scoresForPass =  get_post_meta(
+            $currentTest->ID,
+            'score_for_pass',
+            true
+        );
+
+        $currentQuestion = get_post($data['question_id']);
         $handler->setResult([0 =>$currentQuestion]);
         $handler->formattedMeta();
         $handler->formattedACF();

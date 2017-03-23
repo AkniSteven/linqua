@@ -133,12 +133,16 @@ if (!empty($post)) {
         array_splice($postQuestions, $testSteps);
     }
     $context['realStepsCount'] = count($postQuestions);
+
     $allQuestionsCount = 0;
+    $countQuestionsByStep = [];
 
     foreach ($postQuestions as $postQuestion) {
         $allQuestionsCount += count($postQuestion);
+        $countQuestionsByStep[] = count($postQuestion);
     }
 
+    $context['countQuestionsByStep'] = implode(',', $countQuestionsByStep);
     $context['allQuestionsCount'] = $allQuestionsCount;
 
     $context['questions'] = $postQuestions;
@@ -147,5 +151,6 @@ if (!empty($post)) {
         $context['session_test_id'] = $_SESSION['test_id'];
     }
 }
+$context['ajax_url'] = get_site_url() . '/wp-admin/admin-ajax.php';
 
 $view->display('single_test.twig',  $context);

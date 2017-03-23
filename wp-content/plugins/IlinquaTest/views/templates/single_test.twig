@@ -1,7 +1,7 @@
 {% extends '_layout-test.twig' %}
 
 {% block title %}
-    Single test
+    {{ test.post_title }}
 {% endblock %}
 
 {% block jsEntryPoint %}
@@ -21,7 +21,7 @@
 
 {% block content %}
     <div class="single-test-page  {% if questions is not empty and session_test_id == test.ID %} test-steps {% endif %}">
-        <h1>English test English test English testEnglish test</h1>
+        <h1>{{ test.post_title }}</h1>
         <div class="user-info">
             {% if session_test_id != test.ID %}
                 <form id="start-form" action="" method="post" name="test">
@@ -54,6 +54,7 @@
                                 <form class="question__form" action="" method="post" name="question_{{ question.ID }}">
                                     <input type="hidden" name="question_id" value="{{ question.ID }}"/>
                                     <input type="hidden" name="current_step" value="{{ loop.index }}"/>
+                                    <input type="hidden" name="count_question_by_step" value="{{ countQuestionsByStep }}"/>
                                     <h3 class="question__title">
                                         <span class="question-number">{{ loop.index }}.</span>
                                         {{ question.post_title }}</h3>

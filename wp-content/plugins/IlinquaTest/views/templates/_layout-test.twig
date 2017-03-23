@@ -29,6 +29,8 @@
 
 </head>
 <body {% block body_attributes %}{% endblock %}  {#class="all-tests"#} class="english">
+<span id="ajax" data-url="{{ ajax_url }}"></span>
+
 <div id="wrapper">
 	{% block header %}
 		{#{% include 'layout-blocks/_header.twig' %}#}
@@ -36,34 +38,11 @@
 			"all_tests" : {
 				"logoColor": 'ilingua_logo.svg',
 				"logoWhite": 'logo-white.svg',
-				"primary_header_menu" : [
-				{
-					"url": '#',
-					'title' : 'Пройти тест',
-					},
-				{
-					"url": '#',
-					'title' : 'Контакты',
-					},
-				]
 			}
 		} %}
 	{% endblock %}
 
-	{% include '_burger-popup.twig' with {
-		"languageNav" : {
-			"languageList" : [
-				{'item' : 'English', 'url':'#'},
-				{'item' : 'Deutsch', 'url':'#'},
-				{'item' : 'Français', 'url':'#'},
-				{'item' : 'Italiano', 'url':'#'},
-				{'item' : 'Español', 'url':'#'},
-				{'item' : 'Português', 'url':'#'},
-				{'item' : 'Polska', 'url':'#'},
-				{'item' : 'Russian', 'url':'#'},
-			]
-		}
-	}%}
+	{% include '_burger-popup.twig' %}
 
 	<main id="main">
 		{% block content %}
