@@ -1,9 +1,11 @@
 <?php
 
 namespace IlinquaTest\Model;
+
 use IlinquaTest\Model\TestDb;
 use IlinquaTest\Controller\PageView;
 use IlinquaTest\Helper\Data;
+
 class Testing
 {
     private $_dbModel;
@@ -14,7 +16,7 @@ class Testing
         $this->_dbModel = new TestDb();
     }
 
-    public function  _startSession()
+    public function _startSession()
     {
         if (!session_id()) {
             session_start();
@@ -61,9 +63,6 @@ class Testing
         $currentQuestion = $handler->getResult();
 
         if ($data) {
-
         }
-
     }
-
 }
