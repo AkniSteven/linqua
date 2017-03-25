@@ -5,6 +5,9 @@ namespace IlinquaTest\Controller;
 use IlinquaTest\Model\Testing;
 use IlinquaTest\Controller\PageView;
 
+use IlinquaTest\Model\AnswerPool;
+use IlinquaTest\Model\Answer;
+
 /**
  * Controller for test reqests.
  */
@@ -52,6 +55,14 @@ class TestingController
         if (!empty($data)) {
             $this->_model->addStep($data);
         }
-        echo print_r($data, true);
+
+        $currentTestId = $_SESSION['test_id'];
+        if (empty($currentTestId)) {
+            throw new Exception('No quiz started.');
+        }
+
+        $answerPool = new AnswerPool($currentTestId);
+        $answerPool->add(new Answer($data['question_id'], $data['answer']));
+        echo print_r($answerPool->getAll(), true);
     }
 }
