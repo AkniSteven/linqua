@@ -18,10 +18,10 @@ requirejs([
 //	});
 
 	var elem = document.querySelector('.grid');
-	var msnry = new Masonry( elem, {
-		// options
-		itemSelector: '.lp-article__tile',
-		columnWidth: 200,
+	var msnry = new Masonry(elem, {
+		columnWidth: '.column-width--article',
+		rowHeight: 110,
+		percentPosition: false,
 		gutter: 40
 	});
 
