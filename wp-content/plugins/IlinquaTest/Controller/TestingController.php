@@ -26,7 +26,13 @@ class TestingController
 
     public function addTestStep()
     {
-        $a=1;
+        $data = [];
+        if ($_POST['data']) {
+            parse_str($_POST['data'], $data);
+        }
+        if (!empty($data)) {
+            $this->_model->addStep($data);
+        }
         echo "Тест";
         
     }

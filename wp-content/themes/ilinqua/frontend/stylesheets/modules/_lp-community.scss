@@ -21,10 +21,9 @@
 		}
 	}
 	@include bp($point: $bpMiddle, $type: max) {
-		//max-width: 980px;
 		max-width: 1200px;
 		margin: 0;
-		margin-left: calc((100vw - 980px)/2);
+		margin-left: calc((100vw - 1200px)/2);
 		&__title {
 			margin: 0 0 30px $middle;
 		}
@@ -34,6 +33,7 @@
 	}
 	@include bp($point: $bpTablet, $type: max) {
 		max-width: 860px;
+        margin: 0 auto;
 		&__title {
 			margin: 0 0 21px $small;
 			font-size: 3.5rem;
