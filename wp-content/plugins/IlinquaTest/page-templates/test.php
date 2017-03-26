@@ -4,6 +4,21 @@ use IlinquaTest\Controller\PageView;
 use IlinquaTest\Controller\TestingController;
 use IlinquaTest\Helper\Data;
 
+// Function name should be changed to more specific one.
+function processQuizes($questionIds, $questionLimit, $isRandom)
+{
+    if (count($questionIds) == count($questionLimit)) {
+        for ($i = 1; $i != count($questionLimit); $i++) {
+            if ($isRandom) {
+                shuffle($questionIds[$i]);
+            }
+            if (count($questionIds[$i]) > $questionLimit[$i]) {
+                array_splice($questionIds[$i], $questionLimit[$i]);
+            }
+        }
+    }
+}
+
 $testing = new TestingController();
 
 if ($_POST['test_id']) {
@@ -31,50 +46,32 @@ if (!empty($post)) {
 
     $questionsRandom  = get_post_meta($post->ID, 'test_random', true);
     $testSteps        = get_post_meta($post->ID, 'test_steps', true);
-    $questionsIds     = get_post_meta($post->ID, 'questions', true);
-    $questionsLimit   = get_post_meta($post->ID, 'questions_count', true);
+    $questionIds     = get_post_meta($post->ID, 'questions', true);
+    $questionLimit   = get_post_meta($post->ID, 'questions_count', true);
 
-    if (count($questionsIds) == count($questionsLimit)) {
-        for ($i=1; $i !=count($questionsLimit); $i++) {
-            if ($questionsRandom == "y") {
-                shuffle($questionsIds[$i]);
-            }
-            if (count($questionsIds[$i]) > $questionsLimit[$i]) {
-                array_splice($questionsIds[$i], $questionsLimit[$i]);
-            }
-        }
-    }
+    processQuizes($questionIds, $questionLimit, $questionsRandom == "y");
 
     $questionsTextIds = get_post_meta($post->ID, 'questions_text', true);
     $questionsTextIdsLim = get_post_meta(
         $post->ID, 'questions_text_count', true
     );
 
-    if (count($questionsTextIds) == count($questionsTextIdsLim)) {
-        for ($i=1; $i !=count($questionsTextIds); $i++) {
-            if ($questionsRandom == "y") {
-                shuffle($questionsTextIds[$i]);
-            }
-            if (count($questionsTextIds[$i]) > $questionsTextIdsLim[$i]) {
-                array_splice($questionsTextIds[$i], $questionsTextIdsLim[$i]);
-            }
-        }
-    }
+    processQuizes($questionsTextIds, $questionsTextIdsLim, $questionsRandom == "y");
 
     $scoresForPass = get_post_meta($post->ID, 'score_for_pass', true);
-    $countQuestionsIds = count($questionsIds);
+    $countQuestionsIds = count($questionIds);
 
     $context['default_test_steps'] = $testSteps;
 
     $postQuestions = [];
-    
+
     if ($testSteps > $countQuestionsIds) {
         $testSteps = $countQuestionsIds;
         $context['test_steps'] = $testSteps;
     }
-    if (!empty($questionsIds)) {
+    if (!empty($questionIds)) {
         $i=1;
-        foreach ($questionsIds as $val) {
+        foreach ($questionIds as $val) {
             $handler->setArgs(
                 [
                     "posts_per_page" => -1,
@@ -153,4 +150,4 @@ if (!empty($post)) {
 }
 $context['ajax_url'] = get_site_url() . '/wp-admin/admin-ajax.php';
 
-$view->display('single_test.twig',  $context);
+$view->display('single_test.twig', $context);
