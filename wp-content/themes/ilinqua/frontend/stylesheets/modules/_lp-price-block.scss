@@ -1,341 +1,342 @@
 .price-block-wrapper {
-	width: 100%;
-	position: relative;
-	max-width: 1200px;
-	margin: 0 auto 84px;
-	@include anim($param: max-width, $dur: .25s);
-	@include bp($point: $bpLarge, $type: min) {
-		max-width: 85vw;
-		margin: 0 auto 76px;
-		@include anim($param: max-width, $dur: .25s);
-	}
-	@include bp($point: $bpMiddle, $type: max) {
-		max-width: 980px;
-	}
-	@include bp($point: $bpTablet, $type: max) {
-		max-width: 860px;
-		margin-bottom: 41px;
-	}
-	@include bp($point: 890, $type: max) {
-		&__title {
-			max-width: 680px;
-		}
-	}
-	@include bp($point: $bpPortrait, $type: max) {
-		&__title {
-			max-width: 608px;
-		}
-	}
-	@include bp($point: 640, $type: max) {
-		margin-bottom: 35px;
-	}
+    width: 100%;
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto 84px;
+    @include anim($param: max-width, $dur: .25s);
+    @include bp($point: $bpLarge, $type: min) {
+        max-width: 85vw;
+        margin: 0 auto 76px;
+        @include anim($param: max-width, $dur: .25s);
+    }
+    @include bp($point: $bpMiddle, $type: max) {
+        max-width: 980px;
+    }
+    @include bp($point: $bpTablet, $type: max) {
+        max-width: 860px;
+        margin-bottom: 41px;
+    }
+    @include bp($point: 890, $type: max) {
+        &__title {
+            max-width: 680px;
+        }
+    }
+    @include bp($point: $bpPortrait, $type: max) {
+        &__title {
+            max-width: 608px;
+        }
+    }
+    @include bp($point: 640, $type: max) {
+        margin-bottom: 35px;
+    }
 }
 
 .price-block-bg {
-	position: absolute;
-	height: 100%;
-	padding: 0 9999px;
-	margin: 0 -9999px;
-	.english & {
-		background: $colorBgEn;
-	}
-	@include bp($point: $bpPortrait, $type: max) {
-		//height:50%;
-	}
+    position: absolute;
+    height: 100%;
+    padding: 0 9999px;
+    margin: 0 -9999px;
+    .english & {
+        background: $colorBgEn;
+    }
+    @include bp($point: $bpPortrait, $type: max) {
+        //height:50%;
+    }
 }
 
 .full {
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	background: #fff;
-	@include centerize(true, false);
-	@include anim($param: max-width, $dur: .25s);
-	&:before, &:after {
-		content: '';
-		position: absolute;
-		display: inline-block;
-		bottom: 0;
-		width: 10px;
-		height: calc(100% - 10px);
-		background: transparentize(#000, .85);
-	}
-	&:before {
-		left: -10px;
-	}
-	&:after {
-		right: -10px;
-	}
-	&.js-del-shadow {
-		&:before, &:after {
-			display: none;
-		}
-	}
-	@include bp($point: $bpTablet, $type: max) {
-		height:100%;
-	}
-	@include bp($point: $bpPortrait, $type: max) {
-		&:before, &:after {
-			bottom: auto;
-			top: 10px;
-			height: calc(100% - 10px);
-			//height: calc(200px - 10px);
-		}
-	}
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    @include centerize(true, false);
+    @include anim($param: max-width, $dur: .25s);
+    &:before, &:after {
+        content: '';
+        position: absolute;
+        display: inline-block;
+        bottom: 0;
+        width: 10px;
+        height: calc(100% - 10px);
+        background: transparentize(#000, .85);
+    }
+    &:before {
+        left: -10px;
+    }
+    &:after {
+        right: -10px;
+    }
+    &.js-del-shadow {
+        &:before, &:after {
+            display: none;
+        }
+    }
+    @include bp($point: $bpTablet, $type: max) {
+        height: 100%;
+    }
+    @include bp($point: $bpPortrait, $type: max) {
+        &:before, &:after {
+            bottom: auto;
+            top: 10px;
+            height: calc(100% - 10px);
+            //height: calc(200px - 10px);
+        }
+    }
 }
 
 .price-block {
-	background: #fff;
-	position: relative;
-	display: flex;
-	flex-flow: row nowrap;
-	justify-content: center;
-	will-change: padding;
-	/*&__status {
-		display: block;
-		position: absolute;
-		top: -30px;
-		left: 0;
-		padding: 11px 18px;
-		background: #fffc2b;
-		font-size: .75rem;
-		text-transform: uppercase;
-		font-weight: 500;
-		letter-spacing: 1px;
-		z-index: 1;
-		opacity: 1;
-		visibility: visible;
-		@include anim-param(opacity, visibility);
-		@include anim($dur: .2s);
-	}*/
-	&__tariff-cell {
-		background: #fff;
-		display: flex;
-		flex-direction: column;
-		flex-grow: 1;
-		flex-shrink: 1;
-		flex-basis: 0;
-		//height: auto;
-		height: 260px;
-		padding: 59px 20px 20px 82px;
-		@include anim-param(padding);
-		@include anim($dur: .25s);
-		& + div {
-			border-left: 1px solid #e8e8e8;
-		}
-	}
-	.tariff-cell {
-		&__wrapper {
-			display: flex;
-			flex-direction: column;
-		}
-		&__title {
-			margin-bottom: 15px;
-			font-size: 2rem;
-			line-height: 1;
-			color: $colorLinkEn;
-			letter-spacing: -1px;
-			font-weight: 500;
-			//white-space: nowrap;
-		}
-		&__value-holder {
-			white-space: nowrap;
-			.value, .unit {
-				color: #000;
-				font-weight: 500;
-				white-space: nowrap;
-			}
-			.value {
-				font-size: 2rem;
-				line-height: 1;
-				letter-spacing: -1px;
-			}
-			.unit {
-				margin-left: 5px;
-				font-size: 1rem;
-			}
-		}
-		&__description {
-			display: inline-block;
-			height: 48px; // scroll jump fix
-			padding-top: 10px;
-			font-size: 1rem;
-			line-height: 1;
-			color: transparentize(#000, .8);
-		}
-		&__button {
-			display: inline-block;
-			width: 50px;
-			height: 50px;
-			margin-top: auto;
-			border-radius: 50%;
-			border: 1px solid transparentize(#000, .7);
-		}
-	}
-	&.js-del-status {
-		.price-block__status {
-			opacity: 0;
-			visibility: hidden;
-			@include anim-param(opacity, visibility);
-			@include anim($dur: .2s);
-		}
-	}
-	@include bp($point: $bpLarge, $type: min) {
-		&__tariff-cell {
-			padding: 59px 20px 20px 101px;
-		}
-	}
-	@include bp($point: 1240, $type: max) {
-		&__tariff-cell {
-			padding: 59px 20px 20px 60px;
-		}
-	}
-	@include bp($point: 1140, $type: max) {
-		&__tariff-cell {
-			//padding: 52px 20px 20px 4%;
-		}
-		.tariff-cell {
-			&__description {
-				//height: 50px; // scroll jump fix
-			}
-		}
-	}
-	@include bp($point: $bpTablet, $type: max) {
-		&__tariff-cell {
-			height: 200px;
-			padding: 27px 20px 10px $small;
-		}
-		.tariff-cell {
-			&__title {
-				margin-bottom: 18px;
-				font-size: 2.8vw;
-				line-height: 1;
-			}
-			&__value-holder {
-				.value {
-					font-size: 2.8vw;
-					line-height: 1;
-				}
-				.unit {
-					font-size: 1.35vw;
-				}
-			}
-			&__description {
-				height: 42px; // scroll jump fix
-				padding-top: 5px;
-				font-size: .875rem;
-				white-space: normal;
-			}
-			&__button {
-				width: 41px;
-				height: 41px;
-				margin-top: auto;
-			}
-		}
-	}
-	@include bp($point: $bpPortrait, $type: max) {
-		flex-wrap: wrap;
-		justify-content: flex-start;
-		&__tariff-cell {
-			flex-basis: auto;
-			width: 50%;
-			max-height: 230px;
-			min-height: 230px;
-			padding: 33px 20px 39px 40px;
-			&:nth-child(odd) {
-				border-left: 1px solid #e8e8e8;
-			}
-			&:first-child {
-				border-left: none;
-			}
-		}
-		.tariff-cell {
-			&__title {
-				margin-bottom: 18px;
-				font-size: 1.75rem;
-			}
-			&__value-holder {
-				.value {
-					font-size: 1.75rem;
-				}
-				.unit {
-					font-size: .875rem;
-				}
-			}
-			&__description {
-				height: 30px;
-			}
-		}
-		&.js-del-shadow {
-			.price-block__tariff-cell {
-				&:first-child, &:nth-child(3) {
-					&:before {
-						display: none;
-					}
-				}
-			}
-		}
-	}
-	@include bp($point: 640, $type: max) {
-		&:before, &:after {
-			display: none;
-		}
-		&__tariff-cell {
-			width: 100%;
-			min-height: 180px;
-			max-height: 180px;
-			flex-wrap: wrap;
-			align-content: space-between;
-			padding: 30px 40px 0;
-			&:first-child, &:nth-child(2) {
-				&:before {
-					display: none;
-				}
-			}
-		}
-		.tariff-cell {
-			&__description {
-				//margin-bottom: 20px;
-			}
-			&__button {
-				margin-top: 0;
-			}
-		}
-	}
+    background: #fff;
+    position: relative;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    will-change: padding;
+    /*&__status {
+        display: block;
+        position: absolute;
+        top: -30px;
+        left: 0;
+        padding: 11px 18px;
+        background: #fffc2b;
+        font-size: .75rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        letter-spacing: 1px;
+        z-index: 1;
+        opacity: 1;
+        visibility: visible;
+        @include anim-param(opacity, visibility);
+        @include anim($dur: .2s);
+    }*/
+    &__tariff-cell {
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        flex-grow: 1;
+        flex-shrink: 1;
+        flex-basis: 0;
+        //height: auto;
+        height: 260px;
+        padding: 59px 20px 20px 82px;
+        @include anim-param(padding);
+        @include anim($dur: .25s);
+        & + div {
+            border-left: 1px solid #e8e8e8;
+        }
+    }
+    .tariff-cell {
+        &__wrapper {
+            display: flex;
+            flex-direction: column;
+        }
+        &__title {
+            margin-bottom: 15px;
+            font-size: 2rem;
+            line-height: 1;
+            color: $colorLinkEn;
+            letter-spacing: -1px;
+            font-weight: 500;
+            //white-space: nowrap;
+        }
+        &__value-holder {
+            white-space: nowrap;
+            .value, .unit {
+                color: #000;
+                font-weight: 500;
+                white-space: nowrap;
+            }
+            .value {
+                font-size: 2rem;
+                line-height: 1;
+                letter-spacing: -1px;
+            }
+            .unit {
+                margin-left: 5px;
+                font-size: 1rem;
+            }
+        }
+        &__description {
+            display: inline-block;
+            height: 48px; // scroll jump fix
+            padding-top: 10px;
+            font-size: 1rem;
+            line-height: 1;
+            color: transparentize(#000, .8);
+        }
+        &__button {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            margin-top: auto;
+            border-radius: 50%;
+            border: 1px solid #e8e8e8;
+        }
+    }
+    &.js-del-status {
+        .price-block__status {
+            opacity: 0;
+            visibility: hidden;
+            @include anim-param(opacity, visibility);
+            @include anim($dur: .2s);
+        }
+    }
+    @include bp($point: $bpLarge, $type: min) {
+        &__tariff-cell {
+            padding: 59px 20px 20px 101px;
+        }
+    }
+    @include bp($point: 1240, $type: max) {
+        &__tariff-cell {
+            padding: 59px 20px 20px 60px;
+        }
+    }
+    @include bp($point: 1140, $type: max) {
+        &__tariff-cell {
+            //padding: 52px 20px 20px 4%;
+        }
+        .tariff-cell {
+            &__description {
+                //height: 50px; // scroll jump fix
+            }
+        }
+    }
+    @include bp($point: $bpTablet, $type: max) {
+        &__tariff-cell {
+            height: 200px;
+            padding: 27px 20px 10px $small;
+        }
+        .tariff-cell {
+            &__title {
+                margin-bottom: 18px;
+                font-size: 2.8vw;
+                line-height: 1;
+            }
+            &__value-holder {
+                .value {
+                    font-size: 2.8vw;
+                    line-height: 1;
+                }
+                .unit {
+                    font-size: 1.35vw;
+                }
+            }
+            &__description {
+                height: 42px; // scroll jump fix
+                padding-top: 5px;
+                font-size: .875rem;
+                white-space: normal;
+            }
+            &__button {
+                width: 41px;
+                height: 41px;
+                margin-top: auto;
+            }
+        }
+    }
+    @include bp($point: $bpPortrait, $type: max) {
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        &__tariff-cell {
+            flex-basis: auto;
+            width: 50%;
+            max-height: 230px;
+            min-height: 230px;
+            padding: 33px 20px 39px 40px;
+            &:nth-child(odd) {
+                border-left: 1px solid #e8e8e8;
+            }
+            &:first-child {
+                border-left: none;
+            }
+        }
+        .tariff-cell {
+            &__title {
+                margin-bottom: 18px;
+                font-size: 1.75rem;
+            }
+            &__value-holder {
+                .value {
+                    font-size: 1.75rem;
+                }
+                .unit {
+                    font-size: .875rem;
+                }
+            }
+            &__description {
+                height: 30px;
+            }
+        }
+        &.js-del-shadow {
+            .price-block__tariff-cell {
+                &:first-child, &:nth-child(3) {
+                    &:before {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+    @include bp($point: 640, $type: max) {
+        &:before, &:after {
+            display: none;
+        }
+        &__tariff-cell {
+            width: 100%;
+            min-height: 180px;
+            max-height: 180px;
+            flex-wrap: wrap;
+            align-content: space-between;
+            padding: 30px 40px 0;
+            &:first-child, &:nth-child(2) {
+                &:before {
+                    display: none;
+                }
+            }
+        }
+        .tariff-cell {
+            &__description {
+                //margin-bottom: 20px;
+            }
+            &__button {
+                margin-top: 0;
+            }
+        }
+    }
 }
+
 .js-restructuring-cells {
-	.full {
-		&:before, &:after {
-			bottom: auto;
-			top: 10px;
-			height: calc(50% - 40px);
-		}
-	}
-	.price-block-bg {
-		height: calc(50% - 30px);
-	}
-	.price-block {
-		&__tariff-cell {
-			flex-grow: 0;
-			flex-shrink: 0;
-			flex-basis: auto;
-			border-bottom:1px solid #e8e8e8;
-			&:last-child {
-				border-right:1px solid #e8e8e8;
-			}
-			&:first-of-type {
-				border-left:1px solid #e8e8e8;
-				+ .price-block__tariff-cell {
-					border-right:1px solid #e8e8e8;
-				}
-			}
-			& + .price-block__tariff-cell {
-				border-left:1px solid #e8e8e8;
-			}
-		}
-	}
-	@include bp($point: 640, $type: max) {
-		//bottom: -180px;
-	}
+    .full {
+        &:before, &:after {
+            bottom: auto;
+            top: 10px;
+            height: calc(50% - 40px);
+        }
+    }
+    .price-block-bg {
+        height: calc(50% - 30px);
+    }
+    .price-block {
+        &__tariff-cell {
+            flex-grow: 0;
+            flex-shrink: 0;
+            flex-basis: auto;
+            border-bottom: 1px solid #e8e8e8;
+            &:last-child {
+                border-right: 1px solid #e8e8e8;
+            }
+            &:first-of-type {
+                border-left: 1px solid #e8e8e8;
+                + .price-block__tariff-cell {
+                    border-right: 1px solid #e8e8e8;
+                }
+            }
+            & + .price-block__tariff-cell {
+                border-left: 1px solid #e8e8e8;
+            }
+        }
+    }
+    @include bp($point: 640, $type: max) {
+        //bottom: -180px;
+    }
 }
 

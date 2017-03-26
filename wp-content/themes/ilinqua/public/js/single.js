@@ -17,11 +17,7 @@ requirejs([
 //	}
 //	});
 
-<<<<<<< HEAD
 	var elem = document.querySelector('.article-more__list');
-=======
-	var elem = document.querySelector('.grid');
->>>>>>> 4ff3d11a8dbfae2e1ae3edce00782ffcd33572e5
 	var msnry = new Masonry(elem, {
 		columnWidth: '.column-width--article',
 		rowHeight: 110,

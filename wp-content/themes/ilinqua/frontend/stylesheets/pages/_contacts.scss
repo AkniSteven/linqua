@@ -18,7 +18,7 @@
             position: absolute;
             left: 0;
             top: 0;
-            background: #0c7aff;
+            background: darken(#0b76f7, 5%);
             mix-blend-mode: multiply;
             pointer-events: none;
             width: 100%;
@@ -28,7 +28,7 @@
     }
     &__place {
         width: 100%;
-        padding: 268px 0 0 240px;
+        padding: 278px 0 0 240px;
         z-index: 5;
         pointer-events: none;
         h1 {
@@ -41,6 +41,11 @@
                 display: block;
             }
         }
+        @include bp($point: 1919, $type: max) {
+            padding-left: 100px;
+            margin: 0 auto;
+            width: 1200px;
+        }
     }
     &__work {
         background: #fff;
@@ -49,7 +54,7 @@
         display: flex;
         flex-direction: row;
         z-index: 5;
-        box-shadow: 0px 20px 0px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 20px 0 10px rgba(0, 0, 0, 0.1);
         .phones {
             width: 34%;
             padding: 60px 50px 60px 100px;
@@ -66,8 +71,8 @@
         .time {
             width: 34%;
             padding: 60px 50px 60px 100px;
-            border-left: 1px solid rgba(0,0,0,.1);
-            border-right: 1px solid rgba(0,0,0,.1);
+            border-left: 1px solid rgba(0, 0, 0, .1);
+            border-right: 1px solid rgba(0, 0, 0, .1);
             ul {
                 li {
                     margin: 0 0 10px;
@@ -126,18 +131,17 @@
             width: 1200px;
         }
     }
-    @include bp($point: 1439, $type: max) {
+    @include bp($point: 1440, $type: max) {
         &__place {
-            padding: 200px 0 0 120px;
+            padding: 200px 0 0 80px;
             h1 {
                 font-size: 3.5rem;
                 line-height: 1.14;
             }
         }
         &__work {
-            width: 864px;
             .phones {
-                padding: 40px;
+                padding-left: 80px;
                 ul {
                     li {
                         font-size: 0.875rem;
@@ -146,7 +150,7 @@
                 }
             }
             .time {
-                padding: 40px;
+                padding-left: 80px;
                 ul {
                     li {
                         font-size: 0.875rem;
@@ -155,7 +159,7 @@
                 }
             }
             .link {
-                padding: 40px;
+                padding-left: 80px;
                 .link__list {
                     li {
                         font-size: 0.875rem;
@@ -165,11 +169,31 @@
             }
         }
     }
+    @include bp($point: 1240, $type: max) {
+        &__place {
+            max-width: 868px;
+            padding: 114px 0 0 40px;
+        }
+        &__work {
+            height: 200px;
+            width: 868px;
+            .phones, .time, .link {
+                padding-top: 40px;
+                padding-left: 40px;
+            }
+            .link {
+                &__list {
+                    margin-bottom: 30px;
+                }
+            }
+        }
+    }
     @include bp($point: 1023, $type: max) {
         //height: 100vh;
         justify-content: flex-end;
         &__place {
-            padding: 250px 0 40px 120px;
+            max-width: 608px;
+            padding: 250px 0 40px 40px;
         }
         &__work {
             width: 608px;
@@ -183,7 +207,7 @@
             }
             .link {
                 width: 100%;
-                border-top: 1px solid rgba(0,0,0,.1);
+                border-top: 1px solid rgba(0, 0, 0, .1);
             }
         }
     }
@@ -210,7 +234,7 @@
                 padding: 40px;
             }
             .time {
-                border-top: 1px solid rgba(0,0,0,.1);
+                border-top: 1px solid rgba(0, 0, 0, .1);
                 width: 100%;
                 border-left: none;
                 padding: 40px;
