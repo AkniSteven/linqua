@@ -38,6 +38,8 @@ class TestingController
      */
     public function startTesting(array $data)
     {
+        $answerPool = new AnswerPool($data['test_id']);
+        $answerPool->drop();
         $this->_model->startTesting($data);
     }
 
@@ -61,8 +63,52 @@ class TestingController
             throw new Exception('No quiz started.');
         }
 
+
         $answerPool = new AnswerPool($currentTestId);
-        $answerPool->add(new Answer($data['question_id'], $data['answer']));
-        echo print_r($answerPool->getAll(), true);
+        $answerPool->add(new Answer($data['question_id'], $data['answer'], $points));
+        if ($this->isQuestionTheLast($currentTestId, $data['question_id'])) {
+        }
+
+        //if ($this->isQuestionTheLast($currentTestId, $data['question_id']) && !$this->canLevelUp($answerPool)) {
+        //}
+        // Check if this is the last question of the level.
+        // If it is the last one, stop the test.
+        // Save history from session to db.
+        // Send a letter to somebody.
+        echo print_r('test', true);
+    }
+
+    protected function isQuestionTheLast($testId, $questionId)
+    {
+        $levelQuestionIds = $this->getAllQuestionIds($questionId);
+        return $questionId == last($levelQuestionIds);
+    }
+
+    protected function getQuestionLevel($questionId)
+    {
+        return get_post_meta($questionId, 'question_level', true);
+    }
+
+    protected function getLevelQuestionIds($questionId)
+    {
+        $currentTest = get_post($testId);
+        $questionIds = get_post_meta($testId, 'questions', true);
+        $questionLevel = $this->getQuestionLevel($questionid);
+        return $questionIds[$questionLevel];
+    }
+
+    protected function canLevelUp(AnswerPool $answerPool, $questionLevel)
+    {
+        $points = 0;
+        $levelAnswers = array_filter(
+          $answerPool->getAll(),
+          function ($item) (use $questionLevel) {
+            return $this->getQuestionLevel($item->getQuestionId()) == $questionLevel;
+          }
+        );
+        foreach ($levelAnswers as $answer) {
+          $points += $answer->getScore();
+        }
+        //$passScore = get_post_meta(, 'score_for_pass', true);
     }
 }
