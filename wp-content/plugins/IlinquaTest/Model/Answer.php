@@ -18,7 +18,8 @@ class Answer
     public function __construct($questionId, $answer)
     {
         $this->questionId = $questionId;
-        $this->answer = $answer;
+        $answer = unserialize($answer);
+        $answer = is_array($answer) ? $answer : [$answer];
     }
 
     /**
@@ -34,10 +35,37 @@ class Answer
     /**
      * Get answer id.
      *
-     * @return int|string Answer, provided by user.
+     * @return array Answer, provided by user.
      */
     public function getAnswer()
     {
         return $this->answer;
+    }
+
+    /**
+     * Get score, won by this answer.
+     *
+     * @return int Score.
+     */
+    public function getScore()
+    {
+        $rightAnswer = unserialize(
+          get_post_meta(
+            $this->getQuestionId(),
+            'right_answer',
+             true
+           );
+        $answer = $this->getAnswer();
+        sort($answer);
+        sort($rightAnswer);
+
+        if ($answer != $rightAnswer) {
+          return 0;
+        }
+        return get_post_meta(
+          $this->getQuestionId(),
+          'question_score',
+          true
+        );
     }
 }
