@@ -4,22 +4,17 @@ use IlinquaTest\Controller\PageView;
 use IlinquaTest\Controller\TestingController;
 use IlinquaTest\Helper\Data;
 
-// Function name should be changed to more specific one.
-function processQuizes($questionIds, $questionLimit, $isRandom)
-{
-    if (count($questionIds) == count($questionLimit)) {
-        for ($i = 1; $i != count($questionLimit); $i++) {
-            if ($isRandom) {
-                shuffle($questionIds[$i]);
-            }
-            if (count($questionIds[$i]) > $questionLimit[$i]) {
-                array_splice($questionIds[$i], $questionLimit[$i]);
-            }
-        }
-    }
-}
-
+global $post;
+global $core;
 $testing = new TestingController();
+
+$view = new PageView();
+$config = Data::getConfig('show');
+$context = $core->get_context();
+
+$handler = $view->postsHandler;
+$handler->setResult([$post]);
+$handler->formattedMeta();
 
 if ($_POST['test_id']) {
     $data = [];
@@ -30,16 +25,6 @@ if ($_POST['test_id']) {
     $data['realStepsCount'] = (int)Data::cleanString($_POST['realStepsCount']);
     $testing->startTesting($data);
 }
-
-global $post;
-global $core;
-$view = new PageView();
-$config = Data::getConfig('show');
-$context = $core->get_context();
-
-$handler = $view->postsHandler;
-$handler->setResult([0 =>$post]);
-$handler->formattedMeta();
 
 if (!empty($post)) {
     $context['test'] = $post;
@@ -151,3 +136,20 @@ if (!empty($post)) {
 $context['ajax_url'] = get_site_url() . '/wp-admin/admin-ajax.php';
 
 $view->display('single_test.twig', $context);
+
+
+
+// Function name should be changed to more specific one.
+function processQuizes($questionIds, $questionLimit, $isRandom)
+{
+    if (count($questionIds) == count($questionLimit)) {
+        for ($i = 1; $i != count($questionLimit); $i++) {
+            if ($isRandom) {
+                shuffle($questionIds[$i]);
+            }
+            if (count($questionIds[$i]) > $questionLimit[$i]) {
+                array_splice($questionIds[$i], $questionLimit[$i]);
+            }
+        }
+    }
+}
