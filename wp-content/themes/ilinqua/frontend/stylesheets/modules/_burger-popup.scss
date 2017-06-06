@@ -5,7 +5,10 @@
         padding: 157px 0 76px 14vw;
     }
     @include bp($point: 1140, $type: min) {
-        padding: 93px 0 47px 14vw;
+        padding: 100px 0 47px 14vw;
+    }
+    @include bp($point: 1024, $type: min) {
+        padding: 82px 0 47px 10vw;
     }
     @include bp($point: 768, $type: max) {
         padding: 78px 0 32px 12.5vw;
@@ -151,11 +154,12 @@
         @extend %sectionPadding;
         .corporate-descr, .test-descr {
             max-width: 240px;
-            margin-bottom: 60px;
+            //margin-bottom: 60px;
             line-height: 1.6;
         }
         .corporate, .test {
             &__content {
+                position: relative;
                 display: flex;
                 flex-flow: column nowrap;
                 height: 100%;
@@ -164,7 +168,7 @@
         .corporate-title, .test-title {
             text-transform: none;
             font-weight: 500;
-            margin-bottom: 22px;
+            margin-bottom: 15px;
             position: relative;
             z-index: 1;
         }
@@ -179,6 +183,8 @@
         .button-next {
             display: block;
             @extend %buttonNext;
+            position: absolute;
+            bottom: 0;
         }
     }
     &__corporate {
@@ -298,6 +304,20 @@
         }
         &__test {
             background-size: 282px;
+        }
+    }
+    @include bp($point: 1024, $type: max) {
+        &__language-navigation {
+            padding-left: 12vw;
+        }
+        &__corporate {
+            .corporate-title {
+                font-size:1.7rem;
+                margin-bottom: 24px;
+            }
+            .corporate-descr {
+                font-size: .9rem;
+            }
         }
     }
     @include bp($point: 768, $type: max) {

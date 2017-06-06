@@ -45,7 +45,7 @@
             margin-right: 0;
          }
       }
-      @include bp($point: 640, $type: max) {
+      @include bp($point: 980, $type: max) {
          .logo, .burger-menu {
             margin: 0;
          }
@@ -166,11 +166,8 @@
             letter-spacing: 0;
          }
       }
-      @include bp($point: 640, $type: max) {
-      
-      }
    }
-   @include bp($point: 640, $type: max) {
+   @include bp($point: 980, $type: max) {
       &__right-side {
          display: none !important;
       }
@@ -179,17 +176,5 @@
          flex-flow: row-reverse nowrap;
          justify-content: space-between;
       }
-   }
-   
-   /* ----------  Header nav slider ---------- */
-   .header-nav-wrapper {
-      margin: 0;
-      @include bp($point: 960, $type: max) {
-         max-width: 65%;
-      }
-   }
-   .swiper-slide {
-      width: initial !important;
-      display: inline-block;
    }
 }

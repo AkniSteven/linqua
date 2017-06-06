@@ -115,9 +115,7 @@
         flex-grow: 1;
         flex-shrink: 1;
         flex-basis: 0;
-        //height: auto;
-        height: 260px;
-        padding: 59px 20px 20px 82px;
+        height: 313px;
         @include anim-param(padding);
         @include anim($dur: .25s);
         & + div {
@@ -126,20 +124,24 @@
     }
     .tariff-cell {
         &__wrapper {
+            position: relative;
             display: flex;
             flex-direction: column;
+            height: 100%;
+            padding: 59px 20px 20px 82px;
         }
         &__title {
+            height: 65px;
             margin-bottom: 15px;
             font-size: 2rem;
             line-height: 1;
             color: $colorLinkEn;
             letter-spacing: -1px;
             font-weight: 500;
-            //white-space: nowrap;
         }
         &__value-holder {
             white-space: nowrap;
+            margin-bottom: 10px;
             .value, .unit {
                 color: #000;
                 font-weight: 500;
@@ -158,12 +160,15 @@
         &__description {
             display: inline-block;
             height: 48px; // scroll jump fix
-            padding-top: 10px;
+            margin-bottom: 10px;
             font-size: 1rem;
             line-height: 1;
             color: transparentize(#000, .8);
         }
         &__button {
+            //position: absolute;
+            //bottom: 30px;
+            //left: 82px;
             display: inline-block;
             width: 50px;
             height: 50px;
@@ -182,34 +187,42 @@
     }
     @include bp($point: $bpLarge, $type: min) {
         &__tariff-cell {
-            padding: 59px 20px 20px 101px;
+            .tariff-cell {
+                &__wrapper {
+                    padding: 59px 20px 30px 101px;
+                }
+                &__button {
+                    left: 101px;
+                    bottom: 30px;
+                }
+            }
         }
     }
     @include bp($point: 1240, $type: max) {
         &__tariff-cell {
-            padding: 59px 20px 20px 60px;
-        }
-    }
-    @include bp($point: 1140, $type: max) {
-        &__tariff-cell {
-            //padding: 52px 20px 20px 4%;
-        }
-        .tariff-cell {
-            &__description {
-                //height: 50px; // scroll jump fix
+            height: 277px;
+            .tariff-cell{
+                &__wrapper {
+                    padding: 27px 20px 20px 60px;
+                }
+                &__button {
+                    left: 60px;
+                }
             }
         }
     }
     @include bp($point: $bpTablet, $type: max) {
         &__tariff-cell {
-            height: 200px;
-            padding: 27px 20px 10px $small;
+            //height: 200px;
         }
         .tariff-cell {
             &__title {
                 margin-bottom: 18px;
                 font-size: 2.8vw;
                 line-height: 1;
+            }
+            &__wrapper {
+                padding: 27px 20px 41px $small;
             }
             &__value-holder {
                 .value {
@@ -239,9 +252,6 @@
         &__tariff-cell {
             flex-basis: auto;
             width: 50%;
-            max-height: 230px;
-            min-height: 230px;
-            padding: 33px 20px 39px 40px;
             &:nth-child(odd) {
                 border-left: 1px solid #e8e8e8;
             }
@@ -253,6 +263,9 @@
             &__title {
                 margin-bottom: 18px;
                 font-size: 1.75rem;
+            }
+            &__wrapper {
+                padding: 33px 20px 39px 40px;
             }
             &__value-holder {
                 .value {
@@ -282,11 +295,9 @@
         }
         &__tariff-cell {
             width: 100%;
-            min-height: 180px;
-            max-height: 180px;
+            height: 220px;
             flex-wrap: wrap;
             align-content: space-between;
-            padding: 30px 40px 0;
             &:first-child, &:nth-child(2) {
                 &:before {
                     display: none;
@@ -294,6 +305,12 @@
             }
         }
         .tariff-cell {
+            &__title {
+                height:auto;
+            }
+            &__wrapper {
+                padding: 30px 40px 20px;
+            }
             &__description {
                 //margin-bottom: 20px;
             }
