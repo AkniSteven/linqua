@@ -1,8 +1,18 @@
+//* {background:  red !important}
+.column-width{
+	width: 333px;
+	@include bp($point: $bpMiddle, $type: max) {
+	}
+}
+.gutter-sizer {
+	width: 333px;
+}
 .lp-article {
 	&__tile {
 		background-repeat: no-repeat;
 		background-size: cover;
 		background-position: center top;
+		margin: 0;
 		margin-top: 40px;
 		@include anim($dur: .2s);
 		@include anim-param(width);

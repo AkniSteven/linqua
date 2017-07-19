@@ -1,3 +1,13 @@
+.gutter-sizer {
+	width: 333px;
+}
+.column-width{
+	width: 333px;
+	@include bp($point: $bpMiddle, $type: max) {
+
+	}
+}
+
 .lp-article {
 	&__holder {
 		display: flex;

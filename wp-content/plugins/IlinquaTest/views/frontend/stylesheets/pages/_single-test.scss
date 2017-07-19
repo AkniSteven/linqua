@@ -1,674 +1,683 @@
 .single-test-page {
-	height: 100vh;
-	display: flex;
-	align-items: flex-start;
-	flex-flow: column nowrap;
-	padding: 200px 0 0;
-	/* ---------- Language page style ---------- */
-	.english & {
-		background: $colorBgEn;
-	}
-	/* ---------- Finish test state ---------- */
-	&.js-show-finish-test {
-		padding: 201px 0 50px;
-		height: auto;
-		h1 {
-			margin-bottom: 33px;
-		}
-	}
-	h1 {
-		margin-bottom: 43px;
-		padding-left: 13.8vw;
-		text-transform: none;
-		color: #fff;
-		/* ---------- Language page style  ---------- */
-		.english & {
-			color: #fff;
-		}
-	}
-	@include bp($point: $bpLarge, $type: min) {
-		padding-top: 20vh;
-		h1 {
-			font-size: 4rem;
-			margin-bottom: 47px;
-		}
-		&.test-steps {
-			h1 {
-				margin-bottom: 52px;
-			}
-		}
-	}
-	@include bp($bpTablet) {
-		&.js-show-finish-test {
-			padding: 142px 0 0;
-			h1 {
-				margin-bottom: 25px;
-			}
-		}
-	}
-	@include bp($bpPortrait) {
-		&.js-show-finish-test {
-			h1 {
-				margin-bottom: 25px;
-			}
-		}
-		min-height: 100vh;
-		height: 100%;
-		padding: 160px 0 0;
-		h1 {
-			margin-bottom: 50px;
-			padding-left: 12.8vw;
-			font-size:5rem;
-			.english & {
-				color: transparentize(#fff, .6);
-			}
-		}
-		&.test-steps {
-			min-height: 100vh;
-			height: 100%;
-			.answers {
-				height: auto;
-			}
-			h1 {
-				flex: 0 0 auto;
-			}
-		}
-	}
-	@include bp($Mobile) {
-		//display: block;
-		&.js-show-finish-test {
-			padding: 80px 0 40px;
-		}
-		padding: 80px 0 0;
-		h1 {
-			margin-bottom: 25px;
-			padding-left: 12.8vw;
-			font-size:2.5rem;
-		}
-	}
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    flex-flow: column nowrap;
+    padding: 200px 0 0;
+    /* ---------- Language page style ---------- */
+    .english & {
+        background: $colorBgEn;
+    }
+    /* ---------- Finish test state ---------- */
+    &.js-show-finish-test {
+        padding: 201px 0 50px;
+        height: auto;
+        h1 {
+            margin-bottom: 33px;
+            max-width: 500px;
+        }
+    }
+    h1 {
+        max-width: 650px;
+        box-sizing: content-box;
+        margin-bottom: 43px;
+        padding-left: 13.8vw;
+        padding-right: 20px;
+        text-transform: none;
+        color: #fff;
+        /* ---------- Language page style  ---------- */
+        .english & {
+            color: #fff;
+        }
+        @include bp($bpTablet) {
+            max-width: 400px;
+        }
+    }
+    @include bp($point: $bpLarge, $type: min) {
+        padding-top: 20vh;
+        h1 {
+            font-size: 4rem;
+            margin-bottom: 47px;
+        }
+        &.test-steps {
+            h1 {
+                margin-bottom: 52px;
+            }
+        }
+    }
+    @include bp($bpTablet) {
+        &.js-show-finish-test {
+            padding: 142px 0 0;
+            h1 {
+                margin-bottom: 25px;
+            }
+        }
+    }
+    @include bp($bpPortrait) {
+        &.js-show-finish-test {
+            h1 {
+                margin-bottom: 25px;
+            }
+        }
+        min-height: 100vh;
+        height: 100%;
+        padding: 160px 0 0;
+        h1 {
+            margin-bottom: 50px;
+            padding-left: 12.8vw;
+            font-size: 5rem;
+            .english & {
+                color: transparentize(#fff, .6);
+            }
+        }
+        &.test-steps {
+            min-height: 100vh;
+            height: 100%;
+            .answers {
+                height: auto;
+            }
+            h1 {
+                flex: 0 0 auto;
+            }
+        }
+    }
+    @include bp($Mobile) {
+        //display: block;
+        &.js-show-finish-test {
+            padding: 80px 0 40px;
+        }
+        padding: 80px 0 0;
+        h1 {
+            margin-bottom: 25px;
+            padding-left: 12.8vw;
+            font-size: 2.5rem;
+        }
+    }
 }
 
 /* ---------- User info form ---------- */
 .single-test-page {
-	&.test-steps {
-		.user-info {
-			display: none;
-		}
-	}
-	.user-info {
-		width: 290px;
-		padding-left: 13.8vw;
-		box-sizing: content-box;
-		.btn {
-			padding: 0;
-			input {
-				display: block;
-				width: 100%;
-				padding: 25px 43px;
-				font-size: .7rem;
-				letter-spacing: 2px;
-				border: none;
-				cursor: pointer;
-				text-transform: uppercase;
-			}
-		}
-		.form__field {
-			margin-bottom: 39px;
-			&:nth-last-child(2) {
-				margin-bottom: 41px;
-			}
-			input {
-				border: 0;
-				border-bottom: 1px solid #d9d9d9;
-				font-size: 1.2rem;
-				padding: 0 0 5px;
-				background: transparent;
-				& ~ label {
-					position: absolute;
-					left: -9999px;
-				}
-				&:focus, &:valid {
-					& ~ .form__caret {
-						width: 100%;
-					}
-				}
-				& ~ .form__caret {
-					position: absolute;
-					bottom: 0;
-					left: 0;
-					height: 2px;
-					width: 0;
-					z-index: 1;
-					@include anim($dur: .25s);
-					@include anim-param(width, color);
-				}
-			}
-			@include placeholder {
-				font-size: 1.2rem;
-				color: transparentize(#fff, .6);
-			}
-		}
-	}
-	
-	@include bp($bpPortrait) {
-		.user-info {
-			width: 100%;
-			max-width: 478px;
-			padding-left: 12.8vw;
-			.btn {
-				input {
-					padding: 45px 88px;
-					font-size: 1.5rem;
-				}
-			}
-			.form__field {
-				margin-bottom: 88px;
-				&:nth-last-child(2) {
-					margin-bottom: 81px;
-				}
-				input {
-					border-bottom-width: 4px;
-					padding-bottom: 22px;
-					font-size: 2.2rem;
-				}
-				.form__caret {
-					height: 4px;
-				}
-				@include placeholder {
-					font-size: 2.2rem;
-				}
-			}
-		}
-	}
-	@include bp($point: $bpLarge, $type: min) {
-		.user-info {
-			width: 300px;
-			.btn {
-				padding: 0;
-				input {
-					padding: 31px 57px;
-					font-size: 1rem;
-				}
-			}
-			.form__field {
-				margin-bottom: 57px;
-				&:nth-last-child(2) {
-					margin-bottom: 53px;
-				}
-				input {
-					font-size: 1.3rem;
-					padding-bottom: 14px;
-					border-bottom-width: 2px;
-				}
-				@include placeholder {
-					font-size: 1.3rem;
-				}
-			}
-		}
-	}
-	@include bp($Mobile) {
-		.user-info {
-			width: 100%;
-			padding: 0 6.4vw 50px;
-			box-sizing: border-box;
-			.btn {
-				input {
-					padding: 22px 44px;
-					font-size: 1rem;
-				}
-			}
-			.form__field {
-				margin-bottom: 44px;
-				&:nth-last-child(2) {
-					margin-bottom: 40px;
-				}
-				input {
-					border-bottom-width: 2px;
-					padding-bottom: 11px;
-					font-size: 1.1rem;
-				}
-				.form__caret {
-					height: 2px;
-				}
-				@include placeholder {
-					font-size: 1.1rem;
-				}
-			}
-		}
-	}
+    &.test-steps {
+        .user-info {
+            display: none;
+        }
+    }
+    .user-info {
+        width: 290px;
+        padding-left: 13.8vw;
+        box-sizing: content-box;
+        .btn {
+            padding: 0;
+            input {
+                display: block;
+                width: 100%;
+                padding: 25px 43px;
+                font-size: .7rem;
+                letter-spacing: 2px;
+                border: none;
+                cursor: pointer;
+                text-transform: uppercase;
+            }
+        }
+        .form__field {
+            margin-bottom: 39px;
+            &:nth-last-child(2) {
+                margin-bottom: 41px;
+            }
+            input {
+                border: 0;
+                border-bottom: 1px solid #d9d9d9;
+                font-size: 1.2rem;
+                padding: 0 0 5px;
+                background: transparent;
+                & ~ label {
+                    position: absolute;
+                    left: -9999px;
+                }
+                &:focus, &:valid {
+                    & ~ .form__caret {
+                        width: 100%;
+                    }
+                }
+                & ~ .form__caret {
+                    position: absolute;
+                    bottom: 0;
+                    left: 0;
+                    height: 2px;
+                    width: 0;
+                    z-index: 1;
+                    @include anim($dur: .25s);
+                    @include anim-param(width, color);
+                }
+            }
+            @include placeholder {
+                font-size: 1.2rem;
+                color: transparentize(#fff, .6);
+            }
+        }
+    }
+
+    @include bp($bpPortrait) {
+        .user-info {
+            width: 100%;
+            max-width: 478px;
+            padding-left: 12.8vw;
+            .btn {
+                input {
+                    padding: 45px 88px;
+                    font-size: 1.5rem;
+                }
+            }
+            .form__field {
+                margin-bottom: 88px;
+                &:nth-last-child(2) {
+                    margin-bottom: 81px;
+                }
+                input {
+                    border-bottom-width: 4px;
+                    padding-bottom: 22px;
+                    font-size: 2.2rem;
+                }
+                .form__caret {
+                    height: 4px;
+                }
+                @include placeholder {
+                    font-size: 2.2rem;
+                }
+            }
+        }
+    }
+    @include bp($point: $bpLarge, $type: min) {
+        .user-info {
+            width: 300px;
+            .btn {
+                padding: 0;
+                input {
+                    padding: 31px 57px;
+                    font-size: 1rem;
+                }
+            }
+            .form__field {
+                margin-bottom: 57px;
+                &:nth-last-child(2) {
+                    margin-bottom: 53px;
+                }
+                input {
+                    font-size: 1.3rem;
+                    padding-bottom: 14px;
+                    border-bottom-width: 2px;
+                }
+                @include placeholder {
+                    font-size: 1.3rem;
+                }
+            }
+        }
+    }
+    @include bp($Mobile) {
+        .user-info {
+            width: 100%;
+            padding: 0 6.4vw 50px;
+            box-sizing: border-box;
+            .btn {
+                input {
+                    padding: 22px 44px;
+                    font-size: 1rem;
+                }
+            }
+            .form__field {
+                margin-bottom: 44px;
+                &:nth-last-child(2) {
+                    margin-bottom: 40px;
+                }
+                input {
+                    border-bottom-width: 2px;
+                    padding-bottom: 11px;
+                    font-size: 1.1rem;
+                }
+                .form__caret {
+                    height: 2px;
+                }
+                @include placeholder {
+                    font-size: 1.1rem;
+                }
+            }
+        }
+    }
 }
 
 /* ---------- END User info form ---------- */
 
 /* ---------- Custom wizard styles ---------- */
 .single-test-page {
-	/* ---------- Finish test state ---------- */
-	&.js-show-finish-test {
-		.test-holder {
-			display: none;
-		}
-	}
-	.test-holder {
-		position: relative;
-		height: 0;
-		padding: 0;
-		&.wizard {
-			height: 100%;
-			padding: 0 11.2vw;
-		}
-		
-		/* ---------- Tab pagination ---------- */
-		.steps {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			pointer-events: none;
-			ul {
-				display: flex;
-				flex-flow: row nowrap;
-				li {
-					width: auto;
-					flex-grow: 1;
-					a {
-						border-radius: 0;
-						width: 100%;
-						height: 8px;
-						margin: 0;
-						padding: 0;
-						background: transparent;
-						.current-info {
-							display: none;
-						}
-					}
-					&.current {
-						border-left: none;
-						a {
-							background: #fffc2b;
-						}
-						& + li {
-							border-left: none;
-						}
-					}
-					& + li {
-						border-left: 1px solid transparentize(#fff, .3);
-					}
-				}
-			}
-		}
-		/* ---------- END Tab pagination ---------- */
-		&.wizard {
-			& > .actions {
-				display: none;
-				width: auto;
-				position: absolute;
-				bottom: 50px;
-				right: 50px;
-			}
-			& > .content {
-				min-height: 100%;
-				height: 100%;
-				margin: 0;
-				border-radius: 0;
-				background: transparent;
-				& > .body {
-					position: relative;
-					height: 100%;
-					padding: 0;
-					label {
-						display: inline-flex;
-					}
-				}
-			}
-		}
-	}
-	.form__field {
-		input {
-			padding-bottom: 10px;
-			border-bottom-color: transparentize(#fff, .8);
-			color: #fff;
-			& ~ .form__caret {
-				background: #fffc00;
-			}
-		}
-	}
-	
-	@include bp($bpPortrait) {
-		.test-holder {
-			&.wizard {
-				flex: 1 0 auto;
-				overflow: visible;
-				padding: 0 5.2vw;
-				& > .content {
-					padding-bottom: 70px;
-					& > .body {
-						width: 100%;
-					}
-				}
-			}
-			.steps {
-				ul {
-					li {
-						a {
-							height: 20px;
-						}
-					}
-				}
-			}
-		}
-	}
-	@include bp($point: $bpLarge, $type: min) {
-		.test-holder {
-			.steps {
-				ul {
-					li {
-						a {
-							height: 10px;
-						}
-					}
-				}
-			}
-		}
-	}
-	@include bp($point: $Mobile, $type: max) {
-		.test-holder {
-			&.wizard {
-				flex: 1;
-				padding: 0 2.2vw;
-				& > .content {
-					padding-bottom: 35px;
-				}
-			}
-			.steps {
-				ul {
-					li {
-						a {
-							height: 8px;
-						}
-					}
-				}
-			}
-		}
-	}
+    /* ---------- Finish test state ---------- */
+    &.js-show-finish-test {
+        .test-holder {
+            display: none;
+        }
+    }
+    .test-holder {
+        position: relative;
+        height: 0;
+        padding: 0;
+        &.wizard {
+            height: 100%;
+            padding: 0 11.2vw;
+        }
+
+        /* ---------- Tab pagination ---------- */
+        .steps {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            pointer-events: none;
+            ul {
+                display: flex;
+                flex-flow: row nowrap;
+                li {
+                    width: auto;
+                    flex-grow: 1;
+                    a {
+                        border-radius: 0;
+                        width: 100%;
+                        height: 8px;
+                        margin: 0;
+                        padding: 0;
+                        background: transparent;
+                        .current-info {
+                            display: none;
+                        }
+                    }
+                    &.current {
+                        border-left: none;
+                        a {
+                            background: #fffc2b;
+                        }
+                        & + li {
+                            border-left: none;
+                        }
+                    }
+                    & + li {
+                        border-left: 1px solid transparentize(#fff, .3);
+                    }
+                }
+            }
+        }
+        /* ---------- END Tab pagination ---------- */
+        &.wizard {
+            & > .actions {
+                display: none;
+                width: auto;
+                position: absolute;
+                bottom: 50px;
+                right: 50px;
+            }
+            & > .content {
+                min-height: 100%;
+                height: 100%;
+                margin: 0;
+                border-radius: 0;
+                background: transparent;
+                & > .body {
+                    position: relative;
+                    height: 100%;
+                    padding: 0;
+                    label {
+                        display: inline-flex;
+                    }
+                }
+            }
+        }
+    }
+    .form__field {
+        input {
+            padding-bottom: 10px;
+            border-bottom-color: transparentize(#fff, .8);
+            color: #fff;
+            & ~ .form__caret {
+                background: #fffc00;
+            }
+        }
+    }
+
+    @include bp($bpPortrait) {
+        .test-holder {
+            &.wizard {
+                flex: 1 0 auto;
+                overflow: visible;
+                padding: 0 5.2vw;
+                & > .content {
+                    padding-bottom: 70px;
+                    & > .body {
+                        width: 100%;
+                    }
+                }
+            }
+            .steps {
+                ul {
+                    li {
+                        a {
+                            height: 20px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include bp($point: $bpLarge, $type: min) {
+        .test-holder {
+            .steps {
+                ul {
+                    li {
+                        a {
+                            height: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @include bp($point: $Mobile, $type: max) {
+        .test-holder {
+            &.wizard {
+                flex: 1;
+                padding: 0 2.2vw;
+                & > .content {
+                    padding-bottom: 35px;
+                }
+            }
+            .steps {
+                ul {
+                    li {
+                        a {
+                            height: 8px;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
+
 /* ---------- END Custom wizard styles ---------- */
 
 /* ---------- Questions ---------- */
 
 .single-test-page {
-	.question {
-		&__title {
-			position: relative;
-			width: 100%;
-			margin-bottom: 30px;
-			padding-left: 40px;
-			font-size: 1.2rem;
-			font-weight: 500;
-			text-transform: none;
-			.question-number {
-				position: absolute;
-				top: 0;
-				left: 8px;
-			}
-			/* ---------- Language page style ---------- */
-			.english & {
-				color: #fff;
-			}
-		}
-		&__img-holder {
-			width: 50%;
-			background-size: contain;
-			background-repeat: no-repeat;
-		}
-		&__body {
-			width: 100%;
-		}
-		&__form {
-			display: flex;
-			flex-flow: row-reverse wrap;
-			justify-content: flex-end;
-		}
-		.answers {
-			width: 50%;
-			textarea {
-				max-height: 180px;
-			}
-			.answer-val {
-				margin-bottom: 10px;
-				label {
-					margin-bottom: 0;
-				}
-			}
-		}
-		.answer-button {
-			margin-top: 80px;
-			margin-left: 40px;
-			/* ---------- Language page style ---------- */
-			.english & {
-				background: #fffc2b;
-			}
-		}
-	}
-	@include bp($point: $bpLarge, $type: min) {
-		.question {
-			&__title {
-				padding-left: 49px;
-				margin-bottom: 50px;
-				font-size: 1.5rem;
-				.question-number {
-					left: 10px;
-				}
-			}
-			.answers {
-				//width: 100%;
-				flex-grow: 1;
-				max-width: 800px;
-				.answer-val {
-					margin-bottom: 24px;
-					&:nth-last-child(2) {
-						margin-bottom: 0;
-					}
-				}
-				.answer-button {
-					margin-top: 48px;
-					margin-left: 49px;
-					padding: 27px 52px;
-					font-size: 1rem;
-				}
-			}
-		}
-	}
-	@include bp($bpPortrait) {
-		.question {
-			&__title {
-				padding-left: 62px;
-				font-size: 2.5rem;
-				margin-bottom: 58px;
-				line-height: 1.2;
-			}
-			&__form {
-				display: flex;
-				flex-flow: column nowrap;
-				justify-content: flex-end;
-			}
-			&__img-holder {
-				width: 100%;
-				height: 50vw;
-				margin-bottom: 50px;
-				background-size: cover;
-			}
-			.answers {
-				width: 100%;
-				.answer-val {
-					margin-bottom: 66px;
-					&:nth-last-child(2) {
-						margin-bottom: 0;
-					}
-				}
-				.answer-button {
-					margin-left: 62px;
-					padding: 51px 100px;
-					font-size: 1.3rem;
-				}
-				textarea {
-					max-height: 220px;
-					resize: none;
-				}
-			}
-		}
-	}
-	@include bp($Mobile) {
-		.question {
-			&__title {
-				padding-left: 31px;
-				font-size: 1.6rem;
-				margin-bottom: 30px;
-			}
-			&__img-holder {
-				margin-bottom: 25px;
-			}
-			.answers {
-				.answer-val {
-					margin-bottom: 33px;
-				}
-				.answer-button {
-					margin-left: 31px;
-					padding: 25px 50px;
-					font-size: 1rem;
-				}
-			}
-		}
-	}
+    .question {
+        &__title {
+            position: relative;
+            width: 100%;
+            margin-bottom: 30px;
+            padding-left: 40px;
+            font-size: 1.2rem;
+            font-weight: 500;
+            text-transform: none;
+            .question-number {
+                position: absolute;
+                top: 0;
+                left: 8px;
+            }
+            /* ---------- Language page style ---------- */
+            .english & {
+                color: #fff;
+            }
+        }
+        &__img-holder {
+            width: 50%;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        &__body {
+            width: 100%;
+        }
+        &__form {
+            display: flex;
+            flex-flow: row-reverse wrap;
+            justify-content: flex-end;
+        }
+        .answers {
+            width: 50%;
+            textarea {
+                max-height: 180px;
+            }
+            .answer-val {
+                margin-bottom: 10px;
+                label {
+                    margin-bottom: 0;
+                }
+            }
+        }
+        .answer-button {
+            margin-top: 80px;
+            margin-left: 40px;
+            /* ---------- Language page style ---------- */
+            .english & {
+                background: #fffc2b;
+            }
+        }
+    }
+    @include bp($point: $bpLarge, $type: min) {
+        .question {
+            &__title {
+                padding-left: 49px;
+                margin-bottom: 50px;
+                font-size: 1.5rem;
+                .question-number {
+                    left: 10px;
+                }
+            }
+            .answers {
+                //width: 100%;
+                flex-grow: 1;
+                max-width: 800px;
+                .answer-val {
+                    margin-bottom: 24px;
+                    &:nth-last-child(2) {
+                        margin-bottom: 0;
+                    }
+                }
+                .answer-button {
+                    margin-top: 48px;
+                    margin-left: 49px;
+                    padding: 27px 52px;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+    @include bp($bpPortrait) {
+        .question {
+            &__title {
+                padding-left: 62px;
+                font-size: 2.5rem;
+                margin-bottom: 58px;
+                line-height: 1.2;
+            }
+            &__form {
+                display: flex;
+                flex-flow: column nowrap;
+                justify-content: flex-end;
+            }
+            &__img-holder {
+                width: 100%;
+                height: 50vw;
+                margin-bottom: 50px;
+                background-size: cover;
+            }
+            .answers {
+                width: 100%;
+                .answer-val {
+                    margin-bottom: 66px;
+                    &:nth-last-child(2) {
+                        margin-bottom: 0;
+                    }
+                }
+                .answer-button {
+                    margin-left: 62px;
+                    padding: 51px 100px;
+                    font-size: 1.3rem;
+                }
+                textarea {
+                    max-height: 220px;
+                    resize: none;
+                }
+            }
+        }
+    }
+    @include bp($Mobile) {
+        .question {
+            &__title {
+                padding-left: 31px;
+                font-size: 1.6rem;
+                margin-bottom: 30px;
+            }
+            &__img-holder {
+                margin-bottom: 25px;
+            }
+            .answers {
+                .answer-val {
+                    margin-bottom: 33px;
+                }
+                .answer-button {
+                    margin-left: 31px;
+                    padding: 25px 50px;
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
 }
+
 /* ---------- END Questions ---------- */
 
 /* ---------- Finish test ---------- */
 /* ---------- Publications grid ---------- */
 .test-finish {
-	width: 83vw;
-	margin: 0 auto;
-	opacity: 0;
-	visibility: hidden;
-	pointer-events: none;
-	position: absolute;
-	transform: translateX(-9999px);
-	.js-show-finish-test & {
-		opacity: 1;
-		visibility: visible;
-		pointer-events: auto;
-		position: static;
-		transform: translateX(0);
-	}
-	&__title,
-	&__content {
-		padding-left: 80px;
-		/* ---------- Language styles ---------- */
-		.english & {
-			color: #fff;
-		}
-	}
-	&__title {
-		margin-bottom: 20px;
-		font-size: 1.6rem;
-		font-weight: 500;
-	}
-	&__content {
-		max-width: 68%;
-		margin-bottom: 170px;
-		font-size: 1.2rem;
-	}
-	.test-finish-publications {
-		position: relative;
-		&:before, &:after {
-			content: '';
-			position: absolute;
-			top: 10px;
-			width: 10px;
-			height: calc(100% - 9px);
-			background: transparentize(#000, .85);
-		}
-		&:before {
-			left: -10px;
-		}
-		&:after {
-			right: -10px;
-		}
-	}
-	.grid {
-		background: #fff;
-		width: 100%;
-		padding: 30px 60px 80px 80px;
-	}
-	@include bp($point: $bpLarge, $type: min) {
-		&__title,
-		&__content {
-			padding-left: 100px;
-		}
-		&__title {
-			margin-bottom: 21px;
-		}
-		&__content {
-			margin-bottom: 180px;
-		}
-		.grid {
-			padding: 60px 0 100px 100px;
-		}
-	}
-	@include bp($bpTablet) {
-		width: 90vw;
-		&__title,
-		&__content {
-			padding-left: 60px;
-		}
-		&__title {
-			margin-bottom: 11px;
-			font-size: 1.4rem;
-		}
-		&__content {
-			margin-bottom: 122px;
-		}
-		.grid {
-			padding: 12px 40px 60px 60px;
-		}
-	}
-	@include bp($bpPortrait) {
-		width: 90vw;
-		padding: 0 20px;
-		&__title,
-		&__content {
-			padding-left: 60px;
-		}
-		&__title {
-			margin-bottom: 11px;
-			font-size: 1.7rem;
-		}
-		&__content {
-			margin-bottom: 122px;
-		}
-		.grid {
-			padding: 0 0 60px;
-			border: 20px solid #fff;
-		}
-	}
-	@include bp($Mobile) {
-		padding: 0 10px;
-		&__title,
-		&__content {
-			padding-left: 30px;
-			max-width: 100%;
-		}
-		&__title {
-			margin-bottom: 5px;
-			font-size: 1.4rem;
-		}
-		&__content {
-			margin-bottom: 60px;
-			font-size: 1rem;
-		}
-		.grid {
-			padding: 0 0 30px;
-			border: 10px solid #fff;
-		}
-	}
+    width: 83vw;
+    margin: 0 auto;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    position: absolute;
+    transform: translateX(-9999px);
+    .js-show-finish-test & {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        position: static;
+        transform: translateX(0);
+    }
+    &__title,
+    &__content {
+        padding-left: 80px;
+        /* ---------- Language styles ---------- */
+        .english & {
+            color: #fff;
+        }
+    }
+    &__title {
+        margin-bottom: 20px;
+        font-size: 1.6rem;
+        font-weight: 500;
+    }
+    &__content {
+        max-width: 68%;
+        margin-bottom: 170px;
+        font-size: 1.2rem;
+    }
+    .test-finish-publications {
+        position: relative;
+        &:before, &:after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            width: 10px;
+            height: calc(100% - 9px);
+            background: transparentize(#000, .85);
+        }
+        &:before {
+            left: -10px;
+        }
+        &:after {
+            right: -10px;
+        }
+    }
+    .grid {
+        background: #fff;
+        width: 100%;
+        padding: 30px 60px 80px 80px;
+    }
+    @include bp($point: $bpLarge, $type: min) {
+        &__title,
+        &__content {
+            padding-left: 100px;
+        }
+        &__title {
+            margin-bottom: 21px;
+        }
+        &__content {
+            margin-bottom: 180px;
+        }
+        .grid {
+            padding: 60px 0 100px 100px;
+        }
+    }
+    @include bp($bpTablet) {
+        width: 90vw;
+        &__title,
+        &__content {
+            padding-left: 60px;
+        }
+        &__title {
+            margin-bottom: 11px;
+            font-size: 1.4rem;
+        }
+        &__content {
+            margin-bottom: 122px;
+        }
+        .grid {
+            padding: 12px 40px 60px 60px;
+        }
+    }
+    @include bp($bpPortrait) {
+        width: 90vw;
+        padding: 0 20px;
+        &__title,
+        &__content {
+            padding-left: 60px;
+        }
+        &__title {
+            margin-bottom: 11px;
+            font-size: 1.7rem;
+        }
+        &__content {
+            margin-bottom: 122px;
+        }
+        .grid {
+            padding: 0 0 60px;
+            border: 20px solid #fff;
+        }
+    }
+    @include bp($Mobile) {
+        padding: 0 10px;
+        &__title,
+        &__content {
+            padding-left: 30px;
+            max-width: 100%;
+        }
+        &__title {
+            margin-bottom: 5px;
+            font-size: 1.4rem;
+        }
+        &__content {
+            margin-bottom: 60px;
+            font-size: 1rem;
+        }
+        .grid {
+            padding: 0 0 30px;
+            border: 10px solid #fff;
+        }
+    }
 }
 
 /* ---------- END Publications grid ---------- */

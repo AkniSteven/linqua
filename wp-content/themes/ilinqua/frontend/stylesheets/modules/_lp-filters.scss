@@ -2,7 +2,7 @@
 	&__filter-list {
 		display: flex;
 		flex-flow: row nowrap;
-		margin: 0 0 80px $normal !important;
+		margin: 0 0 40px $normal !important;
 	}
 	&__filter-item {
 		width:initial !important;
@@ -17,8 +17,15 @@
 		font-weight: 500;
 		white-space: nowrap;
 		cursor: pointer;
-		@include anim($param: background, $dur: .2s);
-		
+		@include anim-param(background, color);
+		@include anim($dur: .2s);
+		&.is-checked {
+			background: #000;
+			color: #fff;
+			&:hover {
+				background: transparentize(#000, .2);
+			}
+		}
 		/* ---------- Vue filter button srtyles ---------- */
 		input {
 			position: absolute;
@@ -42,28 +49,25 @@
 		&__filter-list {
 			display: flex;
 			flex-flow: row nowrap;
-			margin: 0 0 80px $big !important;
+			margin: 0 0 40px $big !important;
 		}
 	}
 	@include bp($point: $bpMiddle, $type: max) {
 		&__filter-list {
 			display: flex;
 			flex-flow: row nowrap;
-			margin: 0 0 80px $middle !important;
+			margin: 0 0 40px $middle !important;
 		}
 	}
 	@include bp($point: $bpTablet, $type: max) {
 		&__filter-list {
 			flex-wrap: wrap;
-			margin: 0 0 40px $small !important;
+			margin: 0 0 0 $small !important;
 		}
 	}
 	@include bp($point: $bpPortrait, $type: max) {
 		&__filter-list {
 			margin: 0 0 40px $small;
-		}
-		&__filter-item {
-			margin-bottom: 10px;
 		}
 	}
 	@include bp($point: 640, $type: max) {

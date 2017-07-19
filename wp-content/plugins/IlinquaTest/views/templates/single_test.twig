@@ -1,140 +1,133 @@
 {% extends '_layout-test.twig' %}
 
 {% block title %}
-	Single test
+    {{ test.post_title }}
 {% endblock %}
 
 {% block jsEntryPoint %}
 {% endblock %}
 
 {% block scripts %}
-	<script src="/wp-content/plugins/IlinquaTest/views/public/js/index.js" type="text/javascript"></script>
-	<script src="/wp-content/plugins/IlinquaTest/views/public/js/jquery.js" type="text/javascript"></script>
-	<script src="/wp-content/plugins/IlinquaTest/views/public/js/form-validate.js" type="text/javascript"></script>
-	<script src="/wp-content/plugins/IlinquaTest/views/public/js/testing.js" type="text/javascript"></script>
-	<script src="/wp-content/plugins/IlinquaTest/views/public/js/single-test.js" type="text/javascript"></script>
+    <script src="/wp-content/plugins/IlinquaTest/views/public/js/index.js" type="text/javascript"></script>
+    <script src="/wp-content/plugins/IlinquaTest/views/public/js/jquery.js" type="text/javascript"></script>
+    <script src="/wp-content/plugins/IlinquaTest/views/public/js/form-validate.js" type="text/javascript"></script>
+    <script src="/wp-content/plugins/IlinquaTest/views/public/js/testing.js" type="text/javascript"></script>
+    <script src="/wp-content/plugins/IlinquaTest/views/public/js/single-test.js" type="text/javascript"></script>
 {% endblock %}
 
 {% block body_attributes %}
-	{{ bodyClass }}
+    {{ bodyClass }}
 {% endblock %}
 
 {% block content %}
-	<div class="single-test-page {% if questions is not empty and session_test_id == test.ID %} test-steps {% endif %}">
-		<h1>English test</h1>
-		<div class="user-info">
-			{% if session_test_id != test.ID %}
-				<form id="start-form" action="" method="post" name="test">
-					<div class="form__field">
-						<input type="hidden" name="test_id" value="{{ test.ID }}"/>
-						<input id="name" placeholder="Имя" name="name" />
-						<label for="name">Имя</label>
-						<span class="form__caret"></span>
-					</div>
-					<div class="form__field">
-						<input id="tel" placeholder="Телефон" name="tel" class="validate-phone-no-empty" value=""/>
-						<label for="tel">Телефон</label>
-						<span class="form__caret"></span>
-					</div>
-					<div class="form__field">
-						<input id="email" placeholder="Email" name="email" value=""/>
-						<label for="email">Email</label>
-						<span class="form__caret"></span>
-					</div>
-					<div class="btn yellow">
-						<input type="submit" id="start" name="start-test" value="Начать">
-					</div>
-				</form>
-			{% endif %}
-		</div>
-		<div class="test-holder">
-			{% if session_test_id == test.ID %}
-				{% if questions is not empty %}
-					{% for questions_arr in questions %}
-						{% for question in questions_arr %}
-							<div class="question">
-								<form class="question__form" action="" method="post" name="question_{{ question.ID }}">
-									<input type="hidden" name="questuion_id" value="8==>"/>
-									<h3 class="question__title">
-										<span class="question-number">1.</span>
-										{{ question.post_title }}</h3>
-									{% if question.main_thumnail_url != "" %}
-										<div class="question__img-holder" style="background-image: url('{{ question.main_thumnail_url }}')"></div>
-									{% endif %}
-									<div class="answers">
-										{% if question.meta.question_type == "radio" %}
-											{% for key, answer in question.meta.answer_case %}
-												<div class="answer-val">
-													<label for="radio-id__{{ loop.index * question.ID }}" class="radio">
-														<input type="radio" required name="answer" id="radio-id__{{ loop.index * question.ID }}"
-															   value="{{ key }}"/>
-														<span class="radio__frame"></span>
-														<span class="radio__title">{{ answer }}</span>
-													</label>
-												</div>
-											{% endfor %}
-										{% elseif question.meta.question_type == "checkbox" %}
-											{% for key, answer in question.meta.answer_case %}
-												<div class="answer-val">
-													<label for="checkbox-id__{{ loop.index * question.ID }}" class="checkbox">
-														<input type="checkbox" name="answer" required
-															   id="checkbox-id__{{ loop.index * question.ID }}" value="{{ key }}"/>
-														<span class="checkbox__frame"></span>
-														<span class="checkbox__title">{{ answer }}</span>
-													</label>
-												</div>
-											{% endfor %}
-										{% elseif question.meta.question_type == "text" %}
-											<div class="answer-val">
-												<textarea class="textarea" type="text" name="answer" value="" rows="10"
-														  name="text" required></textarea>
-											</div>
-										{% endif %}
-										{#<button class="answer-button submit_question" type="submit" >Ответить</button>#}
-										<a class="answer-button submit_question btn" href="#answer-button">Далее</a>
-									</div>
-								</form>
-							</div>
-						{% endfor %}
-					{% endfor %}
-				{% endif %}
-			{% endif %}
-			{% if allQuestionsCount != 0 %}
-				{% for i in 1..allQuestionsCount %}
-					<div class="pagination"></div>
-				{% endfor %}
-			{% endif %}
-		</div>
-		
-		<!-- Отображаем при наличии класса на body finish-test-state -->
-		<div class="test-finish">
-			<div class="test-finish__title">Спасибо!</div>
-			<div class="test-finish__content">Этого достаточно, чтобы определить ваш уровень. Наш менеджер свяжется с
-				вами (с 11 до 19:30 в будние дни).
-			</div>
-			<div class="test-finish-publications">
-				{% include '_publications.twig' with {
-				"tile":
-				{
-				articleList: [
-				{dataFilterClass: 'school', articleTileSize: 'big events', tileBig: true},
-				{dataFilterClass: 'school', articleTileSize: 'middle'},
-				{dataFilterClass: 'party', articleTileSize: 'high'},
-				{dataFilterClass: 'school', articleTileSize: 'small'},
-				{dataFilterClass: 'party', articleTileSize: 'middle events', tileBig: true},
-				{dataFilterClass: 'school', articleTileSize: 'middle'},
-				{dataFilterClass: 'party', articleTileSize: 'middle'},
-				{dataFilterClass: 'life', articleTileSize: 'middle'},
-				{dataFilterClass: 'gramm', articleTileSize: 'middle'},
-				{dataFilterClass: 'life', articleTileSize: 'middle'},
-				{dataFilterClass: 'gramm', articleTileSize: 'middle'},
-				{dataFilterClass: 'gramm', articleTileSize: 'middle'},
-				{dataFilterClass: 'gramm', articleTileSize: 'middle'},
-				{dataFilterClass: 'gramm', articleTileSize: 'middle'},
-				]
-				}
-				} %}
-			</div>
-		</div>
-	</div>
+    <div class="single-test-page  {% if questions is not empty and session_test_id == test.ID %} test-steps {% endif %}">
+        <h1>{{ test.post_title }}</h1>
+        <div class="user-info">
+            {% if session_test_id != test.ID %}
+                <form id="start-form" action="" method="post" name="test">
+                    <div class="form__field">
+                        <input type="hidden" name="test_id" value="{{ test.ID }}"/>
+                        <input type="hidden" name="realStepsCount" value="{{ realStepsCount }}"/>
+                        <input id="name" placeholder="Имя" name="name"/> <label for="name">Имя</label>
+                        <span class="form__caret"></span>
+                    </div>
+                    <div class="form__field">
+                        <input id="tel" placeholder="Телефон" name="tel" class="validate-phone-no-empty"/>
+                        <label for="tel">Телефон</label> <span class="form__caret"></span>
+                    </div>
+                    <div class="form__field">
+                        <input id="email" placeholder="Email" name="email"/> <label for="email">Email</label>
+                        <span class="form__caret"></span>
+                    </div>
+                    <div class="btn yellow">
+                        <input type="submit" id="start" name="start-test" value="Начать">
+                    </div>
+                </form>
+            {% endif %}
+        </div>
+        <div class="test-holder">
+            {% if session_test_id == test.ID %}
+                {% if questions is not empty %}
+                    {% for questions_arr in questions %}
+                        {% for question in questions_arr %}
+                            <div class="question">
+                                <form class="question__form" action="" method="post" name="question_{{ question.ID }}">
+                                    <input type="hidden" name="question_id" value="{{ question.ID }}"/>
+                                    <input type="hidden" name="current_step" value="{{ loop.index }}"/>
+                                    <input type="hidden" name="count_question_by_step" value="{{ countQuestionsByStep }}"/>
+                                    <h3 class="question__title">
+                                        <span class="question-number">{{ loop.index }}.</span>
+                                        {{ question.post_title }}</h3>
+                                    {% if question.main_thumnail_url != "" %}
+                                        <div class="question__img-holder" style="background-image: url('{{ question.main_thumnail_url }}')"></div>
+                                    {% endif %}
+                                    <div class="answers">
+                                        {% if question.meta.question_type == "radio" %}
+                                            {% for key, answer in question.meta.answer_case %}
+                                                <div class="answer-val">
+                                                    <label for="radio-id__{{ loop.index * question.ID }}" class="radio">
+                                                        <input type="radio" required name="answer" id="radio-id__{{ loop.index * question.ID }}" value="{{ key }}"/>
+                                                        <span class="radio__frame"></span>
+                                                        <span class="radio__title">{{ answer }}</span> </label>
+                                                </div>
+                                            {% endfor %}
+                                        {% elseif question.meta.question_type == "checkbox" %}
+                                            {% for key, answer in question.meta.answer_case %}
+                                                <div class="answer-val">
+                                                    <label for="checkbox-id__{{ loop.index * question.ID }}" class="checkbox">
+                                                        <input type="checkbox" name="answer" required id="checkbox-id__{{ loop.index * question.ID }}" value="{{ key }}"/>
+                                                        <span class="checkbox__frame"></span>
+                                                        <span class="checkbox__title">{{ answer }}</span> </label>
+                                                </div>
+                                            {% endfor %}
+                                        {% elseif question.meta.question_type == "text" %}
+                                            <div class="answer-val"><textarea class="textarea" type="text" name="answer" value="" rows="10" name="text" required></textarea></div>
+                                        {% endif %}
+                                        {#<button class="answer-button submit_question" type="submit" >Ответить</button>#}
+                                        <a class="answer-button submit_question btn" href="#answer-button">Далее</a>
+                                    </div>
+                                </form>
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
+            {% endif %}
+            {% if allQuestionsCount != 0 %}
+                {% for i in 1..allQuestionsCount %}
+                    <div class="pagination"></div>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <!-- Отображаем при наличии класса на body finish-test-state -->
+        <div class="test-finish">
+            <div class="test-finish__title">Спасибо!</div>
+            <div class="test-finish__content">Этого достаточно, чтобы определить ваш уровень. Наш менеджер свяжется с
+                вами (с 11 до 19:30 в будние дни).
+            </div>
+            <div class="test-finish-publications">
+                {% include '_publications.twig' with {
+                "tile":
+                {
+                articleList: [
+                {dataFilterClass: 'school', articleTileSize: 'big events', tileBig: true},
+                {dataFilterClass: 'school', articleTileSize: 'middle'},
+                {dataFilterClass: 'party', articleTileSize: 'high'},
+                {dataFilterClass: 'school', articleTileSize: 'small'},
+                {dataFilterClass: 'party', articleTileSize: 'middle events', tileBig: true},
+                {dataFilterClass: 'school', articleTileSize: 'middle'},
+                {dataFilterClass: 'party', articleTileSize: 'middle'},
+                {dataFilterClass: 'life', articleTileSize: 'middle'},
+                {dataFilterClass: 'gramm', articleTileSize: 'middle'},
+                {dataFilterClass: 'life', articleTileSize: 'middle'},
+                {dataFilterClass: 'gramm', articleTileSize: 'middle'},
+                {dataFilterClass: 'gramm', articleTileSize: 'middle'},
+                {dataFilterClass: 'gramm', articleTileSize: 'middle'},
+                {dataFilterClass: 'gramm', articleTileSize: 'middle'},
+                ]
+                }
+                } %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

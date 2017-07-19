@@ -3,7 +3,7 @@
 		{% if categories is not empty %}
 			{% for category in categories %}
 				{% if category.count > 0 %}
-					<div class="lp-community__filter-item swiper-slide btn button is-checked"
+					<div class="lp-community__filter-item swiper-slide btn button"
 							data-filter=".{{ category.slug }}">
 						{{ category.name }}
 					</div>

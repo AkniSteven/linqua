@@ -5,23 +5,25 @@ Class TestDb
     const TABLE_NAME = 'test';
 
 
-    public function add_customer($name, $phone)
+    public function add_customer($name, $phone, $email)
     {
         global $wpdb;
         $status = 0;
-        $table_name = $wpdb->prefix . self::PLUGIN_NAME;
+        $table_name = $wpdb->prefix . self::TABLE_NAME;
         $wpdb->query( $wpdb->prepare(
             "
-            INSERT INTO  $table_name
-            ( name,phone,status,date)
-            VALUES ( %s, %s, %s, NOW() )
+            INSERT INTO  $table_name ( name, phone, email, status, date)
+            VALUES ( %s, %s, %s, %s, NOW());
 	        ",
             array(
                 esc_sql($name),
                 esc_sql($phone),
+                esc_sql($email),
                 esc_sql($status),
             )
         ));
+        return $wpdb->insert_id;
+
 
     }
 

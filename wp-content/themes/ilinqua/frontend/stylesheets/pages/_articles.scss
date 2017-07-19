@@ -1,3 +1,6 @@
+.column-width--article {
+    width: 293px;
+}
 .article {
     height: 100vh;
     width: 100%;
@@ -12,6 +15,8 @@
             top: 0;
             width: 100%;
             height: 100%;
+            background-repeat: no-repeat;
+            background-size: cover;
         }
         &__title {
             padding: 163px 0 0 0;
@@ -32,10 +37,15 @@
                 }
             }
             .title {
+                max-width: 650px;
+                padding-right: 20px;
                 color: #fff;
                 text-transform: none;
                 span {
                     display: block;
+                }
+                @include bp($bpTablet) {
+                    max-width: 400px;
                 }
             }
         }
@@ -121,12 +131,16 @@
         &__story {
             display: flex;
             align-items: flex-start;
-            justify-content: space-between;
+            justify-content: flex-end;
+            @include bp($Mobile) {
+                padding: 0 10px;
+            }
             .left-column {
                 width: 28%;
             }
             .right-column {
                 width: calc(72% - 80px); // minus banner margin right
+                margin-left: auto;
             .txt {
                 p {
                     display: block;
@@ -209,7 +223,7 @@
                     margin: 0 0 80px;
                     counter-increment: item;
                     &:last-child {
-                        margin-bottom: 0;
+                        margin-bottom: 20px;
                     }
                     &:before {
                         display: block;
@@ -248,15 +262,19 @@
             margin:  0 0 80px;
         }
         &__list {
-            display: flex;
-            flex-flow: row wrap;
-            justify-content: space-between;
+            //display: flex;
+            //flex-flow: row wrap;
+            //justify-content: space-between;
         }
         &__item {
             display: block;
             width: 28.6%;
             margin: 0 0 80px;
         }
+        .grid-item {
+            float: left;
+        }
+
         &__link {
             display: block;
         }

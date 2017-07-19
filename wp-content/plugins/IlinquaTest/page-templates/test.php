@@ -10,6 +10,7 @@ if ($_POST['test_id']) {
     $data = [];
     $data['name']    = Data::cleanString($_POST['name']);
     $data['email']   = Data::cleanString($_POST['email']);
+    $data['tel']   = Data::cleanString($_POST['tel']);
     $data['test_id'] = Data::cleanString($_POST['test_id']);
     $data['realStepsCount'] = (int)Data::cleanString($_POST['realStepsCount']);
     $testing->startTesting($data);
@@ -132,12 +133,16 @@ if (!empty($post)) {
         array_splice($postQuestions, $testSteps);
     }
     $context['realStepsCount'] = count($postQuestions);
+
     $allQuestionsCount = 0;
+    $countQuestionsByStep = [];
 
     foreach ($postQuestions as $postQuestion) {
         $allQuestionsCount += count($postQuestion);
+        $countQuestionsByStep[] = count($postQuestion);
     }
 
+    $context['countQuestionsByStep'] = implode(',', $countQuestionsByStep);
     $context['allQuestionsCount'] = $allQuestionsCount;
 
     $context['questions'] = $postQuestions;
@@ -146,5 +151,6 @@ if (!empty($post)) {
         $context['session_test_id'] = $_SESSION['test_id'];
     }
 }
+$context['ajax_url'] = get_site_url() . '/wp-admin/admin-ajax.php';
 
 $view->display('single_test.twig',  $context);
