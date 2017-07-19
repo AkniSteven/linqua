@@ -329,4 +329,15 @@
 		}
 	}
 }
+
+.field-error {
+	& + span {
+		position: absolute;
+		bottom: -100%;
+		left: 0;
+		width: 100%;
+		color: #ff4430;
+		font-size: 14px;
+	}
+}
 /* ---------- END Input styles ---------- */
