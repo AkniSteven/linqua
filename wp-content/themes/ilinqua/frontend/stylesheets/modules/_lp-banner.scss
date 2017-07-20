@@ -1,81 +1,87 @@
 .english {
-    .language-banner {
-        background-color: $colorBgEn;
-        background-repeat: no-repeat;
-        background-size: 700px;
-        background-position: calc(100% - ((100vw - 1200px) / 2)) bottom;
-        @include bp($point: $bpLarge, $type: min) {
-            background-position: calc(100% - 8.5vw) bottom; // 100% - (100vw - max-w)/2
-            background-size: 750px;
-        }
-        @include bp($point: $bpMiddle, $type: max) {
-            background-position: calc(100% - ((100vw - 980px) / 2)) bottom;
-        }
-        @include bp($point: $bpTablet, $type: max) {
-            background-size: contain;
-            background-position: calc(100% + 125px) bottom;
-        }
-    }
+   .language-banner {
+      background-color: $colorBgEn;
+      background-repeat: no-repeat;
+      background-size: 700px;
+      background-position: calc(100% - ((100vw - 1200px) / 2)) bottom;
+      @include bp($point: $bpLarge, $type: min) {
+         background-position: calc(100% - 8.5vw) bottom; // 100% - (100vw - max-w)/2
+         background-size: 750px;
+      }
+      @include bp($point: $bpMiddle, $type: max) {
+         background-position: calc(100% - ((100vw - 980px) / 2)) bottom;
+      }
+      @include bp($point: $bpTablet, $type: max) {
+         background-size: contain;
+         background-position: calc(100% + 125px) bottom;
+      }
+   }
 }
 
 .language-banner {
-    position: relative;
-    width: 100%;
-    height: calc(100vh - 313px);
-    &__title {
-        width: 100%;
-        margin: 0;
-        max-width: 500px;
-        margin-left: calc((100vw - 1200px) / 2 + 72px); // (100vw - $LpWithNormal) /2 + price-block padding
-        padding-top: calc(102px + 120px);
-        color: #fff;
-        text-transform: none;
-        @include anim($param: max-width, $dur: .25s);
-    }
-    @include bp($point: $bpLarge, $type: min) {
-        &__title {
-            margin-left: calc(7.5vw + 91px); // (100vw - $LpWithLarge) /2 + price-block padding
-            padding-top: calc(128px + 140px);
-            @include anim($param: max-width, $dur: .25s);
-        }
-    }
-    @include bp($point: $bpMiddle, $type: max) {
-        &__title {
-            margin-left: calc((100vw - 980px) / 2 + 50px); // (100vw - $LpWithMiddle) /2 + price-block padding
-        }
-    }
-    @include bp($point: $bpTablet, $type: max) {
-        height: calc(100vh - 200px);
-        &__title {
-            margin-left: calc((100vw - 860px) / 2 + 31px); // (100vw - max-w) /2 + price-block padding
-            padding-top: calc(83px + 80px);
-            font-size: 3.5rem;
-        }
-    }
-    @include bp($point: 890, $type: max) {
-        &__title {
-            margin-left: calc((100vw - 680px) / 2 + 31px); // (100vw - max-w) /2 + price-block padding
-        }
-    }
-    @include bp($point: $bpPortrait, $type: max) {
-        &__title {
-            margin-left: calc((100vw - 608px) / 2 + 31px); // (100vw - max-w) /2 + price-block padding
-        }
-    }
-    @include bp($point: 640, $type: max) {
-        height: 460px;
-        &__title {
-            max-width: 400px;
-            margin-left: 40px;
-            padding-top: calc(40px + 80px);
-            font-size: 2.625rem;
-        }
-    }
-    @include bp($point: 480, $type: max) {
-        &__title {
-            max-width: 300px;
-            font-size: 2.2rem;
-            padding-top: 80px;
-        }
-    }
+   position: relative;
+   width: 100%;
+   height: calc(100vh - 290px);
+   &__title {
+      width: 100%;
+      margin: 0;
+      max-width: 500px;
+      margin-left: calc((100vw - 1200px) / 2 + 72px); // (100vw - $LpWithNormal) /2 + price-block padding
+      padding-top: calc(102px + 120px);
+      color: #fff;
+      text-transform: none;
+      @include anim($param: max-width, $dur: .25s);
+   }
+   @include bp($point: $bpLarge, $type: min) {
+      height: calc(100vh - 313px);
+      &__title {
+         margin-left: calc(7.5vw + 91px); // (100vw - $LpWithLarge) /2 + price-block padding
+         padding-top: calc(128px + 140px);
+         @include anim($param: max-width, $dur: .25s);
+      }
+   }
+   @include bp($point: 1366, $type: max) {
+      &__title {
+         padding-top: 20vh;
+      }
+   }
+   @include bp($point: $bpMiddle, $type: max) {
+      &__title {
+         margin-left: calc((100vw - 980px) / 2 + 50px); // (100vw - $LpWithMiddle) /2 + price-block padding
+      }
+   }
+   @include bp($point: $bpTablet, $type: max) {
+      height: calc(100vh - 200px);
+      &__title {
+         margin-left: calc((100vw - 860px) / 2 + 31px); // (100vw - max-w) /2 + price-block padding
+         padding-top: calc(83px + 80px);
+         font-size: 3.5rem;
+      }
+   }
+   @include bp($point: 890, $type: max) {
+      &__title {
+         margin-left: calc((100vw - 680px) / 2 + 31px); // (100vw - max-w) /2 + price-block padding
+      }
+   }
+   @include bp($point: $bpPortrait, $type: max) {
+      &__title {
+         margin-left: calc((100vw - 608px) / 2 + 31px); // (100vw - max-w) /2 + price-block padding
+      }
+   }
+   @include bp($point: 640, $type: max) {
+      height: 460px;
+      &__title {
+         max-width: 400px;
+         margin-left: 40px;
+         padding-top: calc(40px + 80px);
+         font-size: 2.625rem;
+      }
+   }
+   @include bp($point: 480, $type: max) {
+      &__title {
+         max-width: 300px;
+         font-size: 2.2rem;
+         padding-top: 80px;
+      }
+   }
 }

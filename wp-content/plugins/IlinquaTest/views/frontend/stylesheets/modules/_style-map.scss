@@ -1,343 +1,344 @@
 .btn {
-	display: inline-block;
-	padding: 23px 25px;
-	font-size: .75rem;
-	line-height: 1;
-	letter-spacing: 1px;
-	font-weight: 500;
-	text-transform: uppercase;
-	&.grey {
-		background: #e5e5e5;
-		color: #000;
-	}
-	&.yellow {
-		background: #fffc2b;
-		input {
-			background: #fffc2b;
-		}
-	}
-	
+   display: inline-block;
+   padding: 23px 25px;
+   font-size: .75rem;
+   line-height: 1;
+   letter-spacing: 1px;
+   font-weight: 500;
+   text-transform: uppercase;
+   &.grey {
+      background: #e5e5e5;
+      color: #000;
+   }
+   &.yellow {
+      background: #fffc2b;
+      input {
+         background: #fffc2b;
+      }
+   }
+   
 }
 
 .form {
-	&__field {
-		position: relative;
-		margin: 0 0 38px;
-		
-	}
-	&__note {
-		font-size: .875em;
-		line-height: 1.5;
-		margin: -24px 0 40px;
-	}
-	&__button {
-		width: 100%;
-		margin: 0 0 22px;
-		padding: 23px 55px;
-	}
+   &__field {
+      position: relative;
+      margin: 0 0 38px;
+      
+   }
+   &__note {
+      font-size: .875em;
+      line-height: 1.5;
+      margin: -24px 0 40px;
+   }
+   &__button {
+      width: 100%;
+      margin: 0 0 22px;
+      padding: 23px 55px;
+   }
 }
 
 /* ---------- Input styles ---------- */
-	/* ---------- checkbox ---------- */
+/* ---------- checkbox ---------- */
 .answer-val {
-	.radio, .checkbox {
-		position: relative;
-		display: flex;
-		flex-flow: row nowrap;
-		align-items: center;
-		input {
-			position: absolute;
-			left: -9999px;
-			&:checked {
-				& + .checkbox__frame {
-					color: #000;
-					/* ---------- Language page style ---------- */
-					.english & {
-						color: #fffc2b;
-					}
-					&:before, &:after {
-						opacity: 1;
-					}
-				}
-				& ~ .checkbox__title {
-					.english & {
-						color: #fffc2b;
-					}
-				}
-				& + .radio__frame {
-					/* ---------- Language page style ---------- */
-					&:before {
-						border: 6px solid #fffc2b;
-						opacity: 1;
-					}
-				}
-				& ~ .radio__title {
-					.english & {
-						color: #fffc2b;
-					}
-				}
-			}
-		}
-		&__frame {
-			display: inline-block;
-			position: absolute;
-			top: 0;
-			left: 0;
-			width: 24px;
-			height: 24px;
-			border: 2px solid transparentize(#fff, .4);
-			border-radius: 50%;
-			cursor: pointer;
-			@include anim($param: background, $dur: .15s);
-			&:before {
-				position: absolute;
-				display: block;
-			}
-		}
-		&__title {
-			padding-left: 40px;
-			line-height: 1.2;
-			color: #fff;
-			cursor: pointer;
-			@include anim($param: color, $dur: .1s);
-		}
-	}
-	.radio {
-		&__frame {
-			@include anim($param: border, $dur: .2s);
-			&:before {
-				content: "";
-				@include centerize(true, true);
-				border: 0 solid red;
-				display: block;
-				width: 0;
-				height: 0;
-				border-radius: 50%;
-				background: #000;
-				@include anim($dur: .2s);
-				opacity: 0;
-				@include anim-param(border, opacity);
-				/* ---------- Language page style ---------- */
-				.english & {
-					background: #fffc2b;
-				}
-			}
-		}
-	}
-	.checkbox {
-		&__frame {
-			&:before {
-				content: "\e92f";
-				width: 20px;
-				height: 20px;
-				line-height: 20px;
-				top: -3px;
-				right: -3px;
-				font-family: 'icomoon';
-				display: block;
-				opacity: 0;
-				font-size: 1.8rem;
-				@include anim($dur: .1s);
-				@include anim-param(opacity, color);
-				color: #000;
-				/* ---------- Language page style ---------- */
-				.english & {
-					color: #fffc2b;
-				}
-			}
-		}
-	}
-	.textarea {
-		width: 100%;
-		padding: 30px;
-		border: 2px solid transparentize(#fff, .4);
-		border-radius: 9px;
-		background: transparent;
-		@include anim($param: border, $dur: .15s);
-		/* ---------- Language page style ---------- */
-		.english & {
-			color: #fff;
-		}
-	}
-	&.error-inputs {
-		.radio, .checkbox {
-			&__frame {
-				background: #ff4430;
-				@include anim($param: background, $dur: .15s);
-			}
-		}
-		.textarea {
-			border: 2px solid #ff4430;
-			@include anim($param: border, $dur: .15s);
-		}
-	}
-	@include bp($bpPortrait) {
-		.radio, .checkbox {
-			&__frame {
-				top: 10px;
-			}
-			&__title {
-				padding-left: 62px;
-				font-size: 2.1rem;
-			}
-			input {
-				&:checked {
-					& + .checkbox__frame {
-						/* ---------- Language page style ---------- */
-						.english & {
-							&:before {
-								color: #fffc2b;
-							}
-						}
-						& + .checkbox__title {
-							/* ---------- Language page style ---------- */
-							.english & {
-								color: #fffc2b;
-							}
-						}
-					}
-					& + .radio__frame {
-						border-color: #fff;
-						/* ---------- Language page style ---------- */
-						&:before {
-							border: 8px solid #fffc2b;
-							opacity: 1;
-						}
-						& + .radio__title {
-							/* ---------- Language page style ---------- */
-							.english & {
-								color: #fffc2b;
-							}
-						}
-					}
-				}
-			}
-		}
-		.checkbox {
-			&__frame {
-				border: none;
-				&:before {
-					opacity: 1;
-					font-size: 3rem;
-					top: 0;
-					right: 0;
-					.english & {
-						color: transparentize(#fff, .8);
-					}
-				}
-			}
-		}
-		.radio {
-			&__frame {
-				width: 40px;
-				height: 40px;
-				border-color: transparentize(#fff, .8);
-				&:before {
-					border: 8px solid transparentize(#fff, .8);
-					opacity: 1;
-					@include anim-param(border, opacity);
-					/* ---------- Language page style ---------- */
-					.english & {
-						background: transparentize(#fff, .8);
-					}
-				}
-			}
-		}
-		.textarea {
-			font-size: 1.5rem;
-		}
-		&.error-inputs {
-			.checkbox {
-				&__frame {
-					background: none;
-				}
-			}
-			.checkbox {
-				&__frame {
-					&:before {
-						color: #ff4430;
-					}
-				}
-			}
-			.textarea {
-				border: 2px solid #ff4430;
-				@include anim($param: border, $dur: .15s);
-			}
-		}
-	}
-	@include bp($point: $Mobile, $type: max) {
-		.radio, .checkbox {
-			&__frame {
-				top: 0;
-			}
-			&__title {
-				padding-left: 31px;
-				font-size: 1rem;
-			}
-			input {
-				&:checked {
-					& + .radio__frame {
-						&:before {
-							border: 4px solid #fffc2b;
-						}
-					}
-				}
-			}
-		}
-		.checkbox {
-			&__frame {
-				&:before {
-					font-size: 1.5rem;
-				}
-			}
-		}
-		.radio {
-			&__frame {
-				width: 20px;
-				height: 20px;
-				&:before {
-					border: 4px solid transparentize(#fff, .8);
-				}
-			}
-		}
-		.textarea {
-			font-size: 1rem;
-		}
-	}
-	@include bp($point: $bpLarge, $type: min) {
-		.radio, .checkbox {
-			&__frame {
-				width: 32px;
-				height: 32px;
-			}
-			&__title {
-				padding-left: 49px;
-				font-size: 1.5rem;
-			}
-		}
-		.checkbox {
-			&__frame {
-				&:before {
-					font-size: 2rem;
-					top: 0;
-					right: 0;
-				}
-			}
-		}
-		.textarea {
-			font-size: 1.5rem;
-		}
-	}
+   .radio, .checkbox {
+      position: relative;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      input {
+         position: absolute;
+         left: -9999px;
+         &:checked {
+            & + .checkbox__frame {
+               color: #000;
+               /* ---------- Language page style ---------- */
+               .english & {
+                  color: #fffc2b;
+               }
+               &:before, &:after {
+                  opacity: 1;
+               }
+            }
+            & ~ .checkbox__title {
+               .english & {
+                  color: #fffc2b;
+               }
+            }
+            & + .radio__frame {
+               /* ---------- Language page style ---------- */
+               &:before {
+                  border: 6px solid #fffc2b;
+                  opacity: 1;
+               }
+            }
+            & ~ .radio__title {
+               .english & {
+                  color: #fffc2b;
+               }
+            }
+         }
+      }
+      &__frame {
+         display: inline-block;
+         position: absolute;
+         top: 0;
+         left: 0;
+         width: 24px;
+         height: 24px;
+         border: 2px solid transparentize(#fff, .4);
+         border-radius: 50%;
+         cursor: pointer;
+         @include anim($param: background, $dur: .15s);
+         &:before {
+            position: absolute;
+            display: block;
+         }
+      }
+      &__title {
+         padding-left: 40px;
+         line-height: 1.2;
+         color: #fff;
+         cursor: pointer;
+         @include anim($param: color, $dur: .1s);
+      }
+   }
+   .radio {
+      &__frame {
+         @include anim($param: border, $dur: .2s);
+         &:before {
+            content: "";
+            @include centerize(true, true);
+            border: 0 solid red;
+            display: block;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: #000;
+            @include anim($dur: .2s);
+            opacity: 0;
+            @include anim-param(border, opacity);
+            /* ---------- Language page style ---------- */
+            .english & {
+               background: #fffc2b;
+            }
+         }
+      }
+   }
+   .checkbox {
+      &__frame {
+         &:before {
+            content: "\e92f";
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            top: -3px;
+            right: -3px;
+            font-family: 'icomoon';
+            display: block;
+            opacity: 0;
+            font-size: 1.8rem;
+            @include anim($dur: .1s);
+            @include anim-param(opacity, color);
+            color: #000;
+            /* ---------- Language page style ---------- */
+            .english & {
+               color: #fffc2b;
+            }
+         }
+      }
+   }
+   .textarea {
+      width: 100%;
+      padding: 30px;
+      border: 2px solid transparentize(#fff, .4);
+      border-radius: 9px;
+      background: transparent;
+      @include anim($param: border, $dur: .15s);
+      /* ---------- Language page style ---------- */
+      .english & {
+         color: #fff;
+      }
+   }
+   &.error-inputs {
+      .radio, .checkbox {
+         &__frame {
+            background: #ff4430;
+            @include anim($param: background, $dur: .15s);
+         }
+      }
+      .textarea {
+         border: 2px solid #ff4430;
+         @include anim($param: border, $dur: .15s);
+      }
+   }
+   @include bp($bpPortrait) {
+      .radio, .checkbox {
+         &__frame {
+            top: 10px;
+         }
+         &__title {
+            padding-left: 62px;
+            font-size: 2.1rem;
+         }
+         input {
+            &:checked {
+               & + .checkbox__frame {
+                  /* ---------- Language page style ---------- */
+                  .english & {
+                     &:before {
+                        color: #fffc2b;
+                     }
+                  }
+                  & + .checkbox__title {
+                     /* ---------- Language page style ---------- */
+                     .english & {
+                        color: #fffc2b;
+                     }
+                  }
+               }
+               & + .radio__frame {
+                  border-color: #fff;
+                  /* ---------- Language page style ---------- */
+                  &:before {
+                     border: 8px solid #fffc2b;
+                     opacity: 1;
+                  }
+                  & + .radio__title {
+                     /* ---------- Language page style ---------- */
+                     .english & {
+                        color: #fffc2b;
+                     }
+                  }
+               }
+            }
+         }
+      }
+      .checkbox {
+         &__frame {
+            border: none;
+            &:before {
+               opacity: 1;
+               font-size: 3rem;
+               top: 0;
+               right: 0;
+               .english & {
+                  color: transparentize(#fff, .8);
+               }
+            }
+         }
+      }
+      .radio {
+         &__frame {
+            width: 40px;
+            height: 40px;
+            border-color: transparentize(#fff, .8);
+            &:before {
+               border: 8px solid transparentize(#fff, .8);
+               opacity: 1;
+               @include anim-param(border, opacity);
+               /* ---------- Language page style ---------- */
+               .english & {
+                  background: transparentize(#fff, .8);
+               }
+            }
+         }
+      }
+      .textarea {
+         font-size: 1.5rem;
+      }
+      &.error-inputs {
+         .checkbox {
+            &__frame {
+               background: none;
+            }
+         }
+         .checkbox {
+            &__frame {
+               &:before {
+                  color: #ff4430;
+               }
+            }
+         }
+         .textarea {
+            border: 2px solid #ff4430;
+            @include anim($param: border, $dur: .15s);
+         }
+      }
+   }
+   @include bp($point: $Mobile, $type: max) {
+      .radio, .checkbox {
+         &__frame {
+            top: 0;
+         }
+         &__title {
+            padding-left: 31px;
+            font-size: 1rem;
+         }
+         input {
+            &:checked {
+               & + .radio__frame {
+                  &:before {
+                     border: 4px solid #fffc2b;
+                  }
+               }
+            }
+         }
+      }
+      .checkbox {
+         &__frame {
+            &:before {
+               font-size: 1.5rem;
+            }
+         }
+      }
+      .radio {
+         &__frame {
+            width: 20px;
+            height: 20px;
+            &:before {
+               border: 4px solid transparentize(#fff, .8);
+            }
+         }
+      }
+      .textarea {
+         font-size: 1rem;
+      }
+   }
+   @include bp($point: $bpLarge, $type: min) {
+      .radio, .checkbox {
+         &__frame {
+            width: 32px;
+            height: 32px;
+         }
+         &__title {
+            padding-left: 49px;
+            font-size: 1.5rem;
+         }
+      }
+      .checkbox {
+         &__frame {
+            &:before {
+               font-size: 2rem;
+               top: 0;
+               right: 0;
+            }
+         }
+      }
+      .textarea {
+         font-size: 1.5rem;
+      }
+   }
 }
 
 .field-error {
-	& + span {
-		position: absolute;
-		bottom: -100%;
-		left: 0;
-		width: 100%;
-		color: #ff4430;
-		font-size: 14px;
-	}
+   & + span {
+      position: absolute;
+      bottom: -100%;
+      left: 0;
+      width: 100%;
+      color: #ff4430;
+      font-size: 14px;
+   }
 }
+
 /* ---------- END Input styles ---------- */

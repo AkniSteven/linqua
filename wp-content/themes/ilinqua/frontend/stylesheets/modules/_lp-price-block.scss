@@ -115,7 +115,7 @@
         flex-grow: 1;
         flex-shrink: 1;
         flex-basis: 0;
-        height: 313px;
+        height: 290px;
         @include anim-param(padding);
         @include anim($dur: .25s);
         & + div {
@@ -128,7 +128,7 @@
             display: flex;
             flex-direction: column;
             height: 100%;
-            padding: 59px 20px 20px 82px;
+            padding: 40px 20px 20px 82px;
         }
         &__title {
             height: 65px;
@@ -159,7 +159,7 @@
         }
         &__description {
             display: inline-block;
-            height: 48px; // scroll jump fix
+            height: 37px; // scroll jump fix
             margin-bottom: 10px;
             font-size: 1rem;
             line-height: 1;
@@ -187,6 +187,7 @@
     }
     @include bp($point: $bpLarge, $type: min) {
         &__tariff-cell {
+            height: 313px;
             .tariff-cell {
                 &__wrapper {
                     padding: 59px 20px 30px 101px;
