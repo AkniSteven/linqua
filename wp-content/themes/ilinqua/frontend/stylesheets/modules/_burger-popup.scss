@@ -185,6 +185,9 @@
             @extend %buttonNext;
             position: absolute;
             bottom: 0;
+            @include bp($point: 768, $type: max) {
+               position: relative;
+            }
         }
     }
     &__corporate {
@@ -390,6 +393,10 @@
         }
     }
     @include bp($point: 640, $type: max) {
+        &__language-navigation {
+            padding-top: 40px;
+            padding-left: 6vw;
+        }
         &__close-popup {
             width: 30px;
             height: 30px;
@@ -415,13 +422,15 @@
             }
             &__bottom-block {
                 .phone {
-                    margin-bottom: 5px;
+                    margin-bottom: 15px;
+                    display: block;
                     font-size: 1.5rem;
                 }
             }
         }
         &__corporate, &__test {
-            padding-bottom: 40px;
+            padding-top: 35px;
+            padding-bottom: 30px;
             .corporate-descr, .test-descr {
                 max-width: 80%;
                 margin-bottom: 55px;
@@ -429,7 +438,7 @@
                 font-size: 1rem;
             }
             .corporate-title, .test-title {
-                margin-bottom: 35px;
+                margin-bottom: 15px;
                 font-size: 1.8rem;
             }
         }
