@@ -23,12 +23,12 @@ requirejs([
             var priceBlockCell = $('.price-block__tariff-cell'),
                 priceBlockHolder = $('.price-block-wrapper');
             enquire
-                .register("screen and (max-width : 768px)", {
+                .register("screen and (max-width : 640px)", {
                     match: function priceCellChangePosition() {
-                        $('.language-banner').height($(window).height() / 1 - 200);
+                        $('.language-banner').height($(window).height());
                     },
                     unmatch: function () {
-                        $('.language-banner').height($(window).height() / 1 - 200);
+                        $('.language-banner').height($(window).height());
                     }
                 });
         }

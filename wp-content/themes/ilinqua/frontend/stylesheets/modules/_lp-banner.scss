@@ -13,7 +13,17 @@
       }
       @include bp($point: $bpTablet, $type: max) {
          background-size: contain;
-         background-position: calc(100% + 125px) bottom;
+         background-position: 80% bottom;
+      }
+      @include bp($point: $bpPortrait, $type: max) {
+         background-position: calc(100% + 50px) bottom;
+      }
+   
+      @include bp($point: $Mobile, $type: max) {
+         background-position: calc(100% + 50px) bottom;
+      }
+      @include bp($point: $Mobile, $type: max) {
+         background-position: calc(100% + 50px) bottom;
       }
    }
 }
@@ -73,15 +83,13 @@
       &__title {
          max-width: 400px;
          margin-left: 40px;
-         padding-top: calc(40px + 80px);
-         font-size: 2.625rem;
+         padding-top: 20vh;
+         font-size: 3.5rem;
       }
    }
    @include bp($point: 480, $type: max) {
       &__title {
-         max-width: 300px;
-         font-size: 2.2rem;
-         padding-top: 80px;
+         max-width: 200px;
       }
    }
 }
