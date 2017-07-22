@@ -1,183 +1,180 @@
 .header {
-	&__left-side, &__right-side {
-		display: flex;
-		flex-flow: row nowrap;
-		align-items: center;
-	}
-	&__left-side {
-		.burger-menu {
-			position: relative;
-			display: inline-block;
-			width: 40px;
-			height: 2px;
-			margin-right: 40px;
-			padding: 0 0 16px;
-			background: #fff;
-			background-clip: content-box;
-			box-sizing: content-box;
-			&:before, &:after {
-				content: '';
-				position: absolute;
-				left: 0;
-				width: 40px;
-				height: 2px;
-				background: #fff;
-				display: inline-block;
-			}
-			&:before {
-				transform: translateY(-50%);
-				top: 50%;
-			}
-			&:after {
-				bottom: 0;
-				top: auto;
-			}
-		}
-		.logo {
-			width: 100px;
-			margin-right: 30px;
-		}
-		@include bp($point: 768, $type: max) {
-			.burger-menu {
-				margin-right: 20px;
-			}
-			.logo {
-				margin-right: 0;
-			}
-		}
-		@include bp($point: 640, $type: max) {
-			.logo, .burger-menu {
-				margin: 0;
-			}
-		}
-	}
-	.header-nav {
-		&__item {
-			height: 20px;
-			& + li {
-				margin-left: 40px;
-			}
-			&:last-child {
-				height: 40px;
-			}
-		}
-		&__link {
-			height: 20px;
-			text-transform: uppercase;
-			font-size: .75rem;
-			letter-spacing: 1px;
-			color: #fff;
-			font-weight: 900;
-			white-space: nowrap;
-			@include anim($param: opacity, $dur: .15s);
-			&:hover {
-				opacity: .8;
-			}
-			&--striped {
-				position: relative;
-				display: flex;
-				justify-content: flex-end;
-				flex-flow: row nowrap;
-				width: 140px;
-				background: #e4e4e4;
-				.title {
-					position: absolute;
-					height: 100%;
-					line-height: 40px;
-					font-size: .75rem;
-					text-transform: uppercase;
-					color: #000;
-					letter-spacing: 1px;
-					font-weight: 500;
-					opacity: .5;
-					z-index: 1;
-					@include centerize(true, false);
-				}
-				.tile {
-					width: 28px;
-					height: 40px;
-					display: inline-block;
-					background: #b6b6b6;
-					@include anim-param(opacity, background);
-					left: 0;
-					animation: run .4s ease-in;
-					&:first-child {
-						opacity: 0;
-						////background: darken(#b6b6b6, 10%);
-						//@include anim($dur: .15s, $delay: .18s);
-					}
-					&:nth-child(2) {
-						opacity: .2;
-						//background: darken(#b6b6b6, 10%);
-						//@include anim($dur: .15s, $delay: .16s);
-						
-					}
-					&:nth-child(3) {
-						opacity: .4;
-						//background: darken(#b6b6b6, 10%);
-						//@include anim($dur: .15s, $delay: .14s);
-					}
-					&:nth-child(4) {
-						opacity: .6;
-						//background: darken(#b6b6b6, 10%);
-						//@include anim($dur: .15s, $delay: .12s);
-					}
-					&:nth-child(5) {
-						//background: darken(#b6b6b6, 10%);
-						//opacity: .8;@include anim($dur: .15s, $delay: .1s);
-						
-					}
-				}
-				&:hover {
-					.tile {
-						&:first-child {
-							opacity: .1;
-							//background: darken(#b6b6b6, 40%);
-							//@include anim($dur: .15s, $delay: 0s);
-						}
-						&:nth-child(2) {
-							//background: darken(#b6b6b6, 40%);
-							//@include anim($dur: .15s, $delay: .1s);
-						}
-						&:nth-child(3) {
-							//background: darken(#b6b6b6, 40%);
-							//@include anim($dur: .15s, $delay: .12s);
-						}
-						&:nth-child(4) {
-							//background: darken(#b6b6b6, 40%);
-							//@include anim($dur: .15s, $delay: .14s);
-						}
-						&:nth-child(5) {
-							//background: darken(#b6b6b6, 40%);
-							//@include anim($dur: .15s, $delay: .16s);
-						}
-					}
-				}
-			}
-		}
-		@include bp($point: 768, $type: max) {
-			&__item {
-				& + li {
-					margin-left: 30px;
-				}
-			}
-			&__link {
-				font-size: .7rem;
-				letter-spacing: 0;
-			}
-		}
-		@include bp($point: 640, $type: max) {
-			
-		}
-	}
-	@include bp($point: 640, $type: max) {
-		&__right-side {
-			display: none;
-		}
-		&__left-side {
-			width: 100%;
-			flex-flow: row-reverse nowrap;
-			justify-content: space-between;
-		}
-	}
+   &__left-side, &__right-side {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+   }
+   &__left-side {
+      .burger-menu {
+         position: relative;
+         display: inline-block;
+         width: 40px;
+         height: 2px;
+         margin-right: 40px;
+         padding: 0 0 16px;
+         background: #fff;
+         background-clip: content-box;
+         box-sizing: content-box;
+         &:before, &:after {
+            content: '';
+            position: absolute;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: #fff;
+            display: inline-block;
+         }
+         &:before {
+            transform: translateY(-50%);
+            top: 50%;
+         }
+         &:after {
+            bottom: 0;
+            top: auto;
+         }
+      }
+      .logo {
+         width: 100px;
+         margin-right: 30px;
+      }
+      @include bp($point: 768, $type: max) {
+         .burger-menu {
+            margin-right: 20px;
+         }
+         .logo {
+            margin-right: 0;
+         }
+      }
+      @include bp($point: 980, $type: max) {
+         .logo, .burger-menu {
+            margin: 0;
+         }
+      }
+   }
+   .header-nav {
+      &__item {
+         height: 20px;
+         & + div {
+            margin-left: 40px;
+         }
+         &:last-child {
+            height: 40px;
+         }
+      }
+      &__link {
+         height: 20px;
+         text-transform: uppercase;
+         font-size: .75rem;
+         letter-spacing: 1px;
+         color: #fff;
+         font-weight: 900;
+         white-space: nowrap;
+         @include anim($param: opacity, $dur: .15s);
+         &:hover {
+            opacity: .8;
+         }
+         &--striped {
+            position: relative;
+            display: flex;
+            justify-content: flex-end;
+            flex-flow: row nowrap;
+            width: 140px;
+            background: #e4e4e4;
+            .title {
+               position: absolute;
+               height: 100%;
+               line-height: 40px;
+               font-size: .75rem;
+               text-transform: uppercase;
+               color: #000;
+               letter-spacing: 1px;
+               font-weight: 500;
+               opacity: .5;
+               z-index: 1;
+               @include centerize(true, false);
+            }
+            .tile {
+               width: 28px;
+               height: 40px;
+               display: inline-block;
+               background: #b6b6b6;
+               @include anim-param(opacity, background);
+               left: 0;
+               animation: run .4s ease-in;
+               &:first-child {
+                  opacity: 0;
+                  ////background: darken(#b6b6b6, 10%);
+                  //@include anim($dur: .15s, $delay: .18s);
+               }
+               &:nth-child(2) {
+                  opacity: .2;
+                  //background: darken(#b6b6b6, 10%);
+                  //@include anim($dur: .15s, $delay: .16s);
+                  
+               }
+               &:nth-child(3) {
+                  opacity: .4;
+                  //background: darken(#b6b6b6, 10%);
+                  //@include anim($dur: .15s, $delay: .14s);
+               }
+               &:nth-child(4) {
+                  opacity: .6;
+                  //background: darken(#b6b6b6, 10%);
+                  //@include anim($dur: .15s, $delay: .12s);
+               }
+               &:nth-child(5) {
+                  //background: darken(#b6b6b6, 10%);
+                  //opacity: .8;@include anim($dur: .15s, $delay: .1s);
+                  
+               }
+            }
+            &:hover {
+               .tile {
+                  &:first-child {
+                     opacity: .1;
+                     //background: darken(#b6b6b6, 40%);
+                     //@include anim($dur: .15s, $delay: 0s);
+                  }
+                  &:nth-child(2) {
+                     //background: darken(#b6b6b6, 40%);
+                     //@include anim($dur: .15s, $delay: .1s);
+                  }
+                  &:nth-child(3) {
+                     //background: darken(#b6b6b6, 40%);
+                     //@include anim($dur: .15s, $delay: .12s);
+                  }
+                  &:nth-child(4) {
+                     //background: darken(#b6b6b6, 40%);
+                     //@include anim($dur: .15s, $delay: .14s);
+                  }
+                  &:nth-child(5) {
+                     //background: darken(#b6b6b6, 40%);
+                     //@include anim($dur: .15s, $delay: .16s);
+                  }
+               }
+            }
+         }
+      }
+      @include bp($point: 768, $type: max) {
+         &__item {
+            & + div {
+               margin-left: 30px;
+            }
+         }
+         &__link {
+            font-size: .7rem;
+            letter-spacing: 0;
+         }
+      }
+   }
+   @include bp($point: 980, $type: max) {
+      &__right-side {
+         display: none !important;
+      }
+      &__left-side {
+         width: 100%;
+         flex-flow: row-reverse nowrap;
+         justify-content: space-between;
+      }
+   }
 }

@@ -1,66 +1,66 @@
 .lp-community {
-	position: relative;
-	background: #fff;
-	max-width: 1200px;
-	margin: 0 auto;
-	padding: 80px 0 300px;
-	padding-top: 0;
-	&__title {
-		margin: 0 0 30px $normal;
-	}
-	.grid {
-		margin-left: $normal;
-	}
-	@include bp($point: $bpLarge, $type: min) {
-		max-width: 85vw;
-		&__title {
-			margin: 0 0 30px $big;
-		}
-		.grid {
-			margin-left: $big;
-		}
-	}
-	@include bp($point: $bpMiddle, $type: max) {
-		max-width: 980px;
+    position: relative;
+    background: #fff;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 80px 0 300px;
+    padding-top: 0;
+    &__title {
+        margin: 0 0 30px $normal;
+    }
+    .grid {
+        margin-left: $normal;
+    }
+    @include bp($point: $bpLarge, $type: min) {
+        max-width: 85vw;
+        &__title {
+            margin: 0 0 30px $big;
+        }
+        .grid {
+            margin-left: $big;
+        }
+    }
+    @include bp($point: $bpMiddle, $type: max) {
+        max-width: 980px;
         margin: 0 auto;
-		&__title {
-			margin: 0 0 30px $middle;
-		}
-		.grid {
-			margin-left: $middle;
-		}
-	}
-	@include bp($point: $bpTablet, $type: max) {
-		max-width: 860px;
+        &__title {
+            margin: 0 0 30px $middle;
+        }
+        .grid {
+            margin-left: $middle;
+        }
+    }
+    @include bp($point: $bpTablet, $type: max) {
+        max-width: 860px;
         margin: 0 auto;
-		&__title {
-			margin: 0 0 21px $small;
-			font-size: 3.5rem;
-		}
-		.grid {
-			margin-left: $small;
-		}
-	}
-	@include bp($point: 890, $type: max) {
-		max-width: 680px;
-	}
-	@include bp($point: $bpPortrait, $type: max) {
-		max-width: 608px;
-		&__title {
-			margin: 0 0 21px $small;
-		}
-		.grid {
-			margin-left: 0;
-		}
-	}
-	@include bp($point: 640, $type: max) {
-		max-width: 100%;
-		&__title {
-			font-size: 2.625rem;
-		}
-	}
+        &__title {
+            margin: 0 0 21px $small;
+            font-size: 3.5rem;
+        }
+        .grid {
+            margin-left: $small;
+        }
+    }
+    @include bp($point: 890, $type: max) {
+        max-width: 680px;
+    }
+    @include bp($point: $bpPortrait, $type: max) {
+        max-width: 608px;
+        &__title {
+            margin: 0 0 21px $small;
+        }
+        .grid {
+            margin-left: 0;
+        }
+    }
+    @include bp($point: 640, $type: max) {
+        max-width: 100%;
+        padding-bottom: 40px;
+        &__title {
+            font-size: 2.625rem;
+        }
+    }
 }
-
 
 //.lp-article {
 //	&__holder {

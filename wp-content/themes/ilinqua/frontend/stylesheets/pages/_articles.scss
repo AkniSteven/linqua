@@ -1,6 +1,16 @@
 .column-width--article {
-    width: 293px;
+    width: 333px;
+    @include bp($point: 1600, $type: max) {
+        width: 280px;
+    }
+    @include bp($point: 1140, $type: max) {
+        width: 230px;
+    }
+    @include bp($point: 1024, $type: max) {
+        //width: 200px;
+    }
 }
+
 .article {
     height: 100vh;
     width: 100%;
@@ -17,6 +27,7 @@
             height: 100%;
             background-repeat: no-repeat;
             background-size: cover;
+            background-position: center top;
         }
         &__title {
             padding: 163px 0 0 0;
@@ -141,14 +152,14 @@
             .right-column {
                 width: calc(72% - 80px); // minus banner margin right
                 margin-left: auto;
-            .txt {
-                p {
-                    display: block;
-                    margin: 0 0 50px;
-                    &:last-child {
-                        margin: 0 0 80px;
+                .txt {
+                    p {
+                        display: block;
+                        margin: 0 0 50px;
+                        &:last-child {
+                            margin: 0 0 80px;
+                        }
                     }
-                }
                     span {
                         display: block;
                         margin: 0 0 50px;
@@ -251,7 +262,7 @@
     }
     &-more {
         &__holder {
-            width: 54%;
+            width: 60%;
             margin: 0 auto;
         }
         &__title {
@@ -259,7 +270,7 @@
             font-weight: 500;
             line-height: 1.13;
             letter-spacing: -2px;
-            margin:  0 0 80px;
+            margin: 0 0 80px;
         }
         &__list {
             //display: flex;
@@ -268,13 +279,18 @@
         }
         &__item {
             display: block;
-            width: 28.6%;
+            width: 293px;
             margin: 0 0 80px;
+            @include bp($point: 1140, $type: max) {
+                width: 235px;
+            }
+            @include bp($point: 1024, $type: max) {
+            }
         }
         .grid-item {
             float: left;
         }
-
+        
         &__link {
             display: block;
         }
@@ -283,7 +299,8 @@
             margin: 0 0 20px;
         }
         &__name {
-            padding: 0 0 0 1px;
+            text-align: left;
+            padding: 13px 0 0 1px;
             display: block;
             font-size: 1.125rem;
             line-height: 1.22;
@@ -308,7 +325,11 @@
                     }
                 }
             }
+            &__holder {
+                width: 65%;
+            }
         }
+        
     }
     @include bp($point: 1440, $type: max) {
         &-header {
@@ -349,10 +370,10 @@
         }
         &-more {
             &__holder {
-                width: 83%;
+                width: 72%;
             }
             &__item {
-                width: 26%;
+                //width: 26%;
             }
         }
     }
@@ -380,58 +401,58 @@
             &__story {
                 .right-column {
                     width: calc(72% - 40px);
-
-                .story__list {
-                    width: calc(72% - 40px);
+                    
+                    .story__list {
+                        width: calc(72% - 40px);
+                    }
+                }
+            }
+            &-more {
+                &__title {
+                    margin: 0 0 40px;
                 }
             }
         }
-        &-more {
-            &__title {
-                margin: 0 0 40px;
-            }
-        }
-    }
-    @include bp($point: 768, $type: max) {
-        &-header {
-            height: 650px;
-            background-size: 100%;
-            &__holder {
-                width: 100%;
-            }
-            &__title {
-                width: 77%;
-                .title {
-                    font-size: 3.5rem;
-                    line-height: 1.14;
-                    letter-spacing: -1.8px;
+        @include bp($point: 768, $type: max) {
+            &-header {
+                height: 650px;
+                background-size: 100%;
+                &__holder {
+                    width: 100%;
+                }
+                &__title {
+                    width: 77%;
+                    .title {
+                        font-size: 3.5rem;
+                        line-height: 1.14;
+                        letter-spacing: -1.8px;
+                    }
+                }
+                &__specification {
+                    width: 79%;
+                    bottom: -120px;
+                    .specification-holder {
+                        padding: 40px;
+                        .frame {
+                            display: none;
+                        }
+                        .subtitle {
+                            width: 100%;
+                        }
+                    }
                 }
             }
-            &__specification {
-                width: 79%;
-                bottom: -120px;
-                .specification-holder {
-                    padding: 40px;
-                    .frame {
+            &-main {
+                &__holder {
+                    padding: 160px 0 80px 0;
+                    width: 68%;
+                }
+                &__story {
+                    .left-column {
                         display: none;
                     }
-                    .subtitle {
+                    .right-column {
                         width: 100%;
-                    }
-                }
-            }
-        }
-        &-main {
-            &__holder {
-                padding: 160px 0 80px 0;
-                width: 68%;
-            }
-            &__story {
-                .left-column {
-                    display: none;
-                }
-                .right-column {
-                    width: 100%;
                         .price {
                             &-list {
                                 &__item {
@@ -483,7 +504,7 @@
         }
         &-more {
             &__holder {
-                width: 68%;
+                width: 80%;
             }
             &__title {
                 padding: 0;
@@ -492,7 +513,6 @@
                 margin: 0 0 40px;
             }
             &__item {
-                width: calc(50% - 15px);
                 margin: 0 0 40px;
             }
             &__frame {
@@ -677,14 +697,13 @@
             }
             &__item {
                 width: 100%;
-                text-align: center;
                 margin: 0 0 40px;
             }
             &__frame {
                 margin: 0 0 20px;
             }
             &__name {
-                padding: 0 30px;
+                padding: 13px 0;
                 font-size: 1.125rem;
                 line-height: 1.22;
             }

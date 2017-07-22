@@ -5,7 +5,10 @@
         padding: 157px 0 76px 14vw;
     }
     @include bp($point: 1140, $type: min) {
-        padding: 93px 0 47px 14vw;
+        padding: 100px 0 47px 14vw;
+    }
+    @include bp($point: 1024, $type: min) {
+        padding: 82px 0 47px 10vw;
     }
     @include bp($point: 768, $type: max) {
         padding: 78px 0 32px 12.5vw;
@@ -39,13 +42,11 @@
 /* ---------- END Extend styles ---------- */
 
 .burger-popup {
-    //display: none;
     width: 100%;
     height: 100vh;
     position: absolute;
     top: 0;
     left: -100%;
-    //transform: translate3d(-100%, 0, 0);
     display: flex;
     flex-flow: row nowrap;
     opacity: 0;
@@ -151,11 +152,12 @@
         @extend %sectionPadding;
         .corporate-descr, .test-descr {
             max-width: 240px;
-            margin-bottom: 60px;
+            //margin-bottom: 60px;
             line-height: 1.6;
         }
         .corporate, .test {
             &__content {
+                position: relative;
                 display: flex;
                 flex-flow: column nowrap;
                 height: 100%;
@@ -164,7 +166,7 @@
         .corporate-title, .test-title {
             text-transform: none;
             font-weight: 500;
-            margin-bottom: 22px;
+            margin-bottom: 15px;
             position: relative;
             z-index: 1;
         }
@@ -179,6 +181,11 @@
         .button-next {
             display: block;
             @extend %buttonNext;
+            position: absolute;
+            bottom: 0;
+            @include bp($point: 768, $type: max) {
+               position: relative;
+            }
         }
     }
     &__corporate {
@@ -300,6 +307,20 @@
             background-size: 282px;
         }
     }
+    @include bp($point: 1024, $type: max) {
+        &__language-navigation {
+            padding-left: 12vw;
+        }
+        &__corporate {
+            .corporate-title {
+                font-size:1.7rem;
+                margin-bottom: 24px;
+            }
+            .corporate-descr {
+                font-size: .9rem;
+            }
+        }
+    }
     @include bp($point: 768, $type: max) {
         flex-flow: column nowrap;
         height: auto;
@@ -370,6 +391,10 @@
         }
     }
     @include bp($point: 640, $type: max) {
+        &__language-navigation {
+            padding-top: 40px;
+            padding-left: 40px;
+        }
         &__close-popup {
             width: 30px;
             height: 30px;
@@ -396,12 +421,15 @@
             &__bottom-block {
                 .phone {
                     margin-bottom: 5px;
+                    display: block;
                     font-size: 1.5rem;
                 }
             }
         }
         &__corporate, &__test {
+            padding-top: 35px;
             padding-bottom: 40px;
+            padding-left: 40px;
             .corporate-descr, .test-descr {
                 max-width: 80%;
                 margin-bottom: 55px;
@@ -409,13 +437,19 @@
                 font-size: 1rem;
             }
             .corporate-title, .test-title {
-                margin-bottom: 35px;
+                margin-bottom: 15px;
                 font-size: 1.8rem;
             }
         }
         &__test {
-            background-size: 60vw;
-            background-position: 130% 100%;
+            background-size: 55vw;
+            background-position: 120% 100%;
         }
     }
+   @include bp($point: 478, $type: max) {
+      &__test {
+         background-size: 78vw;
+         background-position: 160% 100%;
+      }
+   }
 }

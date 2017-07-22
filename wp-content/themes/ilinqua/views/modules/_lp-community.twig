@@ -1,36 +1,36 @@
 <section class="lp-community">
-	{% include 'modules/_lp-price-block.twig' %}
-	{% if posts %}
-		<h2 class="lp-community__title">Community</h2>
-	{% endif %}
-
-<!-- ISOTOPE FILTER TABS--------------->
-	{% include 'modules/_lp-filters.twig'  %}
-<!-- END ISOTOPE FILTER TABS--------------->
-
-<!-- ARTICLE TILE TEMPLATE--------------->
-	{% include 'modules/_publications.twig' with {
-	"tile":
-		{
-			articleList: [
-			{dataFilterClass: 'school', articleTileSize: 'middle', tileBig: true},
-			{dataFilterClass: 'school', articleTileSize: 'middle'},
-			{dataFilterClass: 'party', articleTileSize: 'high'},
-			{dataFilterClass: 'school', articleTileSize: 'small'},
-			{dataFilterClass: 'party', articleTileSize: 'middle'},
-			{dataFilterClass: 'school', articleTileSize: 'middle'},
-			{dataFilterClass: 'party', articleTileSize: 'middle'},
-			{dataFilterClass: 'life', articleTileSize: 'middle'},
-			{dataFilterClass: 'gramm', articleTileSize: 'middle'},
-			{dataFilterClass: 'life', articleTileSize: 'middle'},
-			{dataFilterClass: 'gramm', articleTileSize: 'middle'},
-			{dataFilterClass: 'gramm', articleTileSize: 'middle'},
-			{dataFilterClass: 'gramm', articleTileSize: 'middle'},
-			{dataFilterClass: 'gramm', articleTileSize: 'middle'},
-			]
-		}
-	} %}
-<!-- END ARTICLE TILE TEMPLATE--------------->
+    {% include 'modules/_lp-price-block.twig' %}
+    {% if posts %}
+        <h2 class="lp-community__title">Community</h2>
+    {% endif %}
+    
+    <!-- ISOTOPE FILTER TABS--------------->
+    {% include 'modules/_lp-filters.twig' %}
+    <!-- END ISOTOPE FILTER TABS--------------->
+    
+    <!-- ARTICLE TILE TEMPLATE--------------->
+    {% include 'modules/_publications.twig' with {
+    "tile":
+    {
+    articleList: [
+    {dataFilterClass: 'school', articleTileSize: 'middle', tileBig: true},
+    {dataFilterClass: 'school', articleTileSize: 'middle'},
+    {dataFilterClass: 'party', articleTileSize: 'high'},
+    {dataFilterClass: 'school', articleTileSize: 'small'},
+    {dataFilterClass: 'party', articleTileSize: 'middle'},
+    {dataFilterClass: 'school', articleTileSize: 'middle'},
+    {dataFilterClass: 'party', articleTileSize: 'middle'},
+    {dataFilterClass: 'life', articleTileSize: 'middle'},
+    {dataFilterClass: 'gramm', articleTileSize: 'middle'},
+    {dataFilterClass: 'life', articleTileSize: 'middle'},
+    {dataFilterClass: 'gramm', articleTileSize: 'middle'},
+    {dataFilterClass: 'gramm', articleTileSize: 'middle'},
+    {dataFilterClass: 'gramm', articleTileSize: 'middle'},
+    {dataFilterClass: 'gramm', articleTileSize: 'middle'},
+    ]
+    }
+    } %}
+    <!-- END ARTICLE TILE TEMPLATE--------------->
 
 </section>
 
