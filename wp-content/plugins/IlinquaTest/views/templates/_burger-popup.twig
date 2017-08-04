@@ -1,48 +1,44 @@
 <div class="burger-popup">
-	<span class="burger-popup__close-popup"></span>
-	<div class="burger-popup__language-navigation">
-		<h3 class="language-navigation__title"><span>iLingua</span>для студентов</h3>
-		<ul class="language-navigation__language-list">
-			{% for language in languageList %}
-				<li class="language-item"><a href="{{ language.post_url }}">{{ language.post_title }}</a></li>
-			{% endfor %}
-		</ul>
-		<div class="language-navigation__bottom-block">
-			{% if theme_options.phones is not empty %}
-				<a href="{% if contact_page_url  %}{{ contact_page_url }}{% else %}#{% endif %}">
-					<span class="phone">{{ theme_options.phones|first }}</span>
-				</a>
-			{% endif %}
-
-			<a href="{% if contact_page_url  %}{{ contact_page_url }}{% else %}#{% endif %}" class="button-next">
-				<img src="/wp-content/plugins/IlinquaTest/views/public/images/img_arrow-white.svg" alt=""/>
-			</a>
-		</div>
-	</div>
-	<div class="burger-popup__right-side">
-		<div class="burger-popup__corporate">
-			<div class="corporate__content">
-				<h3 class="corporate-title"><span>iLingua</span>Corporate</h3>
-				{% if theme_options.corporate_text !='' %}
-					<div class="corporate-descr">{{ theme_options.corporate_text }}</div>
-				{% endif %}
-
-				<a href="{% if corporate_page_url  %}{{ corporate_page_url }}{% else %}#{% endif %}" class="button-next">
-					<img src="/wp-content/plugins/IlinquaTest/views/public/images/img_arrow-grey.svg" alt=""/>
-				</a>
-			</div>
-		</div>
-		<div class="burger-popup__test" style="background-image: url('/wp-content/plugins/IlinquaTest/views/public/images/img_Test.svg')">
-			<div class="test__content">
-				<h3 class="test-title">Пройти тест</h3>
-				{% if theme_options.test_text !='' %}
-					<div class="test-descr">{{ theme_options.test_text }}</div>
-				{% endif %}
-
-				<a href="{% if test_page_url  %}{{ test_page_url }}{% else %}#{% endif %}" class="button-next">
-					<img src="/wp-content/plugins/IlinquaTest/views/public/images/img_arrow-grey.svg" alt=""/>
-				</a>
-			</div>
-		</div>
-	</div>
+    <span class="burger-popup__close-popup"></span>
+    <div class="burger-popup__language-navigation">
+        <h3 class="language-navigation__title"><span>iLingua</span>для студентов</h3>
+        <ul class="language-navigation__language-list">
+            {% for language in languageList %}
+                <li class="language-item"><a href="{{ language.post_url }}">{{ language.post_title }}</a></li>
+            {% endfor %}
+        </ul>
+        <div class="language-navigation__bottom-block">
+            {% if theme_options.phones is not empty %}
+                <a class="phone" href="{% if contact_page_url %}{{ contact_page_url }}{% else %}#{% endif %}">
+                    <span>{{ theme_options.phones|first }}</span> </a>
+            {% endif %}
+            
+            <a href="{% if contact_page_url %}{{ contact_page_url }}{% else %}#{% endif %}" class="button-next">
+                <img src="/wp-content/plugins/IlinquaTest/views/public/images/img_arrow-white.svg" alt=""/> </a>
+        </div>
+    </div>
+    <div class="burger-popup__right-side">
+        <div class="burger-popup__corporate">
+            <div class="corporate__content">
+                <h3 class="corporate-title"><span>iLingua</span>Corporate</h3>
+                {% if theme_options.corporate_text !='' %}
+                    <div class="corporate-descr">{{ theme_options.corporate_text }}</div>
+                {% endif %}
+                
+                <a href="{% if corporate_page_url %}{{ corporate_page_url }}{% else %}#{% endif %}" class="button-next">
+                    <img src="/wp-content/plugins/IlinquaTest/views/public/images/img_arrow-grey.svg" alt=""/> </a>
+            </div>
+        </div>
+        <div class="burger-popup__test" style="background-image: url('/wp-content/plugins/IlinquaTest/views/public/images/img_Test.svg')">
+            <div class="test__content">
+                <h3 class="test-title">Пройти тест</h3>
+                {% if theme_options.test_text !='' %}
+                    <div class="test-descr">{{ theme_options.test_text }}</div>
+                {% endif %}
+                
+                <a href="{% if test_page_url %}{{ test_page_url }}{% else %}#{% endif %}" class="button-next">
+                    <img src="/wp-content/plugins/IlinquaTest/views/public/images/img_arrow-grey.svg" alt=""/> </a>
+            </div>
+        </div>
+    </div>
 </div>

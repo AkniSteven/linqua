@@ -1,29 +1,26 @@
 <header id="header" class="header">
-	<div class="header__left-side">
-		<a href="#" class="burger-menu"></a>
-		<strong class="logo">
-			<a href="{{ site_url }}">
-				<img src="{{ theme.path }}/public/images/logo-white.svg" alt=""/>
-			</a>
-		</strong>
-	</div>
-	<ul class="header__right-side header-nav__list">
-		{% if primary_header_menu is not empty %}
-			{% for menu_item in primary_header_menu  %}
-				<li class="header-nav__item">
-					<a href="{{ menu_item.url }}" class="header-nav__link">{{ menu_item.title }}</a>
-				</li>
-			{% endfor %}
-			<li class="header-nav__item">
-				<a href="{% if corporate_page_url  %}{{ corporate_page_url }}{% else %}#{% endif %}" class="header-nav__link--striped">
-					<span class="tile"></span>
-					<span class="tile"></span>
-					<span class="tile"></span>
-					<span class="tile"></span>
-					<span class="tile"></span>
-					<span class="title">Corporate</span>
-				</a>
-			</li>
-		{% endif %}
-	</ul>
+    <div class="header__left-side">
+        <a href="#" class="burger-menu"></a>
+        <strong class="logo">
+            <a href="{{ site_url }}">
+                <img src="{{ theme.path }}/public/images/logo-white.svg" alt=""/>
+            </a>
+        </strong>
+    </div>
+    {#<div class="header-nav-wrapper swiper-container">#}
+        <div class="header__right-side header-nav__list">
+            {% if primary_header_menu is not empty %}
+                {% for menu_item in primary_header_menu %}
+                    <div class="header-nav__item">
+                        <a href="{{ menu_item.url }}" class="header-nav__link">{{ menu_item.title }}</a>
+                    </div>
+                {% endfor %}
+                <div class="header-nav__item">
+                    <a href="{% if corporate_page_url %}{{ corporate_page_url }}{% else %}#{% endif %}" class="header-nav__link--striped">
+                        <span class="tile"></span> <span class="tile"></span> <span class="tile"></span>
+                        <span class="tile"></span> <span class="tile"></span> <span class="title">Corporate</span> </a>
+                </div>
+            {% endif %}
+        </div>
+    {#</div>#}
 </header>

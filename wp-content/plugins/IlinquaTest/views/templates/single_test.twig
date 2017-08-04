@@ -81,7 +81,9 @@
                                                 </div>
                                             {% endfor %}
                                         {% elseif question.meta.question_type == "text" %}
-                                            <div class="answer-val"><textarea class="textarea" type="text" name="answer" value="" rows="10" name="text" required></textarea></div>
+                                            <div class="answer-val">
+                                                <textarea class="textarea" type="text" name="answer" value="" rows="10" name="text" required></textarea>
+                                            </div>
                                         {% endif %}
                                         {#<button class="answer-button submit_question" type="submit" >Ответить</button>#}
                                         <a class="answer-button submit_question btn" href="#answer-button">Далее</a>
@@ -98,7 +100,7 @@
                 {% endfor %}
             {% endif %}
         </div>
-
+        
         <!-- Отображаем при наличии класса на body finish-test-state -->
         <div class="test-finish">
             <div class="test-finish__title">Спасибо!</div>
