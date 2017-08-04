@@ -36,7 +36,7 @@
                         <span class="name">
                             {{ course.acf.headline_author_text.value }}
                         </span>
-                        <span class="descr">
+                            <span class="descr">
                            {{ course.acf.author_text.value }}
                         </span>
                         </div>
@@ -92,8 +92,12 @@
                                         {% endif %}
                                     {% endif %}
                                     <span class="article-more__name">
-                                    {{ post.post_title }}
-                                </span>
+                                        {% if post.acf.short_title.value != '' %}
+                                            {{ post.acf.short_title.value }}
+                                        {% else %}
+                                            {{ post.post_title }}
+                                        {% endif %}
+                                    </span>
                                 </a>
                             </li>
                             <li class="article-more__item">

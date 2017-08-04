@@ -7,7 +7,13 @@
             {% for course in coursesPosts %}
                 <div class="price-block__tariff-cell">
                     <a href="{{ course.post_url }}" class="tariff-cell__wrapper">
-                        <span class="tariff-cell__title">{{ course.post_title }}</span>
+                        <span class="tariff-cell__title">
+                            {% if course.acf.short_title.value != '' %}
+                                {{ course.acf.short_title.value }}
+                            {% else %}
+                                {{ course.post_title }}
+                            {% endif %}
+                        </span>
                         <div class="tariff-cell__value-holder">
                             <span class="value">{{ course.price }}</span> <span class="unit">грн/мес</span>
                         </div>
