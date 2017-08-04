@@ -5,21 +5,17 @@ namespace IlinquaTest\Model;
 /**
  * Class represents the answer, received from frontend.
  */
-class Answer
+class ВAnswer
 {
     /**
      * Create answer.
      *
-     * @param int        $questionId Question id.
-     * @param int|string $answer     Answer.
-     *
-     * @return void
      */
     public function __construct($questionId, $answer)
     {
         $this->questionId = $questionId;
-        $answer = unserialize($answer);
-        $answer = is_array($answer) ? $answer : [$answer];
+           //$answer = unserialize($answer);
+          //$answer = is_array($answer) ? $answer : [$answer];
     }
 
     /**
@@ -50,22 +46,22 @@ class Answer
     public function getScore()
     {
         $rightAnswer = unserialize(
-          get_post_meta(
-            $this->getQuestionId(),
-            'right_answer',
-             true
-           );
+            get_post_meta(
+                $this->getQuestionId(),
+                'right_answer',
+                true
+            ));
         $answer = $this->getAnswer();
         sort($answer);
         sort($rightAnswer);
 
         if ($answer != $rightAnswer) {
-          return 0;
+            return 0;
         }
         return get_post_meta(
-          $this->getQuestionId(),
-          'question_score',
-          true
+            $this->getQuestionId(),
+            'question_score',
+            true
         );
     }
 }

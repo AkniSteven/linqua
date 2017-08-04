@@ -55,7 +55,7 @@ class TestingController
             parse_str($_POST['data'], $data);
         }
         if (!empty($data)) {
-            $this->_model->addStep($data);
+           $step = $this->_model->addStep($data);
         }
 
         $currentTestId = $_SESSION['test_id'];
@@ -65,7 +65,10 @@ class TestingController
 
 
         $answerPool = new AnswerPool($currentTestId);
-        $answerPool->add(new Answer($data['question_id'], $data['answer'], $points));
+        $answerPool->add(
+            //new Answer($data['question_id'], $step, $step['user_score'] )
+            $step
+        );
         if ($this->isQuestionTheLast($currentTestId, $data['question_id'])) {
         }
 
@@ -97,18 +100,18 @@ class TestingController
         return $questionIds[$questionLevel];
     }
 
-    protected function canLevelUp(AnswerPool $answerPool, $questionLevel)
-    {
-        $points = 0;
-        $levelAnswers = array_filter(
-          $answerPool->getAll(),
-          function ($item) (use $questionLevel) {
-            return $this->getQuestionLevel($item->getQuestionId()) == $questionLevel;
-          }
-        );
-        foreach ($levelAnswers as $answer) {
-          $points += $answer->getScore();
-        }
-        //$passScore = get_post_meta(, 'score_for_pass', true);
-    }
+//    protected function canLevelUp(AnswerPool $answerPool, $questionLevel)
+//    {
+//        $points = 0;
+//        $levelAnswers = array_filter(
+//          $answerPool->getAll(),
+//          function ($item) (use $questionLevel) {
+//            return $this->getQuestionLevel($item->getQuestionId()) == $questionLevel;
+//          }
+//        );
+//        foreach ($levelAnswers as $answer) {
+//          $points += $answer->getScore();
+//        }
+//        //$passScore = get_post_meta(, 'score_for_pass', true);
+//    }
 }

@@ -45,7 +45,7 @@ class AnswerPool
      *
      * @return void
      */
-    public function add(Answer $answer)
+    public function add($answer)
     {
         $this->_answers[] = $answer;
         $this->save();

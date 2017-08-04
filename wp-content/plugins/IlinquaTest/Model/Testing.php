@@ -45,24 +45,52 @@ class Testing
 
     public function addStep(array $data)
     {
+
+        $step = [
+            'id' => '',
+            'title' => '',
+            'description' => '',
+            'right_answer' => '',
+            'user_answer' => '',
+            'question_score' => '',
+            'cached_score' => ''
+        ];
+
         $view = new PageView();
         $handler = $view->postsHandler;
-
-        $currentTest = get_post($_SESSION['test_id']);
-
-        $scoresForPass =  get_post_meta(
-            $currentTest->ID,
-            'score_for_pass',
-            true
-        );
+//
+//        $currentTest = get_post($_SESSION['test_id']);
+//
+//        $scoresForPass =  get_post_meta(
+//            $currentTest->ID,
+//            'score_for_pass',
+//            true
+//        );
 
         $currentQuestion = get_post($data['question_id']);
         $handler->setResult([0 =>$currentQuestion]);
         $handler->formattedMeta();
         $handler->formattedACF();
-        $currentQuestion = $handler->getResult();
+        $currentQuestion = $handler->getResult()[0];
 
         if ($data) {
+            if ($currentQuestion) {
+                $step['id'] = $data['question_id'];
+                $step['title'] = $currentQuestion->post_title;
+                $step['description'] = $currentQuestion->post_content;
+                $step['right_answer'] = get_post_meta(
+                    $currentQuestion->ID, 'right_answer', true
+                );
+                $step['user_answer'] = $data['answer'];
+                $step['question_score'] = $currentQuestion->meta['question_score'][0];
+                if ($step['right_answer'] == $step['user_answer']) {
+                    $step['cached_score'] = $step['question_score'];
+                } else {
+                    $step['cached_score'] = 0;
+                }
+            }
         }
+
+        return $step;
     }
 }
