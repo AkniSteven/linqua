@@ -134,7 +134,7 @@
                     position: absolute;
                     left: -9999px;
                 }
-                &:focus, &:valid {
+                &:focus {
                     & ~ .form__caret {
                         width: 100%;
                     }
@@ -148,6 +148,11 @@
                     z-index: 1;
                     @include anim($dur: .25s);
                     @include anim-param(width, color);
+                }
+                &.input--filled {
+                    & ~ .form__caret {
+                        width: 100%;
+                    }
                 }
             }
             @include placeholder {
@@ -447,6 +452,9 @@
             width: 50%;
             textarea {
                 max-height: 180px;
+                &:focus, &:valid {
+                    border-color: #fffc2b;
+                }
             }
             .answer-val {
                 min-height: 24px;
@@ -458,9 +466,7 @@
                     margin-bottom: 0;
                 }
                 .checkbox__title {
-                    display: inline-block;
                     font-size: 1.05rem;
-                    line-height: 1.5;
                 }
             }
         }

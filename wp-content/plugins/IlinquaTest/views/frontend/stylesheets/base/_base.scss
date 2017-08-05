@@ -1,83 +1,90 @@
 * {
-	box-sizing: border-box;
+   box-sizing: border-box;
 }
 
 html {
-	font-size: $fz;
-	height: 100%;
-	@include bp($point: $bpLarge, $type: min) {
-		//font-size:21px;
-	}
-	@include bp($bpTablet) {
-		font-size:12px;
-	}
-	@include bp($bpPortrait) {
-		font-size:16px;
-	}
-	@include bp($Mobile) {
-		font-size:16px;
-	}
+   font-size: $fz;
+   height: 100%;
+   @include bp($point: $bpLarge, $type: min) {
+      //font-size:21px;
+   }
+   @include bp($bpTablet) {
+      font-size: 12px;
+   }
+   @include bp($bpPortrait) {
+      font-size: 16px;
+   }
+   @include bp($Mobile) {
+      font-size: 16px;
+   }
 }
 
 body {
-	margin: 0;
-	font-family: $family;
-	line-height: $lh;
-	font-weight: 300;
-	height: 100%;
-	padding: 0;
+   margin: 0;
+   font-family: $family;
+   line-height: $lh;
+   font-weight: 300;
+   height: 100%;
+   padding: 0;
 }
 
 a {
-	text-decoration: none;
-	cursor: pointer;
-	color: #000;
+   text-decoration: none;
+   cursor: pointer;
+   color: #000;
 }
 
 input, textarea, select, button {
-	vertical-align: middle;
+   vertical-align: middle;
 }
 
 textarea {
-	resize: vertical;
-	overflow: auto;
-	vertical-align: top;
+   resize: vertical;
+   overflow: auto;
+   vertical-align: top;
 }
 
 .form__field {
-	input, textarea {
-		width: 100%;
-		appearance: none;
-		border: 0;
-		border-bottom: 1px solid #d9d9d9;
-		font-size: 1em;
-		color: #000;
-		font-weight: 300;
-		font-family:$family;
-		padding: 0 0 5px;
-		background: transparent;
-		& ~ label {
-			position: absolute;
-			left: -9999px;
-		}
-		&:focus, &:valid {
-			& ~ .form__caret {
-				width: 100%;
-			}
-		}
-		& ~ .form__caret {
-			position: absolute;
-			bottom: 0;
-			left: 0;
-			height: 2px;
-			width: 0;
-			z-index: 1;
-			background: blue;
-			@include anim($dur: .25s);
-			@include anim-param(width, color);
-		}
-	}
+   input, textarea {
+      width: 100%;
+      appearance: none;
+      border: 0;
+      border-bottom: 1px solid #d9d9d9;
+      font-size: 1em;
+      color: #000;
+      font-weight: 300;
+      font-family: $family;
+      padding: 0 0 5px;
+      background: transparent;
+      & ~ label {
+         position: absolute;
+         left: -9999px;
+      }
+      &:focus {
+         & ~ .form__caret {
+            width: 100%;
+         }
+      }
+      & ~ .form__caret {
+         position: absolute;
+         bottom: 0;
+         left: 0;
+         height: 2px;
+         width: 0;
+         z-index: 1;
+         background: blue;
+         @include anim($dur: .25s);
+         @include anim-param(width, color);
+      }
+      &.input--filled {
+         & ~ .form__caret {
+            width: 100%;
+         }
+      }
+   }
 }
+
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -88,113 +95,114 @@ textarea:-webkit-autofill:focus,
 select:-webkit-autofill,
 select:-webkit-autofill:hover,
 select:-webkit-autofill:focus {
-	border: 0;
-	-webkit-box-shadow: 0 0 0 1000px transparent inset !important;
-	transition: background-color 5000s ease-in-out 0s !important;
-	background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(0,174,255,0.04) 50%,rgba(255,255,255,0) 51%,rgba(0,174,255,0.03) 100%) !important;
-	background-color: transparent !important;
+   border: 0;
+   -webkit-box-shadow: 0 0 0 1000px transparent inset !important;
+   transition: background-color 5000s ease-in-out 0s !important;
+   background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 174, 255, 0.04) 50%, rgba(255, 255, 255, 0) 51%, rgba(0, 174, 255, 0.03) 100%) !important;
+   background-color: transparent !important;
 }
+
 input {
-	&:-webkit-autofill {
-		-webkit-text-fill-color: #fff;
-	}
+   &:-webkit-autofill {
+      -webkit-text-fill-color: #fff;
+   }
 }
 
 button {
-	width: auto;
-	text-transform: uppercase;
-	font-size: .75em;
-	font-weight: bold;
-	display: inline-block;
-	padding: 23px 25px;
-	background: blue;
-	appearance: none;
-	border: 0;
-	@include anim($param: color);
-	overflow: hidden;
-	position: relative;
-	span {
-		position: relative;
-		z-index: 1;
-	}
-	&:before {
-		content: '';
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		background: blue;
-		left: 0;
-		top: 0;
-		transform: rotateY(90deg);
-		@include anim($dur: .25s);
-		@include anim-param(transform, background);
-	}
-	//&:hover {
-	//	&:before {
-	//		transform: rotateY(0deg);
-	//	}
-	//}
-	&:active {
-		&:before, &:after {
-			background: blue;
-		}
-	}
+   width: auto;
+   text-transform: uppercase;
+   font-size: .75em;
+   font-weight: bold;
+   display: inline-block;
+   padding: 23px 25px;
+   background: blue;
+   appearance: none;
+   border: 0;
+   @include anim($param: color);
+   overflow: hidden;
+   position: relative;
+   span {
+      position: relative;
+      z-index: 1;
+   }
+   &:before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: blue;
+      left: 0;
+      top: 0;
+      transform: rotateY(90deg);
+      @include anim($dur: .25s);
+      @include anim-param(transform, background);
+   }
+   //&:hover {
+   //	&:before {
+   //		transform: rotateY(0deg);
+   //	}
+   //}
+   &:active {
+      &:before, &:after {
+         background: blue;
+      }
+   }
 }
 
 h1 {
-	font-size: 4rem;
-	line-height: 1.13;
-	font-weight: 500;
-	text-transform: uppercase;
-	letter-spacing: -2px;
-	// @include letter-spacing(3em, 1.125);
-	margin: 0 0 20px;
+   font-size: 4rem;
+   line-height: 1.13;
+   font-weight: 500;
+   text-transform: uppercase;
+   letter-spacing: -2px;
+   // @include letter-spacing(3em, 1.125);
+   margin: 0 0 20px;
 }
 
 h2 {
-	font-size: 4rem;
-	line-height: 1.13;
-	margin: 0 0 20px;
-	letter-spacing: -2px;
-	font-weight: 500;
-	// @include breakpoint(480) {font-size: 1.25rem;}
+   font-size: 4rem;
+   line-height: 1.13;
+   margin: 0 0 20px;
+   letter-spacing: -2px;
+   font-weight: 500;
+   // @include breakpoint(480) {font-size: 1.25rem;}
 }
 
 h3 {
-	font-size: 2rem;
-	line-height: 1.125;
-	font-weight: 900;
-	text-transform: uppercase;
-	margin: 0 0 20px;
+   font-size: 2rem;
+   line-height: 1.125;
+   font-weight: 900;
+   text-transform: uppercase;
+   margin: 0 0 20px;
 }
 
 h4 {
-	font-size: 2rem;
-	line-height: 1.125;
-	font-weight: 300;
-	letter-spacing: -1px;
-	margin: 0 0 20px;
+   font-size: 2rem;
+   line-height: 1.125;
+   font-weight: 300;
+   letter-spacing: -1px;
+   margin: 0 0 20px;
 }
 
 h5 {
-	font-size: 0.83rem;
-	margin: 1.67em 0;
+   font-size: 0.83rem;
+   margin: 1.67em 0;
 }
 
 h6 {
-	font-size: 0.75rem;
-	margin: 2.33em 0;
+   font-size: 0.75rem;
+   margin: 2.33em 0;
 }
 
 p {
-	line-height: 2;
+   line-height: 2;
 }
 
 .caption {
-	font-size: 0.875rem;
-	line-height: 1.45;
-	text-transform: uppercase;
-	color: rgba(0, 0, 0, 0.6);
+   font-size: 0.875rem;
+   line-height: 1.45;
+   text-transform: uppercase;
+   color: rgba(0, 0, 0, 0.6);
 }
 
 // ul {@extend %list-reset;}
