@@ -1,274 +1,287 @@
 //* {background:  red !important}
-.column-width{
-	width: 333px;
-	@include bp($point: $bpMiddle, $type: max) {
-	}
+.column-width {
+   width: 333px;
+   @include bp($point: $bpMiddle, $type: max) {
+   }
 }
+
 .gutter-sizer {
-	width: 333px;
+   width: 333px;
 }
+
 .lp-article {
-	&__tile {
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center top;
-		margin: 0;
-		margin-top: 40px;
-		@include anim($dur: .2s);
-		@include anim-param(width);
-		.article-tile__link {
-			position: relative;
-			display: block;
-		}
-		.article-tile__img {
-			width: 100%;
-			height: 100%;
-			display: flex;
-			flex-direction: column;
-			justify-content: flex-end;
-		}
-		&.events {
-			.article-tile__description {
-				position: absolute;
-				//top: 120px;
-				@include centerize(true, true);
-				width: 100%;
-				max-width: 515px;
-				text-align: center;
-				padding: 0;
-				.tile-description {
-					&__btn {
-						margin-bottom: 40px;
-					}
-					&__title, &__subtitle {
-						color: #fff;
-					}
-					&__title {
-						margin-bottom: 18px;
-					}
-					&__subtitle {
-						display: block;
-						//color: #fff;
-						color: #fff;
-					}
-				}
-			}
-		}
-		&.big {
-			width: 667px;
-			height: auto;
-			//height: calc(660px + 62px); // height picture + height figcaption
-			.article-tile__img {
-				height: 660px;
-			}
-			//&.events {
-			//	height: 660px;
-			//}
-			&:not(.events) {
-				height: calc(660px + 62px); // height picture + height figcaption
-			}
-		}
-		&.middle {
-			width: 293px;
-			height: auto;
-			.article-tile__img {
-				height: 320px;
-			}
-			&:not(.events) {
-				height: calc(320px + 62px); // height picture + height figcaption
-			}
-		}
-		&.high {
-			width: 293px;
-			height: auto;
-			&:not(.events) {
-				height: calc(401px + 62px);
-			}
-			.article-tile__img {
-				height: 401px;
-			}
-		}
-		&.small {
-			width: 293px;
-			height: auto;
-			&:not(.events) {
-				height: calc(200px + 62px);
-			}
-			.article-tile__img {
-				height: 200px;
-			}
-		}
-		@include bp($point: 1140, $type: max) {
-			&.events {
-				.article-tile__description {
-					//top: 80px;
-					max-width: 415px;
-					.tile-description {
-						&__btn {
-							margin-bottom: 40px;
-						}
-						&__title {
-							margin-bottom: 9px;
-						}
-					}
-				}
-			}
-			&.big {
-				width: 509px;
-				.article-tile__img {
-					height: 509px;
-				}
-				&:not(.events) {
-					height: calc(509px + 62px);
-				}
-			}
-			&.middle {
-				width: 235px;
-				.article-tile__img {
-					height: 257px;
-				}
-				&:not(.events) {
-					height: calc(257px + 62px); // height picture + height figcaption
-				}
-			}
-			&.high {
-				width: 235px;
-				.article-tile__img {
-					height: 320px;
-				}
-				&:not(.events) {
-					height: calc(320px + 62px);
-				}
-			}
-			&.small {
-				width: 234px;
-				.article-tile__img {
-					height: 160px;
-				}
-				&:not(.events) {
-					height: calc(160px + 62px);
-				}
-			}
-		}
-		@include bp($point: 768, $type: max) {
-			&.big {
-				width: 100%;
-				margin: 40px 0 auto;
-				&:not(.events) {
-					height: calc(528px + 62px); // height picture + height figcaption
-				}
-			}
-			&.middle {
-				width: 244px;
-				.article-tile__img {
-					height: 267px;
-				}
-				&:not(.events) {
-					height: calc(267px + 62px); // height picture + height figcaption
-				}
-			}
-			&.high {
-				width: 244px;
-				.article-tile__img {
-					height: 334px;
-				}
-				&:not(.events) {
-					height: calc(334px + 62px);
-				}
-			}
-			&.small {
-				width: 244px;
-				.article-tile__img {
-					height: 166.7px;
-				}
-				&:not(.events) {
-					height: calc(166.7px + 62px);
-				}
-			}
-		}
-		@include bp($point: 640, $type: max) {
-			padding: 0 2vw;
-			&.big {
-				&:not(.events) {
-					max-height: 528px;
-					//min-height: 450px;
-					height: calc(82vw + 62px); // height picture + height figcaption
-				}
-				.article-tile__img {
-					height: 82vw;
-				}
-			}
-			&.high {
-				width: 100%;
-				max-width: 600px;
-				margin: 40px 0 auto;
-				max-height: calc(513px + 62px);
-				.article-tile__img {
-					height: 80.3vw;
-					max-height: 513px;
-				}
-				&:not(.events) {
-					height: calc(80.3vw + 62px); // height picture + height figcaption
-				}
-			}
-			&.middle {
-				width: 100%;
-				max-width: 600px;
-				margin: 40px 0 auto;
-				max-height: calc(389px + 62px);
-				.article-tile__img {
-					height: 63.3vw;
-					max-height: 389px;
-				}
-				&:not(.events) {
-					height: calc(63.3vw + 62px); // height picture + height figcaption
-				}
-			}
-			&.small {
-				width: 100%;
-				max-width: 600px;
-				margin: 40px 0 auto;
-				max-height: calc(341px + 62px);
-				.article-tile__img {
-					height: 53.3vw;
-					max-height: 341px;
-				}
-				&:not(.events) {
-					height: calc(53.3vw + 62px); // height picture + height figcaption
-				}
-			}
-		}
-	}
+   &__tile {
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center top;
+      margin: 0;
+      margin-top: 40px;
+      @include anim($dur: .2s);
+      @include anim-param(width);
+      .article-tile__link {
+         position: relative;
+         display: block;
+      }
+      .article-tile__img {
+         width: 100%;
+         height: 100%;
+         display: flex;
+         flex-direction: column;
+         justify-content: flex-end;
+      }
+      &.events {
+         .article-tile__description {
+            position: absolute;
+            //top: 120px;
+            @include centerize(true, true);
+            width: 100%;
+            max-width: 515px;
+            text-align: center;
+            padding: 0;
+            .tile-description {
+               &__btn {
+                  margin-bottom: 40px;
+               }
+               &__title, &__subtitle {
+                  color: #fff;
+               }
+               &__title {
+                  margin-bottom: 18px;
+               }
+               &__subtitle {
+                  display: block;
+                  //color: #fff;
+                  color: #fff;
+               }
+            }
+         }
+      }
+      &.big {
+         width: 667px;
+         height: auto;
+         //height: calc(660px + 62px); // height picture + height figcaption
+         .article-tile__img {
+            height: 660px;
+         }
+         //&.events {
+         //	height: 660px;
+         //}
+         &:not(.events) {
+            height: calc(660px + 62px); // height picture + height figcaption
+         }
+      }
+      &.middle {
+         width: 293px;
+         height: auto;
+         .article-tile__img {
+            height: 320px;
+         }
+         &:not(.events) {
+            height: calc(320px + 62px); // height picture + height figcaption
+         }
+      }
+      &.high {
+         width: 293px;
+         height: auto;
+         &:not(.events) {
+            height: calc(401px + 62px);
+         }
+         .article-tile__img {
+            height: 401px;
+         }
+      }
+      &.small {
+         width: 293px;
+         height: auto;
+         &:not(.events) {
+            height: calc(200px + 62px);
+         }
+         .article-tile__img {
+            height: 200px;
+         }
+      }
+      @include bp($point: 1140, $type: max) {
+         &.events {
+            .article-tile__description {
+               //top: 80px;
+               max-width: 415px;
+               .tile-description {
+                  &__btn {
+                     margin-bottom: 40px;
+                  }
+                  &__title {
+                     margin-bottom: 9px;
+                  }
+               }
+            }
+         }
+         &.big {
+            width: 509px;
+            .article-tile__img {
+               height: 509px;
+            }
+            &:not(.events) {
+               height: calc(509px + 62px);
+            }
+         }
+         &.middle {
+            width: 235px;
+            .article-tile__img {
+               height: 257px;
+            }
+            &:not(.events) {
+               height: calc(257px + 62px); // height picture + height figcaption
+            }
+         }
+         &.high {
+            width: 235px;
+            .article-tile__img {
+               height: 320px;
+            }
+            &:not(.events) {
+               height: calc(320px + 62px);
+            }
+         }
+         &.small {
+            width: 234px;
+            .article-tile__img {
+               height: 160px;
+            }
+            &:not(.events) {
+               height: calc(160px + 62px);
+            }
+         }
+      }
+      @include bp($point: 768, $type: max) {
+         &.big {
+            width: 100%;
+            margin: 40px 0 auto;
+            &:not(.events) {
+               height: calc(528px + 62px); // height picture + height figcaption
+            }
+         }
+         &.middle {
+            width: 244px;
+            .article-tile__img {
+               height: 267px;
+            }
+            &:not(.events) {
+               height: calc(267px + 62px); // height picture + height figcaption
+            }
+         }
+         &.high {
+            width: 244px;
+            .article-tile__img {
+               height: 334px;
+            }
+            &:not(.events) {
+               height: calc(334px + 62px);
+            }
+         }
+         &.small {
+            width: 244px;
+            .article-tile__img {
+               height: 166.7px;
+            }
+            &:not(.events) {
+               height: calc(166.7px + 62px);
+            }
+         }
+      }
+      @include bp($point: 640, $type: max) {
+         padding: 0 2vw;
+         &.big {
+            &:not(.events) {
+               max-height: 528px;
+               //min-height: 450px;
+               height: calc(82vw + 62px); // height picture + height figcaption
+            }
+            .article-tile__img {
+               height: 82vw;
+            }
+         }
+         &.high {
+            width: 100%;
+            max-width: 600px;
+            margin: 40px 0 auto;
+            max-height: calc(513px + 62px);
+            .article-tile__img {
+               height: 80.3vw;
+               max-height: 513px;
+            }
+            &:not(.events) {
+               height: calc(80.3vw + 62px); // height picture + height figcaption
+            }
+         }
+         &.middle {
+            width: 100%;
+            max-width: 600px;
+            margin: 40px 0 auto;
+            max-height: calc(389px + 62px);
+            .article-tile__img {
+               height: 63.3vw;
+               max-height: 389px;
+            }
+            &:not(.events) {
+               height: calc(63.3vw + 62px); // height picture + height figcaption
+            }
+         }
+         &.small {
+            width: 100%;
+            max-width: 600px;
+            margin: 40px 0 auto;
+            max-height: calc(341px + 62px);
+            .article-tile__img {
+               height: 53.3vw;
+               max-height: 341px;
+            }
+            &:not(.events) {
+               height: calc(53.3vw + 62px); // height picture + height figcaption
+            }
+         }
+      }
+      @include bp($point: 639, $type: max) {
+         &.high {
+            margin: 20px 0 auto;
+         }
+         &.middle {
+            margin: 20px 0 auto;
+         }
+         &.small {
+            margin: 20px 0 auto;
+         }
+      }
+   }
 }
 
 .article-tile {
-	&__link {
-		display: block;
-		height: 100%;
-	}
-	&__img {
-		width: 100%;
-		background-repeat: no-repeat;
-		background-size: cover;
-		background-position: center top;
-	}
-	&__description {
-		min-height: 62px;
-		padding: 20px 20px 0 0;
-		font-size: 1.125rem;
-		line-height: 1.22;
-		font-weight: 300;
-	}
-	@include bp($point: 1140, $type: max) {
-		&__description {
-			padding: 13px 20px 0 0;
-		}
-	}
-	@include bp($point: 640, $type: max) {
-		&__description {
-			padding: 20px 20px 0 30px;
-		}
-	}
+   &__link {
+      display: block;
+      height: 100%;
+   }
+   &__img {
+      width: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center top;
+   }
+   &__description {
+      min-height: 62px;
+      padding: 20px 20px 0 0;
+      font-size: 1.125rem;
+      line-height: 1.22;
+      font-weight: 300;
+   }
+   @include bp($point: 1140, $type: max) {
+      &__description {
+         padding: 13px 20px 0 0;
+      }
+   }
+   @include bp($point: 640, $type: max) {
+      &__description {
+         padding: 20px 20px 0 30px;
+      }
+   }
 }
 
 

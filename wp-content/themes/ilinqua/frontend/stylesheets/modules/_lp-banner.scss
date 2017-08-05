@@ -81,10 +81,19 @@
    @include bp($point: 640, $type: max) {
       height: 460px;
       &__title {
+         width:auto;
          max-width: 400px;
          margin-left: 40px;
          padding-top: 20vh;
          font-size: 3.5rem;
+      }
+   }
+   @include bp($point: 639, $type: max) {
+      height: 460px;
+      &__title {
+         padding-top: 117px;
+         font-size: 2.8rem;
+         line-height: 1.05;
       }
    }
    @include bp($point: 480, $type: max) {

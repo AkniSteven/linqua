@@ -37,7 +37,7 @@
             .language {
                 width: 128px;
                 height: 40px;
-                background: #0c7aff;
+                background: transparentize(#000, .75);
                 line-height: 40px;
                 text-align: center;
                 margin: 0 0 20px;
@@ -288,7 +288,7 @@
             }
         }
         .grid-item {
-            float: left;
+            //float: left;
         }
         
         &__link {
@@ -374,6 +374,15 @@
             }
             &__item {
                 //width: 26%;
+            }
+        }
+    }
+    @include bp($point: 1145, $type: max) {
+        &-main {
+            &-more {
+                &__title {
+                    margin: 0 0 40px;
+                }
             }
         }
     }
@@ -683,7 +692,6 @@
         &-more {
             &__holder {
                 width: 100%;
-                padding: 0 10px;
             }
             &__title {
                 margin: 0 0 20px;
