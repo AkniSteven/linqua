@@ -100,20 +100,6 @@
                                     </span>
                                 </a>
                             </li>
-                            <li class="article-more__item">
-                                <a class="article-more__link" href="{{ post.post_url }}">
-                                    {% if post.default_thumnail_url !='' or post.main_thumnail_url !='' %}
-                                        {% if  post.main_thumnail_url !='' %}
-                                            <img src="{{ post.main_thumnail_url }}" alt="{{ post.main_thumnail_name }}">
-                                        {% else %}
-                                            <img src="{{ post.default_thumnail_url }}" alt="{{ post.default_thumnail_name }}">
-                                        {% endif %}
-                                    {% endif %}
-                                    <span class="article-more__name">
-                                    {{ post.post_title }}
-                                </span>
-                                </a>
-                            </li>
                         {% endfor %}
                     </ul>
                 </div>
