@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: icefier
- * Date: 07.10.16
- * Time: 0:49
- */
 /* Template Name: Single-course Template */
 
 global $core;
@@ -28,8 +22,7 @@ if ($post) {
     $storyImagePostType = $config->getConfig(
         "postImages", "style_config"
     )["story_image"]["post_type"];
-    
-        
+
     $model->setResult(['0'=>$post]);
     $model->formattedACF();
     $model->setMainThumbnailUrls();
@@ -40,9 +33,8 @@ if ($post) {
     $post = $model->getResult();
     $context['course'] = $post[0];
 }
+
 if (!empty($context['course'])) {
-
-
     $byTheTheme = $context['course']->acf['by_the_theme']['value'];
     if (!empty($byTheTheme)) {
         $model->setResult($byTheTheme);
@@ -51,11 +43,10 @@ if (!empty($context['course'])) {
         $model->setMainThumbnailUrls();
         $byTheTheme = $model->getResult();
     }
-    
-    
+
     $context['by_the_theme'] = $byTheTheme;
-    
     $authorID = $context['course']->post_author;
+
     if ($authorID) {
        $authorData = get_user_by(
            'ID', $authorID
@@ -64,8 +55,34 @@ if (!empty($context['course'])) {
            'image', "user_{$authorID}"
        )['sizes']['thumbnail'];
         
-       $context['author_name'] = $authorData ? $authorData->display_name : '';
+       $context['author_name'] = $authorData
+           ? $authorData->display_name : '';
        $context['author_thumb'] = $authorThumb ? $authorThumb : '';
+    }
+
+    $currentLangIds = wp_get_post_terms(
+        $context['course']->ID,
+        'language',
+        ['fields' => 'ids', 'hide_empty'=>true]
+    );
+
+    $currentLangId = !empty($currentLangIds) ? $currentLangIds[0] : '';
+    $context['catalog_url'] = '';
+    #course url
+    if (!empty($currentLangId)) {
+        if (!empty($context['home_pages'])) {
+            foreach ($context['home_pages'] as $page) {
+                $homePageIds = wp_get_post_terms(
+                    $page->ID,
+                    'language',
+                    ['fields' => 'ids', 'hide_empty'=>true]
+                );
+                $homePageId = !empty($homePageIds) ? $homePageIds[0] : '';
+                if ($homePageId !='' && $homePageId == $currentLangId) {
+                   $context['catalog_url'] = $page->post_url;
+                }
+            }
+        }
     }
 }
 

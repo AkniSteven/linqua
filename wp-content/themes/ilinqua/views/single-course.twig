@@ -15,7 +15,23 @@
                 <div class="article-header__title">
                     {% if course.acf.label.value != '' %}
                         <div class="language">
-                            <span>{{ course.acf.label.value }}</span>
+                            {% if course.acf.label_link.value != '' %}
+                            <span>
+                                <a href="{{ course.acf.label_link.value  }}">
+                                    {{ course.acf.label.value }}
+                                </a>
+                            </span>
+                            {% elseif  catalog_url !='' %}
+                                <span>
+                                <a href="{{ catalog_url  }}">
+                                    {{ course.acf.label.value }}
+                                </a>
+                            </span>
+                            {% else %}
+                                <span>
+                                    {{ course.acf.label.value }}
+                                </span>
+                            {% endif %}
                         </div>
                     {% endif %}
                     <h1 class="title">
