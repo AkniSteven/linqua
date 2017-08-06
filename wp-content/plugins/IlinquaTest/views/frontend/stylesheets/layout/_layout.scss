@@ -23,7 +23,7 @@
    height: 120px;
    padding: 0 40px;
    background-color: transparent;
-   z-index: 15;
+   z-index: 1001;
    will-change: height, padding;
    @include anim-param(height, padding);
    @include anim($dur: .25s);
