@@ -15,9 +15,17 @@ $taxQuery = [];
 $categoriesFilters=[];
 
 if ($post && $post->post_type == 'page') {
-    $context['page'] = $post;
+    $model->setResult([$post]);
+    $model->setMainThumbnailUrls();
+    $model->formattedAcf();
+    $context['page'] = $model->getResult()[0];
     $pageLangTerms = Data::getPostTermIds($post, 'language');
+    $context['color'] = $context['page']->acf['page_background']['value']
+        ? $context['page']->acf['page_background']['value'] : '';
+    $context['background_image_url'] = $context['page']->main_thumnail_url
+        ? : '';
 }
+
 if (!empty($pageLangTerms)) {
     $taxQuery['relation'] = "AND";
     $taxQuery[] = [

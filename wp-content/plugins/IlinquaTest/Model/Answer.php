@@ -5,7 +5,7 @@ namespace IlinquaTest\Model;
 /**
  * Class represents the answer, received from frontend.
  */
-class ВAnswer
+class Answer
 {
     /**
      * Create answer.

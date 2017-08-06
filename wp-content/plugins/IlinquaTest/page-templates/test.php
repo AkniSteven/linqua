@@ -6,8 +6,8 @@ use IlinquaTest\Helper\Data;
 
 global $post;
 global $core;
-$testing = new TestingController();
 
+$testing = new TestingController();
 $view = new PageView();
 $config = Data::getConfig('show');
 $context = $core->get_context();
@@ -54,6 +54,7 @@ if (!empty($post)) {
         $testSteps = $countQuestionsIds;
         $context['test_steps'] = $testSteps;
     }
+
     if (!empty($questionIds)) {
         $i=1;
         foreach ($questionIds as $val) {
@@ -67,10 +68,8 @@ if (!empty($post)) {
 
             $handler->setPosts();
             $handler->formattedMeta();
-            //$handler->setCustomPostMeta('question_score');
             $handler->setCustomPostMeta('question_type');
             $handler->setCustomPostMeta('answer_case');
-            //$handler->setCustomPostMeta('right_answer');
             $handler->setMainThumbnailUrls();
             $postQuestions[$i] = $handler->getResult();
             if ($questionsRandom == "y") {
@@ -111,6 +110,7 @@ if (!empty($post)) {
             }
         }
     }
+
     if ($testSteps > 0 && count($postQuestions) > $testSteps) {
         array_splice($postQuestions, $testSteps);
     }
@@ -134,6 +134,19 @@ if (!empty($post)) {
     }
 }
 $context['ajax_url'] = get_site_url() . '/wp-admin/admin-ajax.php';
+$context['last_questions_ids'] = [];
+
+if (!empty($context['questions'])) {
+    foreach ($context['questions'] as $key=>$level) {
+        if (is_array($level)) {
+            $context['last_questions_ids'][$key] = end($level)->ID;
+        }
+    }
+}
+
+if (!empty($context['last_questions_ids'])) {
+    $_SESSION['last_questions_ids'] = $context['last_questions_ids'];
+}
 
 $view->display('single_test.twig', $context);
 

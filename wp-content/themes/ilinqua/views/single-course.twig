@@ -15,7 +15,23 @@
                 <div class="article-header__title">
                     {% if course.acf.label.value != '' %}
                         <div class="language">
-                            <span>{{ course.acf.label.value }}</span>
+                            {% if course.acf.label_link.value != '' %}
+                            <span>
+                                <a href="{{ course.acf.label_link.value  }}">
+                                    {{ course.acf.label.value }}
+                                </a>
+                            </span>
+                            {% elseif  catalog_url !='' %}
+                                <span>
+                                <a href="{{ catalog_url  }}">
+                                    {{ course.acf.label.value }}
+                                </a>
+                            </span>
+                            {% else %}
+                                <span>
+                                    {{ course.acf.label.value }}
+                                </span>
+                            {% endif %}
                         </div>
                     {% endif %}
                     <h1 class="title">
@@ -98,20 +114,6 @@
                                             {{ post.post_title }}
                                         {% endif %}
                                     </span>
-                                </a>
-                            </li>
-                            <li class="article-more__item">
-                                <a class="article-more__link" href="{{ post.post_url }}">
-                                    {% if post.default_thumnail_url !='' or post.main_thumnail_url !='' %}
-                                        {% if  post.main_thumnail_url !='' %}
-                                            <img src="{{ post.main_thumnail_url }}" alt="{{ post.main_thumnail_name }}">
-                                        {% else %}
-                                            <img src="{{ post.default_thumnail_url }}" alt="{{ post.default_thumnail_name }}">
-                                        {% endif %}
-                                    {% endif %}
-                                    <span class="article-more__name">
-                                    {{ post.post_title }}
-                                </span>
                                 </a>
                             </li>
                         {% endfor %}

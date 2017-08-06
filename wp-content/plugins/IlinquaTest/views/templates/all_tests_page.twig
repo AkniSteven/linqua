@@ -19,8 +19,12 @@
     <div class="choose-test">
         {% if page is not empty %}
             <h1 class="choose-test__title">
-                Тест
-                {#{{ page.post_title }}#}
+                {% if alternative_title !='' %}
+                    {{ alternative_title  }}
+                {% else %}
+                    {{ page.post_title }}
+                {% endif %}
+
             </h1>
         {% endif %}
         <div class="choose-test__language">
