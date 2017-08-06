@@ -333,12 +333,14 @@
 .field-error {
    & + span {
       position: absolute;
-      bottom: -100%;
+      top: calc(100% + 5px);
       left: 0;
       width: 100%;
       color: #ff4430;
       font-size: 14px;
+      line-height: 1;
    }
 }
+
 
 /* ---------- END Input styles ---------- */

@@ -26,17 +26,17 @@
             {% if session_test_id != test.ID %}
                 <form id="start-form" action="" method="post" name="test">
                     <div class="form__field">
-                        <input type="hidden" name="test_id" value="{{ test.ID }}"/>
-                        <input type="hidden" name="realStepsCount" value="{{ realStepsCount }}"/>
-                        <input id="name" placeholder="Имя" name="name"/> <label for="name">Имя</label>
+                        <input type="hidden" name="test_id" value="{{ test.ID }}" />
+                        <input type="hidden" name="realStepsCount" value="{{ realStepsCount }}" />
+                        <input id="name" placeholder="Имя" name="name" /> <label for="name">Имя</label>
                         <span class="form__caret"></span>
                     </div>
                     <div class="form__field">
-                        <input id="tel" placeholder="Телефон" name="tel" class="validate-phone-no-empty"/>
+                        <input id="tel" placeholder="Телефон" name="tel" class="validate-phone-no-empty" />
                         <label for="tel">Телефон</label> <span class="form__caret"></span>
                     </div>
                     <div class="form__field">
-                        <input id="email" placeholder="Email" name="email"/> <label for="email">Email</label>
+                        <input id="email" placeholder="Email" name="email" /> <label for="email">Email</label>
                         <span class="form__caret"></span>
                     </div>
                     <div class="btn yellow">

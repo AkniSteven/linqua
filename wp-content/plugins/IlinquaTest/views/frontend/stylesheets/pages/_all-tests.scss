@@ -51,6 +51,38 @@
          width: 100%;
       }
    }
+   @include bp($point: 1440, $type: min) {
+      padding: 200px 0 0 12.3vw;
+      .language-list {
+         margin-left: 133px;
+         &__language-item {
+            margin-bottom: 15px;
+            a {
+               font-size: 2rem;
+            }
+         }
+      }
+      &__title {
+         text-transform: none;
+         font-size: 3.6rem;
+      }
+   }
+   @include bp($point: 1440, $type: max) {
+      padding: 150px 0 0 12.3vw;
+      .language-list {
+         margin-left: 98px;
+         &__language-item {
+            margin-bottom: 8px;
+            a {
+               font-size: 1.6rem;
+            }
+         }
+      }
+      &__title {
+         text-transform: none;
+         font-size: 3.6rem;
+      }
+   }
    @include bp($point: $bpTablet, $type: max) {
       &__img-holder {
          width: 47vw;

@@ -134,7 +134,7 @@
                     position: absolute;
                     left: -9999px;
                 }
-                &:focus, &:valid {
+                &:focus {
                     & ~ .form__caret {
                         width: 100%;
                     }
@@ -148,6 +148,11 @@
                     z-index: 1;
                     @include anim($dur: .25s);
                     @include anim-param(width, color);
+                }
+                &.input--filled {
+                    & ~ .form__caret {
+                        width: 100%;
+                    }
                 }
             }
             @include placeholder {
@@ -243,6 +248,17 @@
             }
         }
     }
+    @include bp($point: 890, $type: max) {
+        .user-info {
+            padding: 0 12.2vw 25px;
+            .btn {
+                input {
+                    padding:22px 40px;
+                    font-size: .8rem;
+                }
+            }
+        }
+    }
 }
 
 /* ---------- END User info form ---------- */
@@ -321,9 +337,6 @@
                     position: relative;
                     height: 100%;
                     padding: 0;
-                    label {
-                        display: inline-flex;
-                    }
                 }
             }
         }
@@ -407,9 +420,9 @@
         &__title {
             position: relative;
             width: 100%;
-            margin-bottom: 30px;
+            margin-bottom: 42px;
             padding-left: 40px;
-            font-size: 1.2rem;
+            font-size: 1.45rem;
             font-weight: 500;
             text-transform: none;
             .question-number {
@@ -439,17 +452,28 @@
             width: 50%;
             textarea {
                 max-height: 180px;
+                &:focus, &:valid {
+                    border-color: #fffc2b;
+                }
             }
             .answer-val {
-                margin-bottom: 10px;
+                min-height: 24px;
+                margin-bottom: 30px;
+                &:last-child {
+                    margin-bottom: 0;
+                }
                 label {
                     margin-bottom: 0;
+                }
+                .checkbox__title {
+                    font-size: 1.05rem;
                 }
             }
         }
         .answer-button {
             margin-top: 80px;
             margin-left: 40px;
+            padding:23px 45px;
             /* ---------- Language page style ---------- */
             .english & {
                 background: #fffc2b;
