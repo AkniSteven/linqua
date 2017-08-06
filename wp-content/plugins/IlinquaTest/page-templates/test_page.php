@@ -15,6 +15,9 @@ $testPosts = [];
 if ($post) {
     $context['page'] = $post;
 }
+
+$context['alternative_title'] = get_post_field('alternative_title');
+
 if (!empty($config['test'])) {
     $handler->setArgs($config['test']);
     $handler->setPosts();
