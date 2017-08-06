@@ -65,26 +65,39 @@ class TestingController
 
 
         $answerPool = new AnswerPool($currentTestId);
-        $answerPool->add(
-            //new Answer($data['question_id'], $step, $step['user_score'] )
-            $step
-        );
-        if ($this->isQuestionTheLast($currentTestId, $data['question_id'])) {
-        }
+        $answerPool->add($step);
 
-        //if ($this->isQuestionTheLast($currentTestId, $data['question_id']) && !$this->canLevelUp($answerPool)) {
-        //}
-        // Check if this is the last question of the level.
-        // If it is the last one, stop the test.
-        // Save history from session to db.
-        // Send a letter to somebody.
-        echo print_r('test', true);
+        if ($this->isQuestionTheLast($data['question_id'])) {
+            if($this->canLevelUp($answerPool)) {
+
+            }
+            echo print_r('test', true);
+        }
+        wp_die();
     }
 
-    protected function isQuestionTheLast($testId, $questionId)
+    /**
+     *  Method to get last question
+     *
+     * @param $questionId
+     * @return bool
+     */
+    protected function isQuestionTheLast($questionId)
     {
-        $levelQuestionIds = $this->getAllQuestionIds($questionId);
-        return $questionId == last($levelQuestionIds);
+        $lastQuestionsIds = [];
+        $level = $this->getQuestionLevel($questionId);
+
+        if ($_SESSION['last_questions_ids']
+            && !empty($_SESSION['last_questions_ids'])) {
+            $lastQuestionsIds = $_SESSION['last_questions_ids'];
+        }
+
+        if ($level && $questionId) {
+            if (isset($lastQuestionsIds[$level])) {
+                return $questionId == $lastQuestionsIds[$level];
+            }
+        }
+        return false;
     }
 
     protected function getQuestionLevel($questionId)
@@ -92,26 +105,17 @@ class TestingController
         return get_post_meta($questionId, 'question_level', true);
     }
 
-    protected function getLevelQuestionIds($questionId)
-    {
-        $currentTest = get_post($testId);
-        $questionIds = get_post_meta($testId, 'questions', true);
-        $questionLevel = $this->getQuestionLevel($questionid);
-        return $questionIds[$questionLevel];
-    }
 
-//    protected function canLevelUp(AnswerPool $answerPool, $questionLevel)
-//    {
+    protected function canLevelUp(AnswerPool $answerPool, $questionLevel)
+    {
 //        $points = 0;
 //        $levelAnswers = array_filter(
 //          $answerPool->getAll(),
-//          function ($item) (use $questionLevel) {
-//            return $this->getQuestionLevel($item->getQuestionId()) == $questionLevel;
-//          }
+//            1
 //        );
 //        foreach ($levelAnswers as $answer) {
 //          $points += $answer->getScore();
 //        }
-//        //$passScore = get_post_meta(, 'score_for_pass', true);
-//    }
+        //$passScore = get_post_meta(, 'score_for_pass', true);
+    }
 }
