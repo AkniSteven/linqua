@@ -2,7 +2,6 @@ requirejs([
     'jquery'
 ],function($){
     var testing_obj = {
-
         submit_btn: '.submit_question',
 
         init:function(){
@@ -26,7 +25,9 @@ requirejs([
                 },
                 dataType: 'html',
                 success: function (response) {
-                    alert(response);
+                    if (response =='end') {
+
+                    }
                 },
                 error: function () {
                     console.log(0);

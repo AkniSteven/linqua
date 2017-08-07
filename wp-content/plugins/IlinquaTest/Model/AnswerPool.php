@@ -17,7 +17,7 @@ class AnswerPool
     /**
      * All the answers, given by current user for the testId questions.
      */
-    protected $_answers = array();
+    protected $_answers = [];
 
     /**
      * Load answers, that are already in session, by test id.
@@ -30,10 +30,10 @@ class AnswerPool
     {
         $this->_testId = $testId;
         if (!isset($_SESSION['quiz'])) {
-            $_SESSION['quiz'] = array();
+            $_SESSION['quiz'] = [];
         }
         if (!isset($_SESSION['quiz'][$this->_testId])) {
-            $_SESSION['quiz'][$this->_testId] = array();
+            $_SESSION['quiz'][$this->_testId] = [];
         }
         $this->_answers = unserialize($_SESSION['quiz'][$this->_testId]);
     }
@@ -45,9 +45,9 @@ class AnswerPool
      *
      * @return void
      */
-    public function add($answer)
+    public function add($answer, $level)
     {
-        $this->_answers[] = $answer;
+        $this->_answers[$level][] = $answer;
         $this->save();
     }
 
@@ -80,5 +80,30 @@ class AnswerPool
     public function getAll()
     {
         return $this->_answers;
+    }
+
+    /**
+     * @param string|integer $level
+     *
+     * @return int
+     */
+    public function countAnswers($level='')
+    {
+        $count = 0;
+        $allAnswers = $this->getAll();
+        if (!empty($allAnswers)) {
+            if ($level === '') {
+                foreach ($this->getAll() as $answers) {
+                    $count += count($answers);
+                }
+            } else {
+                if ($allAnswers[$level]) {
+                    $count = count($allAnswers[$level]);
+                }
+            }
+        }
+
+
+        return $count;
     }
 }

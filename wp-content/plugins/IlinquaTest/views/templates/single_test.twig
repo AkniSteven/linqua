@@ -75,7 +75,7 @@
                                             {% for key, answer in question.meta.answer_case %}
                                                 <div class="answer-val">
                                                     <label for="checkbox-id__{{ loop.index * question.ID }}" class="checkbox">
-                                                        <input type="checkbox" name="answer" required id="checkbox-id__{{ loop.index * question.ID }}" value="{{ key }}"/>
+                                                        <input type="checkbox" name="answer[]" required id="checkbox-id__{{ loop.index * question.ID }}" value="{{ key }}"/>
                                                         <span class="checkbox__frame"></span>
                                                         <span class="checkbox__title">{{ answer }}</span> </label>
                                                 </div>

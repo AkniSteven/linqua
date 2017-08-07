@@ -51,29 +51,37 @@ class TestingController
     public function addTestStep()
     {
         $data = [];
+
         if ($_POST['data']) {
             parse_str($_POST['data'], $data);
         }
+
         if (!empty($data)) {
-           $step = $this->_model->addStep($data);
-        }
+            $currentTestId = $_SESSION['test_id'];
+            $currentStep = $data['current_step'];
+            $level = $this->getQuestionLevel($data['question_id']);
+            $answerPool = new AnswerPool($currentTestId);
 
-        $currentTestId = $_SESSION['test_id'];
-        if (empty($currentTestId)) {
-            throw new Exception('No quiz started.');
-        }
-
-
-        $answerPool = new AnswerPool($currentTestId);
-        $answerPool->add($step);
-
-        if ($this->isQuestionTheLast($data['question_id'])) {
-            if($this->canLevelUp($answerPool)) {
-
+            if ($answerPool->countAnswers($level) > $currentStep) {
+                $answerPool->drop();
             }
-            echo print_r('test', true);
+
+            $level = $this->getQuestionLevel($data['question_id']);
+            $step = $this->_model->addStep($data);
+
+            if (empty($currentTestId)) {
+                throw new Exception('No quiz started.');
+            }
+
+            $answerPool->add($step, $level);
+
+            if ($this->isQuestionTheLast($data['question_id'])) {
+                if (!$this->canLevelUp($answerPool, $level)) {
+                    echo 'end';
+                }
+            }
+            wp_die();
         }
-        wp_die();
     }
 
     /**
@@ -100,22 +108,45 @@ class TestingController
         return false;
     }
 
+    /**
+     * Method to get question level
+     *
+     * @param $questionId
+     * @return mixed
+     */
     protected function getQuestionLevel($questionId)
     {
         return get_post_meta($questionId, 'question_level', true);
     }
 
 
+    /**
+     * Method to levelup
+     *
+     * @param AnswerPool $answerPool
+     * @param $questionLevel
+     * @return bool
+     */
     protected function canLevelUp(AnswerPool $answerPool, $questionLevel)
     {
-//        $points = 0;
-//        $levelAnswers = array_filter(
-//          $answerPool->getAll(),
-//            1
-//        );
-//        foreach ($levelAnswers as $answer) {
-//          $points += $answer->getScore();
-//        }
-        //$passScore = get_post_meta(, 'score_for_pass', true);
+        $points = 0;
+        $stepsCount = $_SESSION['realStepsCount'];
+        if (!$stepsCount || $questionLevel >= $stepsCount) {
+            return false;
+        }
+        $levelAnswers = !empty($answerPool->getAll()[$questionLevel])
+        ? $answerPool->getAll()[$questionLevel] : [];
+        $passScore = get_post_meta(
+            $answerPool->_testId, 'score_for_pass', true
+        )[$questionLevel];
+        if (!empty($levelAnswers) && $passScore) {
+            foreach ($levelAnswers as $answer) {
+                $points += $answer['cached_score'];
+            }
+            if ($points >= $passScore) {
+                return true;
+            }
+        }
+        return false;
     }
 }

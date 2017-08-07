@@ -58,14 +58,6 @@ class Testing
 
         $view = new PageView();
         $handler = $view->postsHandler;
-//
-//        $currentTest = get_post($_SESSION['test_id']);
-//
-//        $scoresForPass =  get_post_meta(
-//            $currentTest->ID,
-//            'score_for_pass',
-//            true
-//        );
 
         $currentQuestion = get_post($data['question_id']);
         $handler->setResult([0 =>$currentQuestion]);
@@ -82,7 +74,9 @@ class Testing
                     $currentQuestion->ID, 'right_answer', true
                 );
                 $step['user_answer'] = $data['answer'];
-                $step['question_score'] = $currentQuestion->meta['question_score'][0];
+                $step['question_score'] = $currentQuestion
+                    ->meta['question_score'][0];
+
                 if ($step['right_answer'] == $step['user_answer']) {
                     $step['cached_score'] = $step['question_score'];
                 } else {
@@ -90,7 +84,6 @@ class Testing
                 }
             }
         }
-
         return $step;
     }
 }

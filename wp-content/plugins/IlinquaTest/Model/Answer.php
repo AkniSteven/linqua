@@ -14,8 +14,6 @@ class Answer
     public function __construct($questionId, $answer)
     {
         $this->questionId = $questionId;
-           //$answer = unserialize($answer);
-          //$answer = is_array($answer) ? $answer : [$answer];
     }
 
     /**
