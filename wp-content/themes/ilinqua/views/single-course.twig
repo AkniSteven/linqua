@@ -95,10 +95,10 @@
             <div class="article-more">
                 <div class="article-more__holder">
                     <div class="article-more__title">По теме</div>
-                    <ul class="article-more__list">
+                    <div class="article-more__list grid" id="grid">
                         <div class="column-width--article"></div>
                         {% for post in by_the_theme %}
-                            <li class="article-more__item">
+                            <div class="article-more__item grid-item">
                                 <a class="article-more__link" href="{{ post.post_url }}">
                                     {% if post.default_thumnail_url !='' or post.main_thumnail_url !='' %}
                                         {% if  post.main_thumnail_url !='' %}
@@ -115,9 +115,9 @@
                                         {% endif %}
                                     </span>
                                 </a>
-                            </li>
+                            </div>
                         {% endfor %}
-                    </ul>
+                    </div>
                 </div>
             </div>
         {% endif %}
