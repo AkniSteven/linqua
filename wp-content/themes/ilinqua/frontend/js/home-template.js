@@ -1,7 +1,6 @@
 requirejs([
     'jquery',
     'ScrollMagic',
-//	'masonry.pkgd',
     'swiper',
     'animation.gsap',
     'TweenMax',
@@ -35,43 +34,6 @@ requirejs([
 
         priceCellChangePosition();
 
-//		var ua = navigator.userAgent.toLowerCase();
-////		ui = (navigator.userAgent.match('CriOS'));
-//		var vHeight = 200;
-//
-//		if (ua.indexOf('safari') != -1) {
-//			alert('safari');
-////			if (ua.indexOf('Chrome') > -1) {
-////				$('.language-banner').css({
-////					height: '100vh'
-////				});
-////				alert('asd');
-////			} else {
-////				$('.language-banner').height($(window).height() / 1 - vHeight);
-////			}
-//		} else if(ua.match('CriOS') > -1) {
-//			alert('chrome')
-//		}
-//		function get_name_browser(){
-//			// получаем данные userAgent
-//			var ua = navigator.userAgent;
-//			// с помощью регулярок проверяем наличие текста,
-//			// соответствующие тому или иному браузеру
-//			if (ua.search(/Chrome/) > 0) return 'Google Chrome';
-//			if (ua.search(/Firefox/) > 0) return 'Firefox';
-//			if (ua.search(/Opera/) > 0) return 'Opera';
-//			if (ua.search(/Safari/) > 0) return 'Safari';
-//			if (ua.search(/MSIE/) > 0) return 'Internet Explorer';
-//			// условий может быть и больше.
-//			// сейчас сделаны проверки только
-//			// для популярных браузеров
-//			return 'Не определен';
-//		}
-//
-//// пример использования
-//		var browser = get_name_browser();
-//		alert(browser);
-////
         var is_chrome = navigator.userAgent.indexOf('Chrome') > -1;
         var is_explorer = navigator.userAgent.indexOf('MSIE') > -1;
         var is_firefox = navigator.userAgent.indexOf('Firefox') > -1;
@@ -80,18 +42,8 @@ requirejs([
         if ((is_chrome) && (is_safari)) {
             is_safari = false;
         }
-
-//		if (is_safari) alert('Sacdscfari');
-//		if (is_chrome) alert('Chrome');
-//		alert(navigator.userAgent);
-////		$(window).resize(function () {
-////			if (isiPad > -1) {
-////				$('.language-banner').height($(window).height() / 1 - vHeight);
-////			}
-////		});
     }
 
-//
     iosHeightFix();
     /* ========== END End ios trouble fix  ========== */
 
@@ -163,39 +115,6 @@ requirejs([
     }
 
     priceCellChangePosition();
-    /* ========== END Price cell change position ========== */
-
-    /* ========== Masonry init ========== */
-    /*masonryInit();
-     function masonryInit() {
-     var elem = document.querySelector('.lp-article__holder');
-     var msnry = new Masonry(elem, {
-     itemSelector: 'figure',
-     columnWidth: 293,
-     gutter: 40,
-     });
-
-     /!* ========== Infinity scroll ========== *!/
-     var ias = jQuery.ias({
-     container: '#article-list',
-     item: 'figure',
-     next: '.lp-article__next',
-     delay: 100
-     });
-     ias.on('render', function (items) {
-     $(items).css({opacity: 0});
-     });
-
-     ias.on('rendered', function (items) {
-     msnry.appended(items);
-     });
-     ias.extension(new IASSpinnerExtension());
-     ias.extension(new IASTriggerExtension({offset: 4}));
-     ias.extension(new IASNoneLeftExtension({text: "You reached the end"}));
-     /!* ========== END Infinity scroll  ========== *!/
-     }*/
-
-    /* ========== END Masonry init  ========== */
 
 });
 
