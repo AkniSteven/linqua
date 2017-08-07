@@ -4,7 +4,7 @@ requirejs([
 ], function ($) {
 
 	'use strict';
-	var indexPage = {
+	let indexPage = {
 		init: function () {
 			this.burgerPopupOpen();
 		},
@@ -18,8 +18,15 @@ requirejs([
 			/* ========== Burger popup close ========== */
 			$('.burger-popup__close-popup').on('click', function () {
 				$(this).parents('body').removeClass('burger-popup--open');
+				console.log('sdvdfsvdfbv');
 			});
 			/* ========== END Burger popup close  ========== */
+
+//			$(document).ready(function(){
+//				$('.burger-menu').click(function(){
+//					$(this).toggleClass('open');
+//				});
+//			});
 		}
 	};
 	indexPage.init();
