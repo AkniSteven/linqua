@@ -41,7 +41,9 @@
 
 /* ---------- END Extend styles ---------- */
 .burger-popup--open {
-    padding-right: 15px;
+    @include bp($point: 1024, $type: min) {
+        padding-right: 15px;
+    }
     .burger-popup__close-popup {
         &:before, &:after {
             animation-duration: .2s;
