@@ -11,7 +11,8 @@ requirejs([
 		/* ========== Burger popup open ========== */
 		burgerPopupOpen: function () {
 			$('.burger-menu').on('click', function () {
-				$(this).parents('body').addClass('burger-popup--open');
+				$(this).parents('body').toggleClass('burger-popup--open');
+
 			});
 			/* ========== END Burger popup open  ========== */
 

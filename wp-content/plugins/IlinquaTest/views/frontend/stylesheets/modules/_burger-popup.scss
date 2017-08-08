@@ -40,29 +40,66 @@
 }
 
 /* ---------- END Extend styles ---------- */
-
+.burger-popup--open {
+   .burger-popup__close-popup {
+      &:before, &:after {
+         animation-duration: .2s;
+         animation-timing-function: ease-in-out;
+         animation-fill-mode: forwards;
+      }
+      &:before {
+         animation-name: closeBtnAnimation1;
+      }
+      &:after {
+         animation-name: closeBtnAnimation2;
+      }
+      
+   }
+   .burger-popup {
+      &__corporate, &__test {
+         transform: translateX(0);
+      }
+      &__corporate{
+         transition: transform .4s cubic-bezier(0.23, 1, 0.32, 1) .05s;
+      }
+      &__test {
+         transition: transform .4s cubic-bezier(0.23, 1, 0.32, 1) 1s;
+      }
+   }
+}
+@keyframes closeBtnAnimation1 {
+   0% {transform: translate3d(-50%, -50%, 0) rotate(0deg);}
+   100% {transform: translate3d(-50%, -50%, 0) rotate(45deg);}
+}
+@keyframes closeBtnAnimation2 {
+   0% {transform: translate3d(-50%, -50%, 0) rotate(0deg);}
+   100% {transform: translate3d(-50%, -50%, 0) rotate(-45deg);}
+}
 .burger-popup {
-   //display: none;
    width: 100%;
    height: 100vh;
    position: absolute;
    top: 0;
-   left: -100%;
-   //transform: translate3d(-100%, 0, 0);
+   left: 15px;
+   //transform: translateX(-10%);
    display: flex;
    flex-flow: row nowrap;
    opacity: 0;
-   visibility: hidden;
    pointer-events: none;
    z-index: 99;
-   transition: opacity .25s, visibility .25s, transform 0s ease .3s;
+   will-change: opacity;
+   transition: opacity .2s ease-in-out;
+   .contact-page & {
+      left: 0;
+   }
    &__close-popup {
       position: absolute;
       top: 40px;
-      left: 40px;
+      left: 25px;
       width: 40px;
       height: 40px;
       cursor: pointer;
+      z-index: 2;
       &:before, &:after {
          content: '';
          display: inline-block;
@@ -75,10 +112,12 @@
          @include anim($param: background, $dur: .15s);
       }
       &:before {
-         transform: translate3d(-50%, -50%, 0) rotate(45deg);
+         transform: translate3d(-50%, -50%, 0) rotate(0);
+         //transform: translate3d(-50%, -50%, 0) rotate(45deg);
       }
       &:after {
-         transform: translate3d(-50%, -50%, 0) rotate(-45deg);
+         transform: translate3d(-50%, -50%, 0) rotate(0);
+         //transform: translate3d(-50%, -50%, 0) rotate(-45deg);
       }
       &:hover {
          &:before, &:after {
@@ -92,15 +131,14 @@
       display: flex;
       flex-flow: column nowrap;
       @extend %sectionPadding;
+      z-index: 1;
    }
    .burger-popup--open & {
-      left: 0;
-      //display: flex;
-      //transform: translate3d(0, 0, 0);
+      //left: 15px;
       opacity: 1;
-      visibility: visible;
       pointer-events: auto;
-      transition: opacity .25s, visibility .25s, transform 0s;
+      transition: opacity .2s ease-in-out;
+      padding-right: 15px;
    }
    .language-navigation {
       &__title {
@@ -191,19 +229,21 @@
       }
    }
    &__corporate {
+      //transform: translateX(-50%);
+      //transition: transform .4s cubic-bezier(0.23, 1, 0.32, 1) .05s;
       background: linear-gradient(to right,
-         #e4e4e4 0%,
-         #e4e4e4 19.99%,
-         #dadada 20%,
-         #dadada 39.75%,
-         #cbcbcb 0.5%,
-         #d1d1d1 40%,
-         #d1d1d1 59.99%,
-         #c8c8c8 60%,
-         #c8c8c8 79.75%,
-         #b8b8b8 0.5%,
-         #bfbfbf 80%,
-         #bfbfbf 100%);
+              #e4e4e4 0%,
+              #e4e4e4 19.99%,
+              #dadada 20%,
+              #dadada 39.75%,
+              #cbcbcb 0.5%,
+              #d1d1d1 40%,
+              #d1d1d1 59.99%,
+              #c8c8c8 60%,
+              #c8c8c8 79.75%,
+              #b8b8b8 0.5%,
+              #bfbfbf 80%,
+              #bfbfbf 100%);
    }
    &__test {
       position: relative;
@@ -211,6 +251,8 @@
       background-position: 100% 100%;
       background-size: 353px;
       background-repeat: no-repeat;
+      //transform: translateX(-50%);
+      //transition: transform .4s cubic-bezier(0.23, 1, 0.32, 1) .1s;
       .test-title {
          max-width: 150px;
       }
@@ -310,12 +352,16 @@
       }
    }
    @include bp($point: 1024, $type: max) {
+      left: 0;
+      .burger-popup--open & {
+         padding-right: 0;
+      }
       &__language-navigation {
          padding-left: 12vw;
       }
       &__corporate {
          .corporate-title {
-            font-size: 1.7rem;
+            font-size:1.7rem;
             margin-bottom: 24px;
          }
          .corporate-descr {
@@ -326,6 +372,10 @@
    @include bp($point: 768, $type: max) {
       flex-flow: column nowrap;
       height: auto;
+      left: 0;
+      .burger-popup--open & {
+         padding-right: 0;
+      }
       &__close-popup {
          width: 30px;
          height: 30px;
@@ -394,8 +444,8 @@
    }
    @include bp($point: 640, $type: max) {
       &__language-navigation {
-         //padding-top: 40px;
-         padding-left: 6vw;
+         padding-top: 40px;
+         padding-left: 40px;
       }
       &__close-popup {
          width: 30px;
@@ -422,7 +472,7 @@
          }
          &__bottom-block {
             .phone {
-               margin-bottom: 15px;
+               margin-bottom: 5px;
                display: block;
                font-size: 1.5rem;
             }
@@ -430,7 +480,8 @@
       }
       &__corporate, &__test {
          padding-top: 35px;
-         padding-bottom: 30px;
+         padding-bottom: 40px;
+         padding-left: 40px;
          .corporate-descr, .test-descr {
             max-width: 80%;
             margin-bottom: 55px;
@@ -443,8 +494,18 @@
          }
       }
       &__test {
-         background-size: 60vw;
-         background-position: 130% 100%;
+         background-size: 55vw;
+         background-position: 120% 100%;
       }
    }
+   @include bp($point: 478, $type: max) {
+      &__test {
+         background-size: 78vw;
+         background-position: 160% 100%;
+      }
+   }
+}
+
+.contact-page .burger-popup--open {
+   padding-right: 0;
 }
