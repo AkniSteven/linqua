@@ -140,6 +140,10 @@
       transition: opacity .2s ease-in-out;
       padding-right: 15px;
    }
+   .all-tests & {
+      left: 0;
+      padding-right: 0;
+   }
    .language-navigation {
       &__title {
          margin-bottom: 31px;

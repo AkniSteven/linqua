@@ -27,8 +27,17 @@
    will-change: height, padding;
    @include anim-param(height, padding);
    @include anim($dur: .25s);
+   .logo-white {
+      display: none;
+   }
    .english & {
       //background: $colorBgEn;
+      .logo-color {
+         display: none;
+      }
+      .logo-white {
+         display: block;
+      }
    }
    @include bp($point: 1680, $type: min) {
       height: 140px;
