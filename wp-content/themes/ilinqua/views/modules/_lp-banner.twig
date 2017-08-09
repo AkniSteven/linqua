@@ -1,13 +1,13 @@
 <div class="language-banner"
      {% if background_image_url !='' %}
-         style="background-image: url('{{ background_image_url }}');"
+         style="background-image: url('{{ background_image_url }}'); background-color: {{ color }}"
      {% else %}
-         style="background-image: url('{{ theme.path }}/public/images/img_En.svg');"
+         style="background-image: url('{{ theme.path }}/public/images/img_En.svg'); background-color: {{ color }}"
      {% endif %}
 >
-    <span style="display:none;">
+{#    <span style="display:none;">
         color : {{ color }}
-    </span>
+    </span>#}
     <h1 class="language-banner__title">
         {% if page.post_content != "" %}
             {{ page.post_content }}

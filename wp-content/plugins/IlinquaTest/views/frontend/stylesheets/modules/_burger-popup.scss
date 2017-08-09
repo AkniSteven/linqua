@@ -90,6 +90,7 @@
    transition: opacity .2s ease-in-out;
    .contact-page & {
       left: 0;
+      height: 100%;
    }
    &__close-popup {
       position: absolute;
@@ -144,9 +145,10 @@
       padding-right: 0;
    }
    #single-test-page & {
-      padding-right: 0;
-      left: 0;
+      //height: 100%;
+      //overflow: hidden;
    }
+   
    .language-navigation {
       &__title {
          margin-bottom: 31px;
@@ -450,6 +452,11 @@
       }
    }
    @include bp($point: 640, $type: max) {
+      transform: translateX(-100%);
+      height: auto;
+      .burger-popup--open & {
+         transform: translateX(0);
+      }
       &__language-navigation {
          padding-top: 40px;
          padding-left: 40px;
@@ -515,4 +522,15 @@
 
 .contact-page .burger-popup--open {
    padding-right: 0;
+   height: auto;
+}
+
+#single-test-page {
+   .burger-popup {
+      //height: 100%;
+   }
+   &.burger-popup--open {
+      .burger-popup {
+      }
+   }
 }

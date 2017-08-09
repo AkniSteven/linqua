@@ -151,6 +151,7 @@
     }
     .contact-page & {
         padding-right: 0;
+        height: 100%;
     }
     .article-page & {
         padding-right: 0;
@@ -458,6 +459,16 @@
         }
     }
     @include bp($point: 640, $type: max) {
+        transform: translateX(-100%);
+        //height: auto;
+        
+        .contact-page & {
+            height: 100%;
+        }
+        .burger-popup--open & {
+            height: auto;
+            transform: translateX(0);
+        }
         &__language-navigation {
             padding-top: 40px;
             padding-left: 40px;
@@ -519,4 +530,11 @@
          background-position: 160% 100%;
       }
    }
+}
+
+.contact-page .burger-popup--open {
+    padding-right: 0;
+    @include bp($point: 640, $type: max) {
+        //height: auto;
+    }
 }
