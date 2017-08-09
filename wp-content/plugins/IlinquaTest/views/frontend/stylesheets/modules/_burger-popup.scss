@@ -81,7 +81,6 @@
    position: absolute;
    top: 0;
    left: 15px;
-   //transform: translateX(-10%);
    display: flex;
    flex-flow: row nowrap;
    opacity: 0;
@@ -143,6 +142,10 @@
    .all-tests & {
       left: 0;
       padding-right: 0;
+   }
+   #single-test-page & {
+      padding-right: 0;
+      left: 0;
    }
    .language-navigation {
       &__title {

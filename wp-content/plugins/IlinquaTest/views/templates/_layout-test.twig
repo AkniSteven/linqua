@@ -5,10 +5,9 @@
 	<meta content="IE=10" http-equiv="X-UA-Compatible">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
 	<title>{% spaceless %}{% block title %}{% endblock %}{% endspaceless %}</title>
-
+	
 	{% block base_stylesheets %}
-		<link href="/wp-content/plugins/IlinquaTest/views/public/css/styles.css" media="all"
-			  rel="stylesheet">
+		<link href="/wp-content/plugins/IlinquaTest/views/public/css/styles.css" media="all" rel="stylesheet">
 		{% block stylesheets %}{% endblock %}
 	{% endblock %}
 	{% block base_scripts %}
@@ -19,11 +18,11 @@
 		<script async="async" src="{% block jsEntryPoint %}{% endblock %}"></script>
 		{% block scripts %}{% endblock %}
 	{% endblock %}
-
+	
 	<script type='text/javascript' id="__bs_script__">
 		//<![CDATA[
-//		document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.14.0.js'><\/script>"
-//			.replace("HOST", location.hostname));
+		//		document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.14.0.js'><\/script>"
+		//			.replace("HOST", location.hostname));
 		//]]>
 	</script>
 
@@ -35,23 +34,23 @@
 	{% block header %}
 		{#{% include 'layout-blocks/_header.twig' %}#}
 		{% include 'layout-blocks/_header.twig' with {
-			"all_tests" : {
-				"logoColor": 'ilingua_logo.svg',
-				"logoWhite": 'logo-white.svg',
-			}
+		"all_tests" : {
+		"logoColor": 'ilingua_logo.svg',
+		"logoWhite": 'logo-white.svg',
+		}
 		} %}
 	{% endblock %}
-
+	
 	{% include '_burger-popup.twig' %}
-
+	
 	<main id="main">
 		{% block content %}
-			
+		
 		{% endblock %}
 	</main>
-
+	
 	{% block footer %}
-
+	
 	{% endblock %}
 
 </div>

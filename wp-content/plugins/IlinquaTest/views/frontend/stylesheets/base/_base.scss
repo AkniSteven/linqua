@@ -30,8 +30,17 @@ body {
    @include bp($point: 1024, $type: min) {
       &.burger-popup--open {
          padding-right: 17px;
+         &.all-tests {
+            padding-right: 0;
+         }
+         &#single-test-page {
+            padding-right: 0;
+         }
       }
       &.contact-page {
+         padding-right: 0;
+      }
+      &.all-tests {
          padding-right: 0;
       }
    }
