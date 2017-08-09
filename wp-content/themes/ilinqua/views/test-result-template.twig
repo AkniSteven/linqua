@@ -15,7 +15,38 @@
     <section class="language-holder">
         {% include 'modules/_lp-banner.twig' %}
         <div class="content">
+            ID Теста: {{ testID }}
             Тест пользователя : {{ name }} {{ email }}
+            Подробности:
+            {% if test_answers is not empty %}
+                {% for level in test_answers %}
+                     <div class="level">
+                         <h3>Уровень: {{ loop.index}}</h3>
+                         {% if level is not empty %}
+                            {% for answers in level %}
+                                {% for answer in level %}
+                                    <div class="answer">
+                                        <h5>{{ answer.title }}</h5>
+                                        <div class="description">
+                                            {{ answer.description }}
+                                        </div>
+                                        <div>
+                                            правильные ответы:
+                                        </div>
+                                        <div>
+                                            Ответы пользователя:
+                                        </div>
+                                        <div>
+                                           <span>Количество балов за вопрос: {{ answer.question_score }}</span>
+                                           <span>Получено балов за вопрос: {{ answer.cached_score }}</span>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            {% endfor %}
+                         {% endif %}
+                     </div>
+                {% endfor %}
+            {% endif %}
         </div>
     </section>
 {% endblock %}
