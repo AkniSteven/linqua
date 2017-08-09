@@ -241,6 +241,9 @@
          }
       }
       @include bp($point: 639, $type: max) {
+         &.big {
+            margin: 10px 0 auto;
+         }
          &.high {
             margin: 20px 0 auto;
          }
