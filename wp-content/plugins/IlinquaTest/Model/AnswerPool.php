@@ -102,8 +102,6 @@ class AnswerPool
                 }
             }
         }
-
-
         return $count;
     }
 }

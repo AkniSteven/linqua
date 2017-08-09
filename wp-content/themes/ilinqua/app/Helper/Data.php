@@ -53,6 +53,15 @@ class Data
     public static function getTermPermalink($term, $taxonomyName )
     {
         return get_term_link($term,$taxonomyName); 
-
     }
+
+    public static function getUserRole()
+    {
+        global $wp_roles;
+        $currentUser = wp_get_current_user();
+        $roles = $currentUser->roles;
+        $role = array_shift($roles);
+        return $wp_roles->role_names[$role];
+    }
+
 }

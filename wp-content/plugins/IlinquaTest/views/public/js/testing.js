@@ -18,7 +18,7 @@ requirejs([
         addTestStep:function(data) {
             $.ajax({
                 type: 'POST',
-                url:$('#ajax').data('url'),
+                url: $('#ajax').data('url'),
                 data: {
                     'action': 'addTestStep',
                     'data': data

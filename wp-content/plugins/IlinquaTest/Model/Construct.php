@@ -8,10 +8,11 @@
  */
 namespace IlinquaTest\Model;
 
-
 class Construct
 {
     public $config;
+
+    protected $_configPage;
 
     public function __construct()
     {
@@ -22,7 +23,13 @@ class Construct
         add_action('init', [$this, 'create_plugin_table']);
         add_action('init', [$this, 'registerTaxType']);
         add_action('init', [$this, 'registerPostType']);
+        add_action('init', [$this, 'initConfigPage']);
 
+    }
+
+    public function initConfigPage()
+    {
+        $this->_configPage = new TestConfigPage();
     }
 
     /**
@@ -69,7 +76,6 @@ class Construct
 
     /**
      * This add only the test page (
-     * TODO::Rewrite this hardcode!
      */
     public function add_test_page()
     {
@@ -84,7 +90,6 @@ class Construct
     }
     /**
      * This display only test page
-     * TODO::Rewrite this hardcode!
      */
     public function display_test_page()
     {

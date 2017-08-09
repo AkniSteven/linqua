@@ -1,0 +1,21 @@
+{% extends '_layout.twig' %}
+
+{% block title %}
+    {{ page.post_name }}
+{% endblock %}
+
+{% block jsEntryPoint %}
+{% endblock %}
+
+{% block scripts %}
+
+{% endblock %}
+
+{% block content %}
+    <section class="language-holder">
+        {% include 'modules/_lp-banner.twig' %}
+        <div class="content">
+            Тест пользователя : {{ name }} {{ email }}
+        </div>
+    </section>
+{% endblock %}

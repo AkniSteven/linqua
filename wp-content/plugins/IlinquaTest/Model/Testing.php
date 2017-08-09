@@ -2,7 +2,6 @@
 
 namespace IlinquaTest\Model;
 
-use IlinquaTest\Model\TestDb;
 use IlinquaTest\Controller\PageView;
 use IlinquaTest\Helper\Data;
 
@@ -23,6 +22,11 @@ class Testing
         }
     }
 
+    /**
+     * Method to start testing
+     *
+     * @param array $data
+     */
     public function startTesting(array $data)
     {
         if (session_id()) {
@@ -43,9 +47,12 @@ class Testing
         }
     }
 
+    /**
+     * @param array $data
+     * @return array
+     */
     public function addStep(array $data)
     {
-
         $step = [
             'id' => '',
             'title' => '',
@@ -75,15 +82,51 @@ class Testing
                 );
                 $step['user_answer'] = $data['answer'];
                 $step['question_score'] = $currentQuestion
-                    ->meta['question_score'][0];
 
-                if ($step['right_answer'] == $step['user_answer']) {
-                    $step['cached_score'] = $step['question_score'];
-                } else {
-                    $step['cached_score'] = 0;
-                }
+                    ->meta['question_score'][0];
+                $step['cached_score'] = $this->countScore(
+                    $step['right_answer'],
+                    $step['user_answer'],
+                    $step['question_score']
+                );
+
             }
         }
         return $step;
+    }
+
+    /**
+     * Method to get score
+     *
+     * @param $rightAnswer
+     * @param $userAnswer
+     * @param $score
+     * @return int
+     */
+    protected function countScore($rightAnswer, $userAnswer, $score)
+    {
+        $points = 0;
+        if (is_array($rightAnswer) || is_array($userAnswer)) {
+            if (!(count($userAnswer) > count($rightAnswer))) {
+                if ($userAnswer == $rightAnswer) {
+                    $points = $score;
+                } else {
+                    $scorePoint = $score / count($rightAnswer);
+                    if (is_array($rightAnswer)) {
+                        $right = array_intersect($rightAnswer, $userAnswer);
+                        $points = $scorePoint * count($right);
+                    } else {
+                        if (in_array($userAnswer, $rightAnswer)) {
+                            $points = $scorePoint;
+                        }
+                    }
+                }
+            }
+        } else {
+            if ($userAnswer == $rightAnswer) {
+                $points = $score;
+            }
+        }
+        return $points;
     }
 }

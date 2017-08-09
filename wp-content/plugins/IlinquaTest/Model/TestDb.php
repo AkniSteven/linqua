@@ -1,9 +1,10 @@
 <?php
+
 namespace IlinquaTest\Model;
+
 Class TestDb
 {
     const TABLE_NAME = 'test';
-
 
     public function add_customer($name, $phone, $email)
     {
@@ -23,8 +24,6 @@ Class TestDb
             )
         ));
         return $wpdb->insert_id;
-
-
     }
 
     public function getTests()
@@ -32,6 +31,16 @@ Class TestDb
         global $wpdb;
         $table_name = $wpdb->prefix . self::TABLE_NAME;
         $sql = "SELECT id, name, email, status, info, test, score , date FROM  $table_name";
+        $wpdb->query($sql);
+        $result = $wpdb->get_results($sql, ARRAY_A);
+        return $result;
+    }
+
+    public function getTestById($id)
+    {
+        global $wpdb;
+        $table_name = $wpdb->prefix . self::TABLE_NAME;
+        $sql = "SELECT id, name, info, email, test from $table_name WHERE id='$id'";
         $wpdb->query($sql);
         $result = $wpdb->get_results($sql, ARRAY_A);
         return $result;
@@ -46,26 +55,33 @@ Class TestDb
 
 
     }
-    public function delete_customer($id)
+
+    public function updateTest($testerId, $testId, $answers)
     {
         global $wpdb;
-        $table_name = $wpdb->prefix . self::PLUGIN_NAME;
+        $table_name = $wpdb->prefix . self::TABLE_NAME;
+        $sql = "UPDATE $table_name SET test = '$testId', info='$answers' WHERE id='$testerId'";
+        return $wpdb->query($sql);
+    }
+
+    public function deleteTest($id)
+    {
+        global $wpdb;
+        $table_name = $wpdb->prefix .self::TABLE_NAME;
         $sql = "DELETE FROM $table_name WHERE id=$id";
         $wpdb->query($sql);
 
     }
+
     public function change_charset($string){
         mb_convert_encoding($string, 'windows-1251', 'utf-8');
         return $string;
     }
+
     public function export_csv()
     {
-
-
         $customers = $this->get_customers();
-
         if ($customers) {
-
             $exportfile = array();
             foreach($customers as $customer){
 
@@ -82,12 +98,10 @@ Class TestDb
 
                 $exportfile[] = array($customer['id'],$name , $phone , $status, $date);
             }
-
             return $exportfile;
-
         }
-
     }
+
     public function download_send_headers($filename)
     {
         // disable caching
@@ -121,5 +135,4 @@ Class TestDb
         fclose($df);
         return ob_get_clean();
     }
-
 }

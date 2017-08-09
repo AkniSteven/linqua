@@ -3,7 +3,7 @@
 namespace IlinquaTest\Controller;
 
 use IlinquaTest\Model\Testing;
-use IlinquaTest\Controller\PageView;
+use IlinquaTest\Model\TestDb;
 
 use IlinquaTest\Model\AnswerPool;
 use IlinquaTest\Model\Answer;
@@ -13,6 +13,11 @@ use IlinquaTest\Model\Answer;
  */
 class TestingController
 {
+    /**
+     * @var $_dbModel
+     */
+    private $_dbModel;
+
     /**
      * Test model.
      */
@@ -26,6 +31,7 @@ class TestingController
     public function __construct()
     {
         $this->_model = new Testing();
+        $this->_dbModel = new TestDb();
         $this->_view =  new PageView();
     }
 
@@ -77,11 +83,22 @@ class TestingController
 
             if ($this->isQuestionTheLast($data['question_id'])) {
                 if (!$this->canLevelUp($answerPool, $level)) {
+                    $this->saveTest($answerPool);
                     echo 'end';
                 }
             }
             wp_die();
         }
+    }
+
+    private function saveTest(AnswerPool $answerPool)
+    {
+        $testerId = $_SESSION['tester_id'];
+        $testId = $answerPool->_testId;
+        $answers = serialize($answerPool->getAll());
+
+        $this->_dbModel->updateTest($testerId, $testId, $answers);
+
     }
 
     /**

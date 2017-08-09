@@ -11,8 +11,6 @@ namespace IlinquaTest\Model;
 
 class Tempalte_Constructor
 {
-
-
     /**
      * templates for plugins
      */
