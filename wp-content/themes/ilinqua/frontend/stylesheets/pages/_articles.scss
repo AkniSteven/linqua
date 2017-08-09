@@ -64,7 +64,8 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 84%;
+            width: 100%;
+            max-width: 1200px;
             bottom: -80px;
             &:before,
             &:after {
@@ -111,7 +112,9 @@
                     }
                 }
                 .subtitle {
-                    width: 63%;
+                    //width: 63%;
+                    //width: 63%;
+                    width: calc(72% - 80px);
                     .name {
                         display: block;
                         font-weight: 500;
@@ -132,7 +135,8 @@
         width: 100%;
         &__holder {
             padding: 80px 0 160px 0;
-            width: 54%;
+            width: 100%;
+            max-width: 1044px;
             margin: 0 auto;
         }
         &__frame {
@@ -308,6 +312,12 @@
         }
     }
     @include bp($point: 1600, $type: max) {
+        &-header {
+            &__specification {
+                width: 100%;
+                max-width: 1200px;
+            }
+        }
         &-main {
             &__story {
                 .right-column {
@@ -327,7 +337,7 @@
                 }
             }
             &__holder {
-                width: 65%;
+                //width: 65%;
             }
         }
         
@@ -392,11 +402,19 @@
             &__title {
                 padding: 109px 0 0 0;
             }
+            
             &__specification {
                 bottom: -60px;
                 width: 84%;
                 .specification-holder {
                     padding: 60px 40px 40px 40px;
+                    .subtitle {
+                        width:calc(72% - 40px);
+                    }
+                    .frame {
+                        margin-right: 0;
+                        padding-right: 20px;
+                    }
                 }
             }
         }
@@ -714,13 +732,56 @@
                 }
             }
             &__frame {
-                margin: 0 0 20px;
+                margin: 0 0 40px;
             }
             &__name {
                 padding: 13px 0;
                 font-size: 1.125rem;
                 line-height: 1.22;
             }
+        }
+    }
+    @include bp($point: 639, $type: max) {
+        &-main {
+            &__frame {
+                padding: 0 10px;
+                margin: 0 0 40px;
+                img {
+                    width: 100%;
+                }
+            }
+            &__story {
+                .right-column {
+                    .price {
+                        padding: 0 10px;
+                        &-list {
+                            &__item {
+                                padding: 40px 15px;
+                            }
+                        }
+                    }
+                    .txt {
+                        padding: 0 20px;
+                    }
+                    .story-list {
+                        li {
+                            margin: 0 0 40px;
+                            &:before {
+                                line-height: 1;
+                            }
+                            span {
+                                margin: 0 0 10px;
+                                padding: 0 40px;
+                                font-size: 1.2rem;
+                            }
+                            p {
+                                padding: 0 40px;
+                            }
+                        }
+                    }
+                }
+            }
+            
         }
     }
 }
