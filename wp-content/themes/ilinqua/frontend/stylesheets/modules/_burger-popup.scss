@@ -95,6 +95,10 @@
     .all-tests & {
         left: 0;
     }
+    .article-page & {
+        left: 0;
+        //box-sizing: content-box;
+    }
     &__close-popup {
         position: absolute;
         top: 40px;
@@ -146,6 +150,9 @@
         }
     }
     .contact-page & {
+        padding-right: 0;
+    }
+    .article-page & {
         padding-right: 0;
     }
     .language-navigation {
