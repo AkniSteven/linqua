@@ -1,6 +1,5 @@
 #wrapper {
    height: 100%;
-   //overflow: hidden;
 }
 
 #main {
@@ -8,6 +7,11 @@
    .burger-popup--open & {
       overflow: hidden;
       height: 100vh;
+   }
+   @include bp($point: 1024, $type: min) {
+      .burger-popup--open & {
+         //padding-right: 15px;
+      }
    }
 }
 
@@ -21,13 +25,23 @@
    height: 120px;
    padding: 0 40px;
    background-color: transparent;
-   z-index: 15;
+   z-index: 115;
    will-change: height, padding;
    @include anim-param(height, padding);
    @include anim($dur: .25s);
+   .logo-white {
+      display: none;
+   }
    .english & {
       //background: $colorBgEn;
+      .logo-color {
+         display: none;
+      }
+      .logo-white {
+         display: block;
+      }
    }
+   
    @include bp($point: 1680, $type: min) {
       height: 140px;
       padding: 0 50px;
@@ -35,6 +49,20 @@
    @include bp($point: 1039, $type: max) {
       height: 80px;
       padding: 0 20px;
+   }
+   @include bp($point: 1024, $type: min) {
+      .burger-popup--open & {
+         .header-nav__list {
+            margin-right: 15px;
+   
+         }
+      }
+      .contact-page & {
+         .header-nav__list {
+            margin-right: 0;
+      
+         }
+      }
    }
    @include bp($point: 640, $type: max) {
       padding: 0 40px;

@@ -41,9 +41,6 @@
 
 /* ---------- END Extend styles ---------- */
 .burger-popup--open {
-    @include bp($point: 1024, $type: min) {
-        padding-right: 15px;
-    }
     .burger-popup__close-popup {
         &:before, &:after {
             animation-duration: .2s;
@@ -83,7 +80,7 @@
     height: 100vh;
     position: absolute;
     top: 0;
-    left: 0;
+    left: 15px;
     //transform: translateX(-10%);
     display: flex;
     flex-flow: row nowrap;
@@ -91,11 +88,17 @@
     pointer-events: none;
     z-index: 99;
     will-change: opacity;
-    transition: opacity .12s ease-in-out, transform .3s ease-in-out;
+    transition: opacity .2s ease-in-out;
+    .contact-page & {
+        left: 0;
+    }
+    .all-tests & {
+        left: 0;
+    }
     &__close-popup {
         position: absolute;
         top: 40px;
-        left: 40px;
+        left: 25px;
         width: 40px;
         height: 40px;
         cursor: pointer;
@@ -134,11 +137,16 @@
         z-index: 1;
     }
     .burger-popup--open & {
-        transform: translateX(0);
+        //left: 15px;
         opacity: 1;
         pointer-events: auto;
-        transition: opacity .4s ease-in-out, transform .3s ease-in-out;
-        
+        transition: opacity .2s ease-in-out;
+        padding-right: 15px;
+        .burger-popup__corporate, .burger-popup__test {
+        }
+    }
+    .contact-page & {
+        padding-right: 0;
     }
     .language-navigation {
         &__title {
@@ -352,6 +360,10 @@
         }
     }
     @include bp($point: 1024, $type: max) {
+        left: 0;
+        .burger-popup--open & {
+            padding-right: 0;
+        }
         &__language-navigation {
             padding-left: 12vw;
         }
@@ -368,6 +380,10 @@
     @include bp($point: 768, $type: max) {
         flex-flow: column nowrap;
         height: auto;
+        left: 0;
+        .burger-popup--open & {
+            padding-right: 0;
+        }
         &__close-popup {
             width: 30px;
             height: 30px;

@@ -1,34 +1,30 @@
 <header id="header" class="header">
-	<div class="header__left-side">
-		<a href="#" class="burger-menu"></a>
-		<strong class="logo">
-			<a href="{{ site_url }}">
-				{% if all_tests %}
-					<img src="/wp-content/plugins/IlinquaTest/views/public/images/{{ all_tests.logoColor }}" alt=""/>
-				{% else %}
-					<img src="/wp-content/plugins/IlinquaTest/views/public/images/{{ all_tests.logoWhite }}" alt=""/>
-				{% endif %}
-			</a>
-		</strong>
-	</div>
-
-	<ul class="header__right-side header-nav__list">
-		{% if primary_header_menu is not empty %}
-			{% for menu_item in primary_header_menu  %}
-				<li class="header-nav__item">
-					<a href="{{ menu_item.url }}" class="header-nav__link">{{ menu_item.title }}</a>
-				</li>
-			{% endfor %}
-			<li class="header-nav__item">
-				<a href="{% if corporate_page_url  %}{{ corporate_page_url }}{% else %}#{% endif %}" class="header-nav__link--striped">
-					<span class="tile"></span>
-					<span class="tile"></span>
-					<span class="tile"></span>
-					<span class="tile"></span>
-					<span class="tile"></span>
-					<span class="title">Corporate</span>
-				</a>
-			</li>
-		{% endif %}
-	</ul>
+    <div class="header__left-side">
+        <div class="burger-menu">
+            <span></span> <span></span> <span></span> <span></span>
+        </div>
+        <strong class="logo"> <a href="{{ site_url }}">
+                {% if all_tests %}
+                    <img class="logo-color" src="/wp-content/plugins/IlinquaTest/views/public/images/{{ all_tests.logoColor }}" alt=""/>
+                {% else %}
+                    <img src="/wp-content/plugins/IlinquaTest/views/public/images/{{ all_tests.logoWhite }}" alt=""/>
+                {% endif %}
+                <img class="logo-white" src="/wp-content/plugins/IlinquaTest/views/public/images/ilingua_logo_white.svg" alt=""/>
+            </a> </strong>
+    </div>
+    
+    <ul class="header__right-side header-nav__list">
+        {% if primary_header_menu is not empty %}
+            {% for menu_item in primary_header_menu %}
+                <li class="header-nav__item">
+                    <a href="{{ menu_item.url }}" class="header-nav__link">{{ menu_item.title }}</a>
+                </li>
+            {% endfor %}
+            <li class="header-nav__item">
+                <a href="{% if corporate_page_url %}{{ corporate_page_url }}{% else %}#{% endif %}" class="header-nav__link--striped">
+                    <span class="tile"></span> <span class="tile"></span> <span class="tile"></span>
+                    <span class="tile"></span> <span class="tile"></span> <span class="title">Corporate</span> </a>
+            </li>
+        {% endif %}
+    </ul>
 </header>

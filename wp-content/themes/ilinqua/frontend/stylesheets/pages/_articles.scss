@@ -18,7 +18,7 @@
         height: 100vh;
         position: relative;
         background-size: 100%;
-        overflow: hidden;
+        //overflow: hidden;
         &__banner {
             position: absolute;
             left: 0;
@@ -64,30 +64,30 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 62%;
+            width: 84%;
             bottom: -80px;
             &:before,
             &:after {
                 content: '';
                 position: absolute;
-                left: -6px;
+                left: -3px;
                 top: 6px;
-                width: 10px;
+                width:4px;
                 height: 95%;
-                background: rgba(0, 0, 0, 0.15);
+                background: rgba(0, 0, 0, 0.1);
                 z-index: 5;
                 transform: rotate(-1.9deg);
             }
             &:after {
                 left: auto;
-                right: -6px;
+                right: -3px;
                 transform: rotate(1.9deg);
             }
             .specification-holder {
                 background: #fff;
                 display: flex;
                 align-items: flex-start;
-                justify-content: space-between;
+                //justify-content: space-between;
                 padding: 80px;
                 position: relative;
                 z-index: 10;
@@ -338,12 +338,12 @@
                 width: 79%;
             }
             &__specification {
-                width: 83%;
+                width: 84%;
             }
         }
         &-main {
             &__holder {
-                width: 72%;
+                width: 73%;
             }
             &__story {
                 .right-column {
@@ -393,7 +393,7 @@
                 padding: 109px 0 0 0;
             }
             &__specification {
-                bottom: -120px;
+                bottom: -60px;
                 width: 84%;
                 .specification-holder {
                     padding: 60px 40px 40px 40px;
@@ -440,7 +440,7 @@
                 }
                 &__specification {
                     width: 79%;
-                    bottom: -120px;
+                    bottom: -50px;
                     .specification-holder {
                         padding: 40px;
                         .frame {
