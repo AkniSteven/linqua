@@ -1,3 +1,6 @@
+#map_canvas{background-color:#ff0000 !important}
+#map_canvas div div div div div div img{visibility:hidden}
+
 .contacts {
    height: 100vh;
    overflow: hidden;
@@ -18,7 +21,7 @@
          position: absolute;
          left: 0;
          top: 0;
-         background: darken(#0b76f7, 5%);
+         //background: darken(#0b76f7, 5%);
          mix-blend-mode: multiply;
          pointer-events: none;
          width: 100%;
