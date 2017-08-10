@@ -110,14 +110,14 @@ class TestingController
     protected function isQuestionTheLast($questionId)
     {
         $lastQuestionsIds = [];
-        $level = $this->getQuestionLevel($questionId);
+        $level = $this->getQuestionLevel($questionId) -1;
 
         if ($_SESSION['last_questions_ids']
             && !empty($_SESSION['last_questions_ids'])) {
             $lastQuestionsIds = $_SESSION['last_questions_ids'];
         }
 
-        if ($level && $questionId) {
+        if ($level !=='' && $questionId) {
             if (isset($lastQuestionsIds[$level])) {
                 return $questionId == $lastQuestionsIds[$level];
             }
