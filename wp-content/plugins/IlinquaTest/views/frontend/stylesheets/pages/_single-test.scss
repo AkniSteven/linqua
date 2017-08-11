@@ -477,8 +477,12 @@
                     margin-bottom: 0;
                 }
                 .checkbox__title {
+                    display: inline-block;
                     font-size: 1.05rem;
                 }
+            }
+            .radio__title{
+                display: inline-block;
             }
         }
         .answer-button {
