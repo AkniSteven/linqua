@@ -26,8 +26,9 @@ requirejs([
                 dataType: 'html',
                 success: function (response) {
                     console.log('hello');
+                    console.log($('.single-test-page'));
                     if (response =='end') {
-                        $('.single-test-page').addClass('js-show-finish-test');
+                        $('#main').addClass('adscdscdscds');
 
                     }
                 },
