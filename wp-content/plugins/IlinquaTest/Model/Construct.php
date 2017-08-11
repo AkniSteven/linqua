@@ -24,6 +24,15 @@ class Construct
         add_action('init', [$this, 'registerTaxType']);
         add_action('init', [$this, 'registerPostType']);
         add_action('init', [$this, 'initConfigPage']);
+        add_filter ('manage_test_question_posts_columns', [
+            $this,
+            'addLevelColumn'
+        ]);
+        add_action (
+            'manage_test_question_posts_custom_column',
+            [$this,
+            'setLevelColumnValue'],
+            10, 2);
 
     }
 
@@ -45,6 +54,28 @@ class Construct
             return call_user_func_array($name, $arguments);
         }
         return false;
+    }
+
+    /**
+     * @param $columns
+     * @return mixed
+     */
+    public function addLevelColumn($columns)
+    {
+        $columns['level'] = __('Level');
+        return $columns;
+    }
+
+    /**
+     * @param $column
+     * @param $post_id
+     * @return mixed
+     */
+    public function setLevelColumnValue($column, $post_id)
+    {
+        if ($column == 'level') {
+            echo get_post_meta($post_id, 'question_level', true );
+        }
     }
 
     /**
