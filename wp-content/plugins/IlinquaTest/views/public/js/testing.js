@@ -28,7 +28,7 @@ requirejs([
                     console.log('hello');
                     console.log($('.single-test-page'));
                     if (response =='end') {
-                        $('#main').addClass('adscdscdscds');
+                        $('.single-test-page').addClass('js-show-finish-test');
 
                     }
                 },
