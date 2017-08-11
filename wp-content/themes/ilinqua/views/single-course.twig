@@ -70,7 +70,13 @@
                 <div class="article-main__story">
                     {% if course.other_image_urls.banner_image !='' %}
                         <div class="left-column">
-                            <img src="{{ course.other_image_urls.banner_image }}" alt="{{ course.other_image_names.banner_image_name}}">
+                            {% if course.acf.left_banner_link.value !='' %}
+                                <a href="{{ course.acf.left_banner_link.value }}">
+                                    <img src="{{ course.other_image_urls.banner_image }}" alt="{{ course.other_image_names.banner_image_name}}">
+                                </a>
+                            {% else %}
+                                <img src="{{ course.other_image_urls.banner_image }}" alt="{{ course.other_image_names.banner_image_name}}">
+                            {% endif %}
                         </div>
                     {% endif %}
                     <div class="right-column">
