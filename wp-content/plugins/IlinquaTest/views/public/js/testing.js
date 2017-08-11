@@ -27,6 +27,7 @@ requirejs([
                 success: function (response) {
                     console.log('hello');
                     console.log($('.single-test-page'));
+	                $('.single-test-page').addClass('js-show-finish-test');
                     if (response =='end') {
                         $('.single-test-page').addClass('js-show-finish-test');
 
