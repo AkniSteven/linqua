@@ -45,17 +45,19 @@
             {% endif %}
         </div>
         <div class="test-holder">
+            {% set question_counter = 0 %}
             {% if session_test_id == test.ID %}
                 {% if questions is not empty %}
                     {% for questions_arr in questions %}
                         {% for question in questions_arr %}
+                            {% set question_counter = question_counter +1  %}
                             <div class="question">
                                 <form class="question__form" action="" method="post" name="question_{{ question.ID }}">
                                     <input type="hidden" name="question_id" value="{{ question.ID }}"/>
                                     <input type="hidden" name="current_step" value="{{ loop.index }}"/>
                                     <input type="hidden" name="count_question_by_step" value="{{ countQuestionsByStep }}"/>
                                     <h3 class="question__title">
-                                        <span class="question-number">{{ loop.index }}.</span>
+                                        <span class="question-number">{{ question_counter }}.</span>
                                         {{ question.post_title }}</h3>
                                     {% if question.main_thumnail_url != "" %}
                                         <div class="question__img-holder" style="background-image: url('{{ question.main_thumnail_url }}')"></div>
@@ -84,7 +86,6 @@
                                                 <textarea class="textarea" type="text" name="answer" value="" rows="10" name="text" required></textarea>
                                             </div>
                                         {% endif %}
-                                        {#<button class="answer-button submit_question" type="submit" >Ответить</button>#}
                                         <a class="answer-button submit_question btn" href="#answer-button">Далее</a>
                                     </div>
                                 </form>

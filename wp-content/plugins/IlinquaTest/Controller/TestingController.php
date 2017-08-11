@@ -114,7 +114,7 @@ class TestingController
 
         if ($_SESSION['last_questions_ids']
             && !empty($_SESSION['last_questions_ids'])) {
-            $lastQuestionsIds = $_SESSION['last_questions_ids'];
+            $lastQuestionsIds = array_values($_SESSION['last_questions_ids']);
         }
 
         if ($level !=='' && $questionId) {
