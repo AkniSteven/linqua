@@ -326,10 +326,15 @@
                &.current {
                   border-left: none;
                   a {
-                     background: #fffc2b;
+                     //background: transparentize(#fffc2b, .5);
                   }
                   & + li {
                      border-left: none;
+                  }
+               }
+               &.done {
+                  a {
+                     background: #fffc2b !important;
                   }
                }
                & + li {
