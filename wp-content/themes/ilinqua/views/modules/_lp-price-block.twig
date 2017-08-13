@@ -15,7 +15,7 @@
                             {% endif %}
                         </span>
                         <div class="tariff-cell__value-holder">
-                            <span class="value">{{ course.price }}</span> <span class="unit">{{ course.price_comment }}</span>
+                            <span class="value">{{ course.price }}</span> <span class="unit">{{ course.acf.price_comment.value }}</span>
                         </div>
                         <span class="tariff-cell__description">{{ course.comment }}</span>
                         <span class="tariff-cell__button btn--next">
