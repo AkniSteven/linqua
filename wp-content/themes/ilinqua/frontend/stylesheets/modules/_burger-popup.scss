@@ -80,15 +80,14 @@
     height: 100vh;
     position: absolute;
     top: 0;
-    left: 15px;
-    //transform: translateX(-10%);
+    left: 0;
     display: flex;
     flex-flow: row nowrap;
     opacity: 0;
     pointer-events: none;
     z-index: 99;
     will-change: opacity;
-    transition: opacity .2s ease-in-out;
+    transition: opacity 0s ease-in-out;
     .contact-page & {
         left: 0;
     }
@@ -97,7 +96,6 @@
     }
     .article-page & {
         left: 0;
-        //box-sizing: content-box;
     }
     &__close-popup {
         position: absolute;
@@ -141,17 +139,17 @@
         z-index: 1;
     }
     .burger-popup--open & {
-        //left: 15px;
         opacity: 1;
         pointer-events: auto;
         transition: opacity .2s ease-in-out;
-        padding-right: 15px;
-        .burger-popup__corporate, .burger-popup__test {
-        }
     }
     .contact-page & {
         padding-right: 0;
         height: 100%;
+        overflow: hidden;
+    }
+    .contact-page.burger-popup--open & {
+        height: auto;
     }
     .article-page & {
         padding-right: 0;
@@ -193,6 +191,7 @@
                 margin-right: 25px;
                 color: #fff;
                 font-size: 1.5rem;
+                font-weight: 500;
             }
             .button-next {
                 display: inline-block;

@@ -80,14 +80,15 @@
    height: 100vh;
    position: absolute;
    top: 0;
-   left: 15px;
+   left: 0;
    display: flex;
    flex-flow: row nowrap;
    opacity: 0;
    pointer-events: none;
    z-index: 99;
    will-change: opacity;
-   transition: opacity .2s ease-in-out;
+   transition: opacity 0s ease-in-out;
+   overflow: hidden;
    .contact-page & {
       left: 0;
       height: 100%;
@@ -138,7 +139,6 @@
       opacity: 1;
       pointer-events: auto;
       transition: opacity .2s ease-in-out;
-      padding-right: 15px;
    }
    .all-tests & {
       left: 0;
@@ -185,6 +185,7 @@
          .phone {
             margin-right: 25px;
             color: #fff;
+            font-weight: 500;
             font-size: 1.5rem;
          }
          .button-next {
@@ -380,10 +381,11 @@
    }
    @include bp($point: 768, $type: max) {
       flex-flow: column nowrap;
-      height: auto;
+      height: 100%;
       left: 0;
       .burger-popup--open & {
          padding-right: 0;
+         height: auto;
       }
       &__close-popup {
          width: 30px;
@@ -520,9 +522,8 @@
    }
 }
 
-.contact-page .burger-popup--open {
-   padding-right: 0;
-   height: auto;
+.contact-page.burger-popup--open {
+   height: auto !important;
 }
 
 #single-test-page {

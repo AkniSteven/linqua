@@ -296,7 +296,8 @@
         }
         &__tariff-cell {
             width: 100%;
-            height: 220px;
+            min-height: 220px;
+            height: 100%;
             flex-wrap: wrap;
             align-content: space-between;
             &:first-child, &:nth-child(2) {

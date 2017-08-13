@@ -29,12 +29,15 @@ body {
    overflow-x: hidden;
    @include bp($point: 1024, $type: min) {
       &.burger-popup--open {
-         padding-right: 17px;
+         padding-right: 15px;
          &.all-tests {
-            padding-right: 0;
+            //padding-right: 0;
          }
          &#single-test-page {
             padding-right: 0;
+         }
+         &.js-scroll-page {
+            padding-right: 15px !important;
          }
       }
       &.contact-page {

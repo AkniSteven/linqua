@@ -175,7 +175,7 @@
                height: 334px;
             }
             &:not(.events) {
-               height: calc(334px + 62px);
+               min-height: calc(334px + 62px);
             }
          }
          &.small {
@@ -192,9 +192,10 @@
          padding: 0 2vw;
          &.big {
             &:not(.events) {
-               max-height: 528px;
-               //min-height: 450px;
-               height: calc(82vw + 62px); // height picture + height figcaption
+               //max-height: 528px;
+               //min-height: calc(82vw + 62px);
+               height: auto;
+               min-height: auto;
             }
             .article-tile__img {
                height: 82vw;
@@ -204,39 +205,51 @@
             width: 100%;
             max-width: 600px;
             margin: 40px 0 auto;
-            max-height: calc(513px + 62px);
+            //max-height: calc(513px + 62px);
+            height: auto;
+            min-height: inherit;
             .article-tile__img {
                height: 80.3vw;
                max-height: 513px;
             }
             &:not(.events) {
-               height: calc(80.3vw + 62px); // height picture + height figcaption
+               //height: calc(80.3vw + 62px); // height picture + height figcaption
+               height: auto;
+               min-height: inherit;
             }
          }
          &.middle {
             width: 100%;
             max-width: 600px;
             margin: 40px 0 auto;
-            max-height: calc(389px + 62px);
+            //max-height: calc(389px + 62px);
+            height: auto;
+            min-height: inherit;
             .article-tile__img {
                height: 63.3vw;
                max-height: 389px;
             }
             &:not(.events) {
-               height: calc(63.3vw + 62px); // height picture + height figcaption
+               //height: calc(63.3vw + 62px); // height picture + height figcaption
+               height: auto;
+               min-height: inherit;
             }
          }
          &.small {
             width: 100%;
             max-width: 600px;
             margin: 40px 0 auto;
-            max-height: calc(341px + 62px);
+            //max-height: calc(341px + 62px);
+            height: auto;
+            min-height: inherit;
             .article-tile__img {
                height: 53.3vw;
                max-height: 341px;
             }
             &:not(.events) {
-               height: calc(53.3vw + 62px); // height picture + height figcaption
+               //height: calc(53.3vw + 62px); // height picture + height figcaption
+               height: auto;
+               min-height: inherit;
             }
          }
       }

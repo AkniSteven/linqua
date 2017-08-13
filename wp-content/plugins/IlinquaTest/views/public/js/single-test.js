@@ -79,9 +79,11 @@ requirejs([
 
                     if (checkTextarea.val() !== '' && checkTextarea.length) {
                         $('.single-test-page').addClass('js-show-finish-test');
+                        $('body').scrollTop(0);
                     }
                     if (checkRadio.length || checkCheckbox.length) {
                         $('.single-test-page').addClass('js-show-finish-test');
+                        $('body').scrollTop(0);
                     } else {
                         answerBlock.addClass('error-inputs')
                     }

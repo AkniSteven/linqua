@@ -613,6 +613,7 @@
                     font-size: 2.6rem;
                     line-height: 1.1;
                     letter-spacing: -1.5px;
+                    word-break: break-all;
                 }
             }
             &__specification {
@@ -624,7 +625,7 @@
                     display: none;
                 }
                 .specification-holder {
-                    padding: 30px;
+                    padding: 40px;
                     .frame {
                         display: none;
                     }

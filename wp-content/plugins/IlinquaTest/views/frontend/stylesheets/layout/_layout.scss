@@ -47,16 +47,40 @@
       height: 80px;
       padding: 0 20px;
    }
-   @include bp($point: 768, $type: max) {
-      height: 150px;
-      padding: 0 80px;
-   }
-   @include bp($point: 640, $type: max) {
-      height: 75px;
-      padding: 0 40px;
-      .all-tests & {
+   @include bp($point: 1024, $type: min) {
+      .burger-popup--open & {
+         .header-nav__list {
+            margin-right: 15px;
+         }
+      }
+      #single-test-page & {
+         .header-nav__list {
+            margin-right: 0;
+            
+         }
+      }
+      .contact-page & {
+         .header-nav__list {
+            margin-right: 0;
+            
+         }
+      }
+      .burger-popup--open.js-scroll-page & {
+         .header-nav__list {
+            margin-right: 15px !important;
+         }
+      }
+      @include bp($point: 768, $type: max) {
+         height: 150px;
+         padding: 0 80px;
+      }
+      @include bp($point: 640, $type: max) {
          height: 75px;
          padding: 0 40px;
+         .all-tests & {
+            height: 75px;
+            padding: 0 40px;
+         }
       }
    }
 }
