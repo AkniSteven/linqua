@@ -21,7 +21,12 @@
 {% block content %}
     {% if already_passed %}
         <div class="single-test-page">
-            <h1>Извините, вы уже проходили этот тест</h1>
+            <h1>Вы уже прошли этот тест</h1>
+            <div class="btn yellow">
+                <form class="restart_rorm" action="" method="post">
+                    <input type="submit" id="start" name="restart_test" value="Пройти ещё раз">
+                </form>
+            </div>
         </div>
     {% else %}
         <div class="single-test-page  {% if questions is not empty and session_test_id == test.ID %} test-steps {% endif %}">

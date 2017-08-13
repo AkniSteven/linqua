@@ -28,6 +28,15 @@ if ($_POST['test_id']) {
     $testing->startTesting($data);
 }
 
+if ($_POST['restart_test']) {
+    global $wp;
+    $currentUrl = home_url(add_query_arg(array(),$wp->request));
+    if ($_SESSION['tester_id']) {
+        session_destroy();
+        header ('Location: ' . $currentUrl);
+    }
+}
+
 if (!empty($post)) {
     $context['test'] = $post;
 
