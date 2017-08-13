@@ -4,6 +4,8 @@ use IlinquaTest\Controller\PageView;
 use IlinquaTest\Controller\TestingController;
 use IlinquaTest\Helper\Data;
 use IlinquaTest\Model\TestDb;
+use ilinqua\app\Helper\Data as coreData;
+
 
 global $post;
 global $core;
@@ -18,6 +20,11 @@ $handler = $view->postsHandler;
 $handler->setResult([$post]);
 $handler->formattedMeta();
 
+#theme posts
+$coreConfig = $core->getConfig();
+$showConfig = $coreConfig->getConfig('show', 'show');
+$model  = $core->getModel();
+
 if ($_POST['test_id']) {
     $data = [];
     $data['name']    = Data::cleanString($_POST['name']);
@@ -26,6 +33,15 @@ if ($_POST['test_id']) {
     $data['test_id'] = Data::cleanString($_POST['test_id']);
     $data['realStepsCount'] = (int)Data::cleanString($_POST['realStepsCount']);
     $testing->startTesting($data);
+}
+
+if ($_POST['restart_test']) {
+    global $wp;
+    $currentUrl = home_url(add_query_arg(array(),$wp->request));
+    if ($_SESSION['tester_id']) {
+        session_destroy();
+        header ('Location: ' . $currentUrl);
+    }
 }
 
 if (!empty($post)) {
@@ -155,9 +171,62 @@ if (!empty($context['last_questions_ids'])) {
     $_SESSION['last_questions_ids'] = $context['last_questions_ids'];
 }
 
+
+$pageLangTerms = coreData::getPostTermIds($post, 'language');
+if (!empty($pageLangTerms)) {
+    $taxQuery['relation'] = "AND";
+    $taxQuery[] = [
+        'taxonomy' => 'language',
+        'field' => 'term_id',
+        'terms' => $pageLangTerms
+    ];
+
+}
+
+
+if ($showConfig['posts']) {
+    $posts = $showConfig['posts'];
+    $model->setArgs($posts);
+    if (!empty($taxQuery)) {
+        $model->setSpecialArgs("relations", "AND");
+        $model->setSpecialArgs(
+            "tax_query", $taxQuery
+        );
+    }
+    $model->setPosts();
+    $model->setMainThumbnailUrls();
+    $model->setPostUrls();
+    $model->formattedAcf();
+    $context['articleList'] = $model->getResult();
+}
+if ($context['articleList']) {
+    foreach ($context['articleList'] as &$post) {
+        $post->dataFIlter = '';
+        $post->dataEvent = false;
+        $categories = get_the_category($post->ID);
+        if (!empty($categories)) {
+            foreach ($categories as $category) {
+                $categoriesFilters[$category->term_id] = $category;
+
+                if ($post->dataFilter == '') {
+                    $post->dataFilter = $category->slug;
+                } else {
+                    $post->dataFilter .=
+                        " $category->slug";
+                }
+                if ($category->slug == "events") {
+                    $post->dataEvent = true;
+                    $post->dataEventDate = $core->specialDateFormat(
+                        $post->acf['event_date']['value']
+                    );
+                }
+            }
+        }
+    }
+
+}
+
 $view->display('single_test.twig', $context);
-
-
 
 // Function name should be changed to more specific one.
 function processQuizes($questionIds, $questionLimit, $isRandom)
