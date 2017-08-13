@@ -24,6 +24,8 @@ if ($post && $post->post_type == 'page') {
         ? $context['page']->acf['page_background']['value'] : '';
     $context['background_image_url'] = $context['page']->main_thumnail_url
         ? : '';
+    $context['mobile_banner'] = $context['page']->acf['mobile_banner']['value']
+        ? : '';
 }
 
 if (!empty($pageLangTerms)) {
