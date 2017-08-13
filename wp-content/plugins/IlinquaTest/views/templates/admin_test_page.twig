@@ -2,7 +2,7 @@
     <tr>
         <th>Name</th>
         <th>Email</th>
-        <th>Status</th>
+        {#<th>Status</th>#}
         <th>Test</th>
         <th>Date</th>
     </tr>
@@ -20,13 +20,13 @@
                 <form  action="" method="post">
                     <td>{{ val.name }}</td>
                     <td>{{ val.email }}</td>
-                    <td>
-                        <select name ='status'>
-                            <option {% if val.status == 0 %} selected="selected" {% endif %} value='0' disabled>New!</option>
-                            <option {% if val.status == 1 %} selected="selected" {% endif %} value='1'>Pass</option>
-                            <option {% if val.status == 2 %} selected="selected" {% endif %} value='2'>Fail</option>
-                        </select>
-                    </td>
+                    {#<td>#}
+                        {#<select name ='status'>#}
+                            {#<option {% if val.status == 0 %} selected="selected" {% endif %} value='0' disabled>New!</option>#}
+                            {#<option {% if val.status == 1 %} selected="selected" {% endif %} value='1'>Pass</option>#}
+                            {#<option {% if val.status == 2 %} selected="selected" {% endif %} value='2'>Fail</option>#}
+                        {#</select>#}
+                    {#</td>#}
                     <td>
                         {% if val.test !=''  %}
                             {% if test.test_link !='' %}
@@ -42,9 +42,9 @@
                         {{ val.date }}
                         <input type="hidden" name="id" value="{{ val.id }}"/>
                     </td>
-                    <td>
-                        <input type='submit' name ='update_status' value ='Change status'/>
-                    </td>
+                    {#<td>#}
+                        {#<input type='submit' name ='update_status' value ='Change status'/>#}
+                    {#</td>#}
                     <td>
                         <input type='submit' name ='delete_test' value ='Delete test'/>
                     </td>

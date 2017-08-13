@@ -33,8 +33,10 @@ if ($headerMenuLocation !== null) {
     );
 }
 
-$context['site_url'] = get_site_url();
 
+
+
+$context['site_url'] = get_site_url();
 $context['test_posts'] = $testPosts;
 
 $view->display('all_tests_page.twig', $context);
