@@ -21,11 +21,18 @@ class Mailer
      * @var $_recipient
      */
     private $_recipient;
-    /**
-     * Plugin dir path.
-     * @var $_pluginDir
-     */
 
+    /**
+     * Mail variables
+     *
+     * @var array
+     */
+    private $_mailVariables = [
+        'tester_name' => '{tester_name}',
+        'tester_email' => '{tester_email}',
+        'test_name' => '{test_name}',
+        'test_result' => '{test_result}',
+    ];
 
     private function __construct()
     {
@@ -80,9 +87,9 @@ class Mailer
         }
         return self::$_instance;
     }
+
     /**
-     * Callback sendMail method
-     * @todo This method need custom error handler. This time we don't send any exceptions, success msg always.
+     * SendMail method
      * @param array $data
      * @return bool
      */

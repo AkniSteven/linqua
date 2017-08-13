@@ -1,14 +1,63 @@
 <h2>{{ labels.title }}</h2>
 <div class="form_field">
+    <label for="test_result_page_id">
+        Test result page id
+    </label>
     <input
             id="test_result_page_id"
-            placeholder="{{ labels.test_result_page_id }}"
+            placeholder="Test results page id"
             name="test-config[test_result_page_id]"
             type="number"
             class="input"
             value="{{ options.test_result_page_id }}"
     />
 </div>
+<div class="form_field">
+    <label for="sender_name">Sender name</label>
+    <input
+            id="sender_name"
+            placeholder="Sender name"
+            name="test-config[sender_name]"
+            type="text"
+            class="input"
+            value="{{ options.sender_name }}"
+    />
+</div>
+<div class="form_field">
+    <label for="sender_email">Sender email</label>
+    <input
+            id="sender_email"
+            placeholder="Sender email"
+            name="test-config[sender_email]"
+            type="email"
+            class="input"
+            value="{{ options.sender_email }}"
+    />
+</div>
+<div class="form_field">
+    <label for="recipient">Recipient</label>
+    <input
+            id="recipient"
+            placeholder="Recipient"
+            name="test-config[recipient]"
+            type="email"
+            class="input"
+            value="{{ options.recipient }}"
+    />
+</div>
+<div class="form_field">
+    <label for="mail">Mail body</label>
+    <textarea
+            id="mail"
+            name="test-config[mail]"
+            cols="80"
+            rows="20"
+            placeholder="Mail body"
+    >{{ options.mail }}</textarea>
+</div>
+<div>
+    Available variables: {tester_name}, {tester_email}, {test_name},  {test_result}
+</div>
 <div class="submit">
-    <input type="submit" value="{{ labels.save_text }}" />
+    <input type="submit" value="Save" />
 </div>
