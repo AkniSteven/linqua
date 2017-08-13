@@ -3,10 +3,12 @@
 use IlinquaTest\Controller\PageView;
 use IlinquaTest\Controller\TestingController;
 use IlinquaTest\Helper\Data;
+use IlinquaTest\Model\TestDb;
 
 global $post;
 global $core;
 
+$testDb = new TestDb();
 $testing = new TestingController();
 $view = new PageView();
 $config = Data::getConfig('show');
@@ -128,9 +130,14 @@ if (!empty($post)) {
     $context['allQuestionsCount'] = $allQuestionsCount;
 
     $context['questions'] = $postQuestions;
-
+    $context['already_passed'] = 0;
     if ($_SESSION['test_id']) {
         $context['session_test_id'] = $_SESSION['test_id'];
+        $testerID  = $_SESSION['tester_id'];
+        $currentTestData = $testDb->getTestById($testerID)[0];
+        if ($currentTestData['test'] !='') {
+            $context['already_passed'] = 1;
+        }
     }
 }
 $context['ajax_url'] = get_site_url() . '/wp-admin/admin-ajax.php';

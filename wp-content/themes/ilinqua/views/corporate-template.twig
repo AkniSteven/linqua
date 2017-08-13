@@ -1,7 +1,7 @@
 {% extends '_layout.twig' %}
 
 {% block title %}
-	{{ page.post_name }}
+    {{ page.post_name }}
 {% endblock %}
 
 {% block jsEntryPoint %}
@@ -13,16 +13,15 @@
 {% endblock %}
 
 {% block content %}
-	<h1>COMING SOON</h1>
-	{#<section class="language-holder">#}
-		{#{% include 'modules/_lp-banner.twig' %}#}
-		{#{% include 'modules/_lp-community.twig' %}#}
-		{#{% if categories is not empty %}#}
-			{#{% for category in categories %}#}
-				{#{% if category.count > 0 %}#}
-					{#{{ category.name }} {{ category.slug }}#}
-				{#{% endif %}#}
-			{#{% endfor %}#}
-		{#{% endif %}#}
-	{#</section>#}
+	<section class="language-holder">
+        {% include 'modules/_lp-banner.twig' %}
+        {% include 'modules/_lp-community.twig' %}
+        {% if categories is not empty %}
+            {% for category in categories %}
+                {% if category.count > 0 %}
+                    {#{{ category.name }} {{ category.slug }}#}
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+	</section>
 {% endblock %}

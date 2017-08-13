@@ -129,4 +129,40 @@ class Testing
         }
         return $points;
     }
+
+
+    public function formatResultAnswers($answers)
+    {
+        if (is_array($answers)) {
+            foreach ($answers as &$answer) {
+                if ($answer['id']) {
+                    $questionAnswers = get_post_meta($answer['id'], 'answer_case', true);
+                    if (is_array($answer['right_answer'])) {
+                        foreach ($answer['right_answer'] as &$right_answer) {
+                            $right_answer = $questionAnswers[$right_answer];
+                        }
+                    } else {
+                        $answer['right_answer'] = $questionAnswers[$answer['right_answer']];
+                    }
+                    if (is_array($answer['user_answer'])) {
+                        foreach ($answer['user_answer'] as &$user_answer) {
+                            $user_answer = $questionAnswers[$user_answer];
+                        }
+                    } else {
+                        $answer['user_answer'] = $questionAnswers[$answer['user_answer']];
+                    }
+                }
+            }
+        }
+        return $answers;
+    }
+
+    public function calculateAnswersScore($answers)
+    {
+        $points = 0;
+        foreach ($answers as $answer) {
+            $points += $answer['cached_score'];
+        }
+        return $points;
+    }
 }
