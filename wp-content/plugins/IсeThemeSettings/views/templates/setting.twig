@@ -104,10 +104,13 @@
                 </textarea>
             </td>
         </tr>
+        <tr>
+            <td>
+                <label>Site scripts:</label>
+                <textarea rows="5" cols="50" name="ice-theme-settings[site_scripts]">{{ theme_options.site_scripts }}</textarea>
+            </td>
+        </tr>
     </table>
-
-
-
     <label>Work time:</label>
     <textarea name="ice-theme-settings[work]" class="tiny-wysiwyg">{{theme_options.work}}</textarea>
     <input type="submit" value="Save" />

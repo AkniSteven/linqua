@@ -15,14 +15,14 @@
 {#Mobile banner#}
 <div class="language-banner mobile-banner"
      {% if background_image_url !='' %}
-         style="background-image: url('{{ background_image_url }}'); background-color: {{ color }}"
+         style="background-image: url('{{ mobile_banner }}'); background-color: {{ color }}"
      {% else %}
          style="background-image: url('{{ theme.path }}/public/images/img_En.svg'); background-color: {{ color }}"
      {% endif %}
 >
     <h1 class="language-banner__title">
         {% if page.post_content != "" %}
-            {{ page.post_content }}МОБИЛА ОГОНЬ
+            {{ page.post_content }}
         {% endif %}
     </h1>
 </div>
