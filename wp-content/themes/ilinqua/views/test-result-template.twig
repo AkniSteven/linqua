@@ -1,7 +1,7 @@
 {% extends '_layout.twig' %}
 
 {% block title %}
-    {{ page.post_name }}
+   {{ page.post_name }}
 {% endblock %}
 
 {% block jsEntryPoint %}
@@ -12,58 +12,57 @@
 {% endblock %}
 
 {% block content %}
-    <section class="language-holder">
-        {% include 'modules/_lp-banner.twig' %}
-        <div class="content">
-            ID Теста: {{ testID }}
-            Тест пользователя : {{ name }} {{ email }}
-            Подробности:
-            {% if test_answers is not empty %}
-                {% for level in test_answers %}
-                    <div class="level">
-                        <h3>Уровень: {{ loop.index}}</h3>
-                        {% if level is not empty %}
-                            {% for answer in level %}
-                                <div class="answer">
-                                    <h5>{{ answer.title }}</h5>
-                                    <div class="description">
-                                        {{ answer.description }}
-                                    </div>
-                                    <div>
-                                        правильные ответы:
-                                        <div>
-                                            {% if answer.right_answer is iterable %}
-                                                {% for right_answer in answer.right_answer %}
-                                                    <span>{{ right_answer }}</span><br/>
-                                                {% endfor %}
-                                            {% else %}
-                                                <span>{{  answer.right_answer  }}</span><br/>
-                                            {% endif %}
-                                        </div>
-                                    </div>
-                                    <div>
-                                        Ответы пользователя:
-                                        <div>
-                                            {% if answer.user_answer is iterable %}
-                                                {% for user_answer in answer.user_answer %}
-                                                    <span>{{ user_answer }}</span><br/>
-                                                {% endfor %}
-                                            {% else %}
-                                                <span>{{ answer.user_answer }}</span><br/>
-                                            {% endif %}
-                                        </div>
-                                    </div>
-                                    <div>
-                                        <span>Количество балов за вопрос: {{ answer.question_score }}</span>
-                                        <span>Получено балов за вопрос: {{ answer.cached_score }}</span>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                            <h2>Общее количество балов : {{ total_score }}</h2>
-                        {% endif %}
-                    </div>
-                {% endfor %}
-            {% endif %}
-        </div>
-    </section>
+   <section class="language-holder">
+      {% include 'modules/_lp-banner.twig' %}
+      <div class="content">
+         ID Теста: {{ testID }}
+         Тест пользователя : {{ name }} {{ email }}
+         Подробности:
+         {% if test_answers is not empty %}
+            {% for level in test_answers %}
+               <div class="level">
+                  <h3>Уровень: {{ loop.index }}</h3>
+                  {% if level is not empty %}
+                     {% for answer in level %}
+                        <div class="answer">
+                           <h5>{{ answer.title }}</h5>
+                           <div class="description">
+                              {{ answer.description }}
+                           </div>
+                           <div>
+                              правильные ответы:
+                              <div>
+                                 {% if answer.right_answer is iterable %}
+                                    {% for right_answer in answer.right_answer %}
+                                       <span>{{ right_answer }}</span><br/>
+                                    {% endfor %}
+                                 {% else %}
+                                    <span>{{ answer.right_answer }}</span><br/>
+                                 {% endif %}
+                              </div>
+                           </div>
+                           <div>
+                              Ответы пользователя:
+                              <div>
+                                 {% if answer.user_answer is iterable %}
+                                    {% for user_answer in answer.user_answer %}
+                                       <span>{{ user_answer }}</span><br/>
+                                    {% endfor %}
+                                 {% else %}
+                                    <span>{{ answer.user_answer }}</span><br/>
+                                 {% endif %}
+                              </div>
+                           </div>
+                           <div>
+                              <span>Количество балов за вопрос: {{ answer.question_score }}</span> <span>Получено балов за вопрос: {{ answer.cached_score }}</span>
+                           </div>
+                        </div>
+                     {% endfor %}
+                     <h2>Общее количество балов : {{ total_score }}</h2>
+                  {% endif %}
+               </div>
+            {% endfor %}
+         {% endif %}
+      </div>
+   </section>
 {% endblock %}
