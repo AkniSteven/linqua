@@ -6,7 +6,7 @@ use IlinquaTest\Model\Testing;
 use IlinquaTest\Model\TestDb;
 
 use IlinquaTest\Model\AnswerPool;
-use IlinquaTest\Model\Answer;
+use IlinquaTest\Model\Mailer;
 
 /**
  * Controller for test reqests.
@@ -28,11 +28,20 @@ class TestingController
      */
     private $_view;
 
+    /**
+     * @var Mailer
+     */
+    private $_mailer;
+
+    /**
+     * TestingController constructor.
+     */
     public function __construct()
     {
         $this->_model = new Testing();
         $this->_dbModel = new TestDb();
         $this->_view =  new PageView();
+        $this->_mailer = new Mailer();
     }
 
     /**
@@ -84,6 +93,8 @@ class TestingController
             if ($this->isQuestionTheLast($data['question_id'])) {
                 if (!$this->canLevelUp($answerPool, $level)) {
                     $this->saveTest($answerPool);
+                    $mailData = $this->_prepareMailData();
+                    $this->_mailer->sendMail($mailData);
                     echo 'end';
                 }
             }
@@ -91,6 +102,11 @@ class TestingController
         }
     }
 
+    /**
+     * Method to save test
+     *
+     * @param AnswerPool $answerPool
+     */
     private function saveTest(AnswerPool $answerPool)
     {
         $testerId = $_SESSION['tester_id'];
@@ -165,5 +181,29 @@ class TestingController
             }
         }
         return false;
+    }
+
+    /**
+     * Method to prepare mail data
+     *
+     */
+    private function _prepareMailData()
+    {
+         $testResultLink = get_permalink(
+             get_option('test-config')['test_result_page_id']
+         );
+          $test = get_post($_SESSION['test_id']);
+          $mailData = [];
+          $mailData['tester_name'] = $_SESSION['name'] ? $_SESSION['name'] : '';
+          $mailData['tester_email'] = $_SESSION['email']
+              ? $_SESSION['email'] : '';
+          $mailData['tel'] = $_SESSION['tel'] ? $_SESSION['tel'] : '';
+          $mailData['test_result'] = $testResultLink && $_SESSION['tester_id']
+              ? $testResultLink . $_SESSION['tester_id']
+              : '';
+          $mailData['test_name'] = $test->post_title
+              ? $test->post_title
+              : '';
+          return $mailData;
     }
 }

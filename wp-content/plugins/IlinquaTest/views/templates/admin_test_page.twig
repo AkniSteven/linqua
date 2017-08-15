@@ -1,5 +1,6 @@
 <table cellpadding="7">
     <tr>
+        <th>Test title</th>
         <th>Name</th>
         <th>Email</th>
         {#<th>Status</th>#}
@@ -18,6 +19,7 @@
                     {% endif %}
             >
                 <form  action="" method="post">
+                    <td>{{ val.test_title }}</td>
                     <td>{{ val.name }}</td>
                     <td>{{ val.email }}</td>
                     {#<td>#}

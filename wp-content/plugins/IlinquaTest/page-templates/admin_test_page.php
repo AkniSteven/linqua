@@ -19,9 +19,14 @@ $context = [];
 $allTests = $dbModel->getTests();
 
 if (!empty($allTests)) {
-    $context['allTests'] = $allTests;
+    foreach ($allTests as &$test) {
+        $testTitle = get_post($test['test'])->post_title;
+        $test['test_title'] = $testTitle
+            ? $testTitle : '--';
+    }
 }
 
+$context['allTests'] = $allTests;
 $context['test_link'] = get_permalink(
     get_option('test-config')['test_result_page_id']
 );
