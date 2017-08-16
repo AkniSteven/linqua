@@ -28,6 +28,22 @@ class Mailer
     private $_mailTemplate;
 
     /**
+     * @var $_customerMailTemplate
+     */
+    private $_customerMailTemplate;
+
+    /**
+     * @var $_mailTheme
+     */
+    private $_mailTheme;
+
+    /**
+     * @var $_customerMailTheme
+     */
+    private $_customerMailTheme;
+
+
+    /**
      * Mail variables
      *
      * @var array
@@ -38,6 +54,8 @@ class Mailer
         'tester_tel' => '{tester_tel}',
         'test_result' => '{test_result}',
         'test_name' => '{test_name}',
+        'test_date' => '{test_date}',
+        'test_score' => '{test_score}'
     ];
 
     public function __construct()
@@ -52,6 +70,12 @@ class Mailer
             ? $options['recipient'] : '';
         $this->_mailTemplate = $options['mail']
             ? $options['mail'] : '';
+        $this->_customerMailTemplate = $options['customer_mail']
+            ? $options['customer_mail'] : '';
+        $this->_mailTheme = $options['mail_theme']
+            ? $options['mail_theme'] : 'Test';
+        $this->_customerMailTheme = $options['customer_mail_theme']
+            ? $options['customer_mail_theme'] : 'Test';
     }
 
     /**
@@ -61,6 +85,21 @@ class Mailer
     private function getMailBody(array $data)
     {
         $mailBody = $this->_mailTemplate;
+
+        if (is_array($data)) {
+            $mailBody = str_replace($this->_mailVariables, $data, $mailBody);
+        }
+        return $mailBody;
+    }
+
+
+    /**
+     * @param array $data
+     * @return string
+     */
+    private function getCustomerMailBody(array $data)
+    {
+        $mailBody = $this->_customerMailTemplate;
 
         if (is_array($data)) {
             $mailBody = str_replace($this->_mailVariables, $data, $mailBody);
@@ -81,8 +120,29 @@ class Mailer
                 $headers[] = "Content-type: text/html; charset=utf-8";
                 do_action('plugins_loaded');
                 $headers[] = "From:{$this->_senderName} <{$this->_senderEmail}>";
-                $headers[] = "Test";
-                $send = wp_mail( $this->_recipient, 'Test', $mailBody, $headers);
+                $headers[] = $this->_mailTheme;
+                $send = wp_mail( $this->_recipient, $this->_mailTheme, $mailBody, $headers);
+                return  $send;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * SendCustomerMail method
+     * @param array $data
+     * @return bool
+     */
+    public function sendCustomerMail(array $data)
+    {
+        if (!empty($data)) {
+            $mailBody = $this->getCustomerMailBody($data);
+            if ($data['tester_email'] != '' && $this->_recipient != '' && $mailBody !='') {
+                $headers[] = "Content-type: text/html; charset=utf-8";
+                do_action('plugins_loaded');
+                $headers[] = "From:{$this->_senderName} <{$this->_senderEmail}>";
+                $headers[] = $this->_customerMailTheme;
+                $send = wp_mail( $this->_recipient, $this->_customerMailTheme, $mailBody, $headers);
                 return  $send;
             }
         }

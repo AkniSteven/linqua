@@ -151,7 +151,7 @@ if (!empty($post)) {
         $context['session_test_id'] = $_SESSION['test_id'];
         $testerID  = $_SESSION['tester_id'];
         $currentTestData = $testDb->getTestById($testerID)[0];
-        if ($currentTestData['test'] !='') {
+        if ($currentTestData['test'] == $post->ID) {
             $context['already_passed'] = 1;
         }
     }
@@ -199,6 +199,7 @@ if ($showConfig['posts']) {
     $model->formattedAcf();
     $context['articleList'] = $model->getResult();
 }
+
 if ($context['articleList']) {
     foreach ($context['articleList'] as &$post) {
         $post->dataFIlter = '';

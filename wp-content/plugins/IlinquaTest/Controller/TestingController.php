@@ -93,8 +93,9 @@ class TestingController
             if ($this->isQuestionTheLast($data['question_id'])) {
                 if (!$this->canLevelUp($answerPool, $level)) {
                     $this->saveTest($answerPool);
-                    $mailData = $this->_prepareMailData();
+                    $mailData = $this->_prepareMailData($answerPool);
                     $this->_mailer->sendMail($mailData);
+                    $this->_mailer->sendCustomerMail($mailData);
                     echo 'end';
                 }
             }
@@ -187,7 +188,7 @@ class TestingController
      * Method to prepare mail data
      *
      */
-    private function _prepareMailData()
+    private function _prepareMailData($answers)
     {
          $testResultLink = get_permalink(
              get_option('test-config')['test_result_page_id']
@@ -204,6 +205,32 @@ class TestingController
           $mailData['test_name'] = $test->post_title
               ? $test->post_title
               : '';
+          $mailData['test_date'] = date('d.m.y');
+          $mailData['test_score'] = $this->_getUserScore($answers);
           return $mailData;
+    }
+
+    /**
+     * @param $answersPool
+     * @return string
+     */
+    private function _getUserScore($answersPool)
+    {
+        $answers = $answersPool->getAll();
+        $userScore = 0;
+        $questionsCount = 0;
+        if (!empty($answers)) {
+            foreach ($answers as $answerGroup) {
+                foreach ($answerGroup as $answer) {
+                    if ($answer['question_score'] != 0 ) {
+                        $questionsCount += 1;
+                        if ($answer['cached_score'] != 0) {
+                            $userScore += 1;
+                        }
+                    }
+                }
+            }
+        }
+        return "$userScore из $questionsCount";
     }
 }

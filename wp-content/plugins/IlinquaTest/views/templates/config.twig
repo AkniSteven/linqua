@@ -35,6 +35,28 @@
     />
 </div>
 <div class="form_field">
+    <label for="mail_theme">Mail theme</label>
+    <input
+            id="mail_theme"
+            placeholder="Mail theme"
+            name="test-config[mail_theme]"
+            type="text"
+            class="input"
+            value="{{ options.mail_theme }}"
+    />
+</div>
+<div class="form_field">
+    <label for="customer_mail_theme">Customer mail theme</label>
+    <input
+            id="customer_mail_theme"
+            placeholder="Customer mail theme"
+            name="test-config[customer_mail_theme]"
+            type="text"
+            class="input"
+            value="{{ options.customer_mail_theme }}"
+    />
+</div>
+<div class="form_field">
     <label for="recipient">Recipient</label>
     <input
             id="recipient"
@@ -46,17 +68,30 @@
     />
 </div>
 <div class="form_field">
-    <label for="mail">Mail body</label>
+    <label for="mail">Manager mail body</label>
     <textarea
             id="mail"
             name="test-config[mail]"
             cols="80"
             rows="20"
-            placeholder="Mail body"
+            placeholder="Manager mail body"
     >{{ options.mail }}</textarea>
 </div>
 <div>
-    Available variables: {tester_name}, {tester_email}, {test_name}, {test_result}, {tester_tel}
+    Available variables: {tester_name}, {tester_email}, {test_name}, {test_result}, {tester_tel}, {test_date}, {test_score}
+</div>
+<div class="form_field">
+    <label for="customer_mail">Customer mail body</label>
+    <textarea
+            id="mail"
+            name="test-config[customer_mail]"
+            cols="80"
+            rows="20"
+            placeholder="Customer mail body"
+    >{{ options.customer_mail }}</textarea>
+</div>
+<div>
+    Available variables: {tester_name}, {tester_email}, {test_name}, {test_result}, {tester_tel}, {test_date}, {test_score}
 </div>
 <div class="submit">
     <input type="submit" value="Save" />
