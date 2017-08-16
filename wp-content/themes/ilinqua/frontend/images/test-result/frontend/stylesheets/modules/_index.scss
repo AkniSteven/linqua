@@ -1,0 +1,22 @@
+/* ----------  Base stytles ---------- */
+@import "style-map";
+
+/* ----------  Header styles ---------- */
+@import "header-nav";
+
+/* ----------  Language page  ---------- */
+@import "lp-banner";
+@import "lp-price-block";
+@import "lp-community";
+@import "lp-filters";
+//@import "lp-articles";
+@import "lp-article";
+@import "burger-popup";
+
+/* ---------- Single test page ---------- */
+@import "test-steps";
+
+/* ----------  Result page ---------- */
+
+@import "result-banner";
+@import "result-list";

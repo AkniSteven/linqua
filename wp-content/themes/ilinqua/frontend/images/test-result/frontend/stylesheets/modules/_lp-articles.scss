@@ -1,0 +1,113 @@
+.gutter-sizer {
+    width: 333px;
+}
+
+.column-width {
+    width: 333px;
+    @include bp($point: $bpMiddle, $type: max) {
+        
+    }
+}
+
+.lp-article {
+    &__holder {
+        display: flex;
+        flex-flow: row nowrap;
+        flex-flow: row wrap;
+        margin-left: $normal;
+        .lp-article__tile {
+            margin-bottom: 40px;
+            padding-right: 40px;
+            box-sizing: content-box;
+            @include anim($dur: .3s);
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+        .left-column, .right-column {
+            display: flex;
+            flex-flow: row wrap;
+        }
+        .left-column-holder {
+            max-width: 667px;
+            .left-column {
+                justify-content: space-between;
+            }
+        }
+        .right-column-holder {
+            max-width: 746px;
+            .right-column {
+                justify-content: flex-start;
+                align-items: flex-start;
+                flex-flow: column wrap;
+                margin-left: 80px;
+            }
+        }
+        @include bp($point: $bpLarge, $type: min) {
+            margin-left: $big;
+            .right-column-holder {
+                height: 1600px;
+                .right-column {
+                    height: 100%;
+                    .lp-article__tile {
+                        &:nth-child(odd) {
+                            //margin-right: 80px;
+                        }
+                    }
+                }
+            }
+        }
+        @include bp($point: $bpMiddle, $type: max) {
+            margin-left: $middle;
+        }
+        @include bp($point: 1140, $type: max) {
+            .lp-article__tile {
+                //margin-bottom: 40px;
+            }
+            .left-column-holder {
+                max-width: 509px;
+            }
+            .right-column-holder {
+                max-width: 275px;
+                .right-column {
+                    margin-left: 40px;
+                }
+            }
+        }
+        @include bp($point: $bpTablet, $type: max) {
+            margin-left: $small;
+        }
+        @include bp($point: 980, $type: max) {
+            .left-column-holder {
+                max-width: 450px;
+            }
+            .right-column-holder {
+                max-width: 275px;
+            }
+        }
+        @include bp($point: $bpPortrait, $type: max) {
+            margin: 0 $small;
+            flex-flow: column nowrap;
+            .left-column-holder {
+                max-width: 100%;
+            }
+            .right-column-holder {
+                max-width: 100%;
+                .right-column {
+                    max-height: 1080px;
+                    flex-flow: column wrap;
+                    align-content: space-between;
+                    margin-left: 0;
+                    .lp-article__tile .high {
+                        //margin-top: -60px;
+                    }
+                }
+            }
+        }
+        @include bp($point: 640, $type: max) {
+            margin: 0 10px;
+        }
+    }
+}
+
+

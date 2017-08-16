@@ -1,0 +1,10 @@
+a:not([class]) {
+	@include anim($param: opacity, $dur: .15s);
+}
+.english-page {
+	a:not([class]) {
+		&:hover {
+			color: darken($colorLinkEn, 10%);
+		}
+	}
+}
