@@ -45,6 +45,7 @@
       display: flex;
       flex-flow: row nowrap;
       align-items: center;
+      min-height: 24px;
       input {
          position: absolute;
          left: -9999px;
@@ -81,7 +82,7 @@
       &__frame {
          display: inline-block;
          position: absolute;
-         top: 0;
+         top: -2px;
          left: 0;
          width: 24px;
          height: 24px;
@@ -96,7 +97,7 @@
       }
       &__title {
          padding-left: 40px;
-         line-height: 1.2;
+         //line-height: 1.2;
          color: #fff;
          cursor: pointer;
          @include anim($param: color, $dur: .1s);
@@ -169,6 +170,12 @@
       .textarea {
          border: 2px solid #ff4430;
          @include anim($param: border, $dur: .15s);
+      }
+   }
+   @include bp(1920) {
+      .radio, .checkbox {
+         &__frame {
+         }
       }
    }
    @include bp($bpPortrait) {
@@ -306,6 +313,8 @@
    }
    @include bp($point: $bpLarge, $type: min) {
       .radio, .checkbox {
+         display: inline-flex;
+         min-height: 32px;
          &__frame {
             width: 32px;
             height: 32px;
