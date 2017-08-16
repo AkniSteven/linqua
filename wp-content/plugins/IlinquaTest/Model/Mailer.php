@@ -1,6 +1,6 @@
 <?php
 
-namespace IlinguaTest\Model;
+namespace IlinquaTest\Model;
 
 class Mailer
 {
@@ -23,6 +23,11 @@ class Mailer
     private $_recipient;
 
     /**
+     * @var $_mailTemplate
+     */
+    private $_mailTemplate;
+
+    /**
      * Mail variables
      *
      * @var array
@@ -30,62 +35,37 @@ class Mailer
     private $_mailVariables = [
         'tester_name' => '{tester_name}',
         'tester_email' => '{tester_email}',
-        'test_name' => '{test_name}',
+        'tester_tel' => '{tester_tel}',
         'test_result' => '{test_result}',
+        'test_name' => '{test_name}',
     ];
 
-    private function __construct()
+    public function __construct()
     {
-        $options = (array) get_option('akni-callback-settings');
-        if ($options['sender_email'] !='') {
-            $this->_senderEmail = $options['sender_email'];
-        } else {
-            $this->_senderEmail = get_option('admin_email');
-        }
+        $options = (array) get_option('test-config');
 
-        if ($options['sender_name'] !='') {
-            $this->_senderName = $options['sender_name'];
-        } else {
-            $this->_senderName = '';
-        }
-        if ($options['recipient']) {
-            $this->_recipient = $options['recipient'];
-        }else {
-            $this->_recipient = '';
-        }
+        $this->_senderEmail =  $options['sender_email']
+            ? $options['sender_email'] : get_option('admin_email');
+        $this->_senderName = $options['sender_name']
+            ? $options['sender_name'] : '';
+        $this->_recipient = $options['recipient']
+            ? $options['recipient'] : '';
+        $this->_mailTemplate = $options['mail']
+            ? $options['mail'] : '';
     }
-    /**
-     * this is clone action.
-     */
-    private function __clone()
-    {
-        //protect from clone
-    }
-    /**
-     * this is wakeup action.
-     */
-    private function __wakeup()
-    {
-        //protect from wakeup
-    }
+
     /**
      * @param array $data
      * @return string
      */
     private function getMailBody(array $data)
     {
-        return "";
-    }
-    /**
-     * This get self object.
-     * @param $pluginDir
-     * @return Mailer
-     */
-    public static function getInstance( $pluginDir ) {
-        if (empty(self::$_instance)) {
-            self::$_instance = new self($pluginDir);
+        $mailBody = $this->_mailTemplate;
+
+        if (is_array($data)) {
+            $mailBody = str_replace($this->_mailVariables, $data, $mailBody);
         }
-        return self::$_instance;
+        return $mailBody;
     }
 
     /**
@@ -101,8 +81,8 @@ class Mailer
                 $headers[] = "Content-type: text/html; charset=utf-8";
                 do_action('plugins_loaded');
                 $headers[] = "From:{$this->_senderName} <{$this->_senderEmail}>";
-                $headers[] = "Callback";
-                $send = wp_mail( $this->_recipient, 'callback', $mailBody, $headers);
+                $headers[] = "Test";
+                $send = wp_mail( $this->_recipient, 'Test', $mailBody, $headers);
                 return  $send;
             }
         }
