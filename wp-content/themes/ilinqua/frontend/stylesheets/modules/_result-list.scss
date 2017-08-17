@@ -1,0 +1,121 @@
+.result-content {
+   margin: 0 auto;
+   padding-left: 100px;
+   padding-right: 100px;
+   margin-bottom: 30px;
+   background-color: #fff;
+   @include bp($point: 981, $type: min) {
+      max-width: 85vw;
+      padding-bottom: 100px;
+   }
+   @include bp(980) {
+      max-width: 84vw;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-bottom: 100px;
+   }
+   @include bp($point: 980, $type: max) {
+      max-width: 95vw;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-bottom: 100px;
+   }
+   @include bp($point: 640, $type: max) {
+      padding-left: 25px;
+      padding-right: 25px;
+      padding-bottom: 50px;
+   }
+   
+   .overall-result {
+      height: 168px;
+      padding-top: 78px;
+      border-bottom: 1px solid #e8e8e8;
+      text-transform: none;
+      @include bp($point: 981, $type: min) {
+         margin-bottom: 81px;
+      }
+      @include bp($point: 980, $type: max) {
+         padding-top: 50px;
+         height: 120px;
+       }
+      @include bp($point: 640, $type: max) {
+         font-size: 1.5rem;
+         padding-top: 25px;
+         height: 80px;
+      }
+      
+      span {
+         margin-left: 20px;
+         color: #ea4242;
+      }
+   }
+   
+   .result-list {
+      @include bp($point: 981, $type: min) {
+         //padding-top: 78px;
+      }
+      h4 {
+         font-weight: 500;
+         span {
+            margin-left: 16px;
+            color: #d4d4d4;
+         }
+         @include bp($point: 981, $type: min) {
+            margin-bottom: 38px;
+            font-size: 2rem;
+         }
+         @include bp($point: 640, $type: max) {
+            font-size: 1.5rem;
+         }
+      }
+      
+   }
+   
+   
+   
+   .answer-holder {
+      @include bp($point: 981, $type: min) {
+         margin-bottom: 37px;
+      }
+      @include bp($point: 980, $type: max) {
+         margin-bottom: 20px;
+      }
+      .question {
+         font-weight: 500;
+         @include bp($point: 981, $type: min) {
+            margin-bottom: 14px;
+            font-size: 1.5rem;
+         }
+         @include bp($point: 980, $type: max) {
+            margin-bottom: 10px;
+         }
+      }
+      .right-answer, .wrong-answer {
+         position: relative;
+         @include bp($point: 640, $type: max) {
+            padding-left: 20px;
+         }
+         img {
+            position: absolute;
+            top: 1px;
+            left: -41px;
+            @include bp($point: 980, $type: max) {
+               width: 12px;
+               top: 5px;
+               left: -26px;
+            }
+            @include bp($point: 640, $type: max) {
+               left: 0;
+            }
+         }
+      }
+      .right-answer {
+         color: #38ba63;
+         font-size: 1rem;
+      }
+      .wrong-answer {
+         color: #ea4242;
+         font-size: 1rem;
+      }
+   }
+}

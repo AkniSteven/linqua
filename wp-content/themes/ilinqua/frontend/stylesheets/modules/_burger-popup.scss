@@ -368,9 +368,15 @@
     }
     @include bp($point: 1024, $type: max) {
         left: 0;
+        .result-page & {
+            height: 100%;
+            overflow: hidden;
+        }
         .burger-popup--open & {
             padding-right: 0;
+            height: auto;
         }
+        
         &__language-navigation {
             padding-left: 12vw;
         }
@@ -464,6 +470,7 @@
         .contact-page & {
             height: 100%;
         }
+        
         .burger-popup--open & {
             height: auto;
             transform: translateX(0);
