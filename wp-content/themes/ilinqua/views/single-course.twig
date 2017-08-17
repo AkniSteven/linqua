@@ -11,7 +11,35 @@
 
     <div class="article">
         <div class="article-header">
-            <div class="article-header__banner" {% if course.other_image_urls.background_image !='' %} style="background-image: url('{{ course.other_image_urls.background_image }}') {% endif %}">
+            <div class="article-header__banner desktop-banner" {% if course.other_image_urls.background_image !='' %} style="background-image: url('{{ course.other_image_urls.background_image }}') {% endif %}">
+                <div class="article-header__title">
+                    {% if course.acf.label.value != '' %}
+                        <div class="language">
+                            {% if course.acf.label_link.value != '' %}
+                            <span>
+                                <a href="{{ course.acf.label_link.value  }}">
+                                    {{ course.acf.label.value }}
+                                </a>
+                            </span>
+                            {% elseif  catalog_url !='' %}
+                                <span>
+                                <a href="{{ catalog_url  }}">
+                                    {{ course.acf.label.value }}
+                                </a>
+                            </span>
+                            {% else %}
+                                <span>
+                                    {{ course.acf.label.value }}
+                                </span>
+                            {% endif %}
+                        </div>
+                    {% endif %}
+                    <h1 class="title">
+                        {{ course.post_title }}
+                    </h1>
+                </div>
+            </div>
+            <div class="article-header__banner mobile-banner" {% if course.other_image_urls.background_image !='' %} style="background-image: url('{{ course.other_image_urls.background_image }}') {% endif %}">
                 <div class="article-header__title">
                     {% if course.acf.label.value != '' %}
                         <div class="language">

@@ -1,4 +1,17 @@
-<div class="result-banner">
+<div class="result-banner desktop-banner">
+   <div class="banner-holder">
+      <h1 class="result-banner__title">
+         <span class="user-name">{{ name }}</span>
+         <span class="user-phone">(099)-52-30-784</span>
+         <span class="user-mail">{{ email }}</span>
+      </h1>
+      <div class="result-banner__image-holder">
+         <img src="{{ theme.path }}/public/images/result-banner2.png" alt=""></div>
+   </div>
+</div>
+
+{#Mobile banner#}
+<div class="result-banner mobile-banner">
    <div class="banner-holder">
       <h1 class="result-banner__title">
          <span class="user-name">{{ name }}</span>
