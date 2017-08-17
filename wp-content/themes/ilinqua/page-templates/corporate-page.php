@@ -97,4 +97,11 @@ if ($context['posts']) {
 
 $context['categories'] = $categoriesFilters;
 
+#Meta data
+$metaTitle = $context['page']->acf['meta_title']['value'];
+$context['meta_title'] = $metaTitle ? $metaTitle : $context['page']->post_title;
+
+$metaDescription = $context['page']->acf['meta_description']['value'];
+$context['meta_description'] = $metaDescription ? $metaDescription : '';
+
 $core->render('corporate-template.twig', $context);

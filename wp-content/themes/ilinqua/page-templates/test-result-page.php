@@ -48,4 +48,11 @@ if ($currentTestData['test']) {
     $context['test_answers'] = $testAnswers ? $testAnswers : [];
 }
 
+#Meta data
+$metaTitle = $context['page']->acf['meta_title']['value'];
+$context['meta_title'] = $metaTitle ? $metaTitle : $context['page']->post_title;
+
+$metaDescription = $context['page']->acf['meta_description']['value'];
+$context['meta_description'] = $metaDescription ? $metaDescription : '';
+
 $core->render('test-result-template.twig', $context);

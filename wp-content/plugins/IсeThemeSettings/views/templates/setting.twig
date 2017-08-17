@@ -17,6 +17,17 @@
             </td>
         </tr>
         <tr>
+            <td> favicon: </td>
+            <td>
+                <img class="favicon" src="{{ theme_options.favicon }}" height="30" width="30"/>
+                <div>
+                    <a href="#" class="favicon_upload">Upload</a>
+                    <a href="#" class="favicon_reset">Reset</a>
+                </div>
+                <input type="hidden" class="favicon_url" name="ice-theme-settings[favicon]" size="60" value="{{ theme_options.favicon }}" alt="favicon image" title="favicon image">
+            </td>
+        </tr>
+        <tr>
             <td>Instagram</td>
             <td>
                 <input type="text" name="ice-theme-settings[social][insta]" value ="{{theme_options.social.insta}}"/>

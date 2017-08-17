@@ -86,4 +86,13 @@ if (!empty($context['course'])) {
     }
 }
 
+#Meta data
+$metaTitle = $context['course']->acf['meta_title']['value'];
+$context['meta_title'] = $metaTitle
+    ? $metaTitle
+    : $context['course']->post_title;
+
+$metaDescription = $context['course']->acf['meta_description']['value'];
+$context['meta_description'] = $metaDescription ? $metaDescription : '';
+
 $core->render('single-course.twig', $context);

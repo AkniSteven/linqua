@@ -6,12 +6,11 @@
    <meta content="width=device-width, initial-scale=1.0" name="viewport">
    <title>
        {% spaceless %}
-           {% block title %}
-           {% endblock %}
+            {{ meta_title }}
        {% endspaceless %}
    </title>
-   
-   {% block base_stylesheets %}
+   <meta name="description" content="{{ meta_description }}">
+    {% block base_stylesheets %}
       <link href="{{ theme.path }}/public/css/styles.css" media="all" rel="stylesheet">
       {% block stylesheets %}{% endblock %}
    {% endblock %}
@@ -23,21 +22,25 @@
       <script async="async" src="{% block jsEntryPoint %}{% endblock %}"></script>
       {% block scripts %}{% endblock %}
    {% endblock %}
-   
+
    <script type='text/javascript' id="__bs_script__">
        //<![CDATA[
        document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.14.0.js'><\/script>"
            .replace("HOST", location.hostname));
        //]]>
    </script>
+    {% if theme_options.favicon !='' %}
+       <link rel="icon" href="{{ theme_options.favicon  }}" type="image/x-icon">
+       <link rel="shortcut icon" href="{{ theme_options.favicon  }}" type="image/x-icon">
+    {% endif %}
 </head>
 <body {% block body_attributes %}{% endblock %}>
 <div id="wrapper" class="english">
-   
+
    {% block header %}
       {% include 'layout-blocks/_header.twig' %}
    {% endblock %}
-   
+
    {% include 'modules/_burger-popup.twig' with {
    "languageNav" : {
    "languageList" : [
@@ -52,12 +55,12 @@
    ]
    }
    } %}
-   
+
    <main id="main">
       {% block content %}
       {% endblock %}
    </main>
-   
+
    {% block footer %}
    {% endblock %}
 </div>

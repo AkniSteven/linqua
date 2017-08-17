@@ -89,4 +89,13 @@ if (!empty($context['article'])) {
     }
 }
 
+#Meta data
+$metaTitle = $context['article']->acf['meta_title']['value'];
+$context['meta_title'] = $metaTitle
+    ? $metaTitle
+    : $context['article']->post_title;
+
+$metaDescription = $context['article']->acf['meta_description']['value'];
+$context['meta_description'] = $metaDescription ? $metaDescription : '';
+
 $core->render('single.twig', $context);
