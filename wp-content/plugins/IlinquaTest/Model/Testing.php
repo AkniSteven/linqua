@@ -165,4 +165,23 @@ class Testing
         }
         return $points;
     }
+
+    public function getAnswersScore($answers)
+    {
+        $userScore = 0;
+        $questionsCount = 0;
+        if (!empty($answers)) {
+            foreach ($answers as $answerGroup) {
+                foreach ($answerGroup as $answer) {
+                    if ($answer['question_score'] != 0 ) {
+                        $questionsCount += 1;
+                        if ($answer['cached_score'] != 0) {
+                            $userScore += 1;
+                        }
+                    }
+                }
+            }
+        }
+        return "$userScore из $questionsCount";
+    }
 }

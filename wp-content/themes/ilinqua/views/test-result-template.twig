@@ -19,7 +19,7 @@
    {% include 'modules/_result-banner.twig' %}
    
    <div class="result-content">
-      <h3 class="overall-result">Английский <span>{{ total_score }} из 20</span></h3>
+      <h3 class="overall-result">Английский <span>{{ test_answers_from_questions }}</span></h3>
       {% if test_answers is not empty %}
          {% for level in test_answers %}
             <div class="result-list">

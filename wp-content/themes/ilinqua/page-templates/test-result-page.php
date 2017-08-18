@@ -39,6 +39,7 @@ if ($currentTestData['test']) {
     $testAnswers = unserialize($currentTestData['info']);
     $context['total_score'] = 0;
     if (!empty($testAnswers)) {
+        $context['test_answers_from_questions'] = $testing->getAnswersScore($testAnswers);
         foreach ($testAnswers as &$answers) {
             $answers = $testing->formatResultAnswers($answers);
             $levelPoints = $testing->calculateAnswersScore($answers);
