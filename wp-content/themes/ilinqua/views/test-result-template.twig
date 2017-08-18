@@ -11,58 +11,118 @@
 
 {% endblock %}
 
+{% block body_attributes %}
+   class="result-page"
+{% endblock %}
+
 {% block content %}
-   <section class="language-holder">
-      {% include 'modules/_lp-banner.twig' %}
-      <div class="content">
-         ID Теста: {{ testID }}
-         Тест пользователя : {{ name }} {{ email }}
-         Подробности:
-         {% if test_answers is not empty %}
-            {% for level in test_answers %}
-               <div class="level">
-                  <h3>Уровень: {{ loop.index }}</h3>
-                  {% if level is not empty %}
-                     {% for answer in level %}
-                        <div class="answer">
-                           <h5>{{ answer.title }}</h5>
-                           <div class="description">
-                              {{ answer.description }}
-                           </div>
-                           <div>
-                              правильные ответы:
-                              <div>
-                                 {% if answer.right_answer is iterable %}
-                                    {% for right_answer in answer.right_answer %}
-                                       <span>{{ right_answer }}</span><br/>
-                                    {% endfor %}
+   {% include 'modules/_result-banner.twig' %}
+   
+   <div class="result-content">
+      <h3 class="overall-result">Английский <span>{{ total_score }} из 20</span></h3>
+      {% if test_answers is not empty %}
+         {% for level in test_answers %}
+            <div class="result-list">
+               <h4>{{ loop.index }} - й уровень</h4>
+               {% if level is not empty %}
+                  {% for answer in level %}
+                     <div class="answer-holder">
+                        <div class="question">{{ answer.title }}</div>
+                        {% if answer.user_answer is iterable %}
+                           {% for user_answer in answer.user_answer %}
+                              <div
+                                 {% if user_answer.question_score > 0 %}
+                                    class="right-answer"
                                  {% else %}
-                                    <span>{{ answer.right_answer }}</span><br/>
+                                    class="wrong-answer"
                                  {% endif %}
+                              >
+                              {% if user_answer.question_score > 0 %}
+                                 <img src="{{ theme.path }}/public/images/success.png" alt="">
+                              {% else %}
+                                 <img src="{{ theme.path }}/public/images/wron.png" alt="">
+                              {% endif %}
+                                 <span>{{ user_answer }}</span>
                               </div>
+                           {% endfor %}
+                        {% else %}
+                           <div
+                              {% if user_answer.question_score > 0 %}
+                              class="right-answer"
+                              {% else %}
+                              class="wrong-answer"
+                              {% endif %}
+                           >
+                              {% if user_answer.question_score > 0 %}
+                                 <img src="{{ theme.path }}/public/images/success.png" alt="">
+                              {% else %}
+                                 <img src="{{ theme.path }}/public/images/wron.png" alt="">
+                              {% endif %}
+                              <span>{{ answer.user_answer }}</span>
                            </div>
+                        {% endif %}
+                        
+                        {#<div>
+                           <div>Количество балов за вопрос: {{ answer.question_score }}</div>
+                           <div>Получено балов за вопрос: {{ answer.cached_score }}</div>
+                        </div>#}
+                     </div>
+                  {% endfor %}
+               {% endif %}
+            </div>
+         {% endfor %}
+      {% endif %}
+   </div>
+   
+   {#<div class="content">
+      ID Теста: {{ testID }}
+      Тест пользователя : {{ name }} {{ email }}
+      Подробности:
+      {% if test_answers is not empty %}
+         {% for level in test_answers %}
+            <div class="level">
+               <h3>Уровень: {{ loop.index }}</h3>
+               {% if level is not empty %}
+                  {% for answer in level %}
+                     <div class="answer">
+                        <h5>{{ answer.title }}</h5>
+                        <div class="description">
+                           {{ answer.description }}
+                        </div>
+                        <div>
+                           правильные ответы:
                            <div>
-                              Ответы пользователя:
-                              <div>
-                                 {% if answer.user_answer is iterable %}
-                                    {% for user_answer in answer.user_answer %}
-                                       <span>{{ user_answer }}</span><br/>
-                                    {% endfor %}
-                                 {% else %}
-                                    <span>{{ answer.user_answer }}</span><br/>
-                                 {% endif %}
-                              </div>
-                           </div>
-                           <div>
-                              <span>Количество балов за вопрос: {{ answer.question_score }}</span> <span>Получено балов за вопрос: {{ answer.cached_score }}</span>
+                              {% if answer.right_answer is iterable %}
+                                 {% for right_answer in answer.right_answer %}
+                                    <span>{{ right_answer }}</span><br/>
+                                 {% endfor %}
+                              {% else %}
+                                 <span>{{ answer.right_answer }}</span><br/>
+                              {% endif %}
                            </div>
                         </div>
-                     {% endfor %}
-                     <h2>Общее количество балов : {{ total_score }}</h2>
-                  {% endif %}
-               </div>
-            {% endfor %}
-         {% endif %}
-      </div>
-   </section>
+                        <div>
+                           Ответы пользователя:
+                           <div>
+                              {% if answer.user_answer is iterable %}
+                                 {% for user_answer in answer.user_answer %}
+                                    <span>{{ user_answer }}</span><br/>
+                                 {% endfor %}
+                              {% else %}
+                                 <span>{{ answer.user_answer }}</span><br/>
+                              {% endif %}
+                           </div>
+                        </div>
+                        <div>
+                           <span>Количество балов за вопрос: {{ answer.question_score }}</span> <span>Получено балов за вопрос: {{ answer.cached_score }}</span>
+                        </div>
+                     </div>
+                  {% endfor %}
+                  <h2>Общее количество балов : {{ total_score }}</h2>
+               {% endif %}
+            </div>
+         {% endfor %}
+      {% endif %}
+   </div>#}
+
 {% endblock %}

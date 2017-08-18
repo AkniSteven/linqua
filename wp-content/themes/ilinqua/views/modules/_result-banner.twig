@@ -1,29 +1,38 @@
-<div class="language-banner desktop-banner"
-     style="background-image: url('{{ theme.path }}/public/images/result-banner.png'); background-color: {{ color }}"
+<div class="result-banner desktop-banner">
+   <div class="banner-holder">
+      <h1 class="result-banner__title">
+         <span class="user-name">{{ name }}</span>
+         <span class="user-phone">(099)-52-30-784</span>
+         <span class="user-mail">{{ email }}</span>
+      </h1>
+      <div class="result-banner__image-holder">
+         <img src="{{ theme.path }}/public/images/result-banner2.png" alt=""></div>
+   </div>
+</div>
+
+{#Mobile banner#}
+<div class="result-banner mobile-banner">
+   <div class="banner-holder">
+      <h1 class="result-banner__title">
+         <span class="user-name">{{ name }}</span>
+         <span class="user-phone">(099)-52-30-784</span>
+         <span class="user-mail">{{ email }}</span>
+      </h1>
+      <div class="result-banner__image-holder">
+         <img src="{{ theme.path }}/public/images/result-banner2.png" alt=""></div>
+   </div>
+</div>
+
+{#<div class="language-banner mobile-banner"#}
      {#{% if background_image_url !='' %}#}
          {#style="background-image: url('{{ background_image_url }}'); background-color: {{ color }}"#}
      {#{% else %}#}
          {#style="background-image: url('{{ theme.path }}/public/images/img_En.svg'); background-color: {{ color }}"#}
      {#{% endif %}#}
->
-    <h1 class="language-banner__title">
-        {% if page.post_content != "" %}
-            {{ page.post_content }}
-        {% endif %}
-    </h1>
-</div>
-
-{#Mobile banner#}
-<div class="language-banner mobile-banner"
-     {% if background_image_url !='' %}
-         style="background-image: url('{{ background_image_url }}'); background-color: {{ color }}"
-     {% else %}
-         style="background-image: url('{{ theme.path }}/public/images/img_En.svg'); background-color: {{ color }}"
-     {% endif %}
->
-    <h1 class="language-banner__title">
-        {% if page.post_content != "" %}
-            {{ page.post_content }}МОБИЛА ОГОНЬ
-        {% endif %}
-    </h1>
-</div>
+{#>#}
+    {#<h1 class="language-banner__title">#}
+        {#{% if page.post_content != "" %}#}
+            {#{{ page.post_content }}МОБИЛА ОГОНЬ#}
+        {#{% endif %}#}
+    {#</h1>#}
+{#</div>#}

@@ -7,7 +7,7 @@
         {#<span></span>#}
     {#</div>#}
     <div class="burger-popup__language-navigation">
-        <h3 class="language-navigation__title"><span>iLingua</span>для студентов</h3>
+        <div class="language-navigation__title"><span>iLingua</span>для студентов</div>
         <ul class="language-navigation__language-list">
             {% for language in languageList %}
                 <li class="language-item"><a href="{{ language.post_url }}">{{ language.post_title }}</a></li>
@@ -26,7 +26,7 @@
     <div class="burger-popup__right-side">
         <div class="burger-popup__corporate">
             <div class="corporate__content">
-                <h3 class="corporate-title"><span>iLingua</span>Corporate</h3>
+                <div class="corporate-title"><span>iLingua</span>Corporate</div>
                 {% if theme_options.corporate_text !='' %}
                     <div class="corporate-descr">{{ theme_options.corporate_text }}</div>
                 {% endif %}
@@ -37,7 +37,7 @@
         </div>
         <div class="burger-popup__test" style="background-image: url('/wp-content/plugins/IlinquaTest/views/public/images/img_Test.svg')">
             <div class="test__content">
-                <h3 class="test-title">Пройти тест</h3>
+                <div class="test-title">Пройти тест</div>
                 {% if theme_options.test_text !='' %}
                     <div class="test-descr">{{ theme_options.test_text }}</div>
                 {% endif %}

@@ -1,3 +1,14 @@
 @import "all-tests";
 @import "single-test";
-	
+
+.mobile-banner {
+   display: none;
+   @include bp($point: 640, $type: max) {
+      display: block;
+   }
+}
+.desktop-banner {
+   @include bp($point: 640, $type: max) {
+      display: none;
+   }
+}

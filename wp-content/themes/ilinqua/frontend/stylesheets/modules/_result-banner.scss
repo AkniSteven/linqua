@@ -1,0 +1,161 @@
+.result-page {
+   background-color: #007dff;
+}
+
+.result-banner {
+   position: relative;
+   display: flex;
+   align-items: flex-end;
+   background-repeat: no-repeat;
+   background-color: #007dff;
+   background-size:contain;
+   background-position: bottom right;
+   transition: height .2s ease;
+   @include bp($point: 981, $type: min) {
+      //min-height: 620px;
+      //height: 637px;
+      max-height: 640px;
+      padding-top: 158px;
+      max-width: 85%;
+      margin: 0 auto;
+      //padding-left: calc((100vw - 85vw) / 2);
+      //padding-right: calc((100vw - 85vw) / 2);
+   }
+   @include bp(1440) {
+      //max-height: 500px;
+      //min-height: 500px;
+   }
+   @include bp(1240) {
+      padding-top: 120px;
+      //max-height: 450px;
+      //min-height: 450px;
+   }
+   @include bp(1024) {
+      max-height: 400px;
+      //min-height: 400px;
+    }
+   
+   @include bp(980) {
+      //min-height: 320px;
+      //height: 40vh;
+      padding-left: 0;
+      padding-right: 0;
+   }
+   @include bp($point: 640, $type: max) {
+      //height: 50vh;
+      max-height: 100%;
+      min-height: 320px;
+      padding-top: 0;
+      margin-top: 50px;
+      
+   }
+  
+   .banner-holder {
+      width: 100%;
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+      align-items: flex-end;
+      @include bp($point: 981, $type: min) {
+         padding-right: 118px;
+      }
+      @include bp(1240) {
+         padding-right: 50px;
+      }
+   
+      @include bp($point: 980, $type: max) {
+         padding-right: 50px;
+      }
+      @include bp($point: 640, $type: max) {
+         padding-right: 0;
+         max-height: 100%;
+         max-width: 95vw;
+         margin: 0 auto;
+         align-items: flex-start;
+         flex-flow: column nowrap;
+      }
+      
+   }
+   .result-banner__title {
+      margin-left: 100px;
+      padding: 0;
+      align-self: center;
+      color: #fff;
+      position: relative;
+      z-index: 2;
+      span {
+         display: block;
+         text-transform: none;
+      }
+      @include bp($point: 981, $type: min) {
+         max-width: 600px;
+         margin-right: 50px;
+         .user-name {
+            margin-bottom: 30px;
+         }
+         .user-phone {
+            margin-bottom: 5px;
+         }
+         .user-mail, .user-phone {
+            font-size: 2rem;
+         }
+      }
+      @include bp(1240) {
+         margin-left: 50px;
+         //padding-top: 55px;
+      }
+      @include bp(1440) {
+         .user-mail, .user-phone {
+            font-size: 1.7rem;
+         }
+       }
+      
+      @include bp(980) {
+         max-width: 600px;
+         margin-right: 25px;
+         font-size: 3.5rem;
+         .user-name {
+            margin-bottom: 10px;
+         }
+         .user-phone {
+            margin-bottom: 5px;
+         }
+         .user-mail, .user-phone {
+            font-size: 1.5rem;
+         }
+      }
+      @include bp($point: 640, $type: max) {
+         align-self: flex-start;
+         margin-bottom: 50px;
+         margin-left: 25px;
+         .user-name {
+            font-size: 2.8rem;
+         }
+         .user-mail, .user-phone {
+            font-size: 1rem;
+         }
+      }
+   }
+   &__image-holder {
+      img {
+         width: 100%;
+         height: 100%;
+         display: block;
+      }
+      @include bp($point: 981, $type: min) {
+         max-width: 749px;
+      }
+      @include bp($point: 980, $type: max) {
+         max-width: 55%;
+      }
+      @include bp($point: 640, $type: max) {
+         //position: absolute;
+         //bottom: 0;
+         //right: 0;
+         padding-right: 10px;
+         align-self: flex-end;
+         max-width: 200px;
+      }
+   }
+   
+}
