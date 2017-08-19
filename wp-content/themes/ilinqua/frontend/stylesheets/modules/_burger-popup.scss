@@ -160,6 +160,8 @@
             color: #fff;
             text-transform: none;
             font-weight: 500;
+            font-size: 2rem;
+            line-height: 1.125;
             span {
                 display: block;
             }
@@ -335,7 +337,7 @@
         }
         .language-navigation {
             &__title {
-                font-size: 1.5rem;
+                font-size: 1.7rem;
                 margin-bottom: 25px;
             }
             &__language-list {
