@@ -70,17 +70,18 @@
             margin-right: 15px !important;
          }
       }
-      @include bp($point: 768, $type: max) {
-         height: 150px;
-         padding: 0 80px;
-      }
-      @include bp($point: 640, $type: max) {
+      
+   }
+   @include bp($point: 768, $type: max) {
+      padding: 0 80px;
+   }
+   @include bp($point: 640, $type: max) {
+      height: 75px;
+      padding: 0 40px;
+      .all-tests & {
          height: 75px;
          padding: 0 40px;
-         .all-tests & {
-            height: 75px;
-            padding: 0 40px;
-         }
+         //padding-left: calc(40px - 11px);
       }
    }
 }

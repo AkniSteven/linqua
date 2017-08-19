@@ -16,6 +16,7 @@ requirejs([
 			mapTypeControl: false,
 //                    scaleControl: false,
 			zoomControl: false,
+            fullscreenControl: false,
 			streetViewControl: false,
 			center: myLatlng,
 			mapTypeId: google.maps.MapTypeId.ROADMAP,

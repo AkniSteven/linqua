@@ -67,7 +67,18 @@
          }
       }
    }
+   //@include bp($point: 768, $type: max) {
+   //   //height: 150px;
+   //   padding: 0 80px;
+   //}
    @include bp($point: 640, $type: max) {
+      height: 75px;
       padding: 0 40px;
+      padding-left: calc(40px - 11px);
+      .all-tests & {
+         height: 75px;
+         padding: 0 40px;
+         //padding-left: calc(40px - 11px);
+      }
    }
 }

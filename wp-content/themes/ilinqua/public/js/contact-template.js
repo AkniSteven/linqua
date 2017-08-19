@@ -16,6 +16,7 @@ requirejs([
 //                    disableDefaultUI: false,
 			mapTypeControl: false,
 //                    scaleControl: false,
+            fullscreenControl: false,
 			zoomControl: false,
 			streetViewControl: false,
 			center: myLatlng,
