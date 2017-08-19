@@ -35,7 +35,7 @@ requirejs([
 
         /* ========== Tests steps ========== */
         singleTest: function () {
-            var steps = $('#test_holder').show();
+            var steps = $('#test_holder');
             steps.steps({
                 headerTag: ".pagination",
                 bodyTag: ".question",

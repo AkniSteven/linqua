@@ -31,15 +31,17 @@
                         {% if answer.user_answer is iterable %}
                            {% for user_answer in answer.user_answer %}
                               <div
-                                 {% if user_answer.question_score > 0 %}
+                                 {% if right_answer == user_answer and answer.cached_score > 0 %}
                                     class="right-answer"
-                                 {% else %}
+                                 {% elseif right_answer != user_answer and answer.cached_score > 0 %}
                                     class="wrong-answer"
+                                    {% else %}
+                                    class="empty-answer"
                                  {% endif %}
                               >
-                              {% if user_answer.question_score > 0 %}
+                              {% if right_answer == user_answer and answer.cached_score > 0 %}
                                  <img src="{{ theme.path }}/public/images/success.png" alt="">
-                              {% else %}
+                              {% elseif right_answer != user_answer and answer.cached_score > 0 %}
                                  <img src="{{ theme.path }}/public/images/wron.png" alt="">
                               {% endif %}
                                  <span>{{ user_answer }}</span>
@@ -47,25 +49,22 @@
                            {% endfor %}
                         {% else %}
                            <div
-                              {% if user_answer.question_score > 0 %}
+                              {% if right_answer == user_answer and answer.cached_score > 0 %}
                               class="right-answer"
-                              {% else %}
+                              {% elseif right_answer != user_answer and answer.cached_score > 0 %}
                               class="wrong-answer"
+                              {% else %}
+                                 class="empty-answer"
                               {% endif %}
                            >
-                              {% if user_answer.question_score > 0 %}
+                              {% if right_answer == user_answer and answer.cached_score > 0 %}
                                  <img src="{{ theme.path }}/public/images/success.png" alt="">
-                              {% else %}
+                              {% elseif right_answer != user_answer and answer.cached_score > 0 %}
                                  <img src="{{ theme.path }}/public/images/wron.png" alt="">
                               {% endif %}
                               <span>{{ answer.user_answer }}</span>
                            </div>
                         {% endif %}
-                        
-                        {#<div>
-                           <div>Количество балов за вопрос: {{ answer.question_score }}</div>
-                           <div>Получено балов за вопрос: {{ answer.cached_score }}</div>
-                        </div>#}
                      </div>
                   {% endfor %}
                {% endif %}
