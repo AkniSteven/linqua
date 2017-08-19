@@ -1,5 +1,5 @@
 .single-test-page {
-   height: 100vh;
+   min-height: 100vh;
    display: flex;
    align-items: flex-start;
    flex-flow: column nowrap;
@@ -294,7 +294,8 @@
       padding: 0;
       &.wizard {
          height: 100%;
-         padding: 0 11.2vw;
+         padding: 0 11.2vw 40px;
+         flex:1;
          .question {
             opacity: 1;
          }
@@ -487,7 +488,10 @@
          }
          .answer-val {
             min-height: 24px;
-            margin-bottom: 30px;
+            //margin-top: 30px;
+            & + .answer-val {
+               margin-top: 30px;
+            }
             &:last-child {
                margin-bottom: 0;
             }
@@ -502,7 +506,7 @@
          
       }
       .answer-button {
-         margin-top: 80px;
+         margin-top: 40px;
          margin-left: 40px;
          padding: 23px 45px;
          /* ---------- Language page style ---------- */
@@ -526,7 +530,9 @@
             flex-grow: 1;
             max-width: 800px;
             .answer-val {
-               margin-bottom: 24px;
+               & + .answer-val {
+                  margin-top: 24px;
+               }
                &:nth-last-child(2) {
                   margin-bottom: 0;
                }
@@ -562,7 +568,9 @@
          .answers {
             width: 100%;
             .answer-val {
-               margin-bottom: 66px;
+               & + .answer-val {
+                  margin-top: 66px;
+               }
                &:nth-last-child(2) {
                   margin-bottom: 0;
                }
@@ -612,7 +620,9 @@
          }
          .answers {
             .answer-val {
-               margin-bottom: 29px;
+               & + .answer-val {
+                  margin-top: 29px;
+               }
                .checkbox__title, .radio__title {
                   font-size: 1rem;
                }
