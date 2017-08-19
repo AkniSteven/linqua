@@ -8,8 +8,8 @@
 {% endblock %}
 
 {% block scripts %}
-    <script src="/wp-content/plugins/IlinquaTest/views/public/js/jquery.js" type="text/javascript"></script>
-    <script src="/wp-content/plugins/IlinquaTest/views/public/js/form-validate.js" type="text/javascript"></script>
+    {#<script src="/wp-content/plugins/IlinquaTest/views/public/js/jquery.js" type="text/javascript"></script>#}
+    {#<script src="/wp-content/plugins/IlinquaTest/views/public/js/form-validate.js" type="text/javascript"></script>#}
     <script src="/wp-content/plugins/IlinquaTest/views/public/js/testing.js" type="text/javascript"></script>
     <script src="/wp-content/plugins/IlinquaTest/views/public/js/single-test.js" type="text/javascript"></script>
 {% endblock %}
@@ -54,7 +54,7 @@
                     </form>
                 {% endif %}
             </div>
-            <div class="test-holder">
+            <div class="test-holder" id="test_holder">
                 {% set question_counter = 0 %}
                 {% if session_test_id == test.ID %}
                     {% if questions is not empty %}
