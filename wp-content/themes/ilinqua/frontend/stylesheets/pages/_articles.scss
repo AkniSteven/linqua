@@ -623,11 +623,14 @@
                 width: 100%;
                 position: static;
                 transform: none;
+                margin-top: -200px;
+                min-height: 250px;
                 &:before,
                 &:after {
                     display: none;
                 }
                 .specification-holder {
+                    min-height: 250px;
                     padding: 40px;
                     .frame {
                         display: none;
