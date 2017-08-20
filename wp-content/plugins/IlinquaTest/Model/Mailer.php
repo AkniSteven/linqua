@@ -137,12 +137,12 @@ class Mailer
     {
         if (!empty($data)) {
             $mailBody = $this->getCustomerMailBody($data);
-            if ($data['tester_email'] != '' && $this->_recipient != '' && $mailBody !='') {
+            if ($data['tester_email'] != ''  && $mailBody !='') {
                 $headers[] = "Content-type: text/html; charset=utf-8";
                 do_action('plugins_loaded');
                 $headers[] = "From:{$this->_senderName} <{$this->_senderEmail}>";
                 $headers[] = $this->_customerMailTheme;
-                $send = wp_mail( $this->_recipient, $this->_customerMailTheme, $mailBody, $headers);
+                $send = wp_mail($data['tester_email'], $this->_customerMailTheme, $mailBody, $headers);
                 return  $send;
             }
         }
