@@ -25,10 +25,10 @@ $role = Data::getUserRole();
 $testId = $_GET['testId'];
 
 
-if ($role != 'Administrator' || !$testId) {
-    wp_redirect(home_url());
-    exit;
-}
+//if ($role != 'Administrator' || !$testId) {
+//    wp_redirect(home_url());
+//    exit;
+//}
 
 $currentTestData = $testDb->getTestById($testId)[0];
 
