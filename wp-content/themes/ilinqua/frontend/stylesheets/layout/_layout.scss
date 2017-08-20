@@ -74,7 +74,7 @@
    @include bp($point: 640, $type: max) {
       height: 75px;
       padding: 0 40px;
-      padding-left: calc(40px - 11px);
+      //padding-left: calc(40px - 11px);
       .all-tests & {
          height: 75px;
          padding: 0 40px;
