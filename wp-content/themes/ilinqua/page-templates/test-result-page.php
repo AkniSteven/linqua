@@ -33,9 +33,11 @@ if ($role != 'Administrator' || !$testId) {
 $currentTestData = $testDb->getTestById($testId)[0];
 
 if ($currentTestData['test']) {
+    $test = get_post($currentTestData['test']);
     $context['name'] = Data::cleanString($currentTestData['name']);
     $context['email'] = Data::cleanString($currentTestData['email']);
     $context['testID'] = Data::cleanString($currentTestData['testId']);
+    $context['test_title'] = $test->post_title;
     $testAnswers = unserialize($currentTestData['info']);
     $context['total_score'] = 0;
     if (!empty($testAnswers)) {
