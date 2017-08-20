@@ -1,1 +1,102 @@
-Vue.component("list",{template:"#list-template",props:["list"]}),Vue.component("list-header",{template:"#list-header",props:["list-header"]});var vm=new Vue({el:"body",data:{users:["freecodecamp","storbeck","terakilobyte","habathcx","RobotCaleb","thomasballinger","noobs2ninjas","beohoff","test_channel","cretetion","sheevergaming","TR7K","OgamingSC2","ESL_SC2"],channelRes:[],obj:{},status:["all","online","offline"],reverse:!0,listStyle:"",isA:!1,isB:!0,displayMode:0,classStyle:""},computed:{currentStyle:function(){return 0===this.displayMode?this.listStyle="list-view":this.listStyle="list-box",this.listStyle},currentClass:function(){return 0===this.displayMode?this.classStyle="view":this.classStyle="box",this.classStyle}},ready:function(){this.getChannel(),this.showList()},methods:{getChannel:function(){var s=this;this.channelRes;this.users.forEach(function(t,e){s.$http.get(s.makeUrl("streams",t)).then(i=>{s.$http.get(s.makeUrl("channels",t)).then(t=>{null===i.json().stream||void 0===i.json().stream?s.channelRes.$set(e,{status:"offline",name:t.json().name,desc:t.json().status,img:t.json().logo,url:t.json().url}):s.channelRes.$set(e,{status:"online",name:t.json().name,desc:t.json().status,img:t.json().logo,url:t.json().url})},s=>{console.log(s)})},s=>{console.log(s)})})},makeUrl:function(s,t){return"https://api.twitch.tv/kraken/"+s+"/"+t+"?client_id=5j0r5b7qb7kro03fvka3o8kbq262wwm"},showList:function(){this.isA?(this.isA=this.isA,this.isB=this.isB):(this.isA=!this.isA,this.isB=!this.isB)},changeClass:function(){this.reverse=!this.reverse},getClass:function(s){this.displayMode=s}},filters:{status:function(s){return"all"==this.status?s:s.filter(function(s){return s.status==this.status}.bind(this))}}});
+Vue.component('list', {
+	template: '#list-template',
+	props: ['list']
+});
+
+Vue.component('list-header', {
+	template: '#list-header',
+	props: ['list-header']
+});
+
+var vm = new Vue({
+	el: 'body',
+	data: {
+		users: ["freecodecamp", "storbeck", "terakilobyte", "habathcx","RobotCaleb","thomasballinger","noobs2ninjas","beohoff","test_channel","cretetion","sheevergaming","TR7K","OgamingSC2","ESL_SC2"],
+		// users: ['freecodecamp', 'storbeck', 'terakilobyte'],
+		channelRes: [],
+		obj: {},
+		status: ['all','online', 'offline'],
+		reverse: true,
+		listStyle: '',
+		isA: false,
+		isB: true,
+		displayMode: 0,
+		classStyle: ''
+	},
+	computed: {
+		currentStyle: function () {
+			if (this.displayMode === 0) {
+				this.listStyle = 'list-view'
+			} else {
+				this.listStyle = 'list-box'
+			}
+
+			return this.listStyle
+		},
+		currentClass: function () {
+			if (this.displayMode === 0) {
+				this.classStyle = 'view'
+			} else {
+				this.classStyle = 'box'
+			}
+
+			return this.classStyle
+		}
+	},
+	ready: function () {
+		this.getChannel()
+		this.showList()
+
+	},
+	methods: {
+		getChannel: function () {
+			var instance = this
+			var resnow = this.channelRes
+
+			this.users.forEach(function(channel, index){
+				instance.$http.get(instance.makeUrl('streams', channel)).then((response) => {
+					instance.$http.get(instance.makeUrl('channels', channel)).then((data) => {
+						if (response.json().stream === null || response.json().stream === undefined) {
+							instance.channelRes.$set(index,{status: 'offline', name: data.json().name, desc: data.json().status, img: data.json().logo, url: data.json().url})
+						} else {
+							instance.channelRes.$set(index,{status: 'online', name: data.json().name, desc: data.json().status, img: data.json().logo, url: data.json().url})
+						}
+					}, (data) => {
+						console.log(data)
+					})
+				}, (response) => {
+					console.log(response)
+				})
+			})
+		},
+		makeUrl: function (type, name) {
+			return 'https://api.twitch.tv/kraken/' +type+ '/' +name+ '?client_id=5j0r5b7qb7kro03fvka3o8kbq262wwm';
+		},
+		showList: function () {
+			if (this.isA) {
+				this.isA = this.isA
+				this.isB = this.isB
+			} else {
+				this.isA = !this.isA
+				this.isB = !this.isB
+			}
+		},
+		changeClass: function () {
+			this.reverse = !this.reverse
+		},
+		getClass: function (option) {
+			this.displayMode = option;
+		},
+	},
+	filters: {
+		status: function (account) {
+			if (this.status == 'all') {
+				return account
+			}
+
+			return account.filter(function(account) {
+				return account.status == this.status
+			}.bind(this))
+		}
+	}
+})
