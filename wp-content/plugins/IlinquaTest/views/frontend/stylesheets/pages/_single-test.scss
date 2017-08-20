@@ -119,6 +119,22 @@
          display: none;
       }
    }
+   .restart_rorm {
+      padding-left: calc(11.2vw + 40px);
+      .btn {
+         padding: 0;
+         input {
+            display: block;
+            width: 100%;
+            padding: 25px 43px;
+            font-size: .7rem;
+            letter-spacing: 2px;
+            border: none;
+            cursor: pointer;
+            text-transform: uppercase;
+         }
+      }
+   }
    .user-info {
       width: 290px;
       padding-left: 13.8vw;
@@ -180,6 +196,9 @@
    }
    
    @include bp($bpPortrait) {
+      .restart_rorm {
+         padding-left: 12.8vw;
+      }
       .user-info {
          width: 100%;
          max-width: 478px;
@@ -294,7 +313,7 @@
       padding: 0;
       &.wizard {
          height: 100%;
-         padding: 0 11.2vw 40px;
+         padding: 0 11.2vw 20px;
          flex:1;
          .question {
             opacity: 1;
@@ -787,7 +806,7 @@
       &__title,
       &__content {
          max-width: 400px;
-         padding-left: 40px;
+         padding-left: 44px;
          padding-right: 35px;
       }
       &__content {

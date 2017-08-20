@@ -169,10 +169,11 @@
                     }
                     span, h2 {
                         display: block;
-                        margin: 0 0 50px;
+                        margin: 0 0 21px;
                         font-size: 1.5rem;
                         font-weight: 500;
                         line-height: 1.5;
+                        letter-spacing: 0;
                     }
                 }
             }
@@ -407,7 +408,7 @@
             }
             
             &__specification {
-                bottom: -60px;
+                //bottom: -60px;
                 width: 84%;
                 .specification-holder {
                     padding: 60px 40px 40px 40px;
@@ -461,7 +462,7 @@
                 }
                 &__specification {
                     width: 79%;
-                    bottom: -50px;
+                    //bottom: -50px;
                     .specification-holder {
                         padding: 40px;
                         .frame {
