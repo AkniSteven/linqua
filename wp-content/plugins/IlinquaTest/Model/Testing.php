@@ -136,6 +136,9 @@ class Testing
         if (is_array($answers)) {
             foreach ($answers as &$answer) {
                 if ($answer['id']) {
+                    if (!$answer['right_answer']) {
+                        continue;
+                    }
                     $questionAnswers = get_post_meta($answer['id'], 'answer_case', true);
                     if (is_array($answer['right_answer'])) {
                         foreach ($answer['right_answer'] as &$right_answer) {
