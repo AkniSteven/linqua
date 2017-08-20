@@ -31,17 +31,17 @@
                         {% if answer.user_answer is iterable %}
                            {% for user_answer in answer.user_answer %}
                               <div
-                                 {% if right_answer == user_answer and answer.cached_score > 0 %}
+                                 {% if right_answer == user_answer %}
                                     class="right-answer"
-                                 {% elseif right_answer != user_answer and answer.cached_score > 0 %}
+                                 {% elseif right_answer != user_answer %}
                                     class="wrong-answer"
                                  {% else %}
                                     class="empty-answer"
                                  {% endif %}
                               >
-                              {% if right_answer == user_answer and answer.cached_score > 0 %}
+                              {% if right_answer == user_answer %}
                                  <img src="{{ theme.path }}/public/images/success.png" alt="">
-                              {% elseif right_answer != user_answer and answer.cached_score > 0 %}
+                              {% elseif right_answer != user_answer %}
                                  <img src="{{ theme.path }}/public/images/wron.png" alt="">
                               {% endif %}
                                  <span>{{ user_answer }}</span>
@@ -49,17 +49,17 @@
                            {% endfor %}
                         {% else %}
                            <div
-                              {% if right_answer == user_answer and answer.cached_score > 0 %}
+                              {% if right_answer == user_answer %}
                               class="right-answer"
-                              {% elseif right_answer != user_answer and answer.cached_score > 0 %}
+                              {% elseif right_answer != user_answer %}
                               class="wrong-answer"
                               {% else %}
                                  class="empty-answer"
                               {% endif %}
                            >
-                              {% if right_answer == user_answer and answer.cached_score > 0 %}
+                              {% if right_answer == user_answer %}
                                  <img src="{{ theme.path }}/public/images/success.png" alt="">
-                              {% elseif right_answer != user_answer and answer.cached_score > 0 %}
+                              {% elseif right_answer != user_answer %}
                                  <img src="{{ theme.path }}/public/images/wron.png" alt="">
                               {% endif %}
                               <span>{{ answer.user_answer }}</span>
@@ -73,55 +73,55 @@
       {% endif %}
    </div>
    
-   {#<div class="content">
-      ID Теста: {{ testID }}
-      Тест пользователя : {{ name }} {{ email }}
-      Подробности:
-      {% if test_answers is not empty %}
-         {% for level in test_answers %}
-            <div class="level">
-               <h3>Уровень: {{ loop.index }}</h3>
-               {% if level is not empty %}
-                  {% for answer in level %}
-                     <div class="answer">
-                        <h5>{{ answer.title }}</h5>
-                        <div class="description">
-                           {{ answer.description }}
-                        </div>
-                        <div>
-                           правильные ответы:
-                           <div>
-                              {% if answer.right_answer is iterable %}
-                                 {% for right_answer in answer.right_answer %}
-                                    <span>{{ right_answer }}</span><br/>
-                                 {% endfor %}
-                              {% else %}
-                                 <span>{{ answer.right_answer }}</span><br/>
-                              {% endif %}
-                           </div>
-                        </div>
-                        <div>
-                           Ответы пользователя:
-                           <div>
-                              {% if answer.user_answer is iterable %}
-                                 {% for user_answer in answer.user_answer %}
-                                    <span>{{ user_answer }}</span><br/>
-                                 {% endfor %}
-                              {% else %}
-                                 <span>{{ answer.user_answer }}</span><br/>
-                              {% endif %}
-                           </div>
-                        </div>
-                        <div>
-                           <span>Количество балов за вопрос: {{ answer.question_score }}</span> <span>Получено балов за вопрос: {{ answer.cached_score }}</span>
-                        </div>
-                     </div>
-                  {% endfor %}
-                  <h2>Общее количество балов : {{ total_score }}</h2>
-               {% endif %}
-            </div>
-         {% endfor %}
-      {% endif %}
-   </div>#}
+   {#<div class="content">#}
+      {#ID Теста: {{ testID }}#}
+      {#Тест пользователя : {{ name }} {{ email }}#}
+      {#Подробности:#}
+      {#{% if test_answers is not empty %}#}
+         {#{% for level in test_answers %}#}
+            {#<div class="level">#}
+               {#<h3>Уровень: {{ loop.index }}</h3>#}
+               {#{% if level is not empty %}#}
+                  {#{% for answer in level %}#}
+                     {#<div class="answer">#}
+                        {#<h5>{{ answer.title }}</h5>#}
+                        {#<div class="description">#}
+                           {#{{ answer.description }}#}
+                        {#</div>#}
+                        {#<div>#}
+                           {#правильные ответы:#}
+                           {#<div>#}
+                              {#{% if answer.right_answer is iterable %}#}
+                                 {#{% for right_answer in answer.right_answer %}#}
+                                    {#<span>{{ right_answer }}</span><br/>#}
+                                 {#{% endfor %}#}
+                              {#{% else %}#}
+                                 {#<span>{{ answer.right_answer }}</span><br/>#}
+                              {#{% endif %}#}
+                           {#</div>#}
+                        {#</div>#}
+                        {#<div>#}
+                           {#Ответы пользователя:#}
+                           {#<div>#}
+                              {#{% if answer.user_answer is iterable %}#}
+                                 {#{% for user_answer in answer.user_answer %}#}
+                                    {#<span>{{ user_answer }}</span><br/>#}
+                                 {#{% endfor %}#}
+                              {#{% else %}#}
+                                 {#<span>{{ answer.user_answer }}</span><br/>#}
+                              {#{% endif %}#}
+                           {#</div>#}
+                        {#</div>#}
+                        {#<div>#}
+                           {#<span>Количество балов за вопрос: {{ answer.question_score }}</span> <span>Получено балов за вопрос: {{ answer.cached_score }}</span>#}
+                        {#</div>#}
+                     {#</div>#}
+                  {#{% endfor %}#}
+                  {#<h2>Общее количество балов : {{ total_score }}</h2>#}
+               {#{% endif %}#}
+            {#</div>#}
+         {#{% endfor %}#}
+      {#{% endif %}#}
+   {#</div>#}
 
 {% endblock %}
