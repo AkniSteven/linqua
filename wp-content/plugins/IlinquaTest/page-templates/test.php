@@ -10,6 +10,10 @@ use ilinqua\app\Helper\Data as coreData;
 global $post;
 global $core;
 
+
+#test
+$testPage = $post;
+
 $testDb = new TestDb();
 $testing = new TestingController();
 $view = new PageView();
@@ -151,7 +155,7 @@ if (!empty($post)) {
         $context['session_test_id'] = $_SESSION['test_id'];
         $testerID  = $_SESSION['tester_id'];
         $currentTestData = $testDb->getTestById($testerID)[0];
-        if ($currentTestData['test'] == $post->ID) {
+        if ($currentTestData['test'] == $testPage->ID) {
             $context['already_passed'] = 1;
         }
     }
