@@ -200,7 +200,7 @@ class TestingController
               ? $_SESSION['email'] : '';
           $mailData['tel'] = $_SESSION['tel'] ? $_SESSION['tel'] : '';
           $mailData['test_result'] = $testResultLink && $_SESSION['tester_id']
-              ? $testResultLink . $_SESSION['tester_id']
+              ? $testResultLink . '?testId=' . $_SESSION['tester_id']
               : '';
           $mailData['test_name'] = $test->post_title
               ? $test->post_title
