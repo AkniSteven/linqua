@@ -35,6 +35,7 @@ $currentTestData = $testDb->getTestById($testId)[0];
 if ($currentTestData['test']) {
     $test = get_post($currentTestData['test']);
     $context['name'] = Data::cleanString($currentTestData['name']);
+    $context['phone'] = Data::cleanString($currentTestData['phone']);
     $context['email'] = Data::cleanString($currentTestData['email']);
     $context['testID'] = Data::cleanString($currentTestData['testId']);
     $context['test_title'] = $test->post_title;
