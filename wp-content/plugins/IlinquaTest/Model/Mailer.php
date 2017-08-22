@@ -156,7 +156,7 @@ class Mailer
             $message .= $mailBody;
             $message .= "\r\n\r\n--" . $boundary . "--";
 
-            mail('', $this->_customerMailTheme, $message, $headers);
+            mail($data['tester_email'], $this->_customerMailTheme, $message, $headers);
         }
 
         return true;
