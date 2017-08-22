@@ -136,10 +136,9 @@ class Mailer
     public function sendCustomerMail(array $data)
     {
         if (!empty($data)) {
-            $mailBody['text/html'] = $this->getCustomerMailBody($data);
-            $mailBody['text/plain'] = strip_tags($this->getCustomerMailBody($data));
+            $mailBody = $this->getCustomerMailBody($data);
             if ($data['tester_email'] != ''  && $mailBody !='') {
-//                $headers[] = "Content-type: text/html; charset=utf-8";
+                $headers[] = "Content-type: text/html; charset=utf-8";
                 do_action('plugins_loaded');
                 $headers[] = "From:{$this->_senderName} <{$this->_senderEmail}>";
                 $headers[] = $this->_customerMailTheme;
