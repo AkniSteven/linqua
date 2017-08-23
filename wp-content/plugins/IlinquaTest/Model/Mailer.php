@@ -128,17 +128,17 @@ class Mailer
                 $boundary = uniqid('np');
                 $headers = "MIME-Version: 1.0\r\n";
                 $headers .= "From:{$this->_senderName} <{$this->_senderEmail}>\r\n";
-                $headers .= "Subject: {$this->_customerMailTheme}\r\n";
+                $headers .= "Subject: =?UTF-8?B?\".base64_encode($this->_mailTheme).\"?=\"";
                 $headers .= "Content-Type: multipart/alternative;boundary=" . $boundary . "\r\n";
                 $message = "This is a MIME encoded message.";
                 $message .= "\r\n\r\n--" . $boundary . "\r\n";
                 $message .= "Content-type: text/plain;charset=utf-8\r\n\r\n";
-                $message .= strip_tags($mailBody);
+                $message .=  strip_tags($mailBody);
                 $message .= "\r\n\r\n--" . $boundary . "\r\n";
                 $message .= "Content-type: text/html;charset=utf-8\r\n\r\n";
                 $message .= $mailBody;
                 $message .= "\r\n\r\n--" . $boundary . "--";
-                return mail($this->_recipient, $this->_customerMailTheme, $message, $headers);
+                return mail($this->_recipient, $this->_mailTheme, $message, $headers);
             }
         }
         return false;
@@ -154,28 +154,21 @@ class Mailer
         if (!empty($data)) {
             $mailBody = $this->getCustomerMailBody($data);
             if ($data['tester_email'] != ''  && $mailBody !='') {
-//                $headers[] = "Content-type: text/html; charset=utf-8";
-//                do_action('plugins_loaded');
-//                $headers[] = "From:{$this->_senderName} <{$this->_senderEmail}>";
-//                $headers[] = $this->_customerMailTheme;
-//                $send = wp_mail($data['tester_email'], $this->_customerMailTheme, $mailBody, $headers);
-//                return  $send;
-
+                $headers[] = "Content-type: multipart/alternative; charset=utf-8";
+                do_action('plugins_loaded');
+               $headers[] = "From:{$this->_senderName} <{$this->_senderEmail}>";
+               $headers[] = $this->_customerMailTheme;
                 $boundary = uniqid('np');
-                $headers = "MIME-Version: 1.0\r\n";
-                $headers .= "From:{$this->_senderName} <{$this->_senderEmail}>\r\n";
-                $headers .= "Subject: {$this->_customerMailTheme}\r\n";
-                $headers .= "Content-Type: multipart/alternative;boundary=" . $boundary . "\r\n";
                 $message = "This is a MIME encoded message.";
                 $message .= "\r\n\r\n--" . $boundary . "\r\n";
                 $message .= "Content-type: text/plain;charset=utf-8\r\n\r\n";
-                $message .= strip_tags($mailBody);
+                $message .=  strip_tags($mailBody);
                 $message .= "\r\n\r\n--" . $boundary . "\r\n";
                 $message .= "Content-type: text/html;charset=utf-8\r\n\r\n";
                 $message .= $mailBody;
                 $message .= "\r\n\r\n--" . $boundary . "--";
-                return mail($data['tester_email'], $this->_customerMailTheme, $message, $headers);
-
+               $send = wp_mail($data['tester_email'], $this->_customerMailTheme, $message, $headers);
+               return  $send;
             }
         }
         return false;
