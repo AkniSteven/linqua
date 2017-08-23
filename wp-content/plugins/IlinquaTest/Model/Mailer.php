@@ -115,14 +115,30 @@ class Mailer
     public function sendMail(array $data)
     {
         if (!empty($data)) {
+
+            do_action('plugins_loaded');
             $mailBody = $this->getMailBody($data);
             if ($this->_senderEmail != '' && $this->_recipient != '' && $mailBody !='') {
-                $headers[] = "Content-type: text/html; charset=utf-8";
-                do_action('plugins_loaded');
-                $headers[] = "From:{$this->_senderName} <{$this->_senderEmail}>";
-                $headers[] = $this->_mailTheme;
-                $send = wp_mail( $this->_recipient, $this->_mailTheme, $mailBody, $headers);
-                return  $send;
+//                $headers[] = "Content-type: text/html; charset=utf-8";
+//                $headers[] = "From:{$this->_senderName} <{$this->_senderEmail}>";
+//                $headers[] = $this->_mailTheme;
+//                $send = wp_mail( $this->_recipient, $this->_mailTheme, $mailBody, $headers);
+//                return  $send;
+
+                $boundary = uniqid('np');
+                $headers = "MIME-Version: 1.0\r\n";
+                $headers .= "From:{$this->_senderName} <{$this->_senderEmail}>\r\n";
+                $headers .= "Subject: {$this->_customerMailTheme}\r\n";
+                $headers .= "Content-Type: multipart/alternative;boundary=" . $boundary . "\r\n";
+                $message = "This is a MIME encoded message.";
+                $message .= "\r\n\r\n--" . $boundary . "\r\n";
+                $message .= "Content-type: text/plain;charset=utf-8\r\n\r\n";
+                $message .= strip_tags($mailBody);
+                $message .= "\r\n\r\n--" . $boundary . "\r\n";
+                $message .= "Content-type: text/html;charset=utf-8\r\n\r\n";
+                $message .= $mailBody;
+                $message .= "\r\n\r\n--" . $boundary . "--";
+                return mail($this->_recipient, $this->_customerMailTheme, $message, $headers);
             }
         }
         return false;
@@ -153,7 +169,7 @@ class Mailer
                 $message = "This is a MIME encoded message.";
                 $message .= "\r\n\r\n--" . $boundary . "\r\n";
                 $message .= "Content-type: text/plain;charset=utf-8\r\n\r\n";
-                $message .= "Visit ilingua.com.ua.";
+                $message .= strip_tags($mailBody);
                 $message .= "\r\n\r\n--" . $boundary . "\r\n";
                 $message .= "Content-type: text/html;charset=utf-8\r\n\r\n";
                 $message .= $mailBody;
