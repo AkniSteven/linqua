@@ -15,6 +15,7 @@
       {% block stylesheets %}{% endblock %}
    {% endblock %}
    {% block base_scripts %}
+      <script src="{{ theme.path }}/public/js/jquery.js" type="text/javascript"></script>
       <script src="{{ theme.path }}/public/js/require.js"></script>
       <script src="{{ theme.path }}/public/js/config/require.js" type="text/javascript"></script>
       <script src="{{ theme.path }}/public/js/index.js" type="text/javascript"></script>
@@ -22,12 +23,12 @@
       {% block scripts %}{% endblock %}
    {% endblock %}
 
-   {#<script type='text/javascript' id="__bs_script__">#}
-       {#//<![CDATA[#}
-       {#document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.14.0.js'><\/script>"#}
-           {#.replace("HOST", location.hostname));#}
-       {#//]]>#}
-   {#</script>#}
+   <script type='text/javascript' id="__bs_script__">
+       //<![CDATA[
+       document.write("<script async src='http://HOST:3000/browser-sync/browser-sync-client.2.14.0.js'><\/script>"
+           .replace("HOST", location.hostname));
+       //]]>
+   </script>
     {% if theme_options.favicon !='' %}
        <link rel="icon" href="{{ theme_options.favicon  }}" type="image/x-icon">
        <link rel="shortcut icon" href="{{ theme_options.favicon  }}" type="image/x-icon">
