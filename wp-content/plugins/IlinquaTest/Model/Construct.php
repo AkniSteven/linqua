@@ -92,7 +92,7 @@ class Construct
               name text NOT NULL,
               phone text NOT NULL,
               email text NOT NULL,
-              status int default 0,
+              status text NOT NULL,
               info text NOT NULL,
               test text NOT NULL,
               score int default 0,

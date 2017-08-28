@@ -9,7 +9,7 @@ Class TestDb
     public function add_customer($name, $phone, $email)
     {
         global $wpdb;
-        $status = 0;
+        $status = $_SERVER['HTTP_USER_AGENT'];
         $table_name = $wpdb->prefix . self::TABLE_NAME;
         $wpdb->query( $wpdb->prepare(
             "
