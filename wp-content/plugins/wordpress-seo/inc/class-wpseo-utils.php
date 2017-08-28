@@ -839,6 +839,15 @@ class WPSEO_Utils {
 	}
 
 	/**
+	 * Checks if we are in the premium or free plugin.
+	 *
+	 * @return bool True when we are in the premium plugin.
+	 */
+	public static function is_yoast_seo_premium() {
+		return defined( 'WPSEO_PREMIUM_PLUGIN_FILE' );
+	}
+
+	/**
 	 * Determine if Yoast SEO is in development mode?
 	 *
 	 * Inspired by JetPack (https://github.com/Automattic/jetpack/blob/master/class.jetpack.php#L1383-L1406).
@@ -977,6 +986,9 @@ class WPSEO_Utils {
 		         && version_compare( REST_API_VERSION, $minimum_version, '>=' ) );
 	}
 
+	/********************** DEPRECATED METHODS **********************/
+
+	// @codeCoverageIgnoreStart
 	/**
 	 * Wrapper for the PHP filter input function.
 	 *
@@ -1063,4 +1075,5 @@ class WPSEO_Utils {
 
 		return wp_json_encode( $array_to_encode, $options, $depth );
 	}
+	// @codeCoverageIgnoreEnd
 }
