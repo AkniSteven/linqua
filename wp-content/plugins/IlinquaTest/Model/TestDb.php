@@ -30,7 +30,7 @@ Class TestDb
     {
         global $wpdb;
         $table_name = $wpdb->prefix . self::TABLE_NAME;
-        $sql = "SELECT id, name, email, status, info, test, score , date FROM  $table_name";
+        $sql = "SELECT id, name, email, phone, status, info, test, score , date FROM  $table_name";
         $wpdb->query($sql);
         $result = $wpdb->get_results($sql, ARRAY_A);
         return $result;
