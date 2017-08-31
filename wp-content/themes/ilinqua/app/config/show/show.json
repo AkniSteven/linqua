@@ -11,6 +11,6 @@
     "post_type": "post",
     "post_status": "publish",
     "orderby": "post_date",
-    "order": "ASC"
+    "order": "DESC"
   }
 }
