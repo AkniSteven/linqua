@@ -39,7 +39,7 @@
                     </h1>
                 </div>
             </div>
-            <div class="article-header__banner mobile-banner" {% if course.other_image_urls.background_image !='' %} style="background-image: url('{{ course.other_image_urls.background_image }}') {% endif %}">
+            <div class="article-header__banner mobile-banner" {% if course.acf.mobile_banner.value !='' %} style="background-image: url('{{ course.acf.mobile_banner.value }}') {% endif %}">
                 <div class="article-header__title">
                     {% if course.acf.label.value != '' %}
                         <div class="language">
