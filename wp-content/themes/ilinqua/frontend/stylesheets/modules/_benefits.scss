@@ -1,0 +1,136 @@
+.benefits {
+    margin: 0 0 30px $normal;
+    @include bp($point: $bpLarge, $type: min) {
+        margin-left: $big;
+    }
+    @include bp($point: $bpMiddle, $type: max) {
+        margin-left: $middle;
+    }
+    
+    &__list {
+        display: flex;
+        flex-flow: row wrap;
+    }
+    
+    .benefit-item {
+        width: 33%;
+        height: 420px;
+        border-left: 1px solid #e8e8e8;
+        padding: 40px;
+        .content-part {
+            display: flex;
+            flex-flow: column nowrap;
+            align-items: flex-start;
+        }
+        &:first-child, &:nth-child(4) {
+            padding-left: 0;
+            border-left: none;
+        }
+        &:first-child {
+            .benefit-item {
+                &__title, &__subtitle {
+                    color: #0C7AFF;
+                }
+            }
+        }
+        &:nth-child(2){
+            .benefit-item {
+                &__title, &__subtitle {
+                    color: #00B6FF;
+                }
+            }
+        }
+        &:nth-child(3){
+            .benefit-item {
+                &__title, &__subtitle {
+                    color: #F6313F;
+                }
+            }
+        }
+        &:nth-child(4){
+            .benefit-item {
+                &__title, &__subtitle {
+                    color: #00C8B3;
+                }
+            }
+        }
+        &:last-child {
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 67%;
+            border-left: none;
+            background-color: #0254C9;
+            padding-bottom: 0;
+            .benefit-title-holder {
+                display: flex;
+                align-items: flex-end;
+                margin-bottom: 25px;
+            }
+            .benefit-item {
+                &__title {
+                    font-size: 200px;
+                    line-height: 160px;
+                }
+                &__title, &__subtitle {
+                    color: #FFCC00;
+                    margin-bottom: 0;
+                }
+                &__description {
+                    color: #fff;
+                }
+                &__button {
+                    margin-top: 0;
+                }
+            }
+            .button-title {
+                color: #fff;
+            }
+            img {
+                align-self: flex-end;
+                width: 212px;
+            }
+        }
+        @include bp($point: $bpLarge, $type: min) {
+            padding-left: 80px;
+            padding-top: 80px;
+        }
+        &__title {
+            margin-bottom: 20px;
+            font-size: 100px;
+            font-weight: 500;
+            line-height: 72px;
+        }
+        &__subtitle {
+            margin-bottom: 10px;
+            font-size: 2rem;
+            font-weight: 500;
+            
+        }
+        &__description {
+            max-width: 240px;
+            margin-bottom: 30px;
+        }
+        &__button {
+            display: flex;
+            align-items: center;
+            margin-top: auto;
+            .btn--next {
+                width: 50px;
+                height: 50px;
+                margin-right: 20px;
+                border-radius: 50%;
+                border: 1px solid #e8e8e8;
+            }
+            .button-title {
+                opacity: .25;
+            }
+        }
+    }
+    
+    .benefit-banner {
+        width: 75%;
+    }
+}
+

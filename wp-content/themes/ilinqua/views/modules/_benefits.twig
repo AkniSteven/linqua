@@ -1,0 +1,29 @@
+<div class="benefits">
+   <h2 class="benefit__title">iLingua - это...</h2>
+   <ul class="benefits__list">
+      {% for benefit in benefits %}
+         <li class="benefit-item">
+            <div class="content-part">
+               <div class="benefit-title-holder">
+                  <div class="benefit-item__title">{{ benefit.benefitTitle }}</div>
+                  <div class="benefit-item__subtitle">{{ benefit.benefitSubTitle }}</div>
+               </div>
+               <div class="benefit-item__description">{{ benefit.benefitDescr }}</div>
+               <a href="#" class="benefit-item__button">
+                  <span class="btn--next">
+                      {% if loop.last %}
+                         <img class="light-arrow" src="{{ theme.path }}/public/images/img_arrow_white.svg" alt="">
+                      {% else %}
+                         <img class="light-arrow" src="{{ theme.path }}/public/images/img_arrow.svg" alt="">
+                      {% endif %}
+                  </span>
+                  <span class="button-title">{{ benefit.buttonTitle }}</span>
+               </a>
+            </div>
+            {%if loop.last %}
+               <img class="light-arrow" src="{{ theme.path }}/public/images/benefit-banner.png" alt="">
+            {% endif %}
+         </li>
+      {% endfor %}
+   </ul>
+</div>

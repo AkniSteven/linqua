@@ -1,0 +1,119 @@
+%sectionPadding {
+   padding: 115px 0 63px 14vw;
+   @include bp($point: 1680, $type: min) {
+      padding: 157px 0 76px 14vw;
+   }
+   @include bp($point: 1140, $type: min) {
+      padding: 100px 0 47px 14vw;
+   }
+   @include bp($point: 1024, $type: min) {
+      padding: 82px 0 47px 10vw;
+   }
+   @include bp($point: 768, $type: max) {
+      padding: 78px 0 32px 12.5vw;
+   }
+   @include bp($point: 640, $type: max) {
+      padding: 70px 0 15px 6vw;
+   }
+}
+
+%buttonNext {
+   width: 48px;
+   height: 48px;
+   @include bp($point: 1680, $type: min) {
+      width: 68px;
+      height: 68px;
+   }
+   @include bp($point: 1140, $type: max) {
+      width: 42px;
+      height: 42px;
+   }
+   @include bp($point: 768, $type: max) {
+      width: 100px;
+      height: 100px;
+   }
+   @include bp($point: 640, $type: max) {
+      width: 50px;
+      height: 50px;
+   }
+}
+
+.bottom-section {
+   
+   &__corporate, &__test {
+      height: 50vh;
+      @extend %sectionPadding;
+      .corporate-descr, .test-descr {
+         max-width: 240px;
+         //margin-bottom: 60px;
+         line-height: 1.6;
+      }
+      .corporate, .test {
+         &__content {
+            position: relative;
+            display: flex;
+            flex-flow: column nowrap;
+            height: 100%;
+         }
+      }
+      .corporate-title, .test-title {
+         text-transform: none;
+         font-weight: 500;
+         margin-bottom: 15px;
+         position: relative;
+         z-index: 1;
+         font-size: 2rem;
+         line-height: 1.125;
+      }
+      .corporate-title {
+         span {
+            display: block;
+         }
+      }
+      .test-title {
+         max-width: 240px;
+      }
+      .button-next {
+         display: block;
+         @extend %buttonNext;
+         position: absolute;
+         bottom: 0;
+         @include bp($point: 768, $type: max) {
+            position: relative;
+         }
+      }
+   }
+   &__corporate {
+      background: linear-gradient(to right,
+         #e4e4e4 0%,
+         #e4e4e4 19.99%,
+         #dadada 20%,
+         #dadada 39.75%,
+         #cbcbcb 0.5%,
+         #d1d1d1 40%,
+         #d1d1d1 59.99%,
+         #c8c8c8 60%,
+         #c8c8c8 79.75%,
+         #b8b8b8 0.5%,
+         #bfbfbf 80%,
+         #bfbfbf 100%);
+   }
+   &__test {
+      position: relative;
+      background-color: #fff;
+      background-position: 100% 100%;
+      background-size: 353px;
+      background-repeat: no-repeat;
+      .test-title {
+         max-width: 150px;
+      }
+      .test-img {
+         position: absolute;
+         bottom: 0;
+         right: 0;
+         width: 500px;
+         z-index: 0;
+      }
+   }
+}
+
