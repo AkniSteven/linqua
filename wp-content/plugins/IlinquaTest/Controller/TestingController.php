@@ -71,7 +71,7 @@ class TestingController
             parse_str($_POST['data'], $data);
         }
 
-        if (!empty($data)) {
+        if (!empty($data['answer'])) {
             $currentTestId = $_SESSION['test_id'];
             $currentStep = $data['current_step'];
             $level = $this->getQuestionLevel($data['question_id']);
@@ -79,9 +79,16 @@ class TestingController
 
             if ($answerPool->countAnswers($level) > $currentStep) {
                 $answerPool->drop();
+                if ($currentStep != 1) {
+                    echo 'error_end';
+                    wp_die();
+                }
+
+            } elseif (($currentStep - $answerPool->countAnswers($level)) != 1) {
+                echo 'error_end';
+                wp_die();
             }
 
-            $level = $this->getQuestionLevel($data['question_id']);
             $step = $this->_model->addStep($data);
 
             if (empty($currentTestId)) {
@@ -169,7 +176,7 @@ class TestingController
             return false;
         }
         $levelAnswers = !empty($answerPool->getAll()[$questionLevel])
-        ? $answerPool->getAll()[$questionLevel] : [];
+            ? $answerPool->getAll()[$questionLevel] : [];
         $passScore = get_post_meta(
             $answerPool->_testId, 'score_for_pass', true
         )[$questionLevel];
@@ -190,24 +197,24 @@ class TestingController
      */
     private function _prepareMailData($answers)
     {
-         $testResultLink = get_permalink(
-             get_option('test-config')['test_result_page_id']
-         );
-          $test = get_post($_SESSION['test_id']);
-          $mailData = [];
-          $mailData['tester_name'] = $_SESSION['name'] ? $_SESSION['name'] : '';
-          $mailData['tester_email'] = $_SESSION['email']
-              ? $_SESSION['email'] : '';
-          $mailData['tel'] = $_SESSION['tel'] ? $_SESSION['tel'] : '';
-          $mailData['test_result'] = $testResultLink && $_SESSION['tester_id']
-              ? $testResultLink . '?testId=' . $_SESSION['tester_id']
-              : '';
-          $mailData['test_name'] = $test->post_title
-              ? $test->post_title
-              : '';
-          $mailData['test_date'] = date('d.m.y');
-          $mailData['test_score'] = $this->_getUserScore($answers);
-          return $mailData;
+        $testResultLink = get_permalink(
+            get_option('test-config')['test_result_page_id']
+        );
+        $test = get_post($_SESSION['test_id']);
+        $mailData = [];
+        $mailData['tester_name'] = $_SESSION['name'] ? $_SESSION['name'] : '';
+        $mailData['tester_email'] = $_SESSION['email']
+            ? $_SESSION['email'] : '';
+        $mailData['tel'] = $_SESSION['tel'] ? $_SESSION['tel'] : '';
+        $mailData['test_result'] = $testResultLink && $_SESSION['tester_id']
+            ? $testResultLink . '?testId=' . $_SESSION['tester_id']
+            : '';
+        $mailData['test_name'] = $test->post_title
+            ? $test->post_title
+            : '';
+        $mailData['test_date'] = date('d.m.y');
+        $mailData['test_score'] = $this->_getUserScore($answers);
+        return $mailData;
     }
 
     /**

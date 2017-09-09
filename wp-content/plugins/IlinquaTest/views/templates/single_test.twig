@@ -141,6 +141,13 @@
                     {#} %}#}
                 </div>
             </div>
+            <div class="test-error" style="display:none;">
+                <div class="test-finish__title">Извинте, произошла техническая ошибка при прохождении теста.</div>
+                <div class="test-finish__content">
+                    пожалуйста, <a href="{{ test.post_url }}">перезагрузите страницу</a>
+                    или <a class="btn yellow" href="{{ test.post_url }}">Попробуйте снова</a>
+                </div>
+            </div>
         </div>
     {% endif %}
 {% endblock %}

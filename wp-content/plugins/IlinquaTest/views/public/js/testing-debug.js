@@ -1,1 +1,46 @@
-requirejs(["jquery"],function(t){var i={submit_btn:".submit_question",init:function(){this.submit_action()},submit_action:function(){var i=this;t(document).on("click",this.submit_btn,function(){i.addTestStep(t(this).closest("form").serialize())})},addTestStep:function(i){t.ajax({type:"POST",url:t("#ajax").data("url"),data:{action:"addTestStep",data:i},dataType:"html",success:function(i){"end"==i&&t(".single-test-page").addClass("js-show-finish-test")},error:function(){console.log(0)}})}};t(document).ready(function(){i.init()})});
+requirejs([
+  'jquery'
+], function($){
+  var testing_obj = {
+    submit_btn: '.submit_question',
+
+    init:function(){
+      this.submit_action();
+    },
+
+    submit_action:function(){
+      var _this = this;
+      $(document).on( "click", this.submit_btn, function(){
+        _this.addTestStep($(this).closest('form').serialize());
+      });
+    },
+
+    addTestStep:function(data) {
+      $.ajax({
+        type: 'POST',
+        url: $('#ajax').data('url'),
+        data: {
+          'action': 'addTestStep',
+          'data': data
+        },
+        dataType: 'html',
+        success: function (response) {
+          if (response =='end') {
+            $('.single-test-page').addClass('js-show-finish-test');
+          } else if (response =='error_end') {
+            $('.test-finish').hide();
+            $('.test-error').show();
+            $('.single-test-page').addClass('js-show-finish-test');
+          }
+        },
+        error: function () {
+          console.log(0);
+        }
+
+      })
+    }
+  };
+  $(document).ready(function () {
+    testing_obj.init();
+  });
+});
