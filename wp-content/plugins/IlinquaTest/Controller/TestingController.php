@@ -77,7 +77,7 @@ class TestingController
             $level = $this->getQuestionLevel($data['question_id']);
             $answerPool = new AnswerPool($currentTestId);
 
-            if ($answerPool->countAnswers($level) > $currentStep) {
+            if ($answerPool->countAnswers($level) >= $currentStep) {
                 $answerPool->drop();
                 if ($currentStep != 1) {
                     echo 'error_end';
@@ -85,6 +85,7 @@ class TestingController
                 }
 
             } elseif (($currentStep - $answerPool->countAnswers($level)) != 1) {
+                $answerPool->drop();
                 echo 'error_end';
                 wp_die();
             }
