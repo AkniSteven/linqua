@@ -17,6 +17,17 @@
          max-width: 500px;
       }
    }
+   &.js-error-test {
+      position: relative;
+      padding-bottom: 0;
+      h1 {
+         display: none;
+      }
+   }
+   h1, .test-error__title {
+      text-transform: none;
+      color: #fff;
+   }
    h1 {
       max-width: 650px;
       box-sizing: content-box;
@@ -24,8 +35,6 @@
       //padding-left: 13.8vw;
       padding-left: calc(11.2vw + 40px);
       padding-right: 20px;
-      text-transform: none;
-      color: #fff;
       /* ---------- Language page style  ---------- */
       .english & {
          color: #fff;
@@ -86,6 +95,9 @@
       //display: block;
       &.js-show-finish-test {
          padding: 80px 0 40px;
+      }
+      &.js-error-test {
+         padding-bottom: 0;
       }
       padding: 80px 0 0;
       h1 {
@@ -778,11 +790,6 @@
    }
    @include bp($Mobile) {
       padding: 0;
-      .test-finish-publications {
-         &:before, &:after {
-            //display: none;
-         }
-      }
       &__title,
       &__content {
          padding-left: 30px;
@@ -818,3 +825,115 @@
 
 /* ---------- END Publications grid ---------- */
 /* ---------- END Finish test ---------- */
+.test-error {
+   width: 100%;
+   height: 100%;
+   display: flex;
+   flex-flow: column nowrap;
+   .error-holder {
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-between;
+   }
+   &__title, &__content-holder {
+      padding-left: calc(11.2vw + 40px);
+   }
+   &__title {
+      max-width: 600px;
+      margin-bottom: 40px;
+      font-size: 4rem;
+      letter-spacing: -2px;
+      line-height: 1;
+      font-weight: 500;
+      box-sizing: content-box;
+   }
+   &__content-holder, &__img {
+      display: inline-block;
+   }
+   &__content-holder {
+      max-width: 520px;
+   }
+   &__content {font-size: 1.2rem;
+      color: #fff;
+      margin-bottom: 50px;
+   }
+   &__img {
+      //width: 36%;
+      width: 100%;
+      max-width: 504px;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+   }
+   @include bp($point: $bpLarge, $type: min) {
+      &__title,
+      &__content-holder {
+         //padding-left: 100px;
+      }
+   }
+   @include bp($bpTablet) {
+      //padding: 142px 0 0;
+      &__title,
+      &__content-holder {
+         padding-left: 60px;
+      }
+      &__content-holder {
+      
+      }
+      &__img {
+         max-width: 400px;
+      }
+      &__title {
+         max-width: 400px;
+      }
+      @include bp($bpPortrait) {
+         //padding: 160px 0 0;
+         &__title,
+         &__content-holder {
+            padding-left: 60px;
+         }
+         &__content-holder {
+            display: block;
+         }
+         &__img {
+            position: relative;
+            max-width: 400px;
+         }
+         &__title {
+            //margin-bottom: 11px;
+         }
+      }
+   }
+   @include bp($Mobile) {
+      flex: 1;
+      &__title,
+      &__content-holder {
+         padding-left: 30px;
+         max-width: 100%;
+      }
+      .error-holder {
+         flex: 1;
+         flex-flow: column nowrap;
+      }
+      &__img {
+         width: 100%;
+         max-width: 80%;
+         display: flex;
+         align-items: flex-end;
+         align-self: flex-end;
+         img {
+            width: 100%;
+         }
+      }
+      &__title {
+         max-width: 400px;
+         margin-bottom: 21px;
+         font-size: 2.5rem;
+      }
+      &__content {
+         max-width: 300px;
+         margin-bottom: 60px;
+         font-size: 1rem;
+      }
+   }
+}

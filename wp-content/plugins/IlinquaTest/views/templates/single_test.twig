@@ -142,10 +142,17 @@
                 </div>
             </div>
             <div class="test-error" style="display:none;">
-                <div class="test-finish__title">Извинте, произошла техническая ошибка при прохождении теста.</div>
-                <div class="test-finish__content">
-                    пожалуйста, <a href="{{ test.post_url }}">перезагрузите страницу</a>
-                    или <a class="btn yellow" href="{{ test.post_url }}">Попробуйте снова</a>
+                <div class="test-error__title">Упс. Что-то пошло не так...</div>
+                <div class="error-holder">
+                    <div class="test-error__content-holder">
+                        <div class="test-error__content">Убедитесь, что у вас не открыто тестирование в других вкладках
+                            и нажмите "Пройти тест"
+                        </div>
+                        <a class="btn yellow" href="{{ test.post_url }}">Пройти тест</a>
+                    </div>
+                    <div class="test-error__img">
+                        <img src="/wp-content/plugins/IlinquaTest/views/public/images/img_Test.svg" alt=""/>
+                    </div>
                 </div>
             </div>
         </div>

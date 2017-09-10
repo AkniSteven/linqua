@@ -1,1 +1,46 @@
-requirejs(["jquery"],function(t){var s={submit_btn:".submit_question",init:function(){this.submit_action()},submit_action:function(){var s=this;t(document).on("click",this.submit_btn,function(){s.addTestStep(t(this).closest("form").serialize())})},addTestStep:function(s){t.ajax({type:"POST",url:t("#ajax").data("url"),data:{action:"addTestStep",data:s},dataType:"html",success:function(s){"end"==s?t(".single-test-page").addClass("js-show-finish-test"):"error_end"==s&&(t(".test-finish").hide(),t(".test-error").show(),t(".single-test-page").addClass("js-show-finish-test"))},error:function(){console.log(0)}})}};t(document).ready(function(){s.init()})});
+requirejs([
+    'jquery'
+], function($){
+    var testing_obj = {
+        submit_btn: '.submit_question',
+
+        init:function(){
+            this.submit_action();
+        },
+
+        submit_action:function(){
+            var _this = this;
+            $(document).on( "click", this.submit_btn, function(){
+                _this.addTestStep($(this).closest('form').serialize());
+            });
+        },
+
+        addTestStep:function(data) {
+            $.ajax({
+                type: 'POST',
+                url: $('#ajax').data('url'),
+                data: {
+                    'action': 'addTestStep',
+                    'data': data
+                },
+                dataType: 'html',
+                success: function (response) {
+                    if (response =='end') {
+                        $('.single-test-page').addClass('js-show-finish-test');
+                    } else if (response =='error_end') {
+                        $('.test-finish').hide();
+                        $('.test-error').show();
+                        $('.single-test-page').addClass('js-show-finish-test js-error-test');
+                    }
+                },
+                error: function () {
+                    console.log(0);
+                }
+
+            })
+        }
+    };
+    $(document).ready(function () {
+        testing_obj.init();
+    });
+});
