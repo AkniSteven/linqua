@@ -842,7 +842,7 @@
       max-width: 600px;
       margin-bottom: 40px;
       font-size: 4rem;
-      letter-spacing: -2px;
+      letter-spacing: -1px;
       line-height: 1;
       font-weight: 500;
       box-sizing: content-box;
@@ -852,27 +852,20 @@
    }
    &__content-holder {
       max-width: 520px;
+      margin-bottom: 40px;
    }
    &__content {font-size: 1.2rem;
       color: #fff;
       margin-bottom: 50px;
    }
    &__img {
-      //width: 36%;
       width: 100%;
       max-width: 504px;
       position: absolute;
       bottom: 0;
       right: 0;
    }
-   @include bp($point: $bpLarge, $type: min) {
-      &__title,
-      &__content-holder {
-         //padding-left: 100px;
-      }
-   }
    @include bp($bpTablet) {
-      //padding: 142px 0 0;
       &__title,
       &__content-holder {
          padding-left: 60px;
@@ -887,10 +880,9 @@
          max-width: 400px;
       }
       @include bp($bpPortrait) {
-         //padding: 160px 0 0;
          &__title,
          &__content-holder {
-            padding-left: 60px;
+            padding-left: 80px;
          }
          &__content-holder {
             display: block;
@@ -899,17 +891,31 @@
             position: relative;
             max-width: 400px;
          }
-         &__title {
-            //margin-bottom: 11px;
+      }
+   }
+   @include bp($bpPortrait) {
+      flex: 1;
+      .error-holder {
+         flex: 1;
+      }
+      &__img {
+         display: flex;
+         align-items: flex-end;
+         align-self: flex-end;
+         img {
+            width: 100%;
          }
       }
    }
    @include bp($Mobile) {
-      flex: 1;
       &__title,
       &__content-holder {
-         padding-left: 30px;
+         padding-left: 40px;
          max-width: 100%;
+      }
+      &__content-holder {
+         margin-bottom: 0;
+         padding-left: 0;
       }
       .error-holder {
          flex: 1;
@@ -918,12 +924,6 @@
       &__img {
          width: 100%;
          max-width: 80%;
-         display: flex;
-         align-items: flex-end;
-         align-self: flex-end;
-         img {
-            width: 100%;
-         }
       }
       &__title {
          max-width: 400px;
@@ -932,8 +932,17 @@
       }
       &__content {
          max-width: 300px;
-         margin-bottom: 60px;
+         margin-bottom: 34px;
+         padding-right: 20px;
+         padding-left: 40px;
          font-size: 1rem;
+      }
+      .btn {
+         width: 100%;
+         display: block;
+         max-width: 240px;
+         margin: 0 auto;
+         text-align: center;
       }
    }
 }
