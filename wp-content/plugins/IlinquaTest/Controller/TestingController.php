@@ -100,6 +100,10 @@ class TestingController
 
             if ($this->isQuestionTheLast($data['question_id'])) {
                 if (!$this->canLevelUp($answerPool, $level)) {
+                    if (!$answerPool->countAnswers()) {
+                        echo 'error_end';
+                        wp_die();
+                    }
                     $this->saveTest($answerPool);
                     $mailData = $this->_prepareMailData($answerPool);
                     $this->_mailer->sendMail($mailData);
