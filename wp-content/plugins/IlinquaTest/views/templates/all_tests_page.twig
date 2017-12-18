@@ -32,7 +32,11 @@
                     <ul class="language-list">
                         {% for test in test_posts %}
                             <li class="language-list__language-item">
-                                <a href="{{ test.post_url }}">{{ test.post_title }}</a>
+                                {% if test.acf.alt_test_link.value !=''%}
+                                    <a href="{{ test.acf.alt_test_link.value }}">{{ test.post_title }}</a>
+                                {% else %}
+                                    <a href="{{ test.post_url }}">{{ test.post_title }}</a>
+                                {% endif %}
                             </li>
                         {% endfor %}
                     </ul>

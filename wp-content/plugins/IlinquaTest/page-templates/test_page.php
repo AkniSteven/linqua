@@ -22,6 +22,7 @@ if (!empty($config['test'])) {
     $handler->setArgs($config['test']);
     $handler->setPosts();
     $handler->setPostUrls();
+    $handler->formattedACF();
     $testPosts = $handler->getResult();
 }
 
